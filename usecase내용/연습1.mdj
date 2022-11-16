@@ -59,9 +59,9 @@
 											"font": "Arial;32;1",
 											"left": 261,
 											"top": 391,
-											"width": 103.1875,
+											"width": 136.890625,
 											"height": 32,
-											"text": "Class1"
+											"text": "협업 시작"
 										},
 										{
 											"_type": "LabelView",
@@ -71,7 +71,7 @@
 											},
 											"visible": false,
 											"font": "Arial;32;0",
-											"width": 181.359375,
+											"width": 191.84375,
 											"height": 32,
 											"text": "(from Model)"
 										},
@@ -90,7 +90,7 @@
 									"font": "Arial;32;0",
 									"left": 256,
 									"top": 384,
-									"width": 113.1875,
+									"width": 146.890625,
 									"height": 44,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEf5zUJ5IO5Ws="
@@ -117,7 +117,7 @@
 									"font": "Arial;32;0",
 									"left": 256,
 									"top": 428,
-									"width": 113.1875,
+									"width": 146.890625,
 									"height": 10
 								},
 								{
@@ -132,7 +132,7 @@
 									"font": "Arial;32;0",
 									"left": 256,
 									"top": 438,
-									"width": 113.1875,
+									"width": 146.890625,
 									"height": 10
 								},
 								{
@@ -168,7 +168,7 @@
 							"containerChangeable": true,
 							"left": 256,
 							"top": 384,
-							"width": 113.1875,
+							"width": 146.890625,
 							"height": 64,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEf5zUJ5INyhQ="
@@ -194,7 +194,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Class1"
+					"name": "협업 시작"
 				}
 			]
 		},
