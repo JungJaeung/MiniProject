@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide</title>
+  <style>
+    #container { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center;}
+    .imgs { margin : 10 10;}
+    .img>div { display: inline-block;}
+    .img>img { width: 100px;}
+    b { font-size: 1.5em;}
+    p { font-family: 'Jua', sans-serif;margin-top: 25px;}
+    span { font-size: 0.8em;}
+    .bx-wrapper{border:0;background:#fbfbfb;box-shadow:none;}
+  </style>
+  <style type="text/css">
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: none;}
+   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <script>
+     $(document).ready(function(){
+      $('.imgs').bxSlider({
+        slideWidth : 1200,
+        maxSlides : 5,
+        minSlides : 3,
+        moveSlides : 1,
+        slideMargin : 20,
+        pause : 5000,
+        speed : 2000,
+        auto : true,
+        autoHover: true,
+        infiniteLoop : true,
+        pager : false, 
+        stopAutoOnClick : true, 
+        controls : true,
+        captions: true
+      })
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="imgs">
+      <div id="d1">
+        <a href="#">
+          <img src="trip_dt/bs.jpg" title="">
+          <p><strong>서울(인천) - 부산</strong><br>
+            <sup>편도총액</sup> <b>152,100원~</b><br>
+            <span>2022.12.15~2023.01.15</span>
+          </p>
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="trip_dt/cc.jpg" title="">
+          <p><strong>서울(인천) - 충청도</strong><br>
+            <sup>편도총액</sup> <b>67,100원~</b><br>
+            <span>2022.12.15~2023.01.15</span>
+          </p>
+        </a> 
+      </div>
+      <div>
+        <a href="#">
+          <img src="trip_dt/kj.jpg" title="">
+          <p><strong>서울(인천) - 경주</strong><br>
+            <sup>편도총액</sup> <b>45,200원~</b><br>
+            <span>2022.12.15~2023.01.15</span>
+          </p>
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="trip_dt/jj.jpg" title="">
+          <p><strong>서울(인천) - 제주</strong><br>
+            <sup>편도총액</sup> <b>99,000원~</b><br>
+            <span>2022.12.15~2023.01.15</span>
+          </p>
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="trip_dt/kw.jpg" title="">
+          <p><strong>서울(인천) - 강원도</strong><br>
+            <sup>편도총액</sup> <b>55,700원~</b><br>
+            <span>2022.12.15~2023.01.15</span>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
