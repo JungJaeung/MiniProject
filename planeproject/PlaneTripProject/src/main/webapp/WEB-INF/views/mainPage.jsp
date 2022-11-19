@@ -6,15 +6,12 @@
 <meta charset="UTF-8">
 <title>Main Page Slide Banner</title>
 <style>
-	#container { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center;}
-	.imgs { margin : 10 10;}
-	.img>div { display: inline-block;}
-    .img>img { width: 100px;}
+	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center;}
+	.banner_imgs { margin : 10 10;}
     b { font-size: 1.5em;}
     h2, p { font-family: 'Jua', sans-serif;margin-top: 25px;}
-    h2 {text-align: left;}
-    sup {font-size: 1em;}
-    #box {width: 1200x;}
+    h2 { text-align: left;}
+    sup { font-size: 1em;}
 </style>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
@@ -29,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <script>
 	$(document).ready(function(){
-      $('.imgs').bxSlider({
+      $('.banner_imgs').bxSlider({
         slideWidth : 1200,
         maxSlides : 5,
         minSlides : 3,
@@ -45,15 +42,31 @@
         controls : true,
         captions: true
       })
+      $('.banner_imgs2').bxSlider({
+        slideWidth : 1200,
+        slideHeight : 500,
+        maxSlides : 1,
+        minSlides : 1,
+        moveSlides : 1,
+        slideMargin : 20,
+        pause : 5000,
+        speed : 3000,
+        auto : true,
+        autoHover: true,
+        infiniteLoop : true,
+        pager : false, 
+        stopAutoOnClick : true, 
+        controls : false,
+        captions: true,
+        mode: 'vertical'
+      })
 	});
 </script>
 </head>
-<!-- Home 메인 페이지 부분 -->
-<!-- CSS파일은 일단 따로 만들지 않고, 작성하시면 됩니다. 작성하고 푸시할거면 카톡에 말해주세요.-->
 <body>
-  <div id="container">
+  <div id="f_banner">
     <h2>추천 항공권</h2>
-    <div class="imgs">
+    <div class="banner_imgs">
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/bs.jpg">
@@ -100,21 +113,21 @@
         </a>
       </div>
     </div>
-    <div id="s_banner">
-	    <h2>공지사항</h2>
-	    <div class="banner_imgs2">
-			<div>
-		        <a href="#">
-		          	<img src="${pageContext.request.contextPath}/resources/images/notice01.png">
-		        </a>
-		    </div>
-		    <div>
-		    	<a href="#">
-		        	<img src="${pageContext.request.contextPath}/resources/images/qna01.png">
-		       	</a>
-	     	 </div>
-		</div>
-	</div>
   </div>
+<div id="s_banner">
+    <h2>공지사항</h2>
+    <div class="banner_imgs2">
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/notice01.jpg">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/qna01.jpg">
+        </a>
+      </div>
+	</div>
+</div>
 </body>
 </html>
