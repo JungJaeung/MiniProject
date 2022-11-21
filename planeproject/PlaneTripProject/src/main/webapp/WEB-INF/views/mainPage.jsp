@@ -68,7 +68,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         .line3{ position: absolute; top: 0px; left: 41.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
         .line4{ position: absolute; top: 0px; left: 57.75%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
         .line5{ position: absolute; top: 0px; left: 74.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;
-            border-right: 1px solid #f2f2f2; width: 20%; height: 280px;}
+            border-right: 1px solid #f2f2f2;}
         /*아래 반투명 화면*/
         #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.2;}
 
