@@ -486,6 +486,11 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
           <img src="${pageContext.request.contextPath}/resources/images/qna01.jpg">
         </a>
       </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/call01.jpg">
+        </a>
+      </div>
 	</div>
 </div>
 </body>
