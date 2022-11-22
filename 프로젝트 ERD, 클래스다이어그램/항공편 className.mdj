@@ -6734,7 +6734,7 @@
 											"font": "Arial;13;0",
 											"left": 1024,
 											"top": 784,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -6794,7 +6794,7 @@
 											"top": 454,
 											"width": 175,
 											"height": 13,
-											"text": "-aircraftId",
+											"text": "-aircraftId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6811,7 +6811,7 @@
 											"top": 469,
 											"width": 175,
 											"height": 13,
-											"text": "-aircraftModel",
+											"text": "-aircraftModel: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6828,7 +6828,7 @@
 											"top": 484,
 											"width": 175,
 											"height": 13,
-											"text": "-aircraftMfr",
+											"text": "-aircraftMfr: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6979,7 +6979,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"top": 2448,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -7038,7 +7038,7 @@
 											"top": 1526,
 											"width": 175,
 											"height": 13,
-											"text": "-boardId",
+											"text": "-boardId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7055,7 +7055,7 @@
 											"top": 1541,
 											"width": 175,
 											"height": 13,
-											"text": "-boardTitle",
+											"text": "-boardTitle: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7072,7 +7072,7 @@
 											"top": 1556,
 											"width": 175,
 											"height": 13,
-											"text": "-boardContent",
+											"text": "-boardContent: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7089,7 +7089,7 @@
 											"top": 1571,
 											"width": 175,
 											"height": 13,
-											"text": "-boardWriter",
+											"text": "-boardWriter: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7106,7 +7106,7 @@
 											"top": 1586,
 											"width": 175,
 											"height": 13,
-											"text": "-boardCount",
+											"text": "-boardCount: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7123,7 +7123,7 @@
 											"top": 1601,
 											"width": 175,
 											"height": 13,
-											"text": "-passengerId",
+											"text": "-passengerId: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7326,7 +7326,7 @@
 											"font": "Arial;13;0",
 											"left": 1008,
 											"top": -496,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -7386,7 +7386,7 @@
 											"top": 54,
 											"width": 191,
 											"height": 13,
-											"text": "-flightId",
+											"text": "-flightId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7403,7 +7403,7 @@
 											"top": 69,
 											"width": 191,
 											"height": 13,
-											"text": "-departTime",
+											"text": "-departTime: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7420,7 +7420,7 @@
 											"top": 84,
 											"width": 191,
 											"height": 13,
-											"text": "-arrivalTime",
+											"text": "-arrivalTime: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7437,7 +7437,7 @@
 											"top": 99,
 											"width": 191,
 											"height": 13,
-											"text": "-aircraftId",
+											"text": "-aircraftId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7454,7 +7454,7 @@
 											"top": 114,
 											"width": 191,
 											"height": 13,
-											"text": "-cityId",
+											"text": "-cityId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7471,7 +7471,7 @@
 											"top": 129,
 											"width": 191,
 											"height": 13,
-											"text": "-airportId",
+											"text": "-airportId: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7625,7 +7625,7 @@
 											"font": "Arial;13;0",
 											"left": 32,
 											"top": 1104,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -7685,7 +7685,7 @@
 											"top": 854,
 											"width": 183,
 											"height": 13,
-											"text": "-passengerId",
+											"text": "-passengerId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7702,7 +7702,7 @@
 											"top": 869,
 											"width": 183,
 											"height": 13,
-											"text": "-firstName",
+											"text": "-firstName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7719,7 +7719,7 @@
 											"top": 884,
 											"width": 183,
 											"height": 13,
-											"text": "-lastName",
+											"text": "-lastName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7736,7 +7736,7 @@
 											"top": 899,
 											"width": 183,
 											"height": 13,
-											"text": "-passportNo",
+											"text": "-passportNo: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7753,7 +7753,7 @@
 											"top": 914,
 											"width": 183,
 											"height": 13,
-											"text": "-phone",
+											"text": "-phone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7770,7 +7770,7 @@
 											"top": 929,
 											"width": 183,
 											"height": 13,
-											"text": "-email",
+											"text": "-email: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7787,7 +7787,7 @@
 											"top": 944,
 											"width": 183,
 											"height": 13,
-											"text": "-address",
+											"text": "-address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7804,7 +7804,7 @@
 											"top": 959,
 											"width": 183,
 											"height": 13,
-											"text": "-birthDate",
+											"text": "-birthDate: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7821,7 +7821,7 @@
 											"top": 974,
 											"width": 183,
 											"height": 13,
-											"text": "-gender",
+											"text": "-gender: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -8077,7 +8077,7 @@
 											"font": "Arial;13;0",
 											"left": -48,
 											"top": 1744,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -8137,7 +8137,7 @@
 											"top": 1174,
 											"width": 199,
 											"height": 13,
-											"text": "-reservationId",
+											"text": "-reservationId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8154,7 +8154,7 @@
 											"top": 1189,
 											"width": 199,
 											"height": 13,
-											"text": "-departDateTime",
+											"text": "-departDateTime: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8171,7 +8171,7 @@
 											"top": 1204,
 											"width": 199,
 											"height": 13,
-											"text": "-arrivalDateTime",
+											"text": "-arrivalDateTime: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8188,7 +8188,7 @@
 											"top": 1219,
 											"width": 199,
 											"height": 13,
-											"text": "-flightId",
+											"text": "-flightId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8205,7 +8205,7 @@
 											"top": 1234,
 											"width": 199,
 											"height": 13,
-											"text": "-seatId",
+											"text": "-seatId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8222,7 +8222,7 @@
 											"top": 1249,
 											"width": 199,
 											"height": 13,
-											"text": "-aircraftId",
+											"text": "-aircraftId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8239,7 +8239,7 @@
 											"top": 1264,
 											"width": 199,
 											"height": 13,
-											"text": "-passengerId",
+											"text": "-passengerId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8256,7 +8256,7 @@
 											"top": 1279,
 											"width": 199,
 											"height": 13,
-											"text": "-updateReservation",
+											"text": "-updateReservation: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -8430,7 +8430,7 @@
 											"font": "Arial;13;1",
 											"left": 573,
 											"top": 199,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
 											"text": "Airport"
 										},
@@ -8444,7 +8444,7 @@
 											"font": "Arial;13;0",
 											"left": 1024,
 											"top": -160,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -8465,7 +8465,7 @@
 									"font": "Arial;13;0",
 									"left": 568,
 									"top": 192,
-									"width": 153,
+									"width": 155.9580078125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEnct2OEEmeg4="
@@ -8502,9 +8502,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 222,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-cityId",
+											"text": "-cityId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8519,9 +8519,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 237,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportId",
+											"text": "-airportId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8536,9 +8536,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 252,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportName",
+											"text": "-airportName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8553,9 +8553,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 267,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportCode",
+											"text": "-airportCode: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8570,9 +8570,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 282,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportOrigin",
+											"text": "-airportOrigin: char",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8587,9 +8587,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 297,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-cityName",
+											"text": "-cityName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8604,9 +8604,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 312,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportHomepage",
+											"text": "-airportHomepage: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8621,9 +8621,9 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 327,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportTel",
+											"text": "-airportTel: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8638,16 +8638,16 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 342,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
-											"text": "-airportHours",
+											"text": "-airportHours: String",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 568,
 									"top": 217,
-									"width": 153,
+									"width": 155.9580078125,
 									"height": 143
 								},
 								{
@@ -8672,7 +8672,7 @@
 											"font": "Arial;13;0",
 											"left": 573,
 											"top": 365,
-											"width": 143,
+											"width": 145.9580078125,
 											"height": 13,
 											"text": "+airportInfo()",
 											"horizontalAlignment": 0
@@ -8681,7 +8681,7 @@
 									"font": "Arial;13;0",
 									"left": 568,
 									"top": 360,
-									"width": 153,
+									"width": 155.9580078125,
 									"height": 23
 								},
 								{
@@ -8721,7 +8721,7 @@
 							"containerChangeable": true,
 							"left": 568,
 							"top": 192,
-							"width": 153,
+							"width": 155.9580078125,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEnct2OEEliAQ="
@@ -8794,7 +8794,7 @@
 											"font": "Arial;13;0",
 											"left": 368,
 											"top": -464,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -8854,7 +8854,7 @@
 											"top": 430,
 											"width": 199,
 											"height": 13,
-											"text": "-seatId",
+											"text": "-seatId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8871,7 +8871,7 @@
 											"top": 445,
 											"width": 199,
 											"height": 13,
-											"text": "-seatPrice",
+											"text": "-seatPrice: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8888,7 +8888,7 @@
 											"top": 460,
 											"width": 199,
 											"height": 13,
-											"text": "-seatTotal",
+											"text": "-seatTotal: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8905,7 +8905,7 @@
 											"top": 475,
 											"width": 199,
 											"height": 13,
-											"text": "-aircraftId",
+											"text": "-aircraftId: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -9061,7 +9061,7 @@
 											"font": "Arial;13;0",
 											"left": 96,
 											"top": 1552,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -9244,7 +9244,7 @@
 											"font": "Arial;13;0",
 											"left": 224,
 											"top": 976,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -9425,7 +9425,7 @@
 											"font": "Arial;13;0",
 											"left": -416,
 											"top": 416,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -9766,9 +9766,9 @@
 										"$ref": "AAAAAAGEnijTD0YqpBo="
 									},
 									"font": "Arial;13;0",
-									"left": 277,
+									"left": 276,
 									"top": 962,
-									"width": 97.91259765625,
+									"width": 99.06787109375,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -9894,7 +9894,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 48,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -10138,9 +10138,9 @@
 										"$ref": "AAAAAAGEnjDKyEaZ3BY="
 									},
 									"font": "Arial;13;0",
-									"left": 550,
+									"left": 549,
 									"top": 954,
-									"width": 82.7353515625,
+									"width": 84.779296875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -10268,7 +10268,7 @@
 											"font": "Arial;13;0",
 											"left": 32,
 											"top": -192,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -10328,7 +10328,7 @@
 											"top": 110,
 											"width": 167,
 											"height": 13,
-											"text": "-passengerId",
+											"text": "-passengerId: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10345,7 +10345,7 @@
 											"top": 125,
 											"width": 167,
 											"height": 13,
-											"text": "-firstName",
+											"text": "-firstName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10362,7 +10362,7 @@
 											"top": 140,
 											"width": 167,
 											"height": 13,
-											"text": "-lastName",
+											"text": "-lastName: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10379,7 +10379,7 @@
 											"top": 155,
 											"width": 167,
 											"height": 13,
-											"text": "-passportNo",
+											"text": "-passportNo: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10396,7 +10396,7 @@
 											"top": 170,
 											"width": 167,
 											"height": 13,
-											"text": "-phone",
+											"text": "-phone: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10413,7 +10413,7 @@
 											"top": 185,
 											"width": 167,
 											"height": 13,
-											"text": "-address",
+											"text": "-address: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10430,7 +10430,7 @@
 											"top": 200,
 											"width": 167,
 											"height": 13,
-											"text": "-birthDate",
+											"text": "-birthDate: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10447,7 +10447,24 @@
 											"top": 215,
 											"width": 167,
 											"height": 13,
-											"text": "-gender",
+											"text": "-gender: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGEnv7OFUDUpD0=",
+											"_parent": {
+												"$ref": "AAAAAAGEnjYjIEca0Q8="
+											},
+											"model": {
+												"$ref": "AAAAAAGEnv7OB0DRS9Q="
+											},
+											"font": "Arial;13;0",
+											"left": 53,
+											"top": 230,
+											"width": 167,
+											"height": 13,
+											"text": "-password: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10455,7 +10472,7 @@
 									"left": 48,
 									"top": 105,
 									"width": 177,
-									"height": 128
+									"height": 143
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -10478,7 +10495,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 53,
-											"top": 238,
+											"top": 253,
 											"width": 167,
 											"height": 13,
 											"text": "+reserve()",
@@ -10495,7 +10512,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 53,
-											"top": 253,
+											"top": 268,
 											"width": 167,
 											"height": 13,
 											"text": "+viewMypage()",
@@ -10512,7 +10529,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 53,
-											"top": 268,
+											"top": 283,
 											"width": 167,
 											"height": 13,
 											"text": "+login()",
@@ -10529,7 +10546,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 53,
-											"top": 283,
+											"top": 298,
 											"width": 167,
 											"height": 13,
 											"text": "+viewBoard()",
@@ -10546,7 +10563,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 53,
-											"top": 298,
+											"top": 313,
 											"width": 167,
 											"height": 13,
 											"text": "+join()",
@@ -10555,7 +10572,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 48,
-									"top": 233,
+									"top": 248,
 									"width": 177,
 									"height": 83
 								},
@@ -10597,7 +10614,7 @@
 							"left": 48,
 							"top": 80,
 							"width": 177,
-							"height": 236,
+							"height": 251,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEnjYjIEcVpw8="
 							},
@@ -10667,7 +10684,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -16,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -10973,7 +10990,7 @@
 											"font": "Arial;13;1",
 											"left": 661,
 											"top": 1191,
-											"width": 125.37890625,
+											"width": 126.33740234375,
 											"height": 13,
 											"text": "ReservationDAO"
 										},
@@ -10987,7 +11004,7 @@
 											"font": "Arial;13;0",
 											"left": 48,
 											"top": 80,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -11008,7 +11025,7 @@
 									"font": "Arial;13;0",
 									"left": 656,
 									"top": 1184,
-									"width": 135.37890625,
+									"width": 136.33740234375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEnjx9VUiyk8I="
@@ -11045,7 +11062,7 @@
 											"font": "Arial;13;0",
 											"left": 661,
 											"top": 1214,
-											"width": 125.37890625,
+											"width": 126.33740234375,
 											"height": 13,
 											"text": "-SqlSessionTemplate",
 											"horizontalAlignment": 0
@@ -11054,7 +11071,7 @@
 									"font": "Arial;13;0",
 									"left": 656,
 									"top": 1209,
-									"width": 135.37890625,
+									"width": 136.33740234375,
 									"height": 23
 								},
 								{
@@ -11079,7 +11096,7 @@
 											"font": "Arial;13;0",
 											"left": 661,
 											"top": 1237,
-											"width": 125.37890625,
+											"width": 126.33740234375,
 											"height": 13,
 											"text": "+addReservation()",
 											"horizontalAlignment": 0
@@ -11096,7 +11113,7 @@
 											"font": "Arial;13;0",
 											"left": 661,
 											"top": 1252,
-											"width": 125.37890625,
+											"width": 126.33740234375,
 											"height": 13,
 											"text": "+viewReservation()",
 											"horizontalAlignment": 0
@@ -11113,7 +11130,7 @@
 											"font": "Arial;13;0",
 											"left": 661,
 											"top": 1267,
-											"width": 125.37890625,
+											"width": 126.33740234375,
 											"height": 13,
 											"text": "+updateReservation()",
 											"horizontalAlignment": 0
@@ -11122,7 +11139,7 @@
 									"font": "Arial;13;0",
 									"left": 656,
 									"top": 1232,
-									"width": 135.37890625,
+									"width": 136.33740234375,
 									"height": 53
 								},
 								{
@@ -11162,7 +11179,7 @@
 							"containerChangeable": true,
 							"left": 656,
 							"top": 1184,
-							"width": 135.37890625,
+							"width": 136.33740234375,
 							"height": 112,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEnjx9VUixxwc="
@@ -11427,7 +11444,7 @@
 											"font": "Arial;13;0",
 											"left": -16,
 											"top": 112,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -11606,7 +11623,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"top": 80,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -11879,7 +11896,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 639,
-									"top": 157,
+									"top": 158,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -11900,7 +11917,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 626,
-									"top": 154,
+									"top": 155,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -11921,7 +11938,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 666,
-									"top": 164,
+									"top": 163,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -11941,8 +11958,8 @@
 									},
 									"font": "Arial;13;0",
 									"left": 617,
-									"top": 188,
-									"width": 39.380859375,
+									"top": 189,
+									"width": 41.818359375,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -11962,8 +11979,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 623,
-									"top": 189,
+									"left": 624,
+									"top": 190,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -11982,7 +11999,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 664,
+									"left": 665,
 									"top": 186,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -12028,7 +12045,7 @@
 								"$ref": "AAAAAAGEnct2OEEkI/Q="
 							},
 							"lineStyle": 1,
-							"points": "652:191;654:170",
+							"points": "653:191;654:170",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGEnnDxWUooX0Y="
@@ -12308,7 +12325,7 @@
 											"font": "Arial;13;0",
 											"left": 128,
 											"top": -32,
-											"width": 80.9072265625,
+											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
 										},
@@ -12540,7 +12557,7 @@
 									"font": "Arial;13;0",
 									"left": 536,
 									"top": 1587,
-									"width": 70.45263671875,
+									"width": 70.82080078125,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -12630,7 +12647,8 @@
 								"$ref": "AAAAAAGEnciZ8T/uli4="
 							},
 							"name": "aircraftId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12639,7 +12657,8 @@
 								"$ref": "AAAAAAGEnciZ8T/uli4="
 							},
 							"name": "aircraftModel",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12648,7 +12667,8 @@
 								"$ref": "AAAAAAGEnciZ8T/uli4="
 							},
 							"name": "aircraftMfr",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12691,7 +12711,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "boardId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12700,7 +12721,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "boardTitle",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12709,7 +12731,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "boardContent",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12718,7 +12741,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "boardWriter",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12727,7 +12751,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "boardCount",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12736,7 +12761,8 @@
 								"$ref": "AAAAAAGEncn53EBVvL4="
 							},
 							"name": "passengerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -12789,7 +12815,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "flightId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12798,7 +12825,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "departTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "Date"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12807,7 +12835,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "arrivalTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "Date"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12816,7 +12845,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "aircraftId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12825,7 +12855,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "cityId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12834,7 +12865,8 @@
 								"$ref": "AAAAAAGEncoN8UB/0QQ="
 							},
 							"name": "airportId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -12878,7 +12910,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "passengerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12887,7 +12920,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "firstName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12896,7 +12930,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "lastName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12905,7 +12940,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "passportNo",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12914,7 +12950,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "phone",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12923,7 +12960,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "email",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12932,7 +12970,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "address",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12941,7 +12980,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "birthDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "Date"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12950,7 +12990,8 @@
 								"$ref": "AAAAAAGEncoockCr4ys="
 							},
 							"name": "gender",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -13027,7 +13068,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "reservationId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13036,7 +13078,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "departDateTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "Date"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13045,7 +13088,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "arrivalDateTime",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "Date"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13054,7 +13098,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "flightId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13063,7 +13108,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "seatId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13072,7 +13118,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "aircraftId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13081,7 +13128,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "passengerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13090,7 +13138,8 @@
 								"$ref": "AAAAAAGEncpL6EDX5rg="
 							},
 							"name": "updateReservation",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -13165,7 +13214,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "cityId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13174,7 +13224,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13183,7 +13234,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13192,7 +13244,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportCode",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13201,7 +13254,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportOrigin",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "char"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13210,7 +13264,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "cityName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13219,7 +13274,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportHomepage",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13228,7 +13284,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportTel",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13237,7 +13294,8 @@
 								"$ref": "AAAAAAGEnct2OEEiJW4="
 							},
 							"name": "airportHours",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -13266,7 +13324,8 @@
 								"$ref": "AAAAAAGEncyYy0FWiFY="
 							},
 							"name": "seatId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13275,7 +13334,8 @@
 								"$ref": "AAAAAAGEncyYy0FWiFY="
 							},
 							"name": "seatPrice",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13284,7 +13344,8 @@
 								"$ref": "AAAAAAGEncyYy0FWiFY="
 							},
 							"name": "seatTotal",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13293,7 +13354,8 @@
 								"$ref": "AAAAAAGEncyYy0FWiFY="
 							},
 							"name": "aircraftId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -13483,7 +13545,8 @@
 								"$ref": "AAAAAAGEniN130Q5GdU="
 							},
 							"name": "AccountDAO",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -13560,7 +13623,8 @@
 								"$ref": "AAAAAAGEnivC9EZLpAc="
 							},
 							"name": "SqlSessionTemplate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -13621,7 +13685,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "passengerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13630,7 +13695,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "firstName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13639,7 +13705,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "lastName",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13648,7 +13715,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "passportNo",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13657,7 +13725,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "phone",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13666,7 +13735,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "address",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13675,7 +13745,8 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "birthDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13684,7 +13755,18 @@
 								"$ref": "AAAAAAGEnjYjIEcSZ2k="
 							},
 							"name": "gender",
-							"visibility": "private"
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGEnv7OB0DRS9Q=",
+							"_parent": {
+								"$ref": "AAAAAAGEnjYjIEcSZ2k="
+							},
+							"name": "password",
+							"visibility": "private",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -13840,7 +13922,8 @@
 								"$ref": "AAAAAAGEnjx9VUiuDrE="
 							},
 							"name": "SqlSessionTemplate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -13979,7 +14062,8 @@
 								"$ref": "AAAAAAGEnnLr308uDy8="
 							},
 							"name": "SqlSessionTemplate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
