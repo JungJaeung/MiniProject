@@ -13,9 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" 
-integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
- crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
 <style>
 	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center;}
 	.banner_imgs { margin : 10px 10px;}
@@ -37,8 +35,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #top_container{ width: 1000px; margin-top: -30px; display: inline-block;}
         #top_menu ul,  #top_menu li{ list-style: none;}
         #top_menu ul li{ margin-right: 10px; float: right;}
-        #top_menu ul li a{ text-align: center; font-size: x-small; font-family: 'Noto Sans KR', sans-serif;
-            text-decoration: none; color: inherit;}
+        #top_menu ul li a{ text-align: center; font-size: x-small; font-family: 'Jua'; color:#aaaaaa;}
 
         /* 상단 메뉴 */
         #img_logo{ width: 100px; object-fit: cover}
@@ -47,8 +44,8 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #middle_menu{padding-top: 15px;}
         #middle_menu ul, #middle_menu li{ list-style: none;}
         #middle_menu ul li{ float: left;}
-        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 20px; font-family: 'Noto Sans KR', sans-serif;
-            text-decoration: none; color: inherit;}
+        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 20px;
+        	 font-family: 'Jua'; color: black;}
         #middle_menu ul li:first-child{margin-right: 30px;}
         #middle_menu ul li:last-child{float: right; margin-top: -5px;}
         
@@ -58,9 +55,9 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #category_menu{ width: 1000px; background-color: aqua;}
         #category_menu{ background-color: white; width: 100%; height: 280px;}
         #category_menu ul, #category li{ list-style: none; padding: 0; margin: 0;}
-        #category_menu ul{ margin-top: 40px; font-weight: bold;}
+        #category_menu ul{ margin-top: 40px; font-family: 'Jua'; font-weight: bold; }
         #category_menu li:first-child{ margin-top: 10px;}
-        #category_menu ul li a{ text-decoration: none; color: inherit; font-weight: lighter; font-family: 'Noto Sans KR', sans-serif;}
+        #category_menu ul li a{ text-decoration: none; font-weight: lighter; font-family: 'Jua'; color:#828282;}
         /*메뉴 위치선정 */
         #category_menu nav{ display: inline-block; text-align: center;}
         .line1{ position: absolute; top: 0px; left: 8.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
@@ -78,32 +75,32 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
             border-radius: 10px;}
         #way ul, #way li{ list-style: none;}
         #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: bold;
-            font-family: 'Noto Sans KR', sans-serif; font-size: medium;}
+            font-family: 'Jua'; color:#aaaaaa; font-size: medium;}
         #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none;}
         #oneway{ text-decoration: none; color: inherit; }
 
         #form_div{clear: both; padding-top: 20px; text-align: left;}
         #starting_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer; margin-left: 55px;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent; 
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
+            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: x-large;}
         #swap{ width: 30px; height: 30px; border: none; margin-left: 10px; margin-right: 10px;
             background: url( "../../resources/images/arrow.png") no-repeat; cursor: pointer; border-radius: 100%;}
         #arrive_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
-        #calendar{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
+            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: x-large;}
+        #calendar_date{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
             background-image: url("../../resources/images/calendar.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: left; cursor: pointer;
             border-style: none; border-bottom: solid #c8c8c8 1px;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
+            font-family: 'Jua'; color: black; font-weight: bold; font-size: small;}
         #person{ width: 270px; height: 43px; margin-top: 20px; background-color: transparent;
             background-image: url("../../resources/images/person.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: 10px center; cursor: pointer;
             border-style: none;  border-bottom: solid #c8c8c8 1px; margin-left: 55px;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
-        #serch{ width: 200px; height: 50px; margin-left: 400px; margin-top: 30px; cursor: pointer;
+            font-family: 'Jua'; color:black; font-weight: bold; font-size: medium;}
+        #serch{ width: 200px; height: 50px; margin-left: 380px; margin-top: 30px; cursor: pointer;
             background-color: #aaaaaa; color: white; border: none; border-radius: 5px;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Jua'; color: white; font-size: large;}
             
         /*출발지*/
         #starting_point_serch{ width: 950px; height: 400px; background-color: white;
@@ -113,20 +110,21 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #dummy_serch_img{ width: 20px; height: 20px; float: left; cursor: pointer;
              margin-top: 25px; margin-left: 30px;}
         #dummy_serch input{ width: 830px; height: 40px; margin: 10px; float: left; border: none;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large; outline: none;}
+            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: large; outline: none;}
         .close{ width: 20px; height: 20px; float: right; cursor: pointer;
             margin-top: 25px; margin-right: 25px;}
 
-        #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
+        #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2;}
         #starting_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
-        #starting_point_list1 li:first-child{ background-color: white;}
+            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: large; 
+			}
+        #starting_point_list1 li:first-child{ margin-top: 5px; background-color: white;}
 
         #starting_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
         #starting_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
             padding-top: 5px; padding-left: 20px; cursor: pointer;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Jua'; color:black; font-weight: bold; font-size: large;}
         #starting_point_list2 li:first-child{ padding-top: 15px;}
         #starting_point_list2 li a{ color: #aaaaaa;}
 
@@ -137,13 +135,15 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #arrive_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
         #arrive_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
-        #arrive_point_list1 li:first-child{ background-color: white;}
+            font-family: 'Jua'; color: #aaaaaa; font-weight: bold; font-size: large;}
+        #arrive_point_list1 li:first-child{ margin-top: 5px; background-color: white;}
+        
         #arrive_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
         #arrive_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
             padding-top: 5px; padding-left: 20px; cursor: pointer; 
-            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Jua'; color: black; font-weight: bold; font-size: large;}
         #arrive_point_list2 li:first-child{ padding-top: 15px;}
+        #arrive_point_list2 li a{ color: #aaaaaa;}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -155,6 +155,15 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         let flag = false;
         let start = $(".start").get();
         let arrive = $(".arrive").get();
+        //여행 날짜 기본설정
+        var now = new Date();
+        var year = now.getFullYear();//연도
+        var month = now.getMonth()+1;//월
+        var date = now.getDate();//일
+        var day_num = now.getDay();//요일
+        var day = ["일", "월", "화", "수", "목", "금", "토"];
+        
+        $("#calendar_date").val(year + "." + month + "." + date + "(" + day[day_num] + ")" + " ~ " + year + "." + month + "." + date + "(" + day[day_num] + ")");
         //메뉴 페이지 클릭 이벤트
         $("#img_menu").click(function(e){
             if($("#category").css("display")=="none"){
@@ -189,6 +198,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         for(let i = 0; i < start.length; i++){
             $(start[i]).click(function(e){
                 $("#starting_point").val(start[i].innerHTML);
+                $("#starting_point").css("color", "black");
                 $("#starting_point_serch").css("display", "none");
                 flag=true;
             })
@@ -206,6 +216,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         for(let i = 0; i < arrive.length; i++){
             $(arrive[i]).click(function(e){
                 $("#arrive_point").val(arrive[i].innerHTML);
+                $("#arrive_point").css("color", "black");
                 $("#arrive_point_serch").css("display", "none");
             })
         }
@@ -361,7 +372,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
                         <input type="button" id="starting_point" value="출발지">
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="도착지">
-                        <input type="button" id="calendar" value="2022.11.20 ~ 2022.11.21">
+                        <input type="button" id="calendar_date" value="">
                         <input type="button" id="person" value="성인1">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     </form>
@@ -374,12 +385,10 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
                     </nav>
                     <hr>
                     <nav id="starting_point_list1">
-                    	<ul>
 	                        <li>대한민국</li>
 	                        <li>동북아시아</li>
 	                        <li>동남아시아</li>
 	                        <li>대양주/괌/사이판</li>
-                        </ul>
                     </nav>
                     <nav id="starting_point_list2">
                     	<ul>
@@ -401,12 +410,10 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
                     </nav>
                     <hr>
                     <nav id="arrive_point_list1">
-                    	<ul>
 	                        <li>대한민국</li>
 	                        <li>동북아시아</li>
 	                        <li>동남아시아</li>
 	                        <li>대양주/괌/사이판</li>
-                    	</ul>
                     </nav>
                     <nav id="arrive_point_list2">
 	                    <ul>
