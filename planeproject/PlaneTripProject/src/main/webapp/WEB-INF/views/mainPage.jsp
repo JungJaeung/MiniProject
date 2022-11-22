@@ -17,6 +17,7 @@
 integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
  crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <style>
+	body { background-color : #F6F6F6;}
 	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
     #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
@@ -50,9 +51,9 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #top_menu ul li{ margin-right: 30px; float: right;}
         #top_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Noto Sans KR', sans-serif; font-weight : bolder;
             text-decoration: none; color: #828282;}
-
+            
         /* 상단 메뉴 */
-        #img_logo{ width: 100px; object-fit: cover}
+        #img_logo{ width: 250px; object-fit: cover;margin-top : -40px; margin-left : 0px}
         #img_menu{ width: 30px; object-fit: cover}
         #middle_container{ width: 1200px; height: 70px; display: inline-block;}
         #middle_menu{padding-top: 15px;}
@@ -88,7 +89,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #ticketing_box{ width: 100%; height: 220px; box-shadow: 0 0 4px #c8c8c8;
             border-radius: 10px; background-color : white;}
         #way ul, #way li{ list-style: none;}
-        #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: bold;
+        #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: light;
             font-family: 'Jua', sans-serif; font-size: medium;}
         #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none; margin-left : 125px}
         #oneway{ text-decoration: none; color: inherit; }
