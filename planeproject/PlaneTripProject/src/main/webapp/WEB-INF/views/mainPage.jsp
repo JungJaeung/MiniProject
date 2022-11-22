@@ -13,14 +13,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" 
+integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+ crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <style>
-	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center;}
-	.banner_imgs { margin : 10px 10px;}
+	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
+    #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
-    h2, p { font-family: 'Jua', sans-serif;margin-top: 25px;}
+    h2, #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
     h2 { text-align: left;}
     sup { font-size: 1em;}
+    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center; margin-top : -50px}
+ 
+    #footer_container{ width: 1200px; margin-top: -10px; display: inline-block;justify-content: center; }
+    #footer_menu li:first-child { margin-left : 190px;}
+    #footer_menu ul {margin-top : 20px;}
+    #footer_menu ul,  #footer_menu li{ list-style: none;}
+    #footer_menu ul li{ margin-right: 100px; float: left;}
+    #footer_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Jua', sans-serif;
+        text-decoration: none; color: inherit;}
+    #footer_p { font-family: 'Jua', sans-serif;justify-content: center; text-align : center; margin-top : 30px;}
+	
 </style>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
@@ -28,36 +41,37 @@
     a:hover { color: black; text-decoration: none;}
 </style>
 <style>
-        #container{ width: 100%; height: 100%; text-align: center;}
-        hr { background:#f2f2f2; height:1px; border:0; margin-bottom: 0;}
+        #container{ width: 100%; height: 100%; text-align: center;justify-content: center;}
+        #top_hr { background:#f2f2f2; height:1px; border:0; margin-bottom: 0;}
 
         /* 최 상단 로그인 메뉴 */
-        #top_container{ width: 1000px; margin-top: -30px; display: inline-block;}
+        #top_container{ width: 1200px; margin-top: -10px; display: inline-block;}
         #top_menu ul,  #top_menu li{ list-style: none;}
-        #top_menu ul li{ margin-right: 10px; float: right;}
-        #top_menu ul li a{ text-align: center; font-size: x-small; font-family: 'Jua'; color:#aaaaaa;}
+        #top_menu ul li{ margin-right: 30px; float: right;}
+        #top_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Noto Sans KR', sans-serif; font-weight : bolder;
+            text-decoration: none; color: #828282;}
 
         /* 상단 메뉴 */
         #img_logo{ width: 100px; object-fit: cover}
         #img_menu{ width: 30px; object-fit: cover}
-        #middle_container{ width: 1000px; height: 70px; display: inline-block;}
+        #middle_container{ width: 1200px; height: 70px; display: inline-block;}
         #middle_menu{padding-top: 15px;}
         #middle_menu ul, #middle_menu li{ list-style: none;}
         #middle_menu ul li{ float: left;}
-        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 20px;
-        	 font-family: 'Jua'; color: black;}
+        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 50px; font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none; color: inherit; font-weight : bolder;}
         #middle_menu ul li:first-child{margin-right: 30px;}
         #middle_menu ul li:last-child{float: right; margin-top: -5px;}
         
         /* 상단 메뉴 - 카테고리 메뉴*/
         #category{ width: 100%; height: 100%; border: solid #f2f2f2 1px; display: none;
             position: absolute; top: 120px; left: 0; text-align: center; z-index: 3;}
-        #category_menu{ width: 1000px; background-color: aqua;}
+        #category_menu{ width: 1200px; background-color: aqua;}
         #category_menu{ background-color: white; width: 100%; height: 280px;}
         #category_menu ul, #category li{ list-style: none; padding: 0; margin: 0;}
-        #category_menu ul{ margin-top: 40px; font-family: 'Jua'; font-weight: bold; }
+        #category_menu ul{ margin-top: 40px; font-weight: bold;}
         #category_menu li:first-child{ margin-top: 10px;}
-        #category_menu ul li a{ text-decoration: none; font-weight: lighter; font-family: 'Jua'; color:#828282;}
+        #category_menu ul li a{ text-decoration: none; color: inherit; font-weight: lighter; font-family: 'Jua', sans-serif;}
         /*메뉴 위치선정 */
         #category_menu nav{ display: inline-block; text-align: center;}
         .line1{ position: absolute; top: 0px; left: 8.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
@@ -70,80 +84,84 @@
         #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.2;}
 
         /*티케팅 창*/
-        #ticketing{ width: 1000px; margin-top: 20px; display: inline-block;}
+        #ticketing{ width: 1200px; margin-top: 20px; display: inline-block;}
         #ticketing_box{ width: 100%; height: 220px; box-shadow: 0 0 4px #c8c8c8;
-            border-radius: 10px;}
+            border-radius: 10px; background-color : white;}
         #way ul, #way li{ list-style: none;}
         #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: bold;
-            font-family: 'Jua'; color:#aaaaaa; font-size: medium;}
-        #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none;}
+            font-family: 'Jua', sans-serif; font-size: medium;}
+        #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none; margin-left : 125px}
         #oneway{ text-decoration: none; color: inherit; }
 
         #form_div{clear: both; padding-top: 20px; text-align: left;}
-        #starting_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer; margin-left: 55px;
+        #starting_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer; margin-left: 165px;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent; 
-            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: x-large;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
         #swap{ width: 30px; height: 30px; border: none; margin-left: 10px; margin-right: 10px;
             background: url( "../../resources/images/arrow.png") no-repeat; cursor: pointer; border-radius: 100%;}
         #arrive_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent;
-            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: x-large;}
-        #calendar_date{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
+        #calendar{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
             background-image: url("../../resources/images/calendar.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: left; cursor: pointer;
             border-style: none; border-bottom: solid #c8c8c8 1px;
-            font-family: 'Jua'; color: black; font-weight: bold; font-size: small;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
         #person{ width: 270px; height: 43px; margin-top: 20px; background-color: transparent;
             background-image: url("../../resources/images/person.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: 10px center; cursor: pointer;
-            border-style: none;  border-bottom: solid #c8c8c8 1px; margin-left: 55px;
-            font-family: 'Jua'; color:black; font-weight: bold; font-size: medium;}
-        #serch{ width: 200px; height: 50px; margin-left: 380px; margin-top: 30px; cursor: pointer;
+            border-style: none;  border-bottom: solid #c8c8c8 1px; margin-left: 165px;
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
+        #serch{ width: 200px; height: 50px; margin-left: 400px; margin-top: 30px; cursor: pointer;
             background-color: #aaaaaa; color: white; border: none; border-radius: 5px;
-            font-family: 'Jua'; color: white; font-size: large;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
             
         /*출발지*/
         #starting_point_serch{ width: 950px; height: 400px; background-color: white;
             display: none; position: absolute; opacity: none; z-index: 2;
-            top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 4px #c8c8c8;}
+            top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 4px #c8c8c8;
+            margin-top: 150px;}
         #dummy_serch{ width: 100%; height: 60px;}
         #dummy_serch_img{ width: 20px; height: 20px; float: left; cursor: pointer;
              margin-top: 25px; margin-left: 30px;}
         #dummy_serch input{ width: 830px; height: 40px; margin: 10px; float: left; border: none;
-            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: large; outline: none;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large; outline: none;
+            margin-top : 14px;}
         .close{ width: 20px; height: 20px; float: right; cursor: pointer;
             margin-top: 25px; margin-right: 25px;}
 
-        #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2;}
+        #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
+        #starting_point_list1 ul { margin-left : -40px; margin-top : -5px;}
         #starting_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Jua'; color:#aaaaaa; font-weight: bold; font-size: large; 
-			}
-        #starting_point_list1 li:first-child{ margin-top: 5px; background-color: white;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+        #starting_point_list1 li:first-child{ background-color: white;}
 
         #starting_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
+        #starting_point_list2 ul { margin-top : -5px;}
         #starting_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
             padding-top: 5px; padding-left: 20px; cursor: pointer;
-            font-family: 'Jua'; color:black; font-weight: bold; font-size: large;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
         #starting_point_list2 li:first-child{ padding-top: 15px;}
         #starting_point_list2 li a{ color: #aaaaaa;}
 
         /* 도착지 */
         #arrive_point_serch{ width: 950px; height: 400px; background-color: white; 
             display: none; position: absolute; opacity: none; z-index: 2;
-            top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 4px #c8c8c8;}
+            top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 4px #c8c8c8;
+            margin-top: 150px;}
         #arrive_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
+        #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;}
         #arrive_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Jua'; color: #aaaaaa; font-weight: bold; font-size: large;}
-        #arrive_point_list1 li:first-child{ margin-top: 5px; background-color: white;}
-        
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+        #arrive_point_list1 li:first-child{ background-color: white;}
         #arrive_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
+        #arrive_point_list2 ul { margin-top : -5px;}
         #arrive_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
             padding-top: 5px; padding-left: 20px; cursor: pointer; 
-            font-family: 'Jua'; color: black; font-weight: bold; font-size: large;}
+            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
         #arrive_point_list2 li:first-child{ padding-top: 15px;}
-        #arrive_point_list2 li a{ color: #aaaaaa;}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -155,15 +173,6 @@
         let flag = false;
         let start = $(".start").get();
         let arrive = $(".arrive").get();
-        //여행 날짜 기본설정
-        var now = new Date();
-        var year = now.getFullYear();//연도
-        var month = now.getMonth()+1;//월
-        var date = now.getDate();//일
-        var day_num = now.getDay();//요일
-        var day = ["일", "월", "화", "수", "목", "금", "토"];
-        
-        $("#calendar_date").val(year + "." + month + "." + date + "(" + day[day_num] + ")" + " ~ " + year + "." + month + "." + date + "(" + day[day_num] + ")");
         //메뉴 페이지 클릭 이벤트
         $("#img_menu").click(function(e){
             if($("#category").css("display")=="none"){
@@ -198,7 +207,6 @@
         for(let i = 0; i < start.length; i++){
             $(start[i]).click(function(e){
                 $("#starting_point").val(start[i].innerHTML);
-                $("#starting_point").css("color", "black");
                 $("#starting_point_serch").css("display", "none");
                 flag=true;
             })
@@ -207,7 +215,7 @@
         //도착지 입력창
         $("#arrive_point").click(function(e){
             if(!flag){
-                alert("에ㅇㅇ에에에에ㅔ")
+                alert("출발지를 선택해주세요.")
                 return;
             }
             else
@@ -216,7 +224,6 @@
         for(let i = 0; i < arrive.length; i++){
             $(arrive[i]).click(function(e){
                 $("#arrive_point").val(arrive[i].innerHTML);
-                $("#arrive_point").css("color", "black");
                 $("#arrive_point_serch").css("display", "none");
             })
         }
@@ -231,6 +238,22 @@
 <!-- 여행지 정보 출력 , 공지사항 스크롤 -->
 <script>
 	$(document).ready(function(){
+	  $('.main_imgs').bxSlider({
+		adaptiveHeight: true,
+	    maxSlides : 1,
+	    minSlides : 3,
+	    moveSlides : 1,
+	    slideMargin : 20,
+	    pause : 5000,
+	    speed : 2000,
+	    auto : true,
+	    autoHover: true,
+	    infiniteLoop : true,
+	    pager : true, 
+	    stopAutoOnClick : true, 
+	    controls : false,
+	    captions: true
+	  })
       $('.banner_imgs').bxSlider({
         slideWidth : 1200,
         maxSlides : 5,
@@ -283,7 +306,7 @@
                 </ul>
             </nav>
         </div>
-        <hr>
+        <hr id="top_hr">
         <!-- 상단 메뉴-->
         <div id="middle_container">
             <nav id="middle_menu">
@@ -360,7 +383,7 @@
         </div>
         <!--표 예매-->
         <div id="ticketing">
-            <div id="ticketing_box">
+            <div id="ticketing_box" style="position: relative; bottom: 60; z-index: 2;">
                 <nav id="way">
                     <ul>
                         <li><a id="round" href="#">왕복</a></li>
@@ -372,7 +395,7 @@
                         <input type="button" id="starting_point" value="출발지">
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="도착지">
-                        <input type="button" id="calendar_date" value="">
+                        <input type="button" id="calendar" value="2022.11.20 ~ 2022.11.21">
                         <input type="button" id="person" value="성인1">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     </form>
@@ -385,10 +408,9 @@
                     </nav>
                     <hr>
                     <nav id="starting_point_list1">
+                    	<ul>
 	                        <li>대한민국</li>
-	                        <li>동북아시아</li>
-	                        <li>동남아시아</li>
-	                        <li>대양주/괌/사이판</li>
+                        </ul>
                     </nav>
                     <nav id="starting_point_list2">
                     	<ul>
@@ -410,10 +432,9 @@
                     </nav>
                     <hr>
                     <nav id="arrive_point_list1">
+                    	<ul>
 	                        <li>대한민국</li>
-	                        <li>동북아시아</li>
-	                        <li>동남아시아</li>
-	                        <li>대양주/괌/사이판</li>
+                    	</ul>
                     </nav>
                     <nav id="arrive_point_list2">
 	                    <ul>
@@ -430,13 +451,37 @@
             </div>
         </div>
     </div>
+  <div id="main_banner">
+  	<div class="main_imgs">
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/m1.png" width="1700px" height="500px">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/m2.jpg" width="1700px" height="500px">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/m3.jpg" width="1700px" height="500px">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/m4.jpg" width="1700px" height="500px">
+        </a>
+      </div>
+  	</div>
+  </div>
   <div id="f_banner">
     <h2>추천 항공권</h2>
     <div class="banner_imgs">
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/bs.jpg">
-          <p><strong>서울(인천) - 부산</strong><br>
+          <p id="route"><strong>서울(인천) - 부산</strong><br>
             <sup>편도총액</sup> <b>62,100원~</b><br>
             <span>2022.12.15~2023.01.15</span>
           </p>
@@ -445,7 +490,7 @@
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/cc.jpg">
-          <p><strong>서울(인천) - 충청도</strong><br>
+          <p id="route"><strong>서울(인천) - 충청도</strong><br>
             <sup>편도총액</sup> <b>49,100원~</b><br>
             <span>2022.12.24~2023.02.11</span>
           </p>
@@ -454,7 +499,7 @@
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/kj.jpg">
-          <p><strong>서울(인천) - 경주</strong><br>
+          <p id="route"><strong>서울(인천) - 경주</strong><br>
             <sup>편도총액</sup> <b>55,200원~</b><br>
             <span>2022.11.29~2023.01.19</span>
           </p>
@@ -463,7 +508,7 @@
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/jj.jpg">
-          <p><strong>서울(인천) - 제주</strong><br>
+          <p id="route"><strong>서울(인천) - 제주</strong><br>
             <sup>편도총액</sup> <b>66,000원~</b><br>
             <span>2023.1.16~2023.02.23</span>
           </p>
@@ -472,7 +517,7 @@
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/kw.jpg">
-          <p><strong>서울(인천) - 강원도</strong><br>
+          <p id="route"><strong>서울(인천) - 강원도</strong><br>
             <sup>편도총액</sup> <b>45,700원~</b><br>
             <span>2022.11.23~2023.02.09</span>
           </p>
@@ -500,5 +545,6 @@
       </div>
 	</div>
 </div>
+<jsp:include page="./footer.jsp"></jsp:include>
 </body>
 </html>
