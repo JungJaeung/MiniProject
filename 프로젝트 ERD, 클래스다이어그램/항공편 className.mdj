@@ -6967,9 +6967,9 @@
 											"font": "Arial;13;1",
 											"left": 69,
 											"top": 1671,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
-											"text": "Board"
+											"text": "BoardController"
 										},
 										{
 											"_type": "LabelView",
@@ -7002,7 +7002,7 @@
 									"font": "Arial;13;0",
 									"left": 64,
 									"top": 1664,
-									"width": 187.34716796875,
+									"width": 195.35791015625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEncn53UBZLI4="
@@ -7039,7 +7039,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1694,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-boardId: int",
 											"horizontalAlignment": 0
@@ -7056,7 +7056,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1709,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-boardTitle: String",
 											"horizontalAlignment": 0
@@ -7073,7 +7073,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1724,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-boardContent: String",
 											"horizontalAlignment": 0
@@ -7090,7 +7090,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1739,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-boardWriter: String",
 											"horizontalAlignment": 0
@@ -7107,7 +7107,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1754,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-boardCount: int",
 											"horizontalAlignment": 0
@@ -7124,7 +7124,7 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1769,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
 											"text": "-passengerId: int",
 											"horizontalAlignment": 0
@@ -7133,7 +7133,7 @@
 									"font": "Arial;13;0",
 									"left": 64,
 									"top": 1689,
-									"width": 187.34716796875,
+									"width": 195.35791015625,
 									"height": 98
 								},
 								{
@@ -7158,9 +7158,9 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1792,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
-											"text": "+viewList(): List<BoardVO>",
+											"text": "+viewList(): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7175,9 +7175,9 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1807,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
-											"text": "+addBoard(BoardVO): void",
+											"text": "+addBoard(BoardVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7192,9 +7192,9 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1822,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
-											"text": "+updateBoard(BoardVO): void",
+											"text": "+updateBoard(BoardVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7209,16 +7209,16 @@
 											"font": "Arial;13;0",
 											"left": 69,
 											"top": 1837,
-											"width": 177.34716796875,
+											"width": 185.35791015625,
 											"height": 13,
-											"text": "+deleteBoard(BoardVO): void",
+											"text": "+deleteBoard(BoardVO): String",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 64,
 									"top": 1787,
-									"width": 187.34716796875,
+									"width": 195.35791015625,
 									"height": 68
 								},
 								{
@@ -7258,7 +7258,7 @@
 							"containerChangeable": true,
 							"left": 64,
 							"top": 1664,
-							"width": 187.34716796875,
+							"width": 195.35791015625,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEncn53UBYVyc="
@@ -7860,7 +7860,7 @@
 											"top": 997,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+reserve(PassengerVO): void",
+											"text": "+reserve(PassengerVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7877,7 +7877,7 @@
 											"top": 1012,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+viewMypage(): List<PassengerVO>",
+											"text": "+viewMypage(): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7894,24 +7894,7 @@
 											"top": 1027,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+login(PassengerVO): PassengerVO",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAGEng8pd0MzuCs=",
-											"_parent": {
-												"$ref": "AAAAAAGEncoockC0rRs="
-											},
-											"model": {
-												"$ref": "AAAAAAGEng8pbEMwxrs="
-											},
-											"font": "Arial;13;0",
-											"left": 45,
-											"top": 1042,
-											"width": 217.84521484375,
-											"height": 13,
-											"text": "+viewMypage(): List<PassengerVO>",
+											"text": "+login(PassengerVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7925,10 +7908,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 45,
-											"top": 1057,
+											"top": 1042,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+join(PassengerVO): void",
+											"text": "+join(PassengerVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7942,10 +7925,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 45,
-											"top": 1072,
+											"top": 1057,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+quit(PassengerVO): void",
+											"text": "+quit(PassengerVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7959,10 +7942,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 45,
-											"top": 1087,
+											"top": 1072,
 											"width": 217.84521484375,
 											"height": 13,
-											"text": "+updateInfo(PassengerVO): void",
+											"text": "+updateInfo(PassengerVO): String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7970,7 +7953,7 @@
 									"left": 40,
 									"top": 992,
 									"width": 227.84521484375,
-									"height": 113
+									"height": 98
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -8055,8 +8038,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": 1920,
+											"left": -96,
+											"top": 1952,
 											"height": 13
 										},
 										{
@@ -8066,9 +8049,9 @@
 												"$ref": "AAAAAAGEncpL6EDa6Zk="
 											},
 											"font": "Arial;13;1",
-											"left": 77,
-											"top": 1239,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1255,
+											"width": 271,
 											"height": 13,
 											"text": "Reservation"
 										},
@@ -8080,8 +8063,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": 1920,
+											"left": -96,
+											"top": 1952,
 											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
@@ -8094,16 +8077,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": 1920,
+											"left": -96,
+											"top": 1952,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 72,
-									"top": 1232,
-									"width": 258.91064453125,
+									"left": 8,
+									"top": 1248,
+									"width": 281,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEncpL6EDbSIQ="
@@ -8138,9 +8121,9 @@
 												"$ref": "AAAAAAGEnfVYkkHOuoA="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1262,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1278,
+											"width": 271,
 											"height": 13,
 											"text": "-reservationId: int",
 											"horizontalAlignment": 0
@@ -8155,9 +8138,9 @@
 												"$ref": "AAAAAAGEngRVw0LGJ4I="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1277,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1293,
+											"width": 271,
 											"height": 13,
 											"text": "-departDateTime: Date",
 											"horizontalAlignment": 0
@@ -8172,9 +8155,9 @@
 												"$ref": "AAAAAAGEngRZDkLM0YY="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1292,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1308,
+											"width": 271,
 											"height": 13,
 											"text": "-arrivalDateTime: Date",
 											"horizontalAlignment": 0
@@ -8189,9 +8172,9 @@
 												"$ref": "AAAAAAGEngRcWkLSnX0="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1307,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1323,
+											"width": 271,
 											"height": 13,
 											"text": "-flightId: int",
 											"horizontalAlignment": 0
@@ -8206,9 +8189,9 @@
 												"$ref": "AAAAAAGEngRf0kLYcr0="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1322,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1338,
+											"width": 271,
 											"height": 13,
 											"text": "-seatId: int",
 											"horizontalAlignment": 0
@@ -8223,9 +8206,9 @@
 												"$ref": "AAAAAAGEngcmykLkmPs="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1337,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1353,
+											"width": 271,
 											"height": 13,
 											"text": "-aircraftId: int",
 											"horizontalAlignment": 0
@@ -8240,9 +8223,9 @@
 												"$ref": "AAAAAAGEngcujULquCk="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1352,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1368,
+											"width": 271,
 											"height": 13,
 											"text": "-passengerId: int",
 											"horizontalAlignment": 0
@@ -8257,18 +8240,18 @@
 												"$ref": "AAAAAAGEnj+VKEj2I2w="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1367,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1383,
+											"width": 271,
 											"height": 13,
 											"text": "-updateReservation: String",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 72,
-									"top": 1257,
-									"width": 258.91064453125,
+									"left": 8,
+									"top": 1273,
+									"width": 281,
 									"height": 128
 								},
 								{
@@ -8291,11 +8274,11 @@
 												"$ref": "AAAAAAGEnfVi2UHU4JE="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1390,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1406,
+											"width": 271,
 											"height": 13,
-											"text": "+addReservation(ReservationVO): void",
+											"text": "+addReservation(ReservationVO): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8308,11 +8291,11 @@
 												"$ref": "AAAAAAGEnhG3xENL/NQ="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1405,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1421,
+											"width": 271,
 											"height": 13,
-											"text": "+viewReservation(): List<ResservationVO>",
+											"text": "+viewReservation(): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -8325,18 +8308,18 @@
 												"$ref": "AAAAAAGEnkD2zUj9t4Y="
 											},
 											"font": "Arial;13;0",
-											"left": 77,
-											"top": 1420,
-											"width": 248.91064453125,
+											"left": 13,
+											"top": 1436,
+											"width": 271,
 											"height": 13,
-											"text": "+updateReservation(ReservationVO): void",
+											"text": "+updateReservation(ReservationVO): String",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 72,
-									"top": 1385,
-									"width": 258.91064453125,
+									"left": 8,
+									"top": 1401,
+									"width": 281,
 									"height": 53
 								},
 								{
@@ -8350,8 +8333,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": 960,
+									"left": -48,
+									"top": 976,
 									"width": 10,
 									"height": 10
 								},
@@ -8366,17 +8349,17 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": 960,
+									"left": -48,
+									"top": 976,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 72,
-							"top": 1232,
-							"width": 258.91064453125,
+							"left": 8,
+							"top": 1248,
+							"width": 281,
 							"height": 206,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEncpL6EDa6Zk="
@@ -10251,8 +10234,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": -192,
+											"left": 112,
+											"top": 736,
 											"height": 13
 										},
 										{
@@ -10262,8 +10245,8 @@
 												"$ref": "AAAAAAGEnjYjIEcVpw8="
 											},
 											"font": "Arial;13;1",
-											"left": 53,
-											"top": 87,
+											"left": 93,
+											"top": 551,
 											"width": 167,
 											"height": 13,
 											"text": "Passenger"
@@ -10276,8 +10259,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": -192,
+											"left": 112,
+											"top": 736,
 											"width": 85.0966796875,
 											"height": 13,
 											"text": "(from Model1)"
@@ -10290,15 +10273,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 32,
-											"top": -192,
+											"left": 112,
+											"top": 736,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 48,
-									"top": 80,
+									"left": 88,
+									"top": 544,
 									"width": 177,
 									"height": 25,
 									"stereotypeLabel": {
@@ -10334,8 +10317,8 @@
 												"$ref": "AAAAAAGEnjZyrkc9vMM="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 110,
+											"left": 93,
+											"top": 574,
 											"width": 167,
 											"height": 13,
 											"text": "-passengerId: int",
@@ -10351,8 +10334,8 @@
 												"$ref": "AAAAAAGEnjaxe0dTU6g="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 125,
+											"left": 93,
+											"top": 589,
 											"width": 167,
 											"height": 13,
 											"text": "-firstName: String",
@@ -10368,8 +10351,8 @@
 												"$ref": "AAAAAAGEnjbAEUdajzc="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 140,
+											"left": 93,
+											"top": 604,
 											"width": 167,
 											"height": 13,
 											"text": "-lastName: String",
@@ -10385,8 +10368,8 @@
 												"$ref": "AAAAAAGEnjbDPUdgdbY="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 155,
+											"left": 93,
+											"top": 619,
 											"width": 167,
 											"height": 13,
 											"text": "-passportNo: String",
@@ -10402,8 +10385,8 @@
 												"$ref": "AAAAAAGEnjbGAUdmc6E="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 170,
+											"left": 93,
+											"top": 634,
 											"width": 167,
 											"height": 13,
 											"text": "-phone: String",
@@ -10419,8 +10402,8 @@
 												"$ref": "AAAAAAGEnjbH8Eds0w4="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 185,
+											"left": 93,
+											"top": 649,
 											"width": 167,
 											"height": 13,
 											"text": "-address: String",
@@ -10436,8 +10419,8 @@
 												"$ref": "AAAAAAGEnjbKcUdyZow="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 200,
+											"left": 93,
+											"top": 664,
 											"width": 167,
 											"height": 13,
 											"text": "-birthDate: String",
@@ -10453,8 +10436,8 @@
 												"$ref": "AAAAAAGEnjc8Qkd9I9E="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 215,
+											"left": 93,
+											"top": 679,
 											"width": 167,
 											"height": 13,
 											"text": "-gender: String",
@@ -10470,8 +10453,8 @@
 												"$ref": "AAAAAAGEnv7OB0DRS9Q="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 230,
+											"left": 93,
+											"top": 694,
 											"width": 167,
 											"height": 13,
 											"text": "-password: String",
@@ -10479,8 +10462,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 48,
-									"top": 105,
+									"left": 88,
+									"top": 569,
 									"width": 177,
 									"height": 143
 								},
@@ -10504,8 +10487,8 @@
 												"$ref": "AAAAAAGEnjaWL0dMaVA="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 253,
+											"left": 93,
+											"top": 717,
 											"width": 167,
 											"height": 13,
 											"text": "+reserve()",
@@ -10521,8 +10504,8 @@
 												"$ref": "AAAAAAGEnjdj+EeFrqQ="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 268,
+											"left": 93,
+											"top": 732,
 											"width": 167,
 											"height": 13,
 											"text": "+viewMypage()",
@@ -10538,8 +10521,8 @@
 												"$ref": "AAAAAAGEnjdmwUeLEqc="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 283,
+											"left": 93,
+											"top": 747,
 											"width": 167,
 											"height": 13,
 											"text": "+login()",
@@ -10555,8 +10538,8 @@
 												"$ref": "AAAAAAGEnjdpnkeRxA8="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 298,
+											"left": 93,
+											"top": 762,
 											"width": 167,
 											"height": 13,
 											"text": "+viewBoard()",
@@ -10572,8 +10555,8 @@
 												"$ref": "AAAAAAGEnjdwmkeXQeo="
 											},
 											"font": "Arial;13;0",
-											"left": 53,
-											"top": 313,
+											"left": 93,
+											"top": 777,
 											"width": 167,
 											"height": 13,
 											"text": "+join()",
@@ -10581,8 +10564,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 48,
-									"top": 248,
+									"left": 88,
+									"top": 712,
 									"width": 177,
 									"height": 83
 								},
@@ -10597,8 +10580,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": -96,
+									"left": 56,
+									"top": 368,
 									"width": 10,
 									"height": 10
 								},
@@ -10613,16 +10596,16 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 16,
-									"top": -96,
+									"left": 56,
+									"top": 368,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 48,
-							"top": 80,
+							"left": 88,
+							"top": 544,
 							"width": 177,
 							"height": 251,
 							"nameCompartment": {
@@ -11327,8 +11310,8 @@
 										"$ref": "AAAAAAGEnkHAw0kcwr8="
 									},
 									"font": "Arial;13;0",
-									"left": 316,
-									"top": 1356,
+									"left": 295,
+									"top": 1364,
 									"width": 120.30712890625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -11350,8 +11333,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 375,
-									"top": 1371,
+									"left": 355,
+									"top": 1379,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -11371,8 +11354,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 377,
-									"top": 1327,
+									"left": 356,
+									"top": 1335,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -11390,7 +11373,7 @@
 								"$ref": "AAAAAAGEnjrhxkhc4pQ="
 							},
 							"lineStyle": 1,
-							"points": "423:1352;331:1345",
+							"points": "423:1359;289:1354",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGEnkHAw0kfqoM="
@@ -12216,7 +12199,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 312,
+									"left": 316,
 									"top": 1773,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -12237,7 +12220,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 312,
+									"left": 315,
 									"top": 1788,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -12258,7 +12241,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 313,
+									"left": 317,
 									"top": 1744,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -12277,7 +12260,7 @@
 								"$ref": "AAAAAAGEnmpw1kna9S0="
 							},
 							"lineStyle": 1,
-							"points": "375:1767;251:1763",
+							"points": "375:1767;259:1763",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGEnnKmNk6f4wY="
@@ -16146,7 +16129,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGEnciG8D/p4GI="
 					},
-					"name": "Board",
+					"name": "BoardController",
 					"ownedElements": [
 						{
 							"_type": "UMLDependency",
@@ -16239,7 +16222,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnfUivUGwSHE="
 									},
-									"type": "List<BoardVO>",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16258,8 +16241,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnhKmz0NTUCI="
 									},
-									"name": "BoardVO",
-									"type": ""
+									"name": "BoardVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16267,7 +16249,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnhKmz0NTUCI="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16286,8 +16268,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnnTmnFRGvxY="
 									},
-									"name": "BoardVO",
-									"type": ""
+									"name": "BoardVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16295,7 +16276,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnnTmnFRGvxY="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16314,8 +16295,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnnT3A1SnTD0="
 									},
-									"name": "BoardVO",
-									"type": ""
+									"name": "BoardVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16323,7 +16303,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnnT3A1SnTD0="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16582,8 +16562,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnfVAFkHCL/c="
 									},
-									"name": "PassengerVO",
-									"type": ""
+									"name": "PassengerVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16591,7 +16570,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnfVAFkHCL/c="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16610,7 +16589,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEng1EzkMeFhg="
 									},
-									"type": "List<PassengerVO>",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16629,8 +16608,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEng46K0MmVNQ="
 									},
-									"name": "PassengerVO",
-									"type": ""
+									"name": "PassengerVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16638,28 +16616,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEng46K0MmVNQ="
 									},
-									"type": {
-										"$ref": "AAAAAAGEnugTM3bfmZ8="
-									},
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGEng8pbEMwxrs=",
-							"_parent": {
-								"$ref": "AAAAAAGEncoockCr4ys="
-							},
-							"name": "viewMypage",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGEnxnW7pn78ao=",
-									"_parent": {
-										"$ref": "AAAAAAGEng8pbEMwxrs="
-									},
-									"type": "List<PassengerVO>",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16678,8 +16635,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnhCbaENCoRI="
 									},
-									"name": "PassengerVO",
-									"type": ""
+									"name": "PassengerVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16687,7 +16643,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnhCbaENCoRI="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16706,8 +16662,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkiS0ElCES0="
 									},
-									"name": "PassengerVO",
-									"type": ""
+									"name": "PassengerVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16715,7 +16670,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkiS0ElCES0="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16734,8 +16689,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkxHQUlXxMA="
 									},
-									"name": "PassengerVO",
-									"type": ""
+									"name": "PassengerVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16743,7 +16697,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkxHQUlXxMA="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16854,8 +16808,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnfVi2UHU4JE="
 									},
-									"name": "ReservationVO",
-									"type": ""
+									"name": "ReservationVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16863,7 +16816,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnfVi2UHU4JE="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16882,7 +16835,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnhG3xENL/NQ="
 									},
-									"type": "List<ResservationVO>",
+									"type": "String",
 									"direction": "return"
 								}
 							]
@@ -16901,8 +16854,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkD2zUj9t4Y="
 									},
-									"name": "ReservationVO",
-									"type": ""
+									"name": "ReservationVO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -16910,7 +16862,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEnkD2zUj9t4Y="
 									},
-									"type": "void",
+									"type": "String",
 									"direction": "return"
 								}
 							]
