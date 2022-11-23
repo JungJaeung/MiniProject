@@ -1,5 +1,7 @@
 package com.ezen.springplanetrip.vo;
 
+import java.sql.Date;
+
 public class PassengerVO {
 	private int passengerId;
 	private String firstName;
@@ -8,7 +10,7 @@ public class PassengerVO {
 	private String phone;
 	private String email;
 	private String address;
-	private String birthDate;
+	private Date birthDate;
 	private String gender;
 	private String password;
 	
@@ -54,10 +56,10 @@ public class PassengerVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getGender() {
