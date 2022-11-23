@@ -1,4 +1,4 @@
-package com.ezen.springplanetrip.service.account;
+package com.ezen.springplanetrip.service.Board;
 
 import java.util.List;
 
