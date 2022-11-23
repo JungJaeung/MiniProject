@@ -13,9 +13,6 @@ public class AccountServiceImpl implements AccountService{
 	@Autowired
 	private AccountDAO accountDAO;
 	
-<<<<<<< HEAD
-	
-=======
 	public void join(PassengerVO passengerVO) {
 		accountDAO.join(passengerVO);
 	}
@@ -37,5 +34,4 @@ public class AccountServiceImpl implements AccountService{
 	public void updateInfo(PassengerVO passengerVO){
 		 accountDAO.updateInfo(passengerVO);
 	}
->>>>>>> 9210d2d53583918bba9ba927f61987f925d00692
 }
