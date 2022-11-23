@@ -12,6 +12,8 @@ public class ReservationVO {
 	private int filghtId;
 	private int aircraftId;
 	private int seatId;
+	private int seatNo; //좌석번호
+	private char updateReservation;
 	
 	public int getReservationId() {
 		return reservationId;
@@ -69,11 +71,32 @@ public class ReservationVO {
 		this.seatId = seatId;
 	}
 
+	public int getSeatNo() {
+		return seatNo;
+	}
+
+	public void setSeatNo(int seatNo) {
+		this.seatNo = seatNo;
+	}
+
+	public char getUpdateReservation() {
+		return updateReservation;
+	}
+
+	public void setUpdateReservation(char updateReservation) {
+		this.updateReservation = updateReservation;
+	}
+
 	@Override
 	public String toString() {
 		return "ReservationVO [reservationId=" + reservationId + ", departDateTime=" + departDateTime
 				+ ", arrivalDateTime=" + arrivalDateTime + ", passengerId=" + passengerId + ", filghtId=" + filghtId
-				+ ", aircraftId=" + aircraftId + ", seatId=" + seatId + "]";
+				+ ", aircraftId=" + aircraftId + ", seatId=" + seatId + ", seatNo=" + seatNo + ", updateReservation="
+				+ updateReservation + "]";
 	}
+
+
+
+	
 	
 }
