@@ -13,9 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" 
-integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
- crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <style>
 	body { background-color : #F6F6F6;}
 	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
@@ -43,36 +40,6 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
 </style>
 <style>
         #container{ width: 100%; height: 100%; text-align: center;justify-content: center;}
-        #top_hr { background:#f2f2f2; height:1px; border:0; margin-bottom: 0;}
-
-        /* 최 상단 로그인 메뉴 */
-        #top_container{ width: 1200px; margin-top: -10px; display: inline-block;}
-        #top_menu ul,  #top_menu li{ list-style: none;}
-        #top_menu ul li{ margin-right: 30px; float: right;}
-        #top_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Noto Sans KR', sans-serif; font-weight : bolder;
-            text-decoration: none; color: #828282;}
-            
-        /* 상단 메뉴 */
-        #img_logo{ width: 250px; object-fit: cover;margin-top : -40px; margin-left : 0px}
-        #img_menu{ width: 30px; object-fit: cover}
-        #middle_container{ width: 1200px; height: 70px; display: inline-block;}
-        #middle_menu{padding-top: 15px;}
-        #middle_menu ul, #middle_menu li{ list-style: none;}
-        #middle_menu ul li{ float: left;}
-        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 50px; font-family: 'Noto Sans KR', sans-serif;
-            text-decoration: none; color: inherit; font-weight : bolder;}
-        #middle_menu ul li:first-child{margin-right: 30px;}
-        #middle_menu ul li:last-child{float: right; margin-top: -5px;}
-        
-        /* 상단 메뉴 - 카테고리 메뉴*/
-        #category{ width: 100%; height: 100%; border: solid #f2f2f2 1px; display: none;
-            position: absolute; top: 120px; left: 0; text-align: center; z-index: 3;}
-        #category_menu{ width: 1200px; background-color: aqua;}
-        #category_menu{ background-color: white; width: 100%; height: 280px;}
-        #category_menu ul, #category li{ list-style: none; padding: 0; margin: 0;}
-        #category_menu ul{ margin-top: 40px; font-weight: bold;}
-        #category_menu li:first-child{ margin-top: 10px;}
-        #category_menu ul li a{ text-decoration: none; color: inherit; font-weight: lighter; font-family: 'Jua', sans-serif;}
         /*메뉴 위치선정 */
         #category_menu nav{ display: inline-block; text-align: center;}
         .line1{ position: absolute; top: 0px; left: 8.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
@@ -82,7 +49,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         .line5{ position: absolute; top: 0px; left: 74.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;
             border-right: 1px solid #f2f2f2;}
         /*아래 반투명 화면*/
-        #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.2;}
+        #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.5;}
 
         /*티케팅 창*/
         #ticketing{ width: 1200px; margin-top: 20px; display: inline-block;}
@@ -167,13 +134,13 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         /* 날짜 선택(달력) */
         #calendar{ width: 950px; height: 400px; background-color: white; 
             display: none; position: absolute; opacity: none; z-index: 2;
-            top: 50%; left: 50%; transform: translate(-50%, -47%); box-shadow: 0 0 4px #c8c8c8;}
+            top: 50%; left: 50%; transform: translate(-50%, -46%); box-shadow: 0 0 4px #c8c8c8;}
         #calendar .close{ position: absolute; top: 0%; right: 0%;}
         #cal1_div{ width: 50%; height: 100%; float: left;}
         #cal2_div{ width: 50%; height: 100%; float: left;}
         
-        #cal_pre{ width:30px; height 30px; position: absolute; left: 2%; top: 43%; border: none; background: none;}
-        #cal_next{  width:30px; height 30px; position: absolute; right: 2%; top: 43%; border: none; background: none; }
+        #cal_pre{ position: absolute; left: 2%; top: 43%; border: none; background: none;}
+        #cal_next{ position: absolute; right: 2%; top: 43%; border: none; background: none; }
 
         #cal1_year, #cal1_month{ position: absolute; font-size: large; font-weight: bold;}
         #cal1_year{left: 8%; top: 4%;}
@@ -218,9 +185,9 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         #personnel_body_right{ width: 33.33%; height: 100%; float: left;}
         .body_text_title{ margin-top: 10%; margin-left: 10%; text-align: left; }
         .body_text_content{ margin-top: 1%; margin-left: 10%; text-align: left; font-size: small;}
-        #body_button_left{ position: absolute; left:21%; top: 40%;}
-        #body_button_center{ position: absolute; left:54.33%; top: 40%;}
-        #body_button_right{ position: absolute; left:87.66%; top: 40%;}
+        #body_button_left{ position: absolute; left:18%; top: 45%;}
+        #body_button_center{ position: absolute; left:51.33%; top: 45%;}
+        #body_button_right{ position: absolute; left:84.66%; top: 45%;}
 
         #select_personnel{ width: 150px; height: 40px; position: absolute; bottom: 6%; left: 41%;
             background-color: #ff5000; border: none; color: white; border-radius: 5px; 
@@ -250,24 +217,7 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
         let dtemp = 0;
         //여행 날짜 기본설정
         $("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
-        
-        
-        //메뉴 페이지 클릭 이벤트
-        $("#img_menu").click(function(e){
-            if($("#category").css("display")=="none"){
-                $("#img_menu").attr("src", "../../resources/images/X.png");
-                $("#category").css("display", "inline-block");
-            }
-            else{
-                $("#img_menu").attr("src", "../../resources/images/menu.png");
-                $("#category").css("display", "none");
-            }
-        })
-        //메뉴가 열려있을때 바깥의 반투명 페이지 클릭시
-        $("#category_black").click(function(e){
-            $("#img_menu").attr("src", "../../resources/images/menu.png");
-            $("#category").css("display", "none");
-        })
+       
         //왕복, 편도(왕복일때 way=0, 편도일때 way=1)
         $("#round").click(function(e){
             way=0;
@@ -707,95 +657,9 @@ integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7g
 </script>
 </head>
 <body>
+<jsp:include page="./header.jsp"></jsp:include>
     <!--전체 화면 컨테이너-->
     <div id="container">
-        <!--최상단 메뉴-->
-        <div id="top_container">
-            <nav id="top_menu">
-                <ul>
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="#">고객센터</a></li>
-                    <li><a href="#">나의 예약 현황</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">로그인</a></li>
-                </ul>
-            </nav>
-        </div>
-        <hr id="top_hr">
-        <!-- 상단 메뉴-->
-        <div id="middle_container">
-            <nav id="middle_menu">
-                <ul>
-                    <li><a href="#"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
-                    <li><a href="#">항공권 예매</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">부가서비스 안내</a></li>
-                    <li><a href="#">모바일탑승권</a></li>
-                    <li><a href="#">이벤트</a></li>
-                    <li><a href="#"><img id="img_menu" src="${pageContext.request.contextPath}/resources/images/menu.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-        <!--카테고리 메뉴-->
-        <div id="category">
-            <div id="category_menu">
-                <nav class="line1">
-                <ul class="menu1">메뉴
-                    <li><a href="#">내용1</a></li>
-                    <li><a href="#">내용2</a></li>
-                    <li><a href="#">내용3</a></li>
-                    <li><a href="#">내용4</a></li>
-                    <li><a href="#">내용5</a></li>
-                    <li><a href="#">내용6</a></li>
-                    <li><a href="#">내용7</a></li>
-                </ul>
-                </nav>
-                <nav class="line2">
-                <ul class="menu2">여행준비 안내
-                    <li><a href="#">내용1</a></li>
-                    <li><a href="#">내용2</a></li>
-                    <li><a href="#">내용3</a></li>
-                    <li><a href="#">내용4</a></li>
-                    <li><a href="#">내용5</a></li>
-                    <li><a href="#">내용6</a></li>
-                    <li><a href="#">내용7</a></li>
-                </ul>
-                </nav>  
-                <nav class="line3">
-                <ul class="menu3">마이페이지
-                    <li><a href="#">내용1</a></li>
-                    <li><a href="#">내용2</a></li>
-                    <li><a href="#">내용3</a></li>
-                    <li><a href="#">내용4</a></li>
-                    <li><a href="#">내용5</a></li>
-                    <li><a href="#">내용6</a></li>
-                    <li><a href="#">내용7</a></li>
-                </ul>
-                </nav>
-                <nav class="line4">
-                <ul class="menu4">메뉴4
-                    <li><a href="#">내용1</a></li>
-                    <li><a href="#">내용2</a></li>
-                    <li><a href="#">내용3</a></li>
-                    <li><a href="#">내용4</a></li>
-                    <li><a href="#">내용5</a></li>
-                    <li><a href="#">내용6</a></li>
-                    <li><a href="#">내용7</a></li>
-                    <li><a href="#">내용8</a></li>
-                </ul>
-                </nav>
-                <nav class="line5">
-                <ul class="menu5">프리미엄 혜택 안내
-                    <li><a href="#">비지니스 라이트</a></li>
-                    <li><a href="#">스포츠 멤버십</a></li>
-                    <li><a href="#">제휴서비스</a></li>
-                    <li><a href="#">온라인몰 제이샵</a></li>
-                </ul>
-                </nav>
-                <nav class="line6"></nav>
-            </div>
-            <div id="category_black"></div>
-        </div>
         <!--표 예매-->
         <div id="ticketing">
             <div id="ticketing_box" style="position: relative; bottom: 60; z-index: 2;">
