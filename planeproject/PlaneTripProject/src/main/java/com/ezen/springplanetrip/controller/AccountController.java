@@ -57,7 +57,7 @@ public class AccountController {
 	
 	@PostMapping("/idCheck.do")
 	@ResponseBody
-	public String idCheck(UserVO userVO) throws JsonProcessingException {
+	public String idCheck(UserVO userVO) {
 		
 		String returnStr = "";
 		
