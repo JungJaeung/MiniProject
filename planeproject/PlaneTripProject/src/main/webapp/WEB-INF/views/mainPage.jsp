@@ -438,7 +438,6 @@
                 text = $.create_cal(1);
                 $("#cal1").html(text);
             }
-            
         })
         //이전달 버튼
         $("#cal_pre").click(function(e){
@@ -472,8 +471,8 @@
                 b2 = 1;
             }
 
-            text1 = a+b+c;
-            text2 = a2+b2+c2;
+            text1 = a + "-" + b + "-" +c;
+            text2 = a2 + "-" + b2 + "-" +c2;
             textd1 = a + "." + b + "." +  c ;
             textd2 =  a2 + "." + b2 + "." + c2;
             date_flag = 1;
@@ -594,8 +593,7 @@
 
         //항공권 검색 버튼
         $("#serch").click(function(){
-        	submit();
-            console.log("항공권을 검색");
+        	$("#info").submit();
         })
         
     })
@@ -671,11 +669,11 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="#" method="post">
-                        <input type="button" id="starting_point" value="출발지">
+                    <form id="info" action="flight/searchFlight.do" method="post">
+                        <input type="button" id="starting_point" name="" value="출발지">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="도착지">
-                        <input type="button" id="calendar_date" value="2022.11.20 ~ 2022.11.21">
+                        <input type="button" id="arrive_point" name="" value="도착지">
+                        <input type="button" id="calendar_date"  value="2022.11.20 ~ 2022.11.21">
                         <input type="button" id="person" value="성인1">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     </form>

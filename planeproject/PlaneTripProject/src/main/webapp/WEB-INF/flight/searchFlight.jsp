@@ -656,13 +656,13 @@
                     </nav>
                     <nav id="starting_point_list2">
                     	<ul>
-	                        <li class="start">서울(김포)<a>GMP</a></li>
-	                        <li class="start">부산 <a>PUS</a></li>
-	                        <li class="start">제주 <a>CJU</a></li>
-	                        <li class="start">광주 <a>KWJ</a></li>
-	                        <li class="start">군산 <a>KUV</a></li>
-	                        <li class="start">청주 <a>CJJ</a></li>
-	                        <li class="start">대구 <a>TAE</a></li>
+	                        <li class="start"><span>서울(김포)</span><a href="#">GMP</a></li>
+	                        <li class="start"><span>부산</span><a href="#">PUS</a></li>
+	                        <li class="start"><span>제주</span><a href="#">CJU</a></li>
+	                        <li class="start"><span>광주</span><a href="#">KWJ</a></li>
+	                        <li class="start"><span>군산</span><a href="#">KUV</a></li>
+	                        <li class="start"><span>청주</span><a href="#">CJJ</a></li>
+	                        <li class="start"><span>대구</span><a href="#">TAE</a></li>
                     	</ul>
                     </nav>
                 </div>
@@ -680,13 +680,13 @@
                     </nav>
                     <nav id="arrive_point_list2">
 	                    <ul>
-	                        <li class="arrive">서울(김포)<a>GMP</a></li>
-	                        <li class="arrive">부산 <a>PUS</a></li>
-	                        <li class="arrive">제주 <a>CJU</a></li>
-	                        <li class="arrive">광주 <a>KWJ</a></li>
-	                        <li class="arrive">군산 <a>KUV</a></li>
-	                        <li class="arrive">청주 <a>CJJ</a></li>
-	                        <li class="arrive">대구 <a>TAE</a></li>
+	                        <li class="arrive">서울(김포)<a href="#">GMP</a></li>
+	                        <li class="arrive">부산 <a href="#">PUS</a></li>
+	                        <li class="arrive">제주 <a href="#">CJU</a></li>
+	                        <li class="arrive">광주 <a href="#">KWJ</a></li>
+	                        <li class="arrive">군산 <a href="#">KUV</a></li>
+	                        <li class="arrive">청주 <a href="#">CJJ</a></li>
+	                        <li class="arrive">대구 <a href="#">TAE</a></li>
                     	</ul>
                     </nav>
                 </div>
@@ -766,6 +766,7 @@
             </div>
         </div>
 	</div>
+	<jsp:include page="./searchDepartment.jsp"></jsp:include>
 	<jsp:include page="../views/footer.jsp"></jsp:include>
 </body>
 </html>
