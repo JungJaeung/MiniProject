@@ -18,7 +18,7 @@ public class FlightController {
 	@Autowired
 	private FlightService FlightService;
 	
-	@PostMapping("/searchFlight")
+	@PostMapping("/searchFlight.do")
 	public String viewFlight(Model model) {
 		//검색하려는 비행편 정보를 담을 인스턴스
 		FlightVO flightVO = new FlightVO();
@@ -26,6 +26,10 @@ public class FlightController {
 		flightVO.setArrivalTime((Date)model.getAttribute(""));
 		List<FlightVO> flightList = FlightService.viewFlight(flightVO);
 		
-		return "flight/searchFlight";
+		
+		
+		return "../flight/searchFlight";
 	}
+	
+	
 }
