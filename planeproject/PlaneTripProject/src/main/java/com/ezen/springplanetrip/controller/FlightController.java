@@ -9,14 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ezen.springplanetrip.service.flight.impl.FlightServiceImpl;
+import com.ezen.springplanetrip.service.flight.FlightService;
 import com.ezen.springplanetrip.vo.FlightVO;
 
 @Controller
 @RequestMapping("/flight")
 public class FlightController {
 	@Autowired
-	private FlightServiceImpl FlightService;
+	private FlightService FlightService;
 	
 	@PostMapping("/searchFlight")
 	public String viewFlight(Model model) {
