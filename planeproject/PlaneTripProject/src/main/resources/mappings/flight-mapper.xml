@@ -6,12 +6,12 @@
 <mapper namespace="FlightDAO">
 	<!-- 쿼리 작성 영역 -->
 	<!-- 이름 추가 쿼리 -->
-	<select id="viewFlight" parameterType="" resultType="">
+	<select id="viewFlight">
 		SELECT * FROM FLIGHT 
-		WHERE AND
+		WHERE  AND  
 	</select>
 	
-	<select id="viewAirport" parameterType="" resultType="">
+	<select id="viewAirport">
 		SELECT * FROM AIRPORT 
 		WHERE AND
 	</select>
