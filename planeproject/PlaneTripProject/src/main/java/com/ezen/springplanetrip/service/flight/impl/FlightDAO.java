@@ -21,7 +21,5 @@ public class FlightDAO {
 	public List<AirportVO> viewAirport(AirportVO airportVO) {
 		return mybatis.selectList("FlightDAO", airportVO);
 	}
-	
-	
-	
+
 }
