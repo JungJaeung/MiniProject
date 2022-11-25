@@ -270,7 +270,7 @@
         //도착지 입력창
         $("#arrive_point").click(function(e){
             if(!flag){
-                alert("에ㅇㅇ에에에에ㅔ")
+                alert("선택할 항목을 모두 선택해주세요.")
                 return;
             }
             else

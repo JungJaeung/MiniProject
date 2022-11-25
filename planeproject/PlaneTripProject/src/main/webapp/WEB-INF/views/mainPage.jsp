@@ -594,7 +594,8 @@
 
         //항공권 검색 버튼
         $("#serch").click(function(){
-            console.log("asdf");
+        	submit();
+            console.log("항공권을 검색");
         })
         
     })
