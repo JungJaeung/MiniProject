@@ -22,7 +22,7 @@
 	    /* 상단 메뉴 */
 	    #img_logo{ width: 250px; object-fit: cover;margin-top : -40px; margin-left : 0px}
 	    #img_menu{ width: 30px; object-fit: cover}
-	    #middle_container{ width: 1200px; height: 70px; display: inline-block;}
+	    #middle_container{ width: 1200px; height: 90px; display: inline-block;}
 	    #middle_menu{padding-top: 15px;}
 	    #middle_menu ul, #middle_menu li{ list-style: none;}
 	    #middle_menu ul li{ float: left;}
@@ -33,8 +33,8 @@
 	    
 	    /* 상단 메뉴 - 카테고리 메뉴*/
 	    #category{ width: 100%; height: 100%; display: none;
-	        position: absolute; top: 150px; left: 0; text-align: center; z-index: 3;}
-	    #category_menu{ width: 1200px; background-color: aqua;}
+	        position: absolute; top: 130px; left: 0; text-align: center; z-index: 3;}
+	    #category_menu{ width: 1200px;}
 	    #category_menu{ background-color: white; width: 100%; height: 280px;}
 	    #category_menu ul, #category li{ list-style: none; padding: 0; margin: 0;}
 	    #category_menu ul{ margin-top: 40px; font-weight: bold;}
