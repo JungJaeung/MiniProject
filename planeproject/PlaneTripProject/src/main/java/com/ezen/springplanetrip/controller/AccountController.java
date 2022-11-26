@@ -20,7 +20,7 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
-	public String reserve(PassengerVO passengerVO) {
+	public String reserve(UserVO userVO) {
 		return null;
 	}
 
@@ -28,11 +28,11 @@ public class AccountController {
 		return null;
 	}
 
-	public String quit(PassengerVO passengerVO) {
+	public String quit(UserVO userVO) {
 		return null;
 	}
 
-	public String updateInfo(PassengerVO passengerVO) {
+	public String updateInfo(UserVO userVO) {
 		return null;
 	}
 	
@@ -87,7 +87,7 @@ public class AccountController {
 		if(idCheck < 1) {
 			return "idFail";
 		} else {
-			PassengerVO loginUser = accountService.login(userVO);
+			UserVO loginUser = accountService.login(userVO);
 			
 			if(loginUser == null) {
 				return "pwFail";
@@ -102,7 +102,7 @@ public class AccountController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:/mainPage.jsp";
+		return "redirect: /mainPage.jsp";
 	}
 	
 	//-----------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ public class AccountController {
 		@PostMapping(value="findId.do")
 		@ResponseBody
 		public String findIdAction(UserVO userVO) {
-			PassengerVO user = accountService.findId(userVO);
+			UserVO user = accountService.findId(userVO);
 			String idCheck = ""; 
 			if(user == null) { 
 				idCheck = "noexist";
@@ -137,7 +137,7 @@ public class AccountController {
 		@PostMapping(value="findPassword.do")
 		@ResponseBody
 		public String findPasswordAction(UserVO userVO) {
-			PassengerVO user = accountService.findPassword(userVO);
+			UserVO user = accountService.findPassword(userVO);
 			
 			String passwordCheck = ""; 
 			if(user == null) { 

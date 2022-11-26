@@ -7,16 +7,16 @@
 <meta charset="UTF-8">
 <title>Find Password</title>
 <style>
-    h2 { margin-bottom: 80px;} 
+    h2 { margin-bottom: 30px;} 
     form {
         display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-        margin-top:  250px;
+		margin-top : 10px;
     }
-    .form-label-group { width : 400px;}
-    input { border : 0px; width: 400px; height: 30px; margin-top: 10px;} 
+    .form-label-group { width : 300px;}
+    input { border : 0px; width: 300px; height: 30px; margin-top: 10px;} 
     .btn { height: 40px; background-color: #787878; color: white; font-size: 1.0em;}
 
 </style>

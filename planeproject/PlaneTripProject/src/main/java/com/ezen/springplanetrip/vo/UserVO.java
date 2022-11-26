@@ -7,7 +7,7 @@ public class UserVO {
 	private String firstName;
 	private String lastName;
 	private String fullName;
-	private String passWord;
+	private String password;
 	private String phone;
 	private String email;
 	private String address;
@@ -38,11 +38,11 @@ public class UserVO {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public String getPassWord() {
-		return passWord;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getPhone() {
 		return phone;
@@ -84,7 +84,7 @@ public class UserVO {
 	@Override
 	public String toString() {
 		return "UserVO [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName="
-				+ fullName + ", passWord=" + passWord + ", phone=" + phone + ", email=" + email + ", address=" + address
+				+ fullName + ", passWord=" + password + ", phone=" + phone + ", email=" + email + ", address=" + address
 				+ ", birthDate=" + birthDate + ", gender=" + gender + ", userRole=" + userRole + "]";
 	}
 	
