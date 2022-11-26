@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.service.flight.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,12 @@ public class FlightDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	public List<FlightVO> viewFlight(FlightVO flightVO) {
-		return mybatis.selectList("FlightDAO.viewFlight", flightVO);
+	public List<FlightVO> viewFlight(Map<String, Object> flightMap) {
+		return mybatis.selectList("FlightDAO.viewFlight", flightMap);
 	}
 
-	public List<AirportVO> viewAirport(AirportVO airportVO) {
-		return mybatis.selectList("FlightDAO", airportVO);
+	public List<AirportVO> viewAirport(Map<String, String> airportMap) {
+		return mybatis.selectList("FlightDAO.viewAirport", airportMap);
 	}
 
 }
