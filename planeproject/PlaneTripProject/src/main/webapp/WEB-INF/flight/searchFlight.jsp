@@ -173,8 +173,9 @@
             
 		/* 조회된 비행편 정렬되는 창 */
 		#flightList {
-			width: 100%; height: 300px;
+			width: 100%; height: 500px;
 			border: 1px solid black;
+			text-align: center;
 		}
 		#f_table {
 			width: 95%;
@@ -187,6 +188,23 @@
 		#f_table td, #f_table th {
 			border: 1px solid black;
 		}
+		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
+		#pageNumber {
+			text-align: center;
+			width: 200px; height: 50px;
+			border: 1px solid black;
+		}
+		.pagination {
+			list-style: none;
+			width: 100%;
+			display: inline-block;
+		}
+		
+		.pagination_button {
+			float: left;
+			margin-left: 5px;
+		}
+		
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -633,20 +651,24 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="flight/searchFlight.do" method="post">
-                        <input type="button" id="starting_point" value="출발지">
-                      	<input type="hidden" id="departPointId" name="departPointId" value="">
+                    <form id="info" action="/flight/searchFlight.do" method="post">
+                        <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
+                      	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="도착지">
-                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="">
-                        <input type="button" id="calendar_date" name="calendar" value="2022.11.20 ~ 2022.11.21">
-                        <input type="hidden" id="minimumDate" name="minimumDate" value="">
-                        <input type="hidden" id="maximumDate" name="maximumDate" value="">
-                        <input type="button" id="person" name="passengerNumber" value="성인1">
-                       	<input type="hidden" id="adultNumber" name="adultNumber" value="">
-                       	<input type="hidden" id="childNumber" name="childNumber" value="">
-                       	<input type="hidden" id="babyNumber" name="babyNumber" value="">
+                        <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
+                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
+                        <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
+                        <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
+                       	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
+                       	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
+                       	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
+                        
                         <input type="button" id="serch" value="항공권 검색" disabled>
+                    	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+						<input type="hidden" name="refresh" value="0">
                     </form>
                 </div>
                 <div id="starting_point_serch">
@@ -765,7 +787,6 @@
             </div>
         </div>
     </div>
-	</div>
       <div id="flightList">
       	<table id="f_table">
        		<tr>
@@ -775,7 +796,7 @@
 				<th>도착지</th>
 			</tr>
 			<c:forEach items="${flightList }" var="flightList">
-				<tr>
+				<tr class="list">
 					<td>${flightList.flightCode }</td>
 					<td>
 						<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
@@ -790,8 +811,56 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div id="pageNumber">
+			<ul class="pagination">
+				<c:if test="${pageVO.prev }">
+					<li class="pagination_button">
+						<a href="${pageVO.cri.pageNum - 1 }">이전</a>
+					</li>
+				</c:if>	
+				<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+					<li class="pagination_button">
+						<a href="${num }">${num }</a>
+					</li>
+				</c:forEach>
+				<c:if test="${pageVO.next}">
+					<li class="pagination_button">
+						<a href="${pageVO.cri.pageNum + 1 }">다음</a>
+					</li>
+				</c:if>
+			</ul>
+		</div>
+		<form id="checkFlight" action="/flight/checkFlight.do" method="post">
+			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+			<input type="hidden" name="refresh" value="0">
+		</form>
 		<button id="selectButton">가는편 선택</button>
 	</div>
 	<jsp:include page="../views/footer.jsp"></jsp:include>
+		
+	<script>
+		$(function() {
+			$(".pagination a").on("click", function(e) {
+				e.preventDefault();
+				
+				$("input[name='refresh']").val($(this).attr("href"));
+				$("input[name='pageNum']").val($(this).attr("href"));
+				$("#info").submit();
+			});
+			
+			$(".list").on("click", function() {
+				console.log("click");
+				$("#checkFlight").submit();
+			});
+			
+			$("#selectButton").on("click", function() {
+				$("input[name='pageNum']").val(1);
+				
+				$("#searchForm").submit();
+			});
+		});
+	</script>
+	
 </body>
 </html>
