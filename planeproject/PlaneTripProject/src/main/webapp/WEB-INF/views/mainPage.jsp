@@ -20,8 +20,8 @@
 	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center;}
     #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
-    h2, #route { font-family: 'Noto Sans KR', sans-serif;margin-top: 25px;}
-    h2 { text-align: left;}
+    #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
+    h2 { text-align: left; margin-top: 25px;font-family: 'Noto Sans KR', sans-serif;}
     sup { font-size: 1em;}
     #main_banner { width: 1700px;margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center; margin-top : -50px}
  
