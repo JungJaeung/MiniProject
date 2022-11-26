@@ -87,7 +87,7 @@
 				<label for="email">아이디</label>
 			</div>
 			<div>
-				<input type="text" id="email" name="email" required">
+				<input type="text" id="email" name="email" required>
 				<button type="button" id="btnIdCheck" style="width: 100px;">중복체크</button>
 			</div>
 			<hr>
