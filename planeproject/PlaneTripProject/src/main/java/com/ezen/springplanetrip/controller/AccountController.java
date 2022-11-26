@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.springplanetrip.service.account.AccountService;
-import com.ezen.springplanetrip.vo.PassengerVO;
 import com.ezen.springplanetrip.vo.UserVO;
 
 @Controller

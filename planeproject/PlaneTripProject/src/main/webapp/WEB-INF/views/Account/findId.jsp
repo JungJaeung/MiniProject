@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Find ID</title>
+<title>아이디 찾기</title>
 <style>
+	#img_find { width : 20px; height : 20px;}
+	body{ background-color :  #F6F6F6;}
     h2 { margin-bottom: 30px;} 
     form {
         display: flex;
@@ -16,14 +18,14 @@
 		margin-top : 45px;
     }
     .form-label-group { width : 300px;}
-    input { border : 0px; width: 300px; height: 30px; margin-top: 10px;} 
+    input { border : 0px; width: 300px; height: 30px; margin-top: 10px; background-color : #F6F6F6;} 
     .btn { height: 40px; background-color: #787878; color: white; font-size: 1.0em;}
 
 </style>
 </head>
 <body>
 	<form method="post" class="form-signin" action="/Account/findId.do" name="findForm">
-        <h2>아이디 찾기</h2>
+		<h2><img id="img_find" src="${pageContext.request.contextPath}/resources/images/find.png"> 아이디 찾기</h2>
 		<div class="form-label-group">
             <label for="fullName">이름</label><br>
 			<input type="text" id="fullName" name="fullName" class="form-control"/>

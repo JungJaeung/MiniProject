@@ -7,4 +7,57 @@
 	<!-- 쿼리 작성 영역 -->
 	<!-- 이름 추가 쿼리 -->
 	
+	<select id="idCheck" parameterType="string" resultType="int">
+		SELECT COUNT(EMAIL)
+			FROM USER
+			WHERE EMAIL = #{email}
+	</select>
+	
+	<insert id="join" parameterType="user">
+	<![CDATA[
+		INSERT INTO USER(
+			EMAIL,
+			PASSWORD,
+			LAST_NAME,
+			FIRST_NAME,
+			GENDER,
+			BIRTHDATE,
+			PHONE,
+			ADDRESS
+		) VALUES (
+			#{email},
+			#{password},
+			#{lastName},
+			#{firstName},
+			#{gender},
+			#{birthDate},
+			#{phone},
+			#{address}
+		)
+	]]>
+	</insert>
+	
+	<select id="login" parameterType="user" resultType="user">
+	<![CDATA[
+		SELECT USER_ID
+			 , EMAIL
+			 , FULL_NAME
+			 , GENDER
+			 , BIRTHDATE
+			 , PHONE
+			 , ADDRESS
+			 , USER_ROLE
+			FROM USER
+			WHERE EMAIL = #{email}
+			  AND PASSWORD = #{password}
+	]]>
+	</select>
+	
+	<select id="findId" resultType="user">
+		SELECT * FROM USER WHERE FULL_NAME=#{fullName} AND PHONE=#{phone}
+	</select>
+	
+	<select id="findPassword" resultType="user">
+		SELECT * FROM USER WHERE EMAIL=#{email} AND FULL_NAME=#{fullName} AND PHONE=#{phone}
+	</select>
 </mapper>

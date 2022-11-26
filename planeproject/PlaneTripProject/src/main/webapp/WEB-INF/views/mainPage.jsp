@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main Page Slide Banner</title>
+<title>STN</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,23 +17,14 @@
 
 <style>
 	body { background-color : #F6F6F6;}
-	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
+	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center;}
     #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
-    h2, #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
-    h2 { text-align: left;}
+    #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
+    h2 { text-align: left; margin-top: 25px;font-family: 'Noto Sans KR', sans-serif;}
     sup { font-size: 1em;}
-    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center; margin-top : -50px}
+    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center; margin-top : -50px}
  
-    #footer_container{ width: 1200px; margin-top: -10px; display: inline-block;justify-content: center; }
-    #footer_menu li:first-child { margin-left : 190px;}
-    #footer_menu ul {margin-top : 20px;}
-    #footer_menu ul,  #footer_menu li{ list-style: none;}
-    #footer_menu ul li{ margin-right: 100px; float: left;}
-    #footer_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Jua', sans-serif;
-        text-decoration: none; color: inherit;}
-    #footer_p { font-family: 'Jua', sans-serif;justify-content: center; text-align : center; margin-top : 30px;}
-	
 </style>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
@@ -59,32 +50,32 @@
             border-radius: 10px; background-color : white;}
         #way ul, #way li{ list-style: none;}
         #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: light;
-            font-family: 'Jua', sans-serif; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-size: medium;}
         #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none; margin-left : 125px}
         #oneway{ text-decoration: none; color: inherit; }
 
         #form_div{clear: both; padding-top: 20px; text-align: left;}
         #starting_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer; margin-left: 165px;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent; 
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
         #swap{ width: 30px; height: 30px; border: none; margin-left: 10px; margin-right: 10px;
             background: url( "../../resources/images/arrow.png") no-repeat; cursor: pointer; border-radius: 100%;}
         #arrive_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
         #calendar_date{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
             background-image: url("../../resources/images/calendar.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: left; cursor: pointer;
             border-style: none; border-bottom: solid #c8c8c8 1px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
         #person{ width: 270px; height: 43px; margin-top: 20px; background-color: transparent;
             background-image: url("../../resources/images/person.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: 10px center; cursor: pointer;
             border-style: none;  border-bottom: solid #c8c8c8 1px; margin-left: 165px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
         #serch{ width: 200px; height: 50px; margin-left: 400px; margin-top: 30px; cursor: pointer;
             background-color: #aaaaaa; color: white; border: none; border-radius: 5px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
             
         /*출발지*/
         #starting_point_serch{ width: 950px; height: 400px; background-color: white;
@@ -95,7 +86,7 @@
         #dummy_serch_img{ width: 20px; height: 20px; float: left; cursor: pointer;
              margin-top: 25px; margin-left: 30px;}
         #dummy_serch input{ width: 830px; height: 40px; margin: 10px; float: left; border: none;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large; outline: none;
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large; outline: none;
             margin-top : 14px;}
         .close{ width: 20px; height: 20px; float: right; cursor: pointer;
             margin-top: 25px; margin-right: 25px;}
@@ -104,14 +95,14 @@
         #starting_point_list1 ul { margin-left : -40px; margin-top : -5px; list-style: none;}
         #starting_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #starting_point_list1 li:first-child{ background-color: white;}
 
         #starting_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
         #starting_point_list2 ul { margin-top : -5px; list-style: none;}
         #starting_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #starting_point_list2 div:first-child{ padding-top: 15px;}
         #starting_point_list2 li a{ color: #aaaaaa;}
 
@@ -124,13 +115,13 @@
         #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;  list-style: none;}
         #arrive_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
             background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #arrive_point_list1 li:first-child{ background-color: white;}
         #arrive_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
         #arrive_point_list2 ul { margin-top : -5px;  list-style: none;}
         #arrive_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer; 
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #arrive_point_list2 div:first-child{ padding-top: 15px;}
         
         /* 날짜 선택(달력) */
