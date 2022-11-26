@@ -15,6 +15,7 @@ import com.ezen.springplanetrip.service.flight.FlightService;
 import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
+import com.ezen.springplanetrip.vo.PageVO;
 
 @Controller
 @RequestMapping("/flight")
@@ -27,17 +28,24 @@ public class FlightController {
 		//검색하려는 비행편 정보를 담을 인스턴스
 		Map<String, Object> flightMap = new HashMap<String, Object>();
 		
-		flightMap.put("flightMap", flyMap);
 		
-		List<FlightVO> flightList = flightService.viewFlight(flightMap);
-		System.out.println(flightList.toString());
+		cri.setAmount(8);	//페이지당 8개만 표시
+		flightMap.put("flightMap", flyMap);
+		model.addAttribute("flightInfo", flyMap);
+		
+		List<FlightVO> flightList = flightService.viewFlight(flightMap, cri);
+		System.out.println(flightList.get(0).getAirportDpt());
+		model.addAttribute("flightList", flightList);
+	
+		
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
-		
 		model.addAttribute("airportList", airportList);
-		
-		model.addAttribute("flightList", flightList);
-		
+		//페이지 계산
+		int total = flightService.getFlightTotalCnt(flightMap);
+		System.out.println("총 개수 : " + total);
+		model.addAttribute("pageVO", new PageVO(cri, total));
+		System.out.println(flyMap.get("refresh"));
 		return "../flight/searchFlight";
 	}
 	

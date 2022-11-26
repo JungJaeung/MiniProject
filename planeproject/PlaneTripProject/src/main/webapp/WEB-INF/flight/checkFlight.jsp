@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예약 정보 확인</title>
 </head>
 <body>
 	<c:if test="${flightInfo } == null">
-		<h2>예약정보를 찾지 못했습니다. 다시 검색해주세요.</h2>
+		
 	</c:if>
 </body>
 </html>
