@@ -9,7 +9,7 @@
 	body { background-color : #F6F6F6;}
 	
 	#r_arrow { width : 10px; height : 15px; margin-right : 15px; margin-left : 15px;}
-	
+	#login_img { width : 40px; height : 40px; margin-bottom : 28px; margin-right : 60px;}
 	#p_location { 
 		width : 100%;
 		height : 50px;
@@ -43,6 +43,7 @@
 		padding-right : 200px;
 		padding-top : 40px;
 		padding-bottom : 55px;
+		border-radius : 10px;
 	}
 	
 	#loginForm .label-wrapper {
@@ -63,7 +64,7 @@
 		align-items: center;
 	}
 	.form-wrapper input { border : 0px; height: 30px;} 
-	.btn_s { width: 300px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em;}
+	.btn_s { width: 300px; height: 50px; border-radius: 4px; border : 0px; background-color: #787878; color: white; font-size: 1.0em;}
 	#find { text-align: center; justify-content: center; margin-top: 15px; font-size : 0.9em;}
 	#a_find { margin-left: 30px; margin-right: 30px;}
 	
@@ -85,7 +86,10 @@
 	<div class="form-wrapper">
 		<form id="loginForm">
 			<input type="hidden" id="joinMsg" value="${joinMsg }">
-			<h1>로그인</h1>
+			<div>
+				<img id="login_img" src="${pageContext.request.contextPath}/resources/images/login.png">
+				<h1>로그인</h1>
+			</div>
 			<div class="label-wrapper">
 				<label for="email">아이디</label>
 			</div>

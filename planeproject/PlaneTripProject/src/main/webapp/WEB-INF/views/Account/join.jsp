@@ -9,6 +9,7 @@
 	body { background-color : #F6F6F6;}
 	
 	#r_arrow { width : 10px; height : 15px; margin-right : 15px; margin-left : 15px;}
+	#join_img { width : 30px; height : 30px; margin-bottom : 40px; margin-right : 124px;}
 	
 	#p_location { 
 		width : 100%;
@@ -67,7 +68,7 @@
 		margin-left: 55px;
 	}
 
-	#btnJoin { width: 400px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
+	#btnJoin { width: 400px; height: 50px; border-radius: 4px; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
 
 	.label-wrapper { margin-bottom: 10px;}
 </style>
@@ -82,8 +83,11 @@
 	<div class="form-wrapper">
 		<form id="joinForm" action="/Account/join.do" method="post">
 			<input type="hidden" id="joinMsg" value="${joinMsg}">
-			<h2 style="margin-bottom : 60px;">회원가입</h2>
-				<div class="label-wrapper">
+			<div>
+				<img id="join_img" src="${pageContext.request.contextPath}/resources/images/join.png">
+				<h2 style="margin-bottom : 60px;">회원가입</h2>
+			</div>
+			<div class="label-wrapper">
 				<label for="email">아이디</label>
 			</div>
 			<div>
