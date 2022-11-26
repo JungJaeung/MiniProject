@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
 <style>
+	#img_find { width : 20px; height : 20px;}
 	body {background-color :  #F6F6F6;}
     h2 { margin-bottom: 30px;} 
     form {
@@ -24,7 +25,7 @@
 </head>
 <body>
 	<form method="post" class="form-signin" action="find_password" name="findForm">
-	<h2>비밀번호 찾기</h2>
+	<h2><img id="img_find" src="${pageContext.request.contextPath}/resources/images/find.png"> 비밀번호 찾기</h2>
 		<div class="form-label-group">
             <label for="email">아이디</label>
 			<input type="text" id="email" name="email" class="form-control"/>

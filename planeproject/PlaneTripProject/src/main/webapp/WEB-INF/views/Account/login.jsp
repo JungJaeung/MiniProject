@@ -102,7 +102,7 @@
 			<hr>
 			<div id="find">
 				<a href="" onclick="window.open('/Account/findId.do','아이디 찾기', 'width=500px, height=500px');return false" id ="a_find">아이디 찾기</a>
-				<a href="" onclick="window.open('/Account/findPassword.do','비밀번호 찾기', 'width=500px, height=500px');return false" id ="a_find">비밀번호 찾기</a>
+				<a href="" onclick="window.open('/Account/findPassword.do','비밀번호 찾기', 'width=500px, height=530px');return false" id ="a_find">비밀번호 찾기</a>
 			</div>
 			<div style="display: block; margin: 8px auto; margin-top : 60px;">
 				<button type="button" id="btnLogin" class="btn_s">로그인</button>
