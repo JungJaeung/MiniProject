@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Find Password</title>
+<title>비밀번호 찾기</title>
 <style>
 	body {background-color :  #F6F6F6;}
     h2 { margin-bottom: 30px;} 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Find ID</title>
+<title>아이디 찾기</title>
 <style>
 	body{ background-color :  #F6F6F6;}
     h2 { margin-bottom: 30px;} 
