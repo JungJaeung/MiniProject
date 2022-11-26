@@ -6,18 +6,38 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	body { background-color : #F6F6F6;}
+	
+	#p_location { 
+		height : 50px;
+		color:#848484; 
+		background-color :#d2d2d2; 
+		margin-top : 15px; 
+		margin-bottom : 15px; 
+		font-size : 0.9em;
+		border-top : 2px solid orange;
+		border-bottom : 2px solid orange;
+	}
+	 
 	.form-wrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin-bottom : 55px;
+		margin-top : 55px;
 	}
-
-	h2 { text-align: left; margin-bottom: 70px; margin-top: 250px;}
+	hr { border : 1px solid #d2d2d2;}
+	h2 { text-align: center; margin-bottom: 50px;}
 	
 	#loginForm {
-		width: 400px;
+		width: 300px;
 		text-align: center;
+		border : 2px solid #d2d2d2;
+		padding-left : 200px;
+		padding-right : 200px;
+		padding-top : 40px;
+		padding-bottom : 55px;
 	}
 	
 	#loginForm .label-wrapper {
@@ -30,16 +50,18 @@
 	
 	#loginForm input {
 		width: 100%;
+		background-color : #F6F6F6;
 	}
 	
 	#loginForm div {
 		display: flex;
 		align-items: center;
 	}
-	input { border : 0px; height: 30px;} 
-	#btnLogin { width: 400px; height: 60px; margin-top: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em;}
-	#find { text-align: center; justify-content: center; margin-top: 20px;}
-	a { margin-left: 50px; margin-right: 50px;}
+	.form-wrapper input { border : 0px; height: 30px;} 
+	.btn_s { width: 300px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em;}
+	#find { text-align: center; justify-content: center; margin-top: 15px; font-size : 0.9em;}
+	#a_find { margin-left: 30px; margin-right: 30px;}
+	
 	
 </style>
 <style type="text/css">
@@ -49,8 +71,13 @@
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
-	
+	<jsp:include page="../header.jsp"></jsp:include>
+	<!-- header 폭 정해지면 수정 -->
+	<div id="p_location">
+		<div>
+			<span>홈 > 회원가입(수정예정)</span>
+		</div>
+	</div>
 	<div class="form-wrapper">
 		<form id="loginForm">
 			<input type="hidden" id="joinMsg" value="${joinMsg }">
@@ -66,16 +93,18 @@
 			<input type="password" id="password" name="password" required>
 			<hr>
 			<div id="find">
-				<a href="/Account/findId.do">아이디 찾기</a>
-				<a href="/Account/findPassword.do">비밀번호 찾기</a>
+				<a href="" onclick="window.open('/Account/findId.do','아이디 찾기', 'width=500px, height=500px');return false" id ="a_find">아이디 찾기</a>
+				<a href="" onclick="window.open('/Account/findPassword.do','비밀번호 찾기', 'width=500px, height=500px');return false" id ="a_find">비밀번호 찾기</a>
 			</div>
-			<div style="display: block; margin: 20px auto;">
-				<button type="button" id="btnLogin">로그인</button>
+			<div style="display: block; margin: 8px auto; margin-top : 60px;">
+				<button type="button" id="btnLogin" class="btn_s">로그인</button>
+			</div>
+			<div style="display: block; margin: 5px auto;">
+				<button type="button" class="btn_s" onclick="location.href='/Account/join.do';">회원가입</button>
 			</div>
 		</form>
 	</div>
-	
-	<jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 	
 	<script>
 		$(function() {
@@ -108,7 +137,7 @@
 						}
 						
 						//로그인 처리
-						location.href="/mainPage.jsp";
+						location.href="../mainPage.jsp";
 						
 					},
 					error: function(e) {

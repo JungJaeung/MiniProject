@@ -12,7 +12,16 @@
 		justify-content: center;
 		align-items: center;
 		background: #d2d2d2;
+		border-top: 2px solid orange;
 	}
+	#footer_container{ width: 1200px; margin-top: -10px; display: inline-block;justify-content: center;}
+    #footer_menu li:first-child { margin-left : 190px;}
+    #footer_menu ul {margin-top : 20px;}
+    #footer_menu ul,  #footer_menu li{ list-style: none;}
+    #footer_menu ul li{ margin-right: 100px; float: left;}
+    #footer_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Jua', sans-serif;
+        text-decoration: none; color: inherit;}
+    #footer_p { font-family: 'Jua', sans-serif;justify-content: center; text-align : center; margin-top : 30px;}
 </style>
 </head>
 <body>

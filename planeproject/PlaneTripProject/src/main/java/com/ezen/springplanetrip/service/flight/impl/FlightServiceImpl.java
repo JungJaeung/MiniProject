@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.service.flight.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,13 @@ public class FlightServiceImpl implements FlightService{
 	private FlightDAO flightDAO;
 
 	@Override
-	public List<FlightVO> viewFlight(FlightVO flightVO) {
-		return flightDAO.viewFlight(flightVO);
+	public List<FlightVO> viewFlight(Map<String, Object> flightMap) {
+		return flightDAO.viewFlight(flightMap);
 	}
 
 	@Override
-	public List<AirportVO> viewAirport(AirportVO airportVO) {
-		return flightDAO.viewAirport(airportVO);
+	public List<AirportVO> viewAirport(Map<String, String> airportMap) {
+		return flightDAO.viewAirport(airportMap);
 	}
 	
 	

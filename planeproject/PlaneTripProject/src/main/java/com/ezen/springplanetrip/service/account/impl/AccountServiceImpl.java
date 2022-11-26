@@ -19,12 +19,12 @@ public class AccountServiceImpl implements AccountService{
 		return accountDAO.join(userVO);
 	}
 	@Override
-	public PassengerVO login(UserVO userVO) {
+	public UserVO login(UserVO userVO) {
 		return accountDAO.login(userVO); 
 	}
 	
 	@Override
-	public List<PassengerVO> viewMypage(){
+	public List<UserVO> viewMypage(){
 		return accountDAO.viewMypage(); 
 	}
 	
@@ -44,12 +44,12 @@ public class AccountServiceImpl implements AccountService{
 	}
 	
 	@Override
-	public PassengerVO findId(UserVO userVO) {
+	public UserVO findId(UserVO userVO) {
 		return accountDAO.findId(userVO);
 	}
 
 	@Override
-	public PassengerVO findPassword(UserVO userVO) {
+	public UserVO findPassword(UserVO userVO) {
 		return accountDAO.findPassword(userVO);
 	}
 }
