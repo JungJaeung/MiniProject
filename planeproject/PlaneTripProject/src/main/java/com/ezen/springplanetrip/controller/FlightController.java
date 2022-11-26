@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.service.flight.FlightService;
 import com.ezen.springplanetrip.vo.AirportVO;
+import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 
 @Controller
@@ -22,7 +23,7 @@ public class FlightController {
 	private FlightService flightService;
 	
 	@PostMapping("/searchFlight.do")
-	public String viewFlight(Model model, @RequestParam Map<String, Object> flyMap) {
+	public String viewFlight(Model model, @RequestParam Map<String, Object> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
 		Map<String, Object> flightMap = new HashMap<String, Object>();
 		
