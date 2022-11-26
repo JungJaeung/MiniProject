@@ -6,11 +6,12 @@ import java.util.Date;
 
 public class FlightVO {
 	private int filghtId;
+	private String flightCode;
 	private Date departTime;
 	private Date arrivalTime; 
 	private int aircraftId;
-	private int airportCityId; 
-	private int airportId;
+	private String airportDpt;
+	private String airportArv;
 	
 	public int getFilghtId() {
 		return filghtId;
@@ -20,6 +21,15 @@ public class FlightVO {
 		this.filghtId = filghtId;
 	}
 	
+	
+	public String getFlightCode() {
+		return flightCode;
+	}
+
+	public void setFlightCode(String flightCode) {
+		this.flightCode = flightCode;
+	}
+
 	public Date getDepartTime() {
 		return departTime;
 	}
@@ -43,27 +53,29 @@ public class FlightVO {
 	public void setAircraftId(int aircraftId) {
 		this.aircraftId = aircraftId;
 	}
-	
-	public int getAirportCityId() {
-		return airportCityId;
+
+	public String getAirportDpt() {
+		return airportDpt;
 	}
-	
-	public void setAirportCityId(int airportCityId) {
-		this.airportCityId = airportCityId;
+
+	public void setAirportDpt(String airportDpt) {
+		this.airportDpt = airportDpt;
 	}
-	
-	public int getAirportId() {
-		return airportId;
+
+	public String getAirportArv() {
+		return airportArv;
 	}
-	
-	public void setAirportId(int airportId) {
-		this.airportId = airportId;
+
+	public void setAirportArv(String airportArv) {
+		this.airportArv = airportArv;
 	}
 
 	@Override
 	public String toString() {
-		return "FlightVO [filghtId=" + filghtId + ", departTime=" + departTime + ", arrivalTime=" + arrivalTime
-				+ ", aircraftId=" + aircraftId + ", airportCityId=" + airportCityId + ", airportId=" + airportId + "]";
+		return "FlightVO [filghtId=" + filghtId + ", flightCode=" + flightCode + ", departTime=" + departTime
+				+ ", arrivalTime=" + arrivalTime + ", aircraftId=" + aircraftId + ", airportDpt=" + airportDpt
+				+ ", airportArv=" + airportArv + "]";
 	}
+
 	
 }
