@@ -87,8 +87,16 @@
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">고객센터</a></li>
                     <li><a href="#">나의 예약 현황</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">로그인</a></li>
+                    <c:choose>
+                    	<c:when test="${loginUser eq null}">
+                    		<li><a href="/Account/join.do">회원가입</a></li>
+                    		<li><a href="/Account/login.do">로그인</a></li>
+                    	</c:when>
+						<c:otherwise>
+						    <li><a href="/Account/logout.do">로그아웃</a></li>
+                    		<li><a href="#">${loginUser.fullName}님</a></li>
+						</c:otherwise>
+					</c:choose>
                 </ul>
             </nav>
         </div>

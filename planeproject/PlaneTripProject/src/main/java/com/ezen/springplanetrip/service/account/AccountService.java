@@ -10,9 +10,9 @@ public interface AccountService {
 	
 	int join(UserVO userVO);
 	
-	PassengerVO login(UserVO userVO);
+	UserVO login(UserVO userVO);
 	
-	List<PassengerVO> viewMypage();
+	List<UserVO> viewMypage();
 	
 	void quit(UserVO userVO);
 	
@@ -20,8 +20,8 @@ public interface AccountService {
 	
 	int idCheck(String email);
 	
-	PassengerVO findId(UserVO userVO);
+	UserVO findId(UserVO userVO);
 	
-	PassengerVO findPassword(UserVO userVO);
+	UserVO findPassword(UserVO userVO);
 	
 }

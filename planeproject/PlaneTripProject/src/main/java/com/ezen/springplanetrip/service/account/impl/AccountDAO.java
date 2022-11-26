@@ -19,12 +19,12 @@ public class AccountDAO {
 		return mybatis.insert("AccountDAO.join", userVO);
 	}
 	
-	public PassengerVO login(UserVO userVO) {
+	public UserVO login(UserVO userVO) {
 		
 		return mybatis.selectOne("AccountDAO.login", userVO); 
 	}
 	
-	public List<PassengerVO> viewMypage(){
+	public List<UserVO> viewMypage(){
 		
 		return mybatis.selectList("AccountDAO.veiwMypage"); 
 	}
@@ -41,11 +41,11 @@ public class AccountDAO {
 		return mybatis.selectOne("AccountDAO.idCheck", email);
 	}
 	
-	public PassengerVO findId(UserVO userVO) {
+	public UserVO findId(UserVO userVO) {
 		return mybatis.selectOne("AccountDAO.findId", userVO);
 	}
 
-	public PassengerVO findPassword(UserVO userVO) {
+	public UserVO findPassword(UserVO userVO) {
 		return mybatis.selectOne("AccountDAO.findPassword", userVO);
 	}
 }

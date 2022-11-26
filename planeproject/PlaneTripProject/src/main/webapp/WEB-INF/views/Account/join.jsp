@@ -6,11 +6,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	body { background-color : #F6F6F6;}
+	
+	#p_location { 
+		height : 50px;
+		color:#848484; 
+		background-color :#d2d2d2; 
+		margin-top : 15px; 
+		margin-bottom : 15px; 
+		font-size : 0.9em;
+		border-top : 2px solid orange;
+		border-bottom : 2px solid orange;
+	}
+		
 	.form-wrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin-top : 20px;
+		margin-bottom : 30px;
 	}
 	
 	#joinForm {
@@ -29,6 +44,7 @@
 		width: 100%;
 		height: 25px;
 		border: 0px;
+		background-color : #F6F6F6;
 	}
 	
 	#joinForm div {
@@ -41,23 +57,28 @@
 		height: 25px;
 		border-radius: 0; 
 		border : 0px; 
-		background-color: 
-		#787878; 
+		background-color: #787878; 
 		color: white;
 		margin-left: 55px;
 	}
 
-	#btnJoin { width: 300px; height: 40px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
+	#btnJoin { width: 300px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
 
 	.label-wrapper { margin-bottom: 10px;}
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath}"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
+	<!-- header 폭 정해지면 수정 -->
+	<div id="p_location">
+		<div>
+			<span>홈 > 회원가입(수정예정)</span>
+		</div>
+	</div>
 	<div class="form-wrapper">
 		<form id="joinForm" action="/Account/join.do" method="post">
 			<input type="hidden" id="joinMsg" value="${joinMsg}">
-			<h3>회원가입</h3>
+			<h2 style="margin-bottom : 60px;">회원가입</h2>
 				<div class="label-wrapper">
 				<label for="email">아이디</label>
 			</div>
@@ -78,8 +99,8 @@
 				<label for="passwordCheck">비밀번호 확인</label>
 			</div>
 			<input type="password" id="passwordCheck" name="passwordCheck" required>
-			<p id="pwCheckResult" style="font-size: 0.8rem;"></p>
 			<hr>
+			<p id="pwCheckResult" style="font-size: 0.8rem;"></p>
 			<div class="label-wrapper">
 				<label for="lastName">성</label>
 			</div>
@@ -94,8 +115,8 @@
 				<label for="gender">성별</label>
 			</div>
 			<div id="gender_radio">
-				<input type="radio" id="gender" name="gender" value="남성" checked><label for="male" style="width: 100px;">남성</label>
-				<input type="radio" id="gender" name="gender" value="여성"><label for="female" style="width: 100px;">여성</label>
+				<input type="radio" id="gender" name="gender" value="남성" checked style="width : 10px; margin-right : 10px;"><label for="male" style="margin-right : 20px;">남성</label>
+				<input type="radio" id="gender" name="gender" value="여성" style="width : 10px; margin-right : 10px;"><label for="female" style="">여성</label>
 			</div>
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
@@ -116,7 +137,7 @@
 			</div>
 		</form>
 	</div>
-	<jsp:include page="${pageContext.request.contextPath}"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 	<script>
 		$(function() {
 			//회원가입 실패 시 메시지 출력
