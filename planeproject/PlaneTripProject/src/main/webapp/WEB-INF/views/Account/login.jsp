@@ -8,13 +8,18 @@
 <style>
 	body { background-color : #F6F6F6;}
 	
+	#r_arrow { width : 10px; height : 15px; margin-right : 15px; margin-left : 15px;}
+	
 	#p_location { 
+		width : 100%;
 		height : 50px;
+		text-align : center;
+		font-weight : bold;
 		color:#848484; 
 		background-color :#d2d2d2; 
 		margin-top : 15px; 
 		margin-bottom : 15px; 
-		font-size : 0.9em;
+		font-size : 1.1em;
 		border-top : 2px solid orange;
 		border-bottom : 2px solid orange;
 	}
@@ -24,11 +29,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-bottom : 55px;
-		margin-top : 55px;
+		margin-bottom : 80px;
+		margin-top : 80px;
 	}
 	hr { border : 1px solid #d2d2d2;}
-	h2 { text-align: center; margin-bottom: 50px;}
+	h1 { text-align: center; margin-bottom: 50px;}
 	
 	#loginForm {
 		width: 300px;
@@ -41,7 +46,7 @@
 	}
 	
 	#loginForm .label-wrapper {
-		margin-top: 30px;
+		margin-top: 20px;
 		margin-bottom : 10px;
 		display: flex;
 		justify-content: space-between;
@@ -72,16 +77,15 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
-	<!-- header 폭 정해지면 수정 -->
 	<div id="p_location">
-		<div>
-			<span>홈 > 회원가입(수정예정)</span>
+		<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
+			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">로그인</span>
 		</div>
 	</div>
 	<div class="form-wrapper">
 		<form id="loginForm">
 			<input type="hidden" id="joinMsg" value="${joinMsg }">
-			<h2>로그인</h2>
+			<h1>로그인</h1>
 			<div class="label-wrapper">
 				<label for="email">아이디</label>
 			</div>

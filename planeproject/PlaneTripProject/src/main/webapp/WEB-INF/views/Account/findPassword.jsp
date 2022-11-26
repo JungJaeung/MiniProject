@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Find Password</title>
 <style>
+	body {background-color :  #F6F6F6;}
     h2 { margin-bottom: 30px;} 
     form {
         display: flex;
@@ -16,7 +17,7 @@
 		margin-top : 10px;
     }
     .form-label-group { width : 300px;}
-    input { border : 0px; width: 300px; height: 30px; margin-top: 10px;} 
+    input { border : 0px; width: 300px; height: 30px; margin-top: 10px; background-color : #F6F6F6;} 
     .btn { height: 40px; background-color: #787878; color: white; font-size: 1.0em;}
 
 </style>

@@ -8,13 +8,18 @@
 <style>
 	body { background-color : #F6F6F6;}
 	
+	#r_arrow { width : 10px; height : 15px; margin-right : 15px; margin-left : 15px;}
+	
 	#p_location { 
+		width : 100%;
 		height : 50px;
+		text-align : center;
+		font-weight : bold;
 		color:#848484; 
 		background-color :#d2d2d2; 
 		margin-top : 15px; 
 		margin-bottom : 15px; 
-		font-size : 0.9em;
+		font-size : 1.1em;
 		border-top : 2px solid orange;
 		border-bottom : 2px solid orange;
 	}
@@ -29,7 +34,7 @@
 	}
 	
 	#joinForm {
-		width: 300px;
+		width: 400px;
 		text-align: center;
 	}
 	
@@ -62,17 +67,16 @@
 		margin-left: 55px;
 	}
 
-	#btnJoin { width: 300px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
+	#btnJoin { width: 400px; height: 50px; border-radius: 0; border : 0px; background-color: #787878; color: white; font-size: 1.0em; margin-top: 10px;}
 
 	.label-wrapper { margin-bottom: 10px;}
 </style>
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
-	<!-- header 폭 정해지면 수정 -->
 	<div id="p_location">
-		<div>
-			<span>홈 > 회원가입(수정예정)</span>
+		<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
+			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">회원가입</span>
 		</div>
 	</div>
 	<div class="form-wrapper">
@@ -83,10 +87,13 @@
 				<label for="email">아이디</label>
 			</div>
 			<div>
-				<input type="text" id="email" name="email" required style="width: auto;">
-				<button type="button" id="btnIdCheck" style="width: 70px">중복체크</button>
+				<input type="text" id="email" name="email" required">
+				<button type="button" id="btnIdCheck" style="width: 100px;">중복체크</button>
 			</div>
 			<hr>
+			<p id="idValidation" style="color: red; font-size: 0.8rem;">
+				이메일은 ***@*** 형식에 맞게 작성해주세요.
+			</p>
 			<div class="label-wrapper">
 				<label for="password">비밀번호</label>
 			</div>
@@ -147,11 +154,14 @@
 			
 			//id 중복체크 했는지 확인하는 플래그
 			var checkId = false;
+			//email가 형식에 맞게 작성됐는지
+			var idValidation = false;
 			//password가 형식에 맞게 작성됐는지(특수문자 + 영문자 + 숫자 8자리)
 			var pwValidation = false;
 			//password가 확인란과 일치하는지
 			var pwCheck = false;
 			
+			$("#idValidation").hide();
 			$("#pwValidation").hide();
 			$("#pwCheckResult").hide();
 			
@@ -185,6 +195,22 @@
 			$("#email").on("change", function() {
 				checkId = false;
 				$("#btnIdCheck").attr("disabled", false);
+			});
+			//이메일 유효성 검사
+			function validateId(character) {
+				return /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(character);
+			}
+			
+			$("#email").on("change", function() {
+				//비밀번호 유효성 처리
+				if(!validateId($("#email").val())) {
+					idValidation = false;
+					$("#idValidation").show();
+					$("#email").focus();
+				} else {
+					idValidation = true;
+					$("#idValidation").hide();
+				}
 			});
 			
 			//비밀번호 유효성 검사

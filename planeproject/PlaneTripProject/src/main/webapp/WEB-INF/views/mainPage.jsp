@@ -17,23 +17,14 @@
 
 <style>
 	body { background-color : #F6F6F6;}
-	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
+	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center;}
     #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
     h2, #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
     h2 { text-align: left;}
     sup { font-size: 1em;}
-    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center; margin-top : -50px}
+    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center; margin-top : -50px}
  
-    #footer_container{ width: 1200px; margin-top: -10px; display: inline-block;justify-content: center; }
-    #footer_menu li:first-child { margin-left : 190px;}
-    #footer_menu ul {margin-top : 20px;}
-    #footer_menu ul,  #footer_menu li{ list-style: none;}
-    #footer_menu ul li{ margin-right: 100px; float: left;}
-    #footer_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Jua', sans-serif;
-        text-decoration: none; color: inherit;}
-    #footer_p { font-family: 'Jua', sans-serif;justify-content: center; text-align : center; margin-top : 30px;}
-	
 </style>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
