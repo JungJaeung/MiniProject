@@ -831,9 +831,21 @@
 			</ul>
 		</div>
 		<form id="checkFlight" action="/flight/checkFlight.do" method="post">
+			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+			<input type="hidden" id="flightId" name="flightId" value="${flightList.flightId }">
+			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
+            <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
+            <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
+            <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
+           	<input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
+           	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
+           	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
+           	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
 			<input type="hidden" name="refresh" value="0">
+			
 		</form>
 		<button id="selectButton">가는편 선택</button>
 	</div>
