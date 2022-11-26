@@ -154,7 +154,7 @@
 			
 			//id 중복체크 했는지 확인하는 플래그
 			var checkId = false;
-			//email가 형식에 맞게 작성됐는지
+			//email이 형식에 맞게 작성됐는지
 			var idValidation = false;
 			//password가 형식에 맞게 작성됐는지(특수문자 + 영문자 + 숫자 8자리)
 			var pwValidation = false;
@@ -202,7 +202,7 @@
 			}
 			
 			$("#email").on("change", function() {
-				//비밀번호 유효성 처리
+				//이메일 유효성 처리
 				if(!validateId($("#email").val())) {
 					idValidation = false;
 					$("#idValidation").show();
