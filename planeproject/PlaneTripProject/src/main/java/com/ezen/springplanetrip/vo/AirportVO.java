@@ -1,22 +1,13 @@
 package com.ezen.springplanetrip.vo;
 
 public class AirportVO {
-	private int cityId;
 	private int airportId;
 	private String airportName;
 	private String airportCode;
-	private char airportOrigin;
-	private String cityName;
 	private String airportHomepage;
 	private String airportTel;
 	private String airportHours;
 	
-	public int getCityId() {
-		return cityId;
-	}
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
 	public int getAirportId() {
 		return airportId;
 	}
@@ -34,18 +25,6 @@ public class AirportVO {
 	}
 	public void setAirportCode(String airportCode) {
 		this.airportCode = airportCode;
-	}
-	public char getAirportOrigin() {
-		return airportOrigin;
-	}
-	public void setAirportOrigin(char airportOrigin) {
-		this.airportOrigin = airportOrigin;
-	}
-	public String getCityName() {
-		return cityName;
-	}
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
 	}
 	public String getAirportHomepage() {
 		return airportHomepage;
@@ -68,11 +47,9 @@ public class AirportVO {
 	
 	@Override
 	public String toString() {
-		return "AirportVO [cityId=" + cityId + ", airportId=" + airportId + ", airportName=" + airportName
-				+ ", airportCode=" + airportCode + ", airportOrigin=" + airportOrigin + ", cityName=" + cityName
+		return "AirportVO [airportId=" + airportId + ", airportName=" + airportName + ", airportCode=" + airportCode
 				+ ", airportHomepage=" + airportHomepage + ", airportTel=" + airportTel + ", airportHours="
 				+ airportHours + "]";
 	}
-	
 	
 }

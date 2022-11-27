@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main Page Slide Banner</title>
+<title>STN</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -15,23 +17,14 @@
 
 <style>
 	body { background-color : #F6F6F6;}
-	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center;}
+	#f_banner, #s_banner { width: 1200px; margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center;}
     #f_banner { margin-top : 0px;}
     b { font-size: 1.5em;}
-    h2, #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
-    h2 { text-align: left;}
+    #route { font-family: 'Jua', sans-serif;margin-top: 25px;}
+    h2 { text-align: left; margin-top: 25px;font-family: 'Noto Sans KR', sans-serif;}
     sup { font-size: 1em;}
-    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid white; text-align: center; justify-content: center; margin-top : -50px}
+    #main_banner { width: 1700px;margin: 0 auto; border: 1px solid #F6F6F6; text-align: center; justify-content: center; margin-top : -50px}
  
-    #footer_container{ width: 1200px; margin-top: -10px; display: inline-block;justify-content: center; }
-    #footer_menu li:first-child { margin-left : 190px;}
-    #footer_menu ul {margin-top : 20px;}
-    #footer_menu ul,  #footer_menu li{ list-style: none;}
-    #footer_menu ul li{ margin-right: 100px; float: left;}
-    #footer_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Jua', sans-serif;
-        text-decoration: none; color: inherit;}
-    #footer_p { font-family: 'Jua', sans-serif;justify-content: center; text-align : center; margin-top : 30px;}
-	
 </style>
 <style type="text/css">
     a:link { color: black; text-decoration: none;}
@@ -57,32 +50,32 @@
             border-radius: 10px; background-color : white;}
         #way ul, #way li{ list-style: none;}
         #way li{ float: left; margin-right: 30px; margin-top: 20px; font-weight: light;
-            font-family: 'Jua', sans-serif; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-size: medium;}
         #round{ color: #ff5000; border-bottom: #ff5000 2px solid; text-decoration: none; margin-left : 125px}
         #oneway{ text-decoration: none; color: inherit; }
 
         #form_div{clear: both; padding-top: 20px; text-align: left;}
         #starting_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer; margin-left: 165px;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent; 
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
         #swap{ width: 30px; height: 30px; border: none; margin-left: 10px; margin-right: 10px;
             background: url( "../../resources/images/arrow.png") no-repeat; cursor: pointer; border-radius: 100%;}
         #arrive_point{width: 270px; height: 50px; color: #8c8c8c; cursor: pointer;
             border: none; border-bottom: solid #c8c8c8 1px; background-color:transparent;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: x-large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: x-large;}
         #calendar_date{ width: 250px; height: 43px; margin-left: 20px; background-color:transparent;
             background-image: url("../../resources/images/calendar.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: left; cursor: pointer;
             border-style: none; border-bottom: solid #c8c8c8 1px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
         #person{ width: 270px; height: 43px; margin-top: 20px; background-color: transparent;
             background-image: url("../../resources/images/person.png"); background-repeat: no-repeat;
             background-size: 20px; background-position: 10px center; cursor: pointer;
             border-style: none;  border-bottom: solid #c8c8c8 1px; margin-left: 165px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: medium;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: medium;}
         #serch{ width: 200px; height: 50px; margin-left: 400px; margin-top: 30px; cursor: pointer;
             background-color: #aaaaaa; color: white; border: none; border-radius: 5px;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
             
         /*출발지*/
         #starting_point_serch{ width: 950px; height: 400px; background-color: white;
@@ -93,24 +86,24 @@
         #dummy_serch_img{ width: 20px; height: 20px; float: left; cursor: pointer;
              margin-top: 25px; margin-left: 30px;}
         #dummy_serch input{ width: 830px; height: 40px; margin: 10px; float: left; border: none;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large; outline: none;
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large; outline: none;
             margin-top : 14px;}
         .close{ width: 20px; height: 20px; float: right; cursor: pointer;
             margin-top: 25px; margin-right: 25px;}
 
         #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
-        #starting_point_list1 ul { margin-left : -40px; margin-top : -5px;}
+        #starting_point_list1 ul { margin-left : -40px; margin-top : -5px; list-style: none;}
         #starting_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
-            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #starting_point_list1 li:first-child{ background-color: white;}
 
         #starting_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
-        #starting_point_list2 ul { margin-top : -5px;}
-        #starting_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
+        #starting_point_list2 ul { margin-top : -5px; list-style: none;}
+        #starting_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
-        #starting_point_list2 li:first-child{ padding-top: 15px;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
+        #starting_point_list2 div:first-child{ padding-top: 15px;}
         #starting_point_list2 li a{ color: #aaaaaa;}
 
         /* 도착지 */
@@ -119,17 +112,17 @@
             top: 50%; left: 50%; transform: translate(-50%, -35%); box-shadow: 0 0 4px #c8c8c8;
             margin-top: 150px;}
         #arrive_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
-        #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;}
+        #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;  list-style: none;}
         #arrive_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
-            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
+            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
         #arrive_point_list1 li:first-child{ background-color: white;}
         #arrive_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
-        #arrive_point_list2 ul { margin-top : -5px;}
-        #arrive_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
+        #arrive_point_list2 ul { margin-top : -5px;  list-style: none;}
+        #arrive_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer; 
-            font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
-        #arrive_point_list2 li:first-child{ padding-top: 15px;}
+            font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: large;}
+        #arrive_point_list2 div:first-child{ padding-top: 15px;}
         
         /* 날짜 선택(달력) */
         #calendar{ width: 950px; height: 400px; background-color: white; 
@@ -205,8 +198,7 @@
         var CDate = new Date();
         let today = new Date();
         let day = ["일", "월", "화", "수", "목", "금", "토"];
-        let
-        e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
+        let e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
         let e_target2;
         let text1;      //출발날짜 저장파일
         let text2;      //도착날짜 저장
@@ -239,6 +231,7 @@
         for(let i = 0; i < start.length; i++){
             $(start[i]).click(function(e){
                 $("#starting_point").val(start[i].innerHTML);
+                $("#departPointId").val(i+1);	//공항의 id를 저장
                 $("#starting_point").css("color", "black");
                 $("#starting_point_serch").css("display", "none");
                 flag=true;
@@ -248,7 +241,7 @@
         //도착지 입력창
         $("#arrive_point").click(function(e){
             if(!flag){
-                alert("에ㅇㅇ에에에에ㅔ")
+                alert("도착지를 입력해주세요.")
                 return;
             }
             else
@@ -260,6 +253,7 @@
         for(let i = 0; i < arrive.length; i++){
             $(arrive[i]).click(function(e){
                 $("#arrive_point").val(arrive[i].innerHTML);
+                $("#arrivedPointId").val(i+1);	//공항의 id를 저장
                 $("#arrive_point").css("color", "black");
                 $("#arrive_point_serch").css("display", "none");
             })
@@ -272,8 +266,11 @@
             }
             else{ 
                 let temp = $("#arrive_point").val();
+                let temp2 = $("#arrivedPointId").val();
                 $("#arrive_point").val($("#starting_point").val());
+                $("#arrivedPointId").val($("#departPointId").val());
                 $("#starting_point").val(temp);
+                $("#departPointId").val(temp2);
             }
         })
 
@@ -360,6 +357,7 @@
                 $(e.target).css("background-color", "red");
                 $(e.target).css("color", "white");
 
+                console.log(e.target);
                 e_target1 = e.target;
                 dtemp = 1;
             }
@@ -385,7 +383,7 @@
         })
         //뒤 달력 이벤트
         $(document).on("click", ".date2", function(e){
-            if(dtemp == 0){
+            if(dtemp == 0){	//아무것도 선택하지 않은 상태일때
                 $.clear();
                 $(e.target).css("background-color", "red");
                 $(e.target).css("color", "white");
@@ -393,12 +391,13 @@
                 e_target1 = e.target;
                 dtemp = 1
             }
-            else if(dtemp == 1){
+            else if(dtemp == 1){	//날짜한개를 선택한 상태일때
+            	//날짜
                 if(e_target1.className == "date2" && ((Number)(e_target1.textContent)) > ((Number)(e.target.textContent))){
-                    alert("일정을 확인해주세요");
+                    alert("두번째 선택하는 날짜는 첫번째 날짜보다 이전일 수 없습니다.");
                     $.clear();
                 }
-                else{
+                else{	//정상적으로 날짜를 선택했을때
                     e_target2 = e.target;
                     $(e.target).css("background-color", "red");
                     $(e.target).css("color", "white");
@@ -438,7 +437,6 @@
                 text = $.create_cal(1);
                 $("#cal1").html(text);
             }
-            
         })
         //이전달 버튼
         $("#cal_pre").click(function(e){
@@ -465,20 +463,30 @@
             let b = (CDate.getMonth()+1).toString();
             let b2 = (CDate.getMonth()+2).toString();
             let c = ((String)(e_target1.textContent));
-            let c2 = ((String)(e_target2.textContent));
-
+            let c2 = '';
+            
+            //날짜를 하나만 선택할시 조건 처리
+            if(!e_target2) {
+                c2 = ((String)(e_target1.textContent));
+            } else {
+                c2 = ((String)(e_target2.textContent));
+            }
+            console.log(c);
+            console.log(c2);
             if(b2 == 13){
                 a2 = (CDate.getFullYear()+1).toString();
                 b2 = 1;
             }
 
-            text1 = a+b+c;
-            text2 = a2+b2+c2;
+            text1 = a + "-" + b + "-" +c;
+            text2 = a2 + "-" + b2 + "-" +c2;
             textd1 = a + "." + b + "." +  c ;
             textd2 =  a2 + "." + b2 + "." + c2;
             date_flag = 1;
 
             $("#calendar_date").val(textd1 + " ~ " + textd2);
+            $("#minimumDate").val(text1);
+            $("#maximumDate").val(text2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");
         })
@@ -498,11 +506,13 @@
         })
 
         //인원수 처리 버튼
-        //왼쪽
+        //왼쪽(성인)
+        let adultNumber = 1; //다음페이지로 가지고 갈 데이터 변수
         $("#left_down").click(function(){
             let num = $("#left_text").val();
             num--;
             $("#left_text").val(num);
+            adultNumber = num;
             if(num == 0){
                 $("#left_down").attr("disabled",true);
             }
@@ -514,6 +524,7 @@
             let num = $("#left_text").val();
             num++;
             $("#left_text").val(num);
+            adultNumber = num;
             if(num == 9){
                 $("#left_up").attr("disabled",true);
             }
@@ -521,11 +532,13 @@
                 $("#left_down").attr("disabled",false);
             }
         })
-        //중앙
+        //중앙(어린이)
+        let childNumber = 0;	//다음페이지로 가지고 갈 데이터 변수
         $("#center_down").click(function(){
             let num = $("#center_text").val();
             num--;
             $("#center_text").val(num);
+            childNumber = num;
             if(num == 0){
                 $("#center_down").attr("disabled",true);
             }
@@ -537,6 +550,7 @@
             let num = $("#center_text").val();
             num++;
             $("#center_text").val(num);
+            childNumber = num;
             if(num == 9){
                 $("#center_up").attr("disabled",true);
             }
@@ -544,11 +558,13 @@
                 $("#center_down").attr("disabled",false);
             }
         })
-        //오른쪽
+        //오른쪽(유아)
+        let babyNumber = 0; //다음페이지로 가지고 갈 데이터 변수
         $("#right_down").click(function(){
             let num = $("#right_text").val();
             num--;
             $("#right_text").val(num);
+            babyNumber = num;
             if(num == 0){
                 $("#right_down").attr("disabled",true);
             }
@@ -560,6 +576,7 @@
             let num = $("#right_text").val();
             num++;
             $("#right_text").val(num);
+            babyNumber = num;
             if(num == 9){
                 $("#right_up").attr("disabled",true);
             }
@@ -594,8 +611,7 @@
 
         //항공권 검색 버튼
         $("#serch").click(function(){
-        	submit();
-            console.log("항공권을 검색");
+        	$("#info").submit();
         })
         
     })
@@ -671,12 +687,19 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="#" method="post">
+                    <form id="info" action="flight/searchFlight.do" method="post">
                         <input type="button" id="starting_point" value="출발지">
+                      	<input type="hidden" id="departPointId" name="departPointId" value="">
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="도착지">
-                        <input type="button" id="calendar_date" value="2022.11.20 ~ 2022.11.21">
-                        <input type="button" id="person" value="성인1">
+                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="">
+                        <input type="button" id="calendar_date" name="calendar" value="2022.11.20 ~ 2022.11.21">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="">
+                        <input type="button" id="person" name="passengerNumber" value="성인1">
+                       	<input type="hidden" id="adultNumber" name="adultNumber" value="">
+                       	<input type="hidden" id="childNumber" name="childNumber" value="">
+                       	<input type="hidden" id="babyNumber" name="babyNumber" value="">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     </form>
                 </div>
@@ -694,13 +717,9 @@
                     </nav>
                     <nav id="starting_point_list2">
                     	<ul>
-	                        <li class="start">서울(김포)<a>GMP</a></li>
-	                        <li class="start">부산 <a>PUS</a></li>
-	                        <li class="start">제주 <a>CJU</a></li>
-	                        <li class="start">광주 <a>KWJ</a></li>
-	                        <li class="start">군산 <a>KUV</a></li>
-	                        <li class="start">청주 <a>CJJ</a></li>
-	                        <li class="start">대구 <a>TAE</a></li>
+	                    	<c:forEach items="${airportList}" var="airportList">
+	                    		<div class="start">${airportList.airportName}&emsp;${airportList.airportCode }</div>
+	                    	</c:forEach>
                     	</ul>
                     </nav>
                 </div>
@@ -718,13 +737,9 @@
                     </nav>
                     <nav id="arrive_point_list2">
 	                    <ul>
-	                        <li class="arrive">서울(김포)<a>GMP</a></li>
-	                        <li class="arrive">부산 <a>PUS</a></li>
-	                        <li class="arrive">제주 <a>CJU</a></li>
-	                        <li class="arrive">광주 <a>KWJ</a></li>
-	                        <li class="arrive">군산 <a>KUV</a></li>
-	                        <li class="arrive">청주 <a>CJJ</a></li>
-	                        <li class="arrive">대구 <a>TAE</a></li>
+	                    	<c:forEach items="${airportList}" var="airportList">
+	                    		<div class="arrive">${airportList.airportName}&emsp;${airportList.airportCode }</div>
+	                    	</c:forEach>
                     	</ul>
                     </nav>
                 </div>

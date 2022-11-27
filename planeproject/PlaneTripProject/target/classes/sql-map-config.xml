@@ -14,6 +14,8 @@
 		<typeAlias type="com.ezen.springplanetrip.vo.PassengerVO" alias="passenger"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.FlightVO" alias="flight"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.BoardVO" alias="board"></typeAlias>
+		<typeAlias type="com.ezen.springplanetrip.vo.AirportVO" alias="airport"></typeAlias>
+		<typeAlias type="com.ezen.springplanetrip.vo.UserVO" alias="user"></typeAlias>
 	</typeAliases>
 	
 	<!-- 사용할 SQL 매퍼 위치 지정 -->

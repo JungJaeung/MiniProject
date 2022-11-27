@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,36 +18,6 @@
 <!-- 상단 웹페이지 스크립트 -->
 <style>
         #container{ width: 100%; height: 100%; text-align: center;justify-content: center;}
-        #top_hr { background:#f2f2f2; height:1px; border:0; margin-bottom: 0;}
-
-        /* 최 상단 로그인 메뉴 */
-        #top_container{ width: 1200px; margin-top: -10px; display: inline-block;}
-        #top_menu ul,  #top_menu li{ list-style: none;}
-        #top_menu ul li{ margin-right: 30px; float: right;}
-        #top_menu ul li a{ text-align: center; font-size: 0.9em; font-family: 'Noto Sans KR', sans-serif; font-weight : bolder;
-            text-decoration: none; color: #828282;}
-            
-        /* 상단 메뉴 */
-        #img_logo{ width: 250px; object-fit: cover;margin-top : -40px; margin-left : 0px}
-        #img_menu{ width: 30px; object-fit: cover}
-        #middle_container{ width: 1200px; height: 70px; display: inline-block;}
-        #middle_menu{padding-top: 15px;}
-        #middle_menu ul, #middle_menu li{ list-style: none;}
-        #middle_menu ul li{ float: left;}
-        #middle_menu ul li a{ text-align: center; font-size: medium ; margin-right: 50px; font-family: 'Noto Sans KR', sans-serif;
-            text-decoration: none; color: inherit; font-weight : bolder;}
-        #middle_menu ul li:first-child{margin-right: 30px;}
-        #middle_menu ul li:last-child{float: right; margin-top: -5px;}
-        
-        /* 상단 메뉴 - 카테고리 메뉴*/
-        #category{ width: 100%; height: 100%; border: solid #f2f2f2 1px; display: none;
-            position: absolute; top: 120px; left: 0; text-align: center; z-index: 3;}
-        #category_menu{ width: 1200px; background-color: aqua;}
-        #category_menu{ background-color: white; width: 100%; height: 280px;}
-        #category_menu ul, #category li{ list-style: none; padding: 0; margin: 0;}
-        #category_menu ul{ margin-top: 40px; font-weight: bold;}
-        #category_menu li:first-child{ margin-top: 10px;}
-        #category_menu ul li a{ text-decoration: none; color: inherit; font-weight: lighter; font-family: 'Jua', sans-serif;}
         /*메뉴 위치선정 */
         #category_menu nav{ display: inline-block; text-align: center;}
         .line1{ position: absolute; top: 0px; left: 8.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;}
@@ -55,7 +27,7 @@
         .line5{ position: absolute; top: 0px; left: 74.25%; border-left: 1px solid #f2f2f2; width: 16.5%; height: 280px;
             border-right: 1px solid #f2f2f2;}
         /*아래 반투명 화면*/
-        #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.2;}
+        #category_black{ width: 100%; height: 100%; background-color: black; opacity: 0.5;}
 
         /*티케팅 창*/
         #ticketing{ width: 1200px; margin-top: 20px; display: inline-block;}
@@ -105,18 +77,18 @@
             margin-top: 25px; margin-right: 25px;}
 
         #starting_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
-        #starting_point_list1 ul { margin-left : -40px; margin-top : -5px;}
+        #starting_point_list1 ul { margin-left : -40px; margin-top : -5px; list-style: none;}
         #starting_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
-            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
+            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
             font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
         #starting_point_list1 li:first-child{ background-color: white;}
 
         #starting_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
-        #starting_point_list2 ul { margin-top : -5px;}
-        #starting_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
+        #starting_point_list2 ul { margin-top : -5px; list-style: none;}
+        #starting_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer;
             font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
-        #starting_point_list2 li:first-child{ padding-top: 15px;}
+        #starting_point_list2 div:first-child{ padding-top: 15px;}
         #starting_point_list2 li a{ color: #aaaaaa;}
 
         /* 도착지 */
@@ -125,28 +97,28 @@
             top: 50%; left: 50%; transform: translate(-50%, -35%); box-shadow: 0 0 4px #c8c8c8;
             margin-top: 150px;}
         #arrive_point_list1{ width: 20%; height: 330px; float: left; background-color: #f2f2f2}
-        #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;}
+        #arrive_point_list1 ul { margin-left : -40px; margin-top : -5px;  list-style: none;}
         #arrive_point_list1 li{ width: 100%; height: 40px; padding-top: 15px;
-            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px; list-style: none;
+            background-color: #f2f2f2;  border-bottom: #dcdcdc solid 1px;
             font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
         #arrive_point_list1 li:first-child{ background-color: white;}
         #arrive_point_list2{ width: 80%; height: 330px; float: right; background-color: white}
-        #arrive_point_list2 ul { margin-top : -5px;}
-        #arrive_point_list2 li{ width: 100%; height: 35px; text-align: left; list-style: none;
+        #arrive_point_list2 ul { margin-top : -5px;  list-style: none;}
+        #arrive_point_list2 div{ width: 100%; height: 35px; text-align: left;
             padding-top: 5px; padding-left: 20px; cursor: pointer; 
             font-family: 'Jua', sans-serif; font-weight: bold; font-size: large;}
-        #arrive_point_list2 li:first-child{ padding-top: 15px;}
+        #arrive_point_list2 div:first-child{ padding-top: 15px;}
         
         /* 날짜 선택(달력) */
         #calendar{ width: 950px; height: 400px; background-color: white; 
             display: none; position: absolute; opacity: none; z-index: 2;
-            top: 50%; left: 50%; transform: translate(-50%, -47%); box-shadow: 0 0 4px #c8c8c8;}
+            top: 50%; left: 50%; transform: translate(-50%, -46%); box-shadow: 0 0 4px #c8c8c8;}
         #calendar .close{ position: absolute; top: 0%; right: 0%;}
         #cal1_div{ width: 50%; height: 100%; float: left;}
         #cal2_div{ width: 50%; height: 100%; float: left;}
         
-        #cal_pre{ width:30px; height 30px; position: absolute; left: 2%; top: 43%; border: none; background: none;}
-        #cal_next{  width:30px; height 30px; position: absolute; right: 2%; top: 43%; border: none; background: none; }
+        #cal_pre{ position: absolute; left: 2%; top: 43%; border: none; background: none;}
+        #cal_next{ position: absolute; right: 2%; top: 43%; border: none; background: none; }
 
         #cal1_year, #cal1_month{ position: absolute; font-size: large; font-weight: bold;}
         #cal1_year{left: 8%; top: 4%;}
@@ -191,15 +163,51 @@
         #personnel_body_right{ width: 33.33%; height: 100%; float: left;}
         .body_text_title{ margin-top: 10%; margin-left: 10%; text-align: left; }
         .body_text_content{ margin-top: 1%; margin-left: 10%; text-align: left; font-size: small;}
-        #body_button_left{ position: absolute; left:21%; top: 40%;}
-        #body_button_center{ position: absolute; left:54.33%; top: 40%;}
-        #body_button_right{ position: absolute; left:87.66%; top: 40%;}
+        #body_button_left{ position: absolute; left:18%; top: 45%;}
+        #body_button_center{ position: absolute; left:51.33%; top: 45%;}
+        #body_button_right{ position: absolute; left:84.66%; top: 45%;}
 
         #select_personnel{ width: 150px; height: 40px; position: absolute; bottom: 6%; left: 41%;
             background-color: #ff5000; border: none; color: white; border-radius: 5px; 
             font-family: 'Jua'; font-size: large;}
+            
+		/* 조회된 비행편 정렬되는 창 */
+		#flightList {
+			width: 100%; height: 500px;
+			border: 1px solid black;
+			text-align: center;
+		}
+		#f_table {
+			width: 95%;
+			border: 1px solid black;
+			table-collapse: collapse;
+		}
+		#f_table tr {
+			height: 30%;
+		}
+		#f_table td, #f_table th {
+			border: 1px solid black;
+		}
+		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
+		#pageNumber {
+			text-align: center;
+			width: 200px; height: 50px;
+			border: 1px solid black;
+		}
+		.pagination {
+			list-style: none;
+			width: 100%;
+			display: inline-block;
+		}
+		
+		.pagination_button {
+			float: left;
+			margin-left: 5px;
+		}
+		
 </style>
 
+<!-- 상단 웹페이지 스크립트 -->
 <script>
     $(document).ready(function(){
         let way = 0;        //왕복 편도
@@ -210,8 +218,7 @@
         var CDate = new Date();
         let today = new Date();
         let day = ["일", "월", "화", "수", "목", "금", "토"];
-        let
-        e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
+        let e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
         let e_target2;
         let text1;      //출발날짜 저장파일
         let text2;      //도착날짜 저장
@@ -222,24 +229,7 @@
         let dtemp = 0;
         //여행 날짜 기본설정
         $("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
-        
-        
-        //메뉴 페이지 클릭 이벤트
-        $("#img_menu").click(function(e){
-            if($("#category").css("display")=="none"){
-                $("#img_menu").attr("src", "../../resources/images/X.png");
-                $("#category").css("display", "inline-block");
-            }
-            else{
-                $("#img_menu").attr("src", "../../resources/images/menu.png");
-                $("#category").css("display", "none");
-            }
-        })
-        //메뉴가 열려있을때 바깥의 반투명 페이지 클릭시
-        $("#category_black").click(function(e){
-            $("#img_menu").attr("src", "../../resources/images/menu.png");
-            $("#category").css("display", "none");
-        })
+       
         //왕복, 편도(왕복일때 way=0, 편도일때 way=1)
         $("#round").click(function(e){
             way=0;
@@ -261,6 +251,7 @@
         for(let i = 0; i < start.length; i++){
             $(start[i]).click(function(e){
                 $("#starting_point").val(start[i].innerHTML);
+                $("#departPointId").val(i+1);	//공항의 id를 저장
                 $("#starting_point").css("color", "black");
                 $("#starting_point_serch").css("display", "none");
                 flag=true;
@@ -270,7 +261,7 @@
         //도착지 입력창
         $("#arrive_point").click(function(e){
             if(!flag){
-                alert("선택할 항목을 모두 선택해주세요.")
+                alert("도착지를 입력해주세요.")
                 return;
             }
             else
@@ -282,6 +273,7 @@
         for(let i = 0; i < arrive.length; i++){
             $(arrive[i]).click(function(e){
                 $("#arrive_point").val(arrive[i].innerHTML);
+                $("#arrivedPointId").val(i+1);	//공항의 id를 저장
                 $("#arrive_point").css("color", "black");
                 $("#arrive_point_serch").css("display", "none");
             })
@@ -294,8 +286,11 @@
             }
             else{ 
                 let temp = $("#arrive_point").val();
+                let temp2 = $("#arrivedPointId").val();
                 $("#arrive_point").val($("#starting_point").val());
+                $("#arrivedPointId").val($("#departPointId").val());
                 $("#starting_point").val(temp);
+                $("#departPointId").val(temp2);
             }
         })
 
@@ -382,6 +377,7 @@
                 $(e.target).css("background-color", "red");
                 $(e.target).css("color", "white");
 
+                console.log(e.target);
                 e_target1 = e.target;
                 dtemp = 1;
             }
@@ -407,7 +403,7 @@
         })
         //뒤 달력 이벤트
         $(document).on("click", ".date2", function(e){
-            if(dtemp == 0){
+            if(dtemp == 0){	//아무것도 선택하지 않은 상태일때
                 $.clear();
                 $(e.target).css("background-color", "red");
                 $(e.target).css("color", "white");
@@ -415,12 +411,13 @@
                 e_target1 = e.target;
                 dtemp = 1
             }
-            else if(dtemp == 1){
+            else if(dtemp == 1){	//날짜한개를 선택한 상태일때
+            	//날짜
                 if(e_target1.className == "date2" && ((Number)(e_target1.textContent)) > ((Number)(e.target.textContent))){
-                    alert("일정을 확인해주세요");
+                    alert("두번째 선택하는 날짜는 첫번째 날짜보다 이전일 수 없습니다.");
                     $.clear();
                 }
-                else{
+                else{	//정상적으로 날짜를 선택했을때
                     e_target2 = e.target;
                     $(e.target).css("background-color", "red");
                     $(e.target).css("color", "white");
@@ -460,7 +457,6 @@
                 text = $.create_cal(1);
                 $("#cal1").html(text);
             }
-            
         })
         //이전달 버튼
         $("#cal_pre").click(function(e){
@@ -487,20 +483,30 @@
             let b = (CDate.getMonth()+1).toString();
             let b2 = (CDate.getMonth()+2).toString();
             let c = ((String)(e_target1.textContent));
-            let c2 = ((String)(e_target2.textContent));
-
+            let c2 = '';
+            
+            //날짜를 하나만 선택할시 조건 처리
+            if(!e_target2) {
+                c2 = ((String)(e_target1.textContent));
+            } else {
+                c2 = ((String)(e_target2.textContent));
+            }
+            console.log(c);
+            console.log(c2);
             if(b2 == 13){
                 a2 = (CDate.getFullYear()+1).toString();
                 b2 = 1;
             }
 
-            text1 = a+b+c;
-            text2 = a2+b2+c2;
+            text1 = a + "-" + b + "-" +c;
+            text2 = a2 + "-" + b2 + "-" +c2;
             textd1 = a + "." + b + "." +  c ;
             textd2 =  a2 + "." + b2 + "." + c2;
             date_flag = 1;
 
             $("#calendar_date").val(textd1 + " ~ " + textd2);
+            $("#minimumDate").val(text1);
+            $("#maximumDate").val(text2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");
         })
@@ -520,11 +526,13 @@
         })
 
         //인원수 처리 버튼
-        //왼쪽
+        //왼쪽(성인)
+        let adultNumber = 1; //다음페이지로 가지고 갈 데이터 변수
         $("#left_down").click(function(){
             let num = $("#left_text").val();
             num--;
             $("#left_text").val(num);
+            adultNumber = num;
             if(num == 0){
                 $("#left_down").attr("disabled",true);
             }
@@ -536,6 +544,7 @@
             let num = $("#left_text").val();
             num++;
             $("#left_text").val(num);
+            adultNumber = num;
             if(num == 9){
                 $("#left_up").attr("disabled",true);
             }
@@ -543,11 +552,13 @@
                 $("#left_down").attr("disabled",false);
             }
         })
-        //중앙
+        //중앙(어린이)
+        let childNumber = 0;	//다음페이지로 가지고 갈 데이터 변수
         $("#center_down").click(function(){
             let num = $("#center_text").val();
             num--;
             $("#center_text").val(num);
+            childNumber = num;
             if(num == 0){
                 $("#center_down").attr("disabled",true);
             }
@@ -559,6 +570,7 @@
             let num = $("#center_text").val();
             num++;
             $("#center_text").val(num);
+            childNumber = num;
             if(num == 9){
                 $("#center_up").attr("disabled",true);
             }
@@ -566,11 +578,13 @@
                 $("#center_down").attr("disabled",false);
             }
         })
-        //오른쪽
+        //오른쪽(유아)
+        let babyNumber = 0; //다음페이지로 가지고 갈 데이터 변수
         $("#right_down").click(function(){
             let num = $("#right_text").val();
             num--;
             $("#right_text").val(num);
+            babyNumber = num;
             if(num == 0){
                 $("#right_down").attr("disabled",true);
             }
@@ -582,6 +596,7 @@
             let num = $("#right_text").val();
             num++;
             $("#right_text").val(num);
+            babyNumber = num;
             if(num == 9){
                 $("#right_up").attr("disabled",true);
             }
@@ -616,14 +631,17 @@
 
         //항공권 검색 버튼
         $("#serch").click(function(){
-            console.log("asdf");
+        	$("#info").submit();
         })
         
     })
 
 </script>
 <body>
-	<div id="container">
+<jsp:include page="../views/header.jsp"></jsp:include>
+    <!--전체 화면 컨테이너-->
+    <div id="container">
+        <!--표 예매-->
         <div id="ticketing">
             <div id="ticketing_box" style="position: relative; bottom: 60; z-index: 2;">
                 <nav id="way">
@@ -633,13 +651,24 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="#" method="post">
-                        <input type="button" id="starting_point" value="출발지">
+                    <form id="info" action="/flight/searchFlight.do" method="post">
+                        <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
+                      	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="도착지">
-                        <input type="button" id="calendar_date" value="2022.11.20 ~ 2022.11.21">
-                        <input type="button" id="person" value="성인1">
+                        <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
+                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
+                        <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
+                        <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
+                       	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
+                       	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
+                       	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
+                        
                         <input type="button" id="serch" value="항공권 검색" disabled>
+                    	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+						<input type="hidden" name="refresh" value="0">
                     </form>
                 </div>
                 <div id="starting_point_serch">
@@ -656,13 +685,9 @@
                     </nav>
                     <nav id="starting_point_list2">
                     	<ul>
-	                        <li class="start">서울(김포)<a>GMP</a></li>
-	                        <li class="start">부산 <a>PUS</a></li>
-	                        <li class="start">제주 <a>CJU</a></li>
-	                        <li class="start">광주 <a>KWJ</a></li>
-	                        <li class="start">군산 <a>KUV</a></li>
-	                        <li class="start">청주 <a>CJJ</a></li>
-	                        <li class="start">대구 <a>TAE</a></li>
+	                    	<c:forEach items="${airportList}" var="airportList">
+	                    		<div class="start">${airportList.airportName}&emsp;${airportList.airportCode }</div>
+	                    	</c:forEach>
                     	</ul>
                     </nav>
                 </div>
@@ -680,13 +705,9 @@
                     </nav>
                     <nav id="arrive_point_list2">
 	                    <ul>
-	                        <li class="arrive">서울(김포)<a>GMP</a></li>
-	                        <li class="arrive">부산 <a>PUS</a></li>
-	                        <li class="arrive">제주 <a>CJU</a></li>
-	                        <li class="arrive">광주 <a>KWJ</a></li>
-	                        <li class="arrive">군산 <a>KUV</a></li>
-	                        <li class="arrive">청주 <a>CJJ</a></li>
-	                        <li class="arrive">대구 <a>TAE</a></li>
+	                    	<c:forEach items="${airportList}" var="airportList">
+	                    		<div class="arrive">${airportList.airportName}&emsp;${airportList.airportCode }</div>
+	                    	</c:forEach>
                     	</ul>
                     </nav>
                 </div>
@@ -765,7 +786,93 @@
                 </div>
             </div>
         </div>
+    </div>
+      <div id="flightList">
+      	<table id="f_table">
+       		<tr>
+				<th>항공편 코드</th>
+				<th>출발시각 > 도착시각</th>
+				<th>출발지</th>
+				<th>도착지</th>
+			</tr>
+			<c:forEach items="${flightList }" var="flightList">
+				<tr class="list">
+					<td>${flightList.flightCode }</td>
+					<td>
+						<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
+						<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
+						<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
+					</td>
+					<td>${flightList.airportDpt}</td>
+					<td>
+						<%-- <fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/> --%>
+						${flightList.airportArv }
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div id="pageNumber">
+			<ul class="pagination">
+				<c:if test="${pageVO.prev }">
+					<li class="pagination_button">
+						<a href="${pageVO.cri.pageNum - 1 }">이전</a>
+					</li>
+				</c:if>	
+				<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+					<li class="pagination_button">
+						<a href="${num }">${num }</a>
+					</li>
+				</c:forEach>
+				<c:if test="${pageVO.next}">
+					<li class="pagination_button">
+						<a href="${pageVO.cri.pageNum + 1 }">다음</a>
+					</li>
+				</c:if>
+			</ul>
+		</div>
+		<form id="checkFlight" action="/flight/checkFlight.do" method="post">
+			
+			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+			<input type="hidden" id="flightId" name="flightId" value="${flightList.flightId }">
+			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
+            <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
+            <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
+            <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
+           	<input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
+           	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
+           	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
+           	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
+			<input type="hidden" name="refresh" value="0">
+			
+		</form>
+		<button id="selectButton">가는편 선택</button>
 	</div>
 	<jsp:include page="../views/footer.jsp"></jsp:include>
+		
+	<script>
+		$(function() {
+			$(".pagination a").on("click", function(e) {
+				e.preventDefault();
+				
+				$("input[name='refresh']").val($(this).attr("href"));
+				$("input[name='pageNum']").val($(this).attr("href"));
+				$("#info").submit();
+			});
+			
+			$(".list").on("click", function() {
+				console.log("click");
+				$("#checkFlight").submit();
+			});
+			
+			$("#selectButton").on("click", function() {
+				$("input[name='pageNum']").val(1);
+				
+				$("#searchForm").submit();
+			});
+		});
+	</script>
+	
 </body>
 </html>

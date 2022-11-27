@@ -6,13 +6,24 @@
 <mapper namespace="FlightDAO">
 	<!-- 쿼리 작성 영역 -->
 	<!-- 이름 추가 쿼리 -->
-	<select id="viewFlight">
+	<select id="viewFlight" parameterType="map" resultType="flight">
+		<![CDATA[
 		SELECT * FROM FLIGHT 
-		WHERE  AND  
+		WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.departPointId})
+		 AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.arrivedPointId})
+		]]>
+		LIMIT #{cri.amount} OFFSET #{cri.startNum}
+		<!-- WHERE DEPARTTIME BETWEEN #{flightList.departTime} AND DEPART_TIME=#{flightList.arrivalTime} -->
 	</select>
 	
-	<select id="viewAirport">
-		SELECT * FROM AIRPORT 
-		WHERE AND
+	<select id="getFlightTotalCnt" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+			FROM Flight
+			WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.departPointId})
+		 	AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.arrivedPointId})
+
+	</select>
+	<select id="viewAirport" parameterType="map" resultType="airport">
+		SELECT * FROM AIRPORT
 	</select>
 </mapper>

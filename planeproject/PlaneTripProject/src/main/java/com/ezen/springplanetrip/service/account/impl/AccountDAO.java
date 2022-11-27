@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ezen.springplanetrip.vo.PassengerVO;
+import com.ezen.springplanetrip.vo.UserVO;
 
 @Repository
 public class AccountDAO {
@@ -14,25 +15,37 @@ public class AccountDAO {
 	private SqlSessionTemplate mybatis;
 	
 
-	public void join(PassengerVO passengerVO) {
-		mybatis.insert("AccountDAO.join", passengerVO);
+	public int join(UserVO userVO) {
+		return mybatis.insert("AccountDAO.join", userVO);
 	}
 	
-	public PassengerVO login(PassengerVO passengerVO) {
+	public UserVO login(UserVO userVO) {
 		
-		return mybatis.selectOne("AccountDAO.login", passengerVO); 
+		return mybatis.selectOne("AccountDAO.login", userVO); 
 	}
 	
-	public List<PassengerVO> viewMypage(){
+	public List<UserVO> viewMypage(){
 		
 		return mybatis.selectList("AccountDAO.veiwMypage"); 
 	}
 	
-	public void quit(PassengerVO passengerVO){
-		mybatis.delete("AccountDAO.quit", passengerVO);
+	public void quit(UserVO userVO){
+		mybatis.delete("AccountDAO.quit", userVO);
 	}
 	
-	public void updateInfo(PassengerVO passengerVO){
-		mybatis.update("AccountDAO.updateInfo", passengerVO);
+	public void updateInfo(UserVO userVO){
+		mybatis.update("AccountDAO.updateInfo", userVO);
+	}
+	
+	public int idCheck(String email) {
+		return mybatis.selectOne("AccountDAO.idCheck", email);
+	}
+	
+	public UserVO findId(UserVO userVO) {
+		return mybatis.selectOne("AccountDAO.findId", userVO);
+	}
+
+	public UserVO findPassword(UserVO userVO) {
+		return mybatis.selectOne("AccountDAO.findPassword", userVO);
 	}
 }

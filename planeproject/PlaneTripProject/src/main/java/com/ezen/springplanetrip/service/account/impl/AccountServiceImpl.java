@@ -7,31 +7,49 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.springplanetrip.service.account.AccountService;
 import com.ezen.springplanetrip.vo.PassengerVO;
+import com.ezen.springplanetrip.vo.UserVO;
 
 @Service
 public class AccountServiceImpl implements AccountService{
 	@Autowired
 	private AccountDAO accountDAO;
 	
-	public void join(PassengerVO passengerVO) {
-		accountDAO.join(passengerVO);
+	@Override
+	public int join(UserVO userVO) {
+		return accountDAO.join(userVO);
 	}
-
-	public PassengerVO login(PassengerVO passengerVO) {
-		
-		return accountDAO.login(passengerVO); 
+	@Override
+	public UserVO login(UserVO userVO) {
+		return accountDAO.login(userVO); 
 	}
-
-	public List<PassengerVO> viewMypage(){
-		
+	
+	@Override
+	public List<UserVO> viewMypage(){
 		return accountDAO.viewMypage(); 
 	}
-
-	public void quit(PassengerVO passengerVO){
-		accountDAO.quit(passengerVO);
+	
+	@Override
+	public void quit(UserVO userVO){
+		accountDAO.quit(userVO);
+	}
+	
+	@Override
+	public void updateInfo(UserVO userVO){
+		 accountDAO.updateInfo(userVO);
+	}
+	
+	@Override
+	public int idCheck(String email) {
+		return accountDAO.idCheck(email);
+	}
+	
+	@Override
+	public UserVO findId(UserVO userVO) {
+		return accountDAO.findId(userVO);
 	}
 
-	public void updateInfo(PassengerVO passengerVO){
-		 accountDAO.updateInfo(passengerVO);
+	@Override
+	public UserVO findPassword(UserVO userVO) {
+		return accountDAO.findPassword(userVO);
 	}
 }
