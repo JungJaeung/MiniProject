@@ -1,16 +1,25 @@
 package com.ezen.springplanetrip.service.Board;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ezen.springplanetrip.vo.BoardVO;
+import com.ezen.springplanetrip.vo.Criteria;
 
 public interface BoardService {
-	
-	List<BoardVO> viewList();
-	
-	void addBoard(BoardVO boardVO);
-	
+
+	List<BoardVO> viewList(Map<String, String> paramMap, Criteria cri);
+
+	int getBoardTotalCnt(Map<String, String> paramMap);
+
+	int addBoard(BoardVO boardVO);
+
+	BoardVO getBoard(int boardId);
+
+	void updateBoardCnt(int boardId);
+
 	void updateBoard(BoardVO boardVO);
-	
-	void deleteBoard(BoardVO boardVO);
+
+	void deleteBoard(int boardId);
+
 }

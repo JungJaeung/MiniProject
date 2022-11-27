@@ -90,9 +90,9 @@
       <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
       <input type="hidden" name="amount" value="${pageVO.cri.amount }">
       <p class="qna_title">질 문 게 시 판</p>
-      <form id="searchForm" action="/board/getQnaList.do" method="post">
+      <form id="searchForm" action="/board/getBoardList.do" method="post">
         <div class="search">
-          <input type="text" name="searchKeyword" value="${searchKeyword}" placeholder="Search">
+          <input type="text" name="searchKeyword" value="${searchKeyword}">
           <img src="images/search.png" style="width: 20px;">
         </div>
       </form>
@@ -110,11 +110,11 @@
           <tbody>
             <c:forEach items="${boardList}" var="board">
             <tr>
-              <td>1</td>
-              <td class="t_title"><a href="#">제주도 항공권 관련 문의</a></td>
-              <td>abc</td>
-              <td>2022-11-24</td>					
-              <td>1235</td>
+              <td>${board.boardId}</td>
+              <td class="t_title"><a href="/board/updateBoardCnt.do?boardId=${board.boardId }">${board.boardTitle }</a></td>
+              <td>${board.boardWriter} }</td>
+              <td><fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/></td>					
+              <td>${board.boardCount} </td>
             </tr>
           </c:forEach>
           </tbody>          
@@ -140,19 +140,36 @@
         </ul>
       </div>
       <div class="insert" >
-        <a href="#" id="btnInsert" class="btnInsert">글쓰기</a></div>
+        <a href="/board/insertBoard.do" id="btnInsert" class="btnInsert">글쓰기</a>
+      </div>
     </div> 
   </div>
   <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 	
   <script>
     //IMG 클릭시 검색화면으로 이동해야함
-    $(function() {
+/*     $(function() {
       $(".search img").on("click", function(e) {
-        console.log(e.target);
+    	  console.log(e.target);
       });
-    });
-  </script>
-  
+    }) */;
+    
+    //페이지 이동
+    $(function(){
+	 		$(".pagination a").on("click", function(e){
+	 			e.preventDefault(); // a 태그의 기능을 막음
+	 			/* 클릭된 value가 데이터로 들어감 */
+	 			$("input[name='pageNum']").val($(this).attr("href"));
+	 			$("#searchForm").submit();
+	 		});
+	 		
+	 		/* 검색시 1page로 보내는 것  */
+	 		$(".search img").on("click", function(){
+	 			console.log(e.target);
+	 			$("input[name='pageNum']").val(1);
+	 			$("#searchForm").submit();
+	 		});
+		});
+  </script>  
 </body>
 </html>

@@ -13,6 +13,7 @@
 	<typeAliases>
 		<typeAlias type="com.ezen.springplanetrip.vo.PassengerVO" alias="passenger"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.FlightVO" alias="flight"></typeAlias>
+		<typeAlias type="com.ezen.springplanetrip.vo.BoardVO" alias="board"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.AirportVO" alias="airport"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.UserVO" alias="user"></typeAlias>
 	</typeAliases>
@@ -22,6 +23,7 @@
 		<mapper resource="mappings/home-mapper.xml"></mapper>
 		<mapper resource="mappings/account-mapper.xml"></mapper>
 		<mapper resource="mappings/flight-mapper.xml"></mapper>
+		<mapper resource="mappings/board-mapper.xml"></mapper>
 	</mappers>
 	
 </configuration>
