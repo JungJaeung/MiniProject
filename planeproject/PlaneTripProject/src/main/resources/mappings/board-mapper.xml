@@ -5,21 +5,18 @@
 <!-- 보편적으로 사용하는 방법 꼭 그런 건 아님 -->
 <mapper namespace="BoardDAO">
 	<!-- 쿼리작성 영역 꿔리 짜기 -->
-	<!--                     파라미터 파입에 원래 com.ezen.spring.vo.BoardVO 작성 그러나 별칭으로 대채 가능-->
-	<insert id="insertBoard" parameterType="board">
-		<!-- 보드에서 int ?                                    insert 쿼리가 실행되기 전에-->
-		<selectKey resultType="int" keyProperty="boardNo" order="BEFORE">
-			SELECT IFNULL(MAX(BOARD_NO),0) + 1 FROM T_BOARD
+	<insert id="addBoard" parameterType="board">
+		<selectKey resultType="int" keyProperty="boardId" order="BEFORE">
+			SELECT IFNULL(MAX(BOARD_ID),0) + 1 FROM BOARD
 		</selectKey>
-		INSERT INTO T_BOARD 
+		INSERT INTO BOARD 
 		VALUES(
-		<!--  보드넘에 값을 넣었기 때문에 보드넘을 쓸 수 있음-->
-			#{boardNo},
+			#{boardId},
 			#{boardTitle},
 			#{boardContent},
 			#{boardWriter},
-			now(),
-			0 
+			0,
+			now()
 		     )		
 	</insert>
 	<!-- #{} : 변수 빼오는 방식//  resultType : 리턴 타입있을 때(select)-->	
@@ -28,12 +25,10 @@
 			FROM T_BOARD 
 			WHERE BOARD_No = #{boardNo}
 	</select>
-	<!-- 서치 키워드랑 서치컨디션을 받아서 동적쿼리를 만듦-->
-	<!--  <![CDATA[ 안에 동적쿼리 작성하면]]> 동적쿼리 인식하지 못해서 밖에 다가 만들어야함  -->
-	<select id="getBoardList" parameterType="map" resultType="board">
+	<select id="viewList" parameterType="map" resultType="board">
 	<![CDATA[
 		SELECT * 
-			FROM T_BOARD
+			FROM BOARD
 	]]>		
 			<if test="boardSearch.searchKeyword != null and boardSearch.searchKeyword != ''">
 				WHERE 1 = 0
@@ -41,49 +36,32 @@
 					OR BOARD_CONTENT LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')	
 					OR BOARD_WRITER LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')			
 			</if>	
-						  <!--  OFFSET -> 시작할 행 : #{cri.startNum} 0부터시작  -->
 			LIMIT #{cri.amount} OFFSET #{cri.startNum}	
 	</select>
 	<update id="updateBoardCnt" parameterType="int">
-		UPDATE T_BOARD
-		SET BOARD_CNT= BOARD_CNT+1 
-		WHERE BOARD_NO = #{boardNo}
+		UPDATE BOARD
+		SET BOARD_COUNT= BOARD_COUNT+1 
+		WHERE BOARD_ID = #{boardId}
 	</update>
 	<update id="updateBoard" parameterType="board">
-		UPDATE T_BOARD
+		UPDATE BOARD
 			SET BOARD_TITLE = #{boardTitle}
 			, BOARD_CONTENT = #{boardContent}
-			WHERE BOARD_NO = #{boardNo}			
+			WHERE BOARD_ID = #{boardId}			
 	</update>
 	<delete id="deleteBoard" parameterType="int"> 
-		DELETE FROM T_BOARD
-			WHERE BOARD_NO = #{boardNo}
+		DELETE FROM BOARD
+			WHERE BOARD_ID = #{boardId}
 	</delete>
 	<select id="getBoardTotalCnt" parameterType="map" resultType="int">
 		SELECT COUNT(*)
-		 	FROM T_BOARD
+		 	FROM BOARD
 		 	<if test="searchKeyword != null and searchKeyword != ''">
-				<if test="searchCondition == 'all'">
 				WHERE 1 = 0
 					OR BOARD_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
 					OR BOARD_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')	
 					OR BOARD_WRITER LIKE CONCAT('%', #{searchKeyword}, '%')		
-				</if>
-				<if test="searchCondition != 'all'">
-					WHERE 1 = 1
-					<if test="searchCondition == 'title'">
-						AND BOARD_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
-					</if>
-					<if test="searchCondition == 'content'">
-						AND BOARD_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
-					</if>
-					<if test="searchCondition == 'writer'">
-						AND BOARD_WRITER LIKE CONCAT('%', #{searchKeyword}, '%')	
-					</if>
-				</if>				
 			</if>	
 	</select>
-
-	
-	
+		
 </mapper>
