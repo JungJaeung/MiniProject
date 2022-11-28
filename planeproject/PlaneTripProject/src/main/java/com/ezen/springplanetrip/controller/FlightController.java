@@ -1,4 +1,4 @@
-/**package com.ezen.springplanetrip.controller;
+package com.ezen.springplanetrip.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -45,9 +45,10 @@ public class FlightController {
 		int total = flightService.getFlightTotalCnt(flightMap);
 		System.out.println("총 개수 : " + total);
 		model.addAttribute("pageVO", new PageVO(cri, total));
-		System.out.println(flyMap.get("refresh"));
+		System.out.println("flightID = " + flightList.get(0).getFilghtId());
+		
 		return "../flight/searchFlight";
 	}
 	
 	
-}**/
+}
