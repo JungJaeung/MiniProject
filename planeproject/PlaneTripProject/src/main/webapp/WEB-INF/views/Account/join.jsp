@@ -74,7 +74,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="p_location">
 		<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
 			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">회원가입</span>
@@ -148,7 +148,7 @@
 			</div>
 		</form>
 	</div>
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 	<script>
 		$(function() {
 			//회원가입 실패 시 메시지 출력
