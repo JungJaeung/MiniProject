@@ -24,7 +24,7 @@ public class BoardDAO {
 		cri.setStartNum((cri.getPageNum()-1)*cri.getAmount());
 		pMap.put("cri", cri);
 									// 파라미터 없어 스테이트먼트만 작성
-		return mybatis.selectList("BoardDAO.getBoardList", pMap);
+		return mybatis.selectList("BoardDAO.viewList", pMap);
 	}
 
 	public int getBoardTotalCnt(Map<String, String> paramMap) {

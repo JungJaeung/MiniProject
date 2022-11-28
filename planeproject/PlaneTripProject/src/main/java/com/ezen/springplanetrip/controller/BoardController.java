@@ -39,7 +39,7 @@ public class BoardController {
 		int total = boardService.getBoardTotalCnt(paramMap);
 		model.addAttribute("pageVO", new PageVO(cri, total));
 		
-		return "board/getboardList";
+		return "board/getBoardList";
 	}
 
 	//게시글 등록화면으로 이동 
@@ -49,7 +49,7 @@ public class BoardController {
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 
 		if(loginUser==null) {
-			return "redirect:/user/login.do";
+			return "redirect:/Account/login.do";
 		}
 
 		return "board/insertBoard";
@@ -73,7 +73,7 @@ public class BoardController {
 	}
 	
 	// 조회수 증가 // getBoard 상세보기 창 
-	@RequestMapping("updateBoadCnt.do")
+	@RequestMapping("updateBoardCnt.do")
 	public String udpateBoardCnt(@RequestParam("boardId") int boardId) {
 		boardService.updateBoardCnt(boardId);
 		
