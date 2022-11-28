@@ -29,13 +29,13 @@ public class AccountServiceImpl implements AccountService{
 	}
 	
 	@Override
-	public void quit(UserVO userVO){
-		accountDAO.quit(userVO);
+	public int quit(UserVO userVO){
+		return accountDAO.quit(userVO);
 	}
 	
 	@Override
-	public void updateInfo(UserVO userVO){
-		 accountDAO.updateInfo(userVO);
+	public int updateInfo(UserVO userVO){
+		 return accountDAO.updateInfo(userVO);
 	}
 	
 	@Override
