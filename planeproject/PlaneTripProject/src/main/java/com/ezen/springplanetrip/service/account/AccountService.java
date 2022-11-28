@@ -14,9 +14,9 @@ public interface AccountService {
 	
 	List<UserVO> viewMypage();
 	
-	void quit(UserVO userVO);
+	int quit(UserVO userVO);
 	
-	void updateInfo(UserVO userVO);
+	int updateInfo(UserVO userVO);
 	
 	int idCheck(String email);
 	
