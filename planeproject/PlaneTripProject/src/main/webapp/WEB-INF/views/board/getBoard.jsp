@@ -58,11 +58,21 @@
       text-decoration: none;
        color: white; font-size: 1.03rem;     
     }
+     #clickReply{
+       /* display: none; */
+      float: left;
+      margin-top: 5px;
+      width: 80px;
+      height: 30px;
+      border:1px solid black;
+      background-color: black;
+      color: white;
+    }
 </style>
 </head>
 <body>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/header.jsp"></jsp:include>
 	<div id="container">
 	  <div id="box" >
 	    <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
@@ -98,12 +108,26 @@
 	      <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>
 	      <div class="btns" ><a href="/board/deleteBoard.do?boardid=${board.boardId }" id="btndelete" class="btndelete">삭제</a></div>
 	
-	      <!--답글버튼 추가 // 관리자만-->
+	       <!--답글기능-->
+	      <input type="button" id="clickReply" value="답변하기"> <!--hidden 속성 어떻게 부여  style="display: none;-->     
+	      <div id="r_section">
+	        <table>
+	          <tr>
+	            <td style="text-align: left;">답변 내용</td>
+	          </tr>
+	          <tr>
+	            <td><textarea name="replyContent" id="replyContent" cols="100" rows="10"></textarea></td>
+	          </tr>
+	          <tr>
+	            <td style="text-align: center;"><button type="submit" id="btnReply">확인</button></td>
+	          </tr>
+	        </table>        
+	      </div>
 	    </div>
 	  </div> 
 	</div>	
 
-	<jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/footer.jsp"></jsp:include>
 	
 	<script>
 		$(function(){
