@@ -17,8 +17,8 @@ public class FlightServiceImpl implements FlightService{
 	private FlightDAO flightDAO;
 
 	@Override
-	public List<FlightVO> viewFlight(Map<String, Object> flightMap, Criteria cri) {
-		return flightDAO.viewFlight(flightMap, cri);
+	public List<FlightVO> viewFlight(Map<String, String> flyMap, Criteria cri) {
+		return flightDAO.viewFlight(flyMap, cri);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class FlightServiceImpl implements FlightService{
 	}
 	
 	@Override
-	public int getFlightTotalCnt(Map<String, Object> flightMap) {
-		return flightDAO.getFlightTotalCnt(flightMap);
+	public int getFlightTotalCnt(Map<String, String> flyMap) {
+		return flightDAO.getFlightTotalCnt(flyMap);
 	}
 }

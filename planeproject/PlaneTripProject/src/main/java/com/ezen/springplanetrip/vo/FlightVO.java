@@ -5,7 +5,7 @@ package com.ezen.springplanetrip.vo;
 import java.util.Date;
 
 public class FlightVO {
-	private int filghtId;
+	private int flightId;
 	private String flightCode;
 	private Date departTime;
 	private Date arrivalTime; 
@@ -13,15 +13,14 @@ public class FlightVO {
 	private String airportDpt;
 	private String airportArv;
 	
-	public int getFilghtId() {
-		return filghtId;
+	public int getFlightId() {
+		return flightId;
 	}
-	
-	public void setFilghtId(int filghtId) {
-		this.filghtId = filghtId;
+
+	public void setFlightId(int flightId) {
+		this.flightId = flightId;
 	}
-	
-	
+
 	public String getFlightCode() {
 		return flightCode;
 	}
@@ -72,7 +71,7 @@ public class FlightVO {
 
 	@Override
 	public String toString() {
-		return "FlightVO [filghtId=" + filghtId + ", flightCode=" + flightCode + ", departTime=" + departTime
+		return "FlightVO [flightId=" + flightId + ", flightCode=" + flightCode + ", departTime=" + departTime
 				+ ", arrivalTime=" + arrivalTime + ", aircraftId=" + aircraftId + ", airportDpt=" + airportDpt
 				+ ", airportArv=" + airportArv + "]";
 	}
