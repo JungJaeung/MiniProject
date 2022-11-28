@@ -22,8 +22,8 @@
 	<!-- #{} : 변수 빼오는 방식//  resultType : 리턴 타입있을 때(select)-->	
 	<select id="getBoard" parameterType="int" resultType="board">
 		SELECT * 
-			FROM T_BOARD 
-			WHERE BOARD_No = #{boardNo}
+			FROM BOARD 
+			WHERE BOARD_Id = #{boardId}
 	</select>
 	<select id="viewList" parameterType="map" resultType="board">
 	<![CDATA[
