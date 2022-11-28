@@ -687,7 +687,7 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="flight/searchFlight.do" method="post">
+                    <form id="info" action="Flight/searchFlight.do" method="post">
                         <input type="button" id="starting_point" value="출발지">
                       	<input type="hidden" id="departPointId" name="departPointId" value="">
                         <input type="button" id="swap">
