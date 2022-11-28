@@ -20,7 +20,7 @@ import com.ezen.springplanetrip.vo.PageVO;
 import com.ezen.springplanetrip.vo.PassengerVO;
 
 @Controller
-@RequestMapping("/Flight")
+@RequestMapping("/flight")
 public class FlightController {
 	@Autowired
 	private FlightService flightService;
