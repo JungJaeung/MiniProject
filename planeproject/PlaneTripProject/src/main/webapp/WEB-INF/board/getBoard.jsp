@@ -114,7 +114,7 @@
 			// 게시글 작성자랑 로그인 유저가 다르면 게시글 수정 못하게 설정 
 			if(loginUserId !== boardWriter){
 				$("#btnWrap").hide();
-				$("#deleteBtn").hide();
+				$("#btndelete").hide();
 				$("#boardTitle").attr("readonly", true);
 				$("#boardContent").attr("readonly", true);		
 			}
