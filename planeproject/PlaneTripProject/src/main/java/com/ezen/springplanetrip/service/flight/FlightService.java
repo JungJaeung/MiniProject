@@ -8,9 +8,9 @@ import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 
 public interface FlightService {
-	List<FlightVO> viewFlight(Map<String, Object> flightMap, Criteria cri);
+	List<FlightVO> viewFlight(Map<String, String> flyMap, Criteria cri);
 	
 	List<AirportVO> viewAirport(Map<String, String> airportMap);
 	
-	int getFlightTotalCnt(Map<String, Object> flightMap);
+	int getFlightTotalCnt(Map<String, String> flyMap);
 }

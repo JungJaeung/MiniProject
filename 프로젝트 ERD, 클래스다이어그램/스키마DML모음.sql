@@ -35,3 +35,14 @@ ALTER TABLE reservation add CONSTRAINT fk_RESERVATION_SEAT1 foreign key(SEAT_ID)
 select * from seat;
 
 DROP TABLE user;
+
+select * from user;
+
+select * from flight;
+
+select * from airport;
+
+		SELECT COUNT(*)
+			FROM Flight
+			WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID='2')
+		 	AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID='4');

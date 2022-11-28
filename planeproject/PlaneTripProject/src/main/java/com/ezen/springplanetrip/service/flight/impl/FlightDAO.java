@@ -1,5 +1,6 @@
 package com.ezen.springplanetrip.service.flight.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,10 @@ public class FlightDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	public List<FlightVO> viewFlight(Map<String, Object> flightMap, Criteria cri) {
+	public List<FlightVO> viewFlight(Map<String, String> flyMap, Criteria cri) {
+		Map<String, Object> flightMap = new HashMap<String, Object>();
+		
+		flightMap.put("flightMap", flyMap);
 		
 		cri.setStartNum((cri.getPageNum()-1) * cri.getAmount());
 		flightMap.put("cri", cri);
@@ -28,7 +32,10 @@ public class FlightDAO {
 		return mybatis.selectList("FlightDAO.viewAirport", airportMap);
 	}
 
-	public int getFlightTotalCnt(Map<String, Object> flightMap) {
+	public int getFlightTotalCnt(Map<String, String> flyMap) {
+		Map<String, Object> flightMap = new HashMap<String, Object>();
+		
+		flightMap.put("flightMap", flyMap);
 		return mybatis.selectOne("FlightDAO.getFlightTotalCnt", flightMap);
 	}
 }
