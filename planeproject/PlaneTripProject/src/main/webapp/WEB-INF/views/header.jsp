@@ -85,7 +85,7 @@
         <div id="top_container">
             <nav id="top_menu">
                 <ul>
-                    <li><a href="#">공지사항</a></li>
+                    <li><a href="/board/getBoardList.do">질문게시판</a></li>
                     <li><a href="#">고객센터</a></li>
                     <li><a href="#">나의 예약 현황</a></li>
                     <c:choose>
