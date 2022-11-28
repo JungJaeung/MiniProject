@@ -26,15 +26,15 @@ public class AccountDAO {
 	
 	public List<UserVO> viewMypage(){
 		
-		return mybatis.selectList("AccountDAO.veiwMypage"); 
+		return mybatis.selectList("AccountDAO.viewMypage"); 
 	}
 	
-	public void quit(UserVO userVO){
-		mybatis.delete("AccountDAO.quit", userVO);
+	public int quit(UserVO userVO){
+		return mybatis.delete("AccountDAO.quit", userVO);
 	}
 	
-	public void updateInfo(UserVO userVO){
-		mybatis.update("AccountDAO.updateInfo", userVO);
+	public int updateInfo(UserVO userVO){
+		return mybatis.update("AccountDAO.updateInfo", userVO);
 	}
 	
 	public int idCheck(String email) {

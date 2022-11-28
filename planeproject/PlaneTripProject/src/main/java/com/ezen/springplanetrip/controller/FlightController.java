@@ -24,13 +24,16 @@ public class FlightController {
 	private FlightService flightService;
 	
 	@PostMapping("/searchFlight.do")
-	public String viewFlight(Model model, @RequestParam Map<String, Object> flyMap, Criteria cri) {
+	public String viewFlight(Model model, @RequestParam Map<String, String> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
 		Map<String, Object> flightMap = new HashMap<String, Object>();
 		
-		
 		cri.setAmount(8);	//페이지당 8개만 표시
+		//넘어온 값들은 정수가 아닌 문자열
+		//flyMap.put("flightId", Integer.parseInt((String)flyMap.get("flightId")));	//flighId값은 정수형이므로 정수형으로 바꿔서
 		flightMap.put("flightMap", flyMap);
+		
+		flightMap.put("flightId", Integer.parseInt(flyMap.get("flightId")));
 		model.addAttribute("flightInfo", flyMap);
 		
 		List<FlightVO> flightList = flightService.viewFlight(flightMap, cri);
@@ -49,6 +52,5 @@ public class FlightController {
 		
 		return "../flight/searchFlight";
 	}
-	
 	
 }
