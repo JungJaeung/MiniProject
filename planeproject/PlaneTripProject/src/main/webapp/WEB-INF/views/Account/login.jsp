@@ -77,7 +77,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="p_location">
 		<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
 			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">로그인</span>
@@ -112,7 +112,7 @@
 			</div>
 		</form>
 	</div>
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 	
 	<script>
 		$(function() {
@@ -123,13 +123,15 @@
 			
 			//로그인 시 아이디나 비밀번호가 틀렸을 경우에
 			$("#btnLogin").on("click", function() {
+				console.log("로그인 시도 중입니다........=======");
 				$.ajax({
 					url: "/Account/login.do",
 					type: "post",
 					data: $("#loginForm").serialize(),
 					success: function(obj) {
-						JSON.parse(obj);
 						console.log(obj);
+						//JSON.parse(obj); 이거 오류남. 뭔 이유인지 모르겠음.
+						//console.log(obj);
 						//id 체크
 						if(obj == "idFail") {
 							alert("존재하지 않는 아이디입니다.");

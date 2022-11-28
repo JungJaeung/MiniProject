@@ -25,7 +25,13 @@ CREATE TABLE USER(
 ALTER TABLE airline_02.user MODIFY COLUMN USER_ID int auto_increment;
 
 ALTER TABLE board drop constraint fk_board_user;
-ALTER TABLE BOARD add CONSTRAINT fk_board_user foreign key(user_id) references user (user_id);
-alter table reservation add constraint fk_reservation_user foreign key(user_id) references user (user_id);
+ALTER TABLE RESERVATION DROP CONSTRAINT fk_reservation_user;
+ALTER TABLE BOARD add CONSTRAINT fk_BOARD_USER_ID foreign key(user_id) references user (user_id);
+alter table reservation add constraint fk_RESERVATION_USER_ID foreign key(user_id) references user (user_id);
+
+ALTER TABLE RESERVATION DROP CONSTRAINT fk_RESERVATION_SEAT1;
+ALTER TABLE reservation add CONSTRAINT fk_RESERVATION_SEAT1 foreign key(SEAT_ID) references seat (SEAT_ID);
+
+select * from seat;
 
 DROP TABLE user;
