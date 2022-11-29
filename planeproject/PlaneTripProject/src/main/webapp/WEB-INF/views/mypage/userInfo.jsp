@@ -131,7 +131,7 @@
                 <div id="info_id_title">아이디</div>
                 <div id="info_id">${loginUser.email}</div>
 
-                <button id="correction_btn">회원정보 수정</button>
+                <button id="correction_btn" onclick="location.href='/Account/updateInfo.do';">회원정보 수정</button>
                 <a href="/Account/quit.do" id="withdrawal_btn">회원탈퇴</a>
             </div>
             <div id="info2">

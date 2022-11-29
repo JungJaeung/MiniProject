@@ -32,15 +32,23 @@ public class AccountController {
 	}
 	
 	//회원정보 수정 페이지로 이동
-	@GetMapping("/userUpdate.do")
+	@GetMapping("/updateInfo.do")
 	public String userUpdateView() {
 		return "/mypage/userUpdate";
 	}
 	
 	//회원정보 수정 처리
-	public String updateInfo(UserVO userVO) {
-		accountService.updateInfo(userVO);
-		return "redirect:/userInfo.jsp";
+	@PostMapping(value="/updateInfo.do", produces="application/text; charset=UTF-8")
+	public String updateInfo(UserVO userVO, Model model) {
+		int updateResult = accountService.updateInfo(userVO);
+		
+		if(updateResult == 0) {
+			model.addAttribute("updateMsg", "회원정보 수정에 실패하였습니다.");
+			return "Account/userUpdate";
+		}
+		
+		model.addAttribute("updateMsg", "회원정보 수정에 성공했습니다.");
+		return "Account/userInfo";
 	}
 	
 	//회원탈퇴
