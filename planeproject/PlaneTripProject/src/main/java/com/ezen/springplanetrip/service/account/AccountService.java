@@ -14,7 +14,7 @@ public interface AccountService {
 	
 	List<UserVO> viewMypage();
 	
-	int quit(UserVO userVO);
+	void quit(int userId);
 	
 	int updateInfo(UserVO userVO);
 	

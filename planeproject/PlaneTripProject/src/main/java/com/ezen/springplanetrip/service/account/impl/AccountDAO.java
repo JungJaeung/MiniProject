@@ -29,8 +29,8 @@ public class AccountDAO {
 		return mybatis.selectList("AccountDAO.viewMypage"); 
 	}
 	
-	public int quit(UserVO userVO){
-		return mybatis.delete("AccountDAO.quit", userVO);
+	public void quit(int userId){
+		mybatis.delete("AccountDAO.quit", userId);
 	}
 	
 	public int updateInfo(UserVO userVO){
