@@ -891,6 +891,7 @@
 				console.log("받아온 데이터 : " + $(this).children(".idList").text());
 				$("input[name='flightId']").val($(this).children(".idList").text());
 				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
+				console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
 			});
 			
 			$("#selectButton").on("click", function(e) {
