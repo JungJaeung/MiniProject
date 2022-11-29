@@ -85,7 +85,7 @@
 <body>
     <div id="headers"></div>
     
-    <jsp:include page="../header.jsp"></jsp:include>
+    <jsp:include page="/header.jsp"></jsp:include>
 	<div id="container">
         <!--타이틀-->
         <div id="page_name">마이페이지</div>
@@ -125,6 +125,6 @@
         
 
 	</div>
-    <jsp:include page="../footer.jsp"></jsp:include>
+    <jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>
