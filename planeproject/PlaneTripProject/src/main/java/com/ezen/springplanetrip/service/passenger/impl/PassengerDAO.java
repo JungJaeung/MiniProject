@@ -1,9 +1,6 @@
 package com.ezen.springplanetrip.service.passenger.impl;
 
-<<<<<<< HEAD
-public class PassengerDAO {
 
-=======
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,5 +17,4 @@ public class PassengerDAO {
 		return mybatis.insert("PassengerDAO.insertPassenger", passengerVO);
 	}
 	
->>>>>>> 9bb1ab0732aac5279d98704e0415f7a8e98e40f5
 }
