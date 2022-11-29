@@ -23,50 +23,40 @@ public class AccountController {
 		return null;
 	}
 	
-	
-	
-	//회원정보는 loginUser에 담겨져 있음. 화면단에서 .get으로 출력
+	//-----------------------------------------------------------------------------------------------
 	
 	//마이페이지로 이동
-	@GetMapping("/mypage.do") 
-	public String viewMypage() {
-		return "Account/mypage";
+	@GetMapping("/userInfo.do") 
+	public String userInfoView() {
+		return "/mypage/userInfo";
 	}
 	
 	//회원정보 수정 페이지로 이동
 	@GetMapping("/userUpdate.do")
-	public String updatePage() {
-		return "Account/userUpdate";
+	public String userUpdateView() {
+		return "/mypage/userUpdate";
 	}
 	
 	//회원정보 수정 처리
-	public String updateInfo(UserVO userVO, Model model) {
-		
-		int updateResult = accountService.updateInfo(userVO);
-		if(updateResult == 0) {
-			model.addAttribute("quitMsg", "회원정보 수정 실패");
-			return "Account/userUpdate";
-		} else {
-			model.addAttribute("quitMsg", "회원정보 수정 성공");
-			return "../mainPage";
-		}
+	public String updateInfo(UserVO userVO) {
+		accountService.updateInfo(userVO);
+		return "redirect:/userInfo.jsp";
 	}
 	
 	//회원탈퇴
-	@PostMapping(value="/quit.do", produces="application/text; charset=UTF-8")
-	public String quit(UserVO userVO , Model model) {
-		int quitResult = accountService.quit(userVO);
-		if(quitResult == 0) {
-			model.addAttribute("quitMsg", "회원탈퇴에 실패하였습니다.");
-			return "Account/userUpdate";
-		} else {
-			model.addAttribute("quitMsg", "회원탈퇴에 성공하였습니다.");
-			return "../mainPage";
-		}
+	@RequestMapping(value="/quit.do")
+	public String quit(HttpSession session) {
 		
+		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+		
+		accountService.quit(loginUser.getUserId());
+		session.invalidate();
+		
+		return "redirect:/mainPage.jsp";
 	}
 	
-
+	//------------------------------------------------------------------------------------------------
+	
 	@GetMapping("/join.do")
 	public String joinView() {
 		return "Account/join";

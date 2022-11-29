@@ -95,7 +95,7 @@
                     	</c:when>
 						<c:otherwise>
 						    <li><a href="/Account/logout.do">로그아웃</a></li>
-                    		<li><a href="#">${loginUser.fullName}님</a></li>
+                    		<li><a href="/Account/userInfo.do">${loginUser.fullName}님</a></li>
 						</c:otherwise>
 					</c:choose>
                 </ul>
@@ -107,7 +107,7 @@
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/mainPage.jsp"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
                     <li><a href="#">항공권 예매</a></li>
-                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="/Account/userInfo.do">마이페이지</a></li>
                     <li><a href="#">부가서비스 안내</a></li>
                     <li><a href="#">모바일탑승권</a></li>
                     <li><a href="#">이벤트</a></li>

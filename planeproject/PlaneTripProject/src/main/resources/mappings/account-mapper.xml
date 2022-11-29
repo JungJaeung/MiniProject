@@ -62,4 +62,9 @@
 	<select id="findPassword" parameterType="user" resultType="user">
 		<![CDATA[select * from user where EMAIL=#{email} and FULL_NAME=#{fullName} and PHONE=#{phone}]]>
 	</select>
+	
+	<delete id="quit" parameterType="user">
+		<![CDATA[delete from user where USER_ID=#{userId}]]>
+	</delete>
+	
 </mapper>
