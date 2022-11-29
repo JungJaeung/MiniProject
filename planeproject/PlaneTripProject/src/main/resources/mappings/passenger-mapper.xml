@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="PassengerDAO">
+	<!-- 쿼리 작성 영역 -->
+	<insert id="insertPassenger" parameterType="passenger">
+	<![CDATA[
+		INSERT INTO T_USER(
+			FIRST_NAME,
+			LAST_NAME,
+			PHONE,
+			BIRTHDATE,
+			GENDER
+		) VALUES (
+			#{name_f1},
+			#{name1},
+			#{ph1},
+			#{birthday1},
+			#{gender1}
+		)
+	]]>
+	</insert>
+	
+	<!-- 이름 추가 쿼리 -->
+	
+</mapper>

@@ -5,6 +5,7 @@
 	
 <mapper namespace="HomeDAO">
 	<!-- 쿼리 작성 영역 -->
+	
 	<!-- 이름 추가 쿼리 -->
 	
 </mapper>
