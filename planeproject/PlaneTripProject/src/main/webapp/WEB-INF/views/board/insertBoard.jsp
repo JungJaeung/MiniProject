@@ -60,8 +60,8 @@
 	<div id="container">
 		<div id="box">
 		  <p class="qna_title">문의사항</p>
-		  <form id="insertForm" action="/board/isertBoard.do" method="post">
-		    <input type="hidden" name="boardId" id="boardId" value="${board.boardId }">
+		  <form id="insertForm" action="/board/insertBoard.do" method="post">
+			<input type="hidden" name="userId" id="userId" value="${loginUser.userId}">
 		    <table id="t_qna">
 		      <tr>
 		        <th>제목</th>
@@ -72,7 +72,7 @@
 		      <tr>
 		        <th>작성자</th>
 		        <td>
-		          <input type="text" name="boardWriter" value="${loginUser.userId }" readonly>
+		          <input type="text" name="boardWriter" value="${loginUser.fullName }" readonly>
 		        </td>
 		      </tr>
 		      <tr>

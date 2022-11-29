@@ -122,8 +122,8 @@
             <tr>
               <td>${board.boardId}</td>
               <td class="t_title"><a href="/board/updateBoardCnt.do?boardId=${board.boardId }">${board.boardTitle }</a></td>
-              <td>${board.boardWriter} }</td>
-              <td><fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/></td>					
+              <td>${board.fullName}</td>
+              <td><fmt:formatDate value="${board.regdate }" pattern="yyyy-MM-dd"/></td>					
               <td>${board.boardCount} </td>
             </tr>
           </c:forEach>
@@ -179,7 +179,7 @@
 	 		
 	 		/* 검색시 1page로 보내는 것  */
 	 		$(".search img").on("click", function(){
-	 			console.log(e.target);
+	 			/* console.log(e.target); */
 	 			$("input[name='pageNum']").val(1);
 	 			$("#searchForm").submit();
 	 		});
