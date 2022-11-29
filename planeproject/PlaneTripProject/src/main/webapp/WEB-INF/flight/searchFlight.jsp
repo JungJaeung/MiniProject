@@ -205,6 +205,9 @@
 			margin-left: 5px;
 		}
 		
+		.idList {
+			display: none;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -795,6 +798,10 @@
 				<th>도착지</th>
 			</tr>
 			<c:forEach items="${flightList }" var="flightList">
+	<%-- 			<form>
+					<input type="hidden" class="idList" value="${flightList.flightId }">
+				</form> --%>
+				<!--  <span class="idList">${flightList.flightId }</span>-->
 				<tr class="list">
 					<td>${flightList.flightCode }</td>
 					<td>
@@ -807,11 +814,13 @@
 						<%-- <fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/> --%>
 						${flightList.airportArv }
 					</td>
+					<td class="idList">${flightList.flightId }</td>
 				</tr>
 			</c:forEach>
 		</table>
 		<c:forEach items="${flightList }" var="flightList">
-			<input class="idList" type="hidden" name="flightId" value="${flightList.flightId }">
+			<input type="hidden" name="flightId" value="${flightList.flightId }">
+			<input class="codeList" type="hidden" name="flightCode" value="${flightList.flightCode }">
 		</c:forEach><!-- 검색된 비행편의 개수 -->
 		<div id="pageNumber">
 			<ul class="pagination">
@@ -856,8 +865,14 @@
 		
 	<script>
 		$(function() {
-			let flightIdList = $(".idList").get();
+			
+			let flightIdList = [];
 			let flightInfo = $(".list").get();
+
+			$(".idList").each(function(i, e) {
+				flightIdList.push($(this).text());
+			});
+			
 			console.log('model에서 가져온 list : ' + flightIdList);
 			
 			//console.log('model 자료형' + $(".idList"));
@@ -873,9 +888,9 @@
 			});
 			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
 			$(".list").on("click", function(e) {
-				console.log("click : " + e.target.textContent);
-				
-				$("#flightId").val(flightIdList.textContent);
+				console.log("받아온 데이터 : " + $(this).children(".idList").text());
+				$("input[name='flightId']").val($(this).children(".idList").text());
+				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 			});
 			
 			$("#selectButton").on("click", function(e) {
