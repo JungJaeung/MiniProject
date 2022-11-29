@@ -841,7 +841,7 @@
 				</c:if>
 			</ul>
 		</div>
-		<form id="checkFlight" action="/flight/checkFlight.do" method="post">
+		<form id="checkFlight" action="/passenger/insertPassenger.do" method="post">
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
