@@ -21,6 +21,7 @@ import com.ezen.springplanetrip.vo.AirportVO;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/")
 public class HomeController {
 	@Autowired
 	private FlightService flightService;
