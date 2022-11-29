@@ -8,27 +8,29 @@
 	<!-- 이름 추가 쿼리 -->
 	
 	<select id="idCheck" parameterType="string" resultType="int">
-		SELECT COUNT(EMAIL)
-			FROM USER
-			WHERE EMAIL = #{email}
+		select count(EMAIL)
+			from user
+			where EMAIL = #{email}
 	</select>
 	
 	<insert id="join" parameterType="user">
 	<![CDATA[
-		INSERT INTO USER(
+		insert into user(
 			EMAIL,
 			PASSWORD,
 			LAST_NAME,
 			FIRST_NAME,
+			FULL_NAME,
 			GENDER,
 			BIRTHDATE,
 			PHONE,
 			ADDRESS
-		) VALUES (
+		) values (
 			#{email},
 			#{password},
 			#{lastName},
 			#{firstName},
+			concat(#{lastName},#{firstName}),
 			#{gender},
 			#{birthDate},
 			#{phone},
@@ -39,7 +41,7 @@
 	
 	<select id="login" parameterType="user" resultType="user">
 	<![CDATA[
-		SELECT USER_ID
+		select USER_ID
 			 , EMAIL
 			 , FULL_NAME
 			 , GENDER
@@ -47,17 +49,17 @@
 			 , PHONE
 			 , ADDRESS
 			 , USER_ROLE
-			FROM USER
-			WHERE EMAIL = #{email}
-			  AND PASSWORD = #{password}
+			from user
+			where EMAIL = #{email}
+			  and PASSWORD = #{password}
 	]]>
 	</select>
 	
-	<select id="findId" resultType="user">
-		SELECT * FROM USER WHERE FULL_NAME=#{fullName} AND PHONE=#{phone}
+	<select id="findId" parameterType="user" resultType="user">
+		<![CDATA[select * from user where FULL_NAME=#{fullName} and PHONE=#{phone}]]>
 	</select>
 	
-	<select id="findPassword" resultType="user">
-		SELECT * FROM USER WHERE EMAIL=#{email} AND FULL_NAME=#{fullName} AND PHONE=#{phone}
+	<select id="findPassword" parameterType="user" resultType="user">
+		<![CDATA[select * from user where EMAIL=#{email} and FULL_NAME=#{fullName} and PHONE=#{phone}]]>
 	</select>
 </mapper>

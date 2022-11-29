@@ -12,56 +12,75 @@
 		INSERT INTO BOARD 
 		VALUES(
 			#{boardId},
+		 	#{userId}, 
 			#{boardTitle},
 			#{boardContent},
-			#{boardWriter},
 			0,
 			now()
 		     )		
 	</insert>
 	<!-- #{} : 변수 빼오는 방식//  resultType : 리턴 타입있을 때(select)-->	
 	<select id="getBoard" parameterType="int" resultType="board">
-		SELECT * 
-			FROM T_BOARD 
-			WHERE BOARD_No = #{boardNo}
+		SELECT A.*
+		     , B.FULL_NAME
+			FROM BOARD A
+			   , USER B
+			WHERE BOARD_Id = #{boardId}
+			  AND A.USER_ID = B.USER_ID
 	</select>
+	
 	<select id="viewList" parameterType="map" resultType="board">
 	<![CDATA[
-		SELECT * 
-			FROM BOARD
+		SELECT A.*
+			 , B.FULL_NAME
+			FROM BOARD A
+			   , USER B
 	]]>		
-			<if test="boardSearch.searchKeyword != null and boardSearch.searchKeyword != ''">
-				WHERE 1 = 0
-					OR BOARD_TITLE LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')
-					OR BOARD_CONTENT LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')	
-					OR BOARD_WRITER LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')			
-			</if>	
+			<if test="searchKeyword == null or searchKeyword == ''">
+			WHERE 1 = 1
+			</if>
+		 	<if test="searchKeyword != null and searchKeyword != ''">
+		 	WHERE 1 = 0 
+					OR A.BOARD_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR A.BOARD_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')	
+					OR B.FULL_NAME LIKE CONCAT('%', #{searchKeyword}, '%')		
+			</if>
+			AND A.USER_ID = B.USER_ID	
 			LIMIT #{cri.amount} OFFSET #{cri.startNum}	
 	</select>
+	
 	<update id="updateBoardCnt" parameterType="int">
 		UPDATE BOARD
 		SET BOARD_COUNT= BOARD_COUNT+1 
 		WHERE BOARD_ID = #{boardId}
 	</update>
+	
 	<update id="updateBoard" parameterType="board">
 		UPDATE BOARD
 			SET BOARD_TITLE = #{boardTitle}
 			, BOARD_CONTENT = #{boardContent}
 			WHERE BOARD_ID = #{boardId}			
 	</update>
+	
 	<delete id="deleteBoard" parameterType="int"> 
 		DELETE FROM BOARD
 			WHERE BOARD_ID = #{boardId}
 	</delete>
+	
 	<select id="getBoardTotalCnt" parameterType="map" resultType="int">
 		SELECT COUNT(*)
-		 	FROM BOARD
+		 	FROM BOARD A
+			   , USER B
+			<if test="searchKeyword == null or searchKeyword == ''">
+			WHERE 1 = 1
+			</if>
 		 	<if test="searchKeyword != null and searchKeyword != ''">
-				WHERE 1 = 0
-					OR BOARD_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
-					OR BOARD_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')	
-					OR BOARD_WRITER LIKE CONCAT('%', #{searchKeyword}, '%')		
-			</if>	
+		 	WHERE 1 = 0 
+					OR A.BOARD_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR A.BOARD_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')	
+					OR B.FULL_NAME LIKE CONCAT('%', #{searchKeyword}, '%')		
+			</if>
+			AND A.USER_ID = B.USER_ID	
 	</select>
 		
 </mapper>

@@ -74,7 +74,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="p_location">
 		<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
 			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">회원가입</span>
@@ -126,8 +126,8 @@
 				<label for="gender">성별</label>
 			</div>
 			<div id="gender_radio">
-				<input type="radio" id="gender" name="gender" value="남성" checked style="width : 10px; margin-right : 10px;"><label for="male" style="margin-right : 20px;">남성</label>
-				<input type="radio" id="gender" name="gender" value="여성" style="width : 10px; margin-right : 10px;"><label for="female" style="">여성</label>
+				<input type="radio" id="gender" name="gender" value="M" checked style="width : 10px; margin-right : 10px;"><label for="male" style="margin-right : 20px;">남성</label>
+				<input type="radio" id="gender" name="gender" value="F" style="width : 10px; margin-right : 10px;"><label for="female" style="">여성</label>
 			</div>
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
@@ -148,7 +148,7 @@
 			</div>
 		</form>
 	</div>
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 	<script>
 		$(function() {
 			//회원가입 실패 시 메시지 출력

@@ -190,7 +190,7 @@
 		}
 		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
 		#pageNumber {
-			text-align: center;
+			margin: 0 auto;
 			width: 200px; height: 50px;
 			border: 1px solid black;
 		}
@@ -205,6 +205,9 @@
 			margin-left: 5px;
 		}
 		
+		.idList {
+			display: none;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -638,7 +641,7 @@
 
 </script>
 <body>
-<jsp:include page="../views/header.jsp"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
     <!--전체 화면 컨테이너-->
     <div id="container">
         <!--표 예매-->
@@ -664,7 +667,6 @@
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
                        	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
-                        
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
@@ -796,6 +798,10 @@
 				<th>도착지</th>
 			</tr>
 			<c:forEach items="${flightList }" var="flightList">
+	<%-- 			<form>
+					<input type="hidden" class="idList" value="${flightList.flightId }">
+				</form> --%>
+				<!--  <span class="idList">${flightList.flightId }</span>-->
 				<tr class="list">
 					<td>${flightList.flightCode }</td>
 					<td>
@@ -808,9 +814,14 @@
 						<%-- <fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/> --%>
 						${flightList.airportArv }
 					</td>
+					<td class="idList">${flightList.flightId }</td>
 				</tr>
 			</c:forEach>
 		</table>
+		<c:forEach items="${flightList }" var="flightList">
+			<input type="hidden" name="flightId" value="${flightList.flightId }">
+			<input class="codeList" type="hidden" name="flightCode" value="${flightList.flightCode }">
+		</c:forEach><!-- 검색된 비행편의 개수 -->
 		<div id="pageNumber">
 			<ul class="pagination">
 				<c:if test="${pageVO.prev }">
@@ -834,7 +845,8 @@
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
-			<input type="hidden" id="flightId" name="flightId" value="${flightList.flightId }">
+
+			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
 			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
 			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
             <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
@@ -849,10 +861,24 @@
 		</form>
 		<button id="selectButton">가는편 선택</button>
 	</div>
-	<jsp:include page="../views/footer.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 		
 	<script>
 		$(function() {
+			
+			let flightIdList = [];
+			let flightInfo = $(".list").get();
+
+			$(".idList").each(function(i, e) {
+				flightIdList.push($(this).text());
+			});
+			
+			console.log('model에서 가져온 list : ' + flightIdList);
+			
+			//console.log('model 자료형' + $(".idList"));
+			
+			//console.log(flightIdList);
+			//나머지 항공편을 8개씩만 출력하는 페이지버튼들을 표시 및 링크 이동
 			$(".pagination a").on("click", function(e) {
 				e.preventDefault();
 				
@@ -860,9 +886,14 @@
 				$("input[name='pageNum']").val($(this).attr("href"));
 				$("#info").submit();
 			});
+			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
+			$(".list").on("click", function(e) {
+				console.log("받아온 데이터 : " + $(this).children(".idList").text());
+				$("input[name='flightId']").val($(this).children(".idList").text());
+				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
+			});
 			
-			$(".list").on("click", function() {
-				console.log("click");
+			$("#selectButton").on("click", function(e) {
 				$("#checkFlight").submit();
 			});
 			

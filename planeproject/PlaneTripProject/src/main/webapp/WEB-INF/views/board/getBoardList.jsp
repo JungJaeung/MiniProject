@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <style>
 <!-- 선생님 header.jsp 이미 a 태그 text-decoration: none; color:black; 적용되어 있음 -->
-    #container { width: 100%; display: flex; justify-content: center;}
-    #box { width: 1000px;}
+    #container { width: 100%; display: flex; justify-content: center; position:relative;}
+    #box { width: 1000px; margin: 10px auto;}
     #t_section {text-align: center;}
     .qna_title {font-size: 2rem; text-align: center; font-weight: bold;
       margin-bottom: 13px; 
@@ -48,7 +48,9 @@
       margin:0;
     }
     .pageCount {
-      text-align: center;
+      display: inline-block;
+      width: 55%;
+      text-align: right;
     }
     .pagination {
       list-style: none;
@@ -65,6 +67,11 @@
     .pagination a:hover {
       color: red;
     }
+    .insert-wrap {
+    	position:relative;
+    	display: inline-block;
+    	width: 40%;
+    }
     .insert{
       width: 80px;
       height: 30px;
@@ -72,8 +79,9 @@
       border-radius: 20px;
       background-color: black;
       text-align: center;
-      float: right;
-      margin-top: 15px;
+      position:absolute;
+      top:-40px;
+      right:-15px;
     }
     .btnInsert {
       text-decoration: none;
@@ -81,10 +89,12 @@
       font-size: 1.03rem;
     }
     td a {text-decoration: none; color:black;}
+/*     #btnInsert{position: absolute; top:0px; bottom: 0px;} */
+    
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/header.jsp"></jsp:include>
 	<div id="container">
     <div id="box" >
       <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
@@ -93,7 +103,7 @@
       <form id="searchForm" action="/board/getBoardList.do" method="post">
         <div class="search">
           <input type="text" name="searchKeyword" value="${searchKeyword}">
-          <img src="images/search.png" style="width: 20px;">
+          <img src="${pageContext.request.contextPath }/resources/images/search.png" style="width: 20px;">
         </div>
       </form>
       <div id="t_section">
@@ -112,39 +122,43 @@
             <tr>
               <td>${board.boardId}</td>
               <td class="t_title"><a href="/board/updateBoardCnt.do?boardId=${board.boardId }">${board.boardTitle }</a></td>
-              <td>${board.boardWriter} }</td>
-              <td><fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/></td>					
+              <td>${board.fullName}</td>
+              <td><fmt:formatDate value="${board.regdate }" pattern="yyyy-MM-dd"/></td>					
               <td>${board.boardCount} </td>
             </tr>
           </c:forEach>
           </tbody>          
         </table>
       </div>
-      <div class="pageCount">
-        <ul class="pagination">
-          <c:if test="${pageVO.prev }">
-            <li class="pagination_button">
-              <a href="${pageVO.cri.pageNum -l}">이전</a>
-            </li>
-          </c:if>
-          <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-            <li class="pagination_button">
-              <a href="${num }">${num }</a>
-            </li>
-          </c:forEach>
-          <c:if test="${pageVO.next}">
-            <li class="pagination_button">
-              <a href="${pageVO.cri.pageNum +1}">다음</a>
-            </li>
-          </c:if>
-        </ul>
-      </div>
-      <div class="insert" >
-        <a href="/board/insertBoard.do" id="btnInsert" class="btnInsert">글쓰기</a>
+      <div>
+	      <div class="pageCount">
+	        <ul class="pagination">
+	          <c:if test="${pageVO.prev }">
+	            <li class="pagination_button">
+	              <a href="${pageVO.cri.pageNum -l}">이전</a>
+	            </li>
+	          </c:if>
+	          <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+	            <li class="pagination_button">
+	              <a href="${num }">${num }</a>
+	            </li>
+	          </c:forEach>
+	          <c:if test="${pageVO.next}">
+	            <li class="pagination_button">
+	              <a href="${pageVO.cri.pageNum +1}">다음</a>
+	            </li>
+	          </c:if>
+	        </ul>
+	      </div>
+	      <div class="insert-wrap">
+		      <div id="insert" class="insert" >
+		        <a href="/board/insertBoard.do" id="btnInsert" class="btnInsert">글쓰기</a>
+		      </div>
+	      </div>
       </div>
     </div> 
   </div>
-  <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
+  <jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/footer.jsp"></jsp:include>
 	
   <script>
     //IMG 클릭시 검색화면으로 이동해야함
@@ -165,7 +179,7 @@
 	 		
 	 		/* 검색시 1page로 보내는 것  */
 	 		$(".search img").on("click", function(){
-	 			console.log(e.target);
+	 			/* console.log(e.target); */
 	 			$("input[name='pageNum']").val(1);
 	 			$("#searchForm").submit();
 	 		});

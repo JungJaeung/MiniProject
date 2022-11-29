@@ -23,8 +23,9 @@
 
 </style>
 </head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <body>
-	<form method="post" class="form-signin" action="/Account/findId.do" name="findForm">
+	<form method="post" class="form-signin" action="/Account/findId.do" name="findForm" id="findForm">
 		<h2><img id="img_find" src="${pageContext.request.contextPath}/resources/images/find.png"> 아이디 찾기</h2>
 		<div class="form-label-group">
             <label for="fullName">이름</label><br>
@@ -43,12 +44,12 @@
 				type="button" value="입력완료">
 		</div>
 
-
-		<label id="findId_Result"></label>
 		<div class="form-label-group">
 				<input class="btn btn-lg btn-secondary btn-block text-uppercase"
 					type="button" value="닫기" onclick="closethewindow()">
 		</div>
+		<label id="findId_Result" style="margin-top : 20px;"></label>
+		
 	</form>
 	<script type="text/javascript">
 		function closethewindow(){
@@ -67,7 +68,7 @@
 							return;
 						}
 						
-						$("#findId_Result").text("회원님의 아이디는 " + obj + " 입니다.");
+						$("#findId_Result").text("회원님의 아이디는 " + obj + " 입니다.").css("color","green");
 					}
 					
 				})
