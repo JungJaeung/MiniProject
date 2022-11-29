@@ -78,6 +78,7 @@
         })
 	})
 </script>
+<link rel="icon" href="${pageContext.request.contextPath }/favicon.ico">
 </head>
 <body>
 	<div id="header">

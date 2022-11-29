@@ -1,4 +1,4 @@
-package com.ezen.springplanetrip.service.Board;
+package com.ezen.springplanetrip.service.board;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ public interface BoardService {
 
 	int getBoardTotalCnt(Map<String, String> paramMap);
 
-	int addBoard(BoardVO boardVO);
+	void addBoard(BoardVO boardVO);
 
 	BoardVO getBoard(int boardId);
 

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.service.flight.FlightService;
+import com.ezen.springplanetrip.service.passenger.PassengerService;
 import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 import com.ezen.springplanetrip.vo.PageVO;
+import com.ezen.springplanetrip.vo.PassengerVO;
 
 @Controller
 @RequestMapping("/flight")

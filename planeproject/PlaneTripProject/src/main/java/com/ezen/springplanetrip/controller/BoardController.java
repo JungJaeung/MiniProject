@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ezen.springplanetrip.service.Board.BoardService;
+import com.ezen.springplanetrip.service.board.BoardService;
 import com.ezen.springplanetrip.vo.BoardVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.PageVO;
@@ -37,6 +37,8 @@ public class BoardController {
 			
 		//페이징 
 		int total = boardService.getBoardTotalCnt(paramMap);
+		System.out.println(total);
+		
 		model.addAttribute("pageVO", new PageVO(cri, total));
 		
 		return "board/getBoardList";
@@ -58,7 +60,8 @@ public class BoardController {
 	// 게시글 등록을 가져오는 포스트매핑
 	@PostMapping("/insertBoard.do")
 	public String addBoard(BoardVO boardVO) {
-		int boardId = boardService.addBoard(boardVO);
+		//int boardId = 
+		boardService.addBoard(boardVO);
 		
 		return "redirect:/board/getBoardList.do";
 	}
@@ -84,8 +87,10 @@ public class BoardController {
 	@PostMapping("/updateBoard.do")
 	public String updateBoard(BoardVO boardVO) {
 		boardService.updateBoard(boardVO);
-		
-		return "redirect:/board/getBoard.do?boadid="+boardVO.getBoardId();
+		System.out.println("board"+ boardVO);
+		return "redirect:/board/getBoard.do?boardId="+boardVO.getBoardId();
+		//return "/board/updateBoard";
+		/* return "redirect:/board/updateBoard.do?boardId="+boardVO.getBoardId(); */
 	}
 	
 	// 게시글 삭제 
@@ -94,5 +99,18 @@ public class BoardController {
 		boardService.deleteBoard(boardId);
 		
 		return "redirect:/board/getBoardList.do";
+	}
+	
+	@GetMapping("/updateBoard.do")
+								// 리퀘스트 파람 안되는 이유는 ? PostMapping updateBoard 때문인가? 
+	public String updateBoardView(BoardVO boardVO, Model model) {
+		model.addAttribute("board", boardService.getBoard(boardVO.getBoardId()));
+		
+		return "board/updateBoard";
+	}
+	
+	@PostMapping("/insertReply.do")
+	public String insertReply() {
+		return null;
 	}
 }
