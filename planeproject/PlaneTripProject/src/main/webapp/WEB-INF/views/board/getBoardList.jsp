@@ -94,13 +94,13 @@
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 	<div id="container">
     <div id="box" >
-      <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
-      <input type="hidden" name="amount" value="${pageVO.cri.amount }">
       <p class="qna_title">질 문 게 시 판</p>
       <form id="searchForm" action="/board/getBoardList.do" method="post">
+      	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+      	<input type="hidden" name="amount" value="${pageVO.cri.amount }">
         <div class="search">
           <input type="text" name="searchKeyword" value="${searchKeyword}">
           <img src="${pageContext.request.contextPath }/resources/images/search.png" style="width: 20px;">
@@ -158,15 +158,9 @@
       </div>
     </div> 
   </div>
-  <jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/footer.jsp"></jsp:include>
+  <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 	
   <script>
-    //IMG 클릭시 검색화면으로 이동해야함
-/*     $(function() {
-      $(".search img").on("click", function(e) {
-    	  console.log(e.target);
-      });
-    }) */;
     
     //페이지 이동
     $(function(){

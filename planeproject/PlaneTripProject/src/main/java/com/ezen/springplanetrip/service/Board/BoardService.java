@@ -1,4 +1,4 @@
-package com.ezen.springplanetrip.service.Board;
+package com.ezen.springplanetrip.service.board;
 
 import java.util.List;
 import java.util.Map;
