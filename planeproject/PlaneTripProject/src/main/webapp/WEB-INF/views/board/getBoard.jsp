@@ -119,20 +119,23 @@
 	  
 	      
 	       <!--답글기능-->
- 	   	  <input type="button" id="clickReply" value="답변하기">    
-	      <div id="r_section">
-	        <table>
-	          <tr>
-	            <td style="text-align: left;">답변 내용</td>
-	          </tr>
-	          <tr>
-	            <td><textarea name="replyContent" id="replyContent" cols="100" rows="10"></textarea></td>
-	          </tr>
-	          <tr>
-	            <td style="text-align: center;"><button type="submit" id="btnReply">추가</button></td>
-	          </tr>
-	        </table>        
-	      </div>
+ 	   	  <input type="button" id="clickReply" value="답변하기" style="display:none;">
+ 	   	  <form id="replyForm" action="/board/insertReply.do" method="post">
+ 	   	  <input type="hidden" name="boardId" id="boardId" value="${board.boardId }">
+		      <div id="r_section" style="display:none;">
+		        <table>
+		          <tr>
+		            <td style="text-align: left;">답변 내용</td>
+		          </tr>
+		          <tr>
+		            <td><textarea name="replyContent" id="replyContent" cols="100" rows="10"></textarea></td>
+		          </tr>
+		          <tr>
+		            <td style="text-align: center;"><button type="submit" id="btnReply">추가</button></td>
+		          </tr>
+		        </table>        
+		      </div>
+	      </form>  
 	    </div>
 	  </div> 
 	</div>	
@@ -161,6 +164,17 @@
 				console.log(e);
 				$("#updateForm").submit();
 			});
+			
+			//
+			const loginUserRole = '${loginUser.userRole}';
+			if(loginUserRole == "admin"){
+				$("#clickReply").show();
+			}
+			
+			$("#clickReply").on("click",function(){
+				$("#r_section").show();
+			});
+				
 		});
 	</script>
 </body>

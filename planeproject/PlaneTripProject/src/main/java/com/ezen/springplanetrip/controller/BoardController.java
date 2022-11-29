@@ -106,7 +106,11 @@ public class BoardController {
 	public String updateBoardView(BoardVO boardVO, Model model) {
 		model.addAttribute("board", boardService.getBoard(boardVO.getBoardId()));
 		
-		
 		return "board/updateBoard";
+	}
+	
+	@PostMapping("/insertReply.do")
+	public String insertReply() {
+		return null;
 	}
 }
