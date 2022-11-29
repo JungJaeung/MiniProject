@@ -130,8 +130,6 @@
 					data: $("#loginForm").serialize(),
 					success: function(obj) {
 						console.log(obj);
-						//JSON.parse(obj); 이거 오류남. 뭔 이유인지 모르겠음.
-						//console.log(obj);
 						//id 체크
 						if(obj == "idFail") {
 							alert("존재하지 않는 아이디입니다.");

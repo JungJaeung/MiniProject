@@ -30,7 +30,7 @@
 			#{password},
 			#{lastName},
 			#{firstName},
-			(concat(#{lastName},#{firstName}),
+			concat(#{lastName},#{firstName}),
 			#{gender},
 			#{birthDate},
 			#{phone},
@@ -56,10 +56,10 @@
 	</select>
 	
 	<select id="findId" parameterType="user" resultType="user">
-		select * from user where FULL_NAME=#{fullName} and PHONE=#{phone}
+		<![CDATA[select * from user where FULL_NAME=#{fullName} and PHONE=#{phone}]]>
 	</select>
 	
 	<select id="findPassword" parameterType="user" resultType="user">
-		select * from user where EMAIL=#{email} and FULL_NAME=#{fullName} and PHONE=#{phone}
+		<![CDATA[select * from user where EMAIL=#{email} and FULL_NAME=#{fullName} and PHONE=#{phone}]]>
 	</select>
 </mapper>

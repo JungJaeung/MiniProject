@@ -105,7 +105,7 @@
         <div id="middle_container">
             <nav id="middle_menu">
                 <ul>
-                    <li><a href="#"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
+                    <li><a href="${pageContext.request.contextPath}/mainPage.jsp"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
                     <li><a href="#">항공권 예매</a></li>
                     <li><a href="#">마이페이지</a></li>
                     <li><a href="#">부가서비스 안내</a></li>
