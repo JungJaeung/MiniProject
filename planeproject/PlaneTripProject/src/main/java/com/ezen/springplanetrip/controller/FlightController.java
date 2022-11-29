@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.service.flight.FlightService;
+import com.ezen.springplanetrip.service.passenger.PassengerService;
 import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 import com.ezen.springplanetrip.vo.PageVO;
+import com.ezen.springplanetrip.vo.PassengerVO;
 
 @Controller
 @RequestMapping("/flight")
@@ -53,11 +55,14 @@ public class FlightController {
 		
 		return "../flight/searchFlight";
 	}
+
+	@Autowired
+	private PassengerService passengerService;
 	
-	//비행편 선택 확인
-	@PostMapping("/checkFlight")
-	public String checkFlight(Model model, @RequestParam Map<String, String> selectedFlight) {
-		return "";
+	@PostMapping("/insertPassenger.do")
+	public String insertPassenger(PassengerVO passengerVO) {
+		int passengerInfo = passengerService.insertPassenger(passengerVO);
+		
+		return null;
 	}
-	
 }
