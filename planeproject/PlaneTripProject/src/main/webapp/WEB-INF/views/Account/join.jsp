@@ -126,8 +126,8 @@
 				<label for="gender">성별</label>
 			</div>
 			<div id="gender_radio">
-				<input type="radio" id="gender" name="gender" value="남성" checked style="width : 10px; margin-right : 10px;"><label for="male" style="margin-right : 20px;">남성</label>
-				<input type="radio" id="gender" name="gender" value="여성" style="width : 10px; margin-right : 10px;"><label for="female" style="">여성</label>
+				<input type="radio" id="gender" name="gender" value="M" checked style="width : 10px; margin-right : 10px;"><label for="male" style="margin-right : 20px;">남성</label>
+				<input type="radio" id="gender" name="gender" value="F" style="width : 10px; margin-right : 10px;"><label for="female" style="">여성</label>
 			</div>
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
