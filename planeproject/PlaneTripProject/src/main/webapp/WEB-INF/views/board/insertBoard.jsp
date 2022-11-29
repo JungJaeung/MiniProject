@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 	<div id="container">
 		<div id="box">
 		  <p class="qna_title">문의사항</p>
@@ -88,6 +88,6 @@
 		  <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>  
 		</div>
 	 </div>
-	<<jsp:include page="${pageContext.request.contextPath }/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 </body>
 </html>

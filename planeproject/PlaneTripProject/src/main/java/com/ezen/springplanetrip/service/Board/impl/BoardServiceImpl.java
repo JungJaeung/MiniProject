@@ -1,4 +1,4 @@
-package com.ezen.springplanetrip.service.Board.impl;
+package com.ezen.springplanetrip.service.board.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.springplanetrip.service.Board.BoardService;
+import com.ezen.springplanetrip.service.board.BoardService;
 import com.ezen.springplanetrip.vo.BoardVO;
 import com.ezen.springplanetrip.vo.Criteria;
 
@@ -21,7 +21,6 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.viewList(paramMap, cri);
 	}
 	
-	//페이징
 	@Override
 	public int getBoardTotalCnt(Map<String, String> paramMap) {
 

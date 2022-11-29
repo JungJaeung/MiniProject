@@ -1,4 +1,4 @@
-package com.ezen.springplanetrip.service.Board.impl;
+package com.ezen.springplanetrip.service.board.impl;
 
 import java.util.HashMap;
 import java.util.List;

@@ -12,6 +12,7 @@ public class BoardVO {
 	private boolean secret;
 	private int userId;
 	private String fullName;
+	private String userRole;	
 	
 	public int getBoardId() {
 		return boardId;
@@ -68,10 +69,23 @@ public class BoardVO {
 		this.fullName = fullName;
 	}
 	
+	public String getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+	
 	@Override
 	public String toString() {
 		return "BoardVO [boardId=" + boardId + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", boardWriter=" + boardWriter + ", boardCount=" + boardCount + ", regdate=" + regdate + ", secret="
-				+ secret + ", userId=" + userId + ", fullName=" + fullName + "]";
+				+ secret + ", userId=" + userId + ", userRole=" + userRole + ", fullName=" + fullName
+				+ ", getBoardId()=" + getBoardId() + ", getBoardTitle()=" + getBoardTitle() + ", getBoardContent()="
+				+ getBoardContent() + ", getBoardWriter()=" + getBoardWriter() + ", getBoardCount()=" + getBoardCount()
+				+ ", getRegdate()=" + getRegdate() + ", isSecret()=" + isSecret() + ", getUserId()=" + getUserId()
+				+ ", getFullName()=" + getFullName() + ", getUserRole()=" + getUserRole() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+
 }

@@ -26,6 +26,10 @@
       text-align: left;
       border-bottom: 1px solid lightgray;
     }
+    #boardContent {
+     	width:150px;
+    	height: 60px;
+    }
     .btns {
       width: 80px;
       height: 30px;
@@ -38,44 +42,26 @@
       margin-right: 5px;
       margin-bottom: 10px;
     } 
-	 #btnWrap{
+	#btnWrap{
       width: 80px;
       height: 30px;
-      border: 1px solid black;
+      border: 1px solid #FF8200;
       border-radius: 20px;
-      background-color: black;
+      background-color: #FF8200;
       text-align: center;
       float: right;
-      margin-top: 10px;
+      margin-top: 9px;
       margin-right: 5px;
       margin-bottom: 10px;
     }
      #btnUpdate {
-       background-color: black;
-       border: 1px solid black;
+       background-color: #FF8200;
+       border: 1px solid #FF8200;
        color: white; font-size: 1.03rem;
     } 
     .btns a {
       text-decoration: none;
       color: #ffffff; font-size: 1.03rem;     
-    }
-     #clickReply{
-       /* display: none; */
-      float: left;
-      margin-top: 5px;
-      width: 80px;
-      height: 30px;
-      border:1px solid black;
-      background-color: black;
-      color: white;
-    }
-    #btnReply{
-      margin-top: 5px;
-      width: 80px;
-      height: 30px;
-      border:1px solid black;
-      background-color: black;
-      color: white;
     }
 </style>
 </head>
@@ -84,14 +70,16 @@
 	<jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 	<div id="container">
 	  <div id="box" >	    
-	    <p class="qna_title">게시글 상세보기</p>
+	    <p class="qna_title">게시글 내용수정</p>
 	    <div id="t_section">
-	      <form id="updateForm" action="/board/updateBoard.do" method="get"> 
+	      <form action="/board/updateBoard.do" method="post"> 
+	     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+	    	<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 	        <input type="hidden" name="boardId" id="boardId" value="${board.boardId }">
 	          <table id="t_qna">
 	            <tr>
 	              <th>글번호</th>
-	              <td>${board.boardId}</td>
+	              <td>${board.boardId }</td>
 	            </tr>
 	            <tr>
 	              <th>작성자</th>
@@ -107,35 +95,13 @@
 	            </tr>
 	            <tr>
 	              <th>내용</th>
-	              <td>${board.boardContent }"</td>
-	             <%--   <td><input value="${board.boardContent }" name="boardContent" style="border: none; font-size: 1em;"></td> --%>
+	              <td><input value="${board.boardContent }" name="boardContent" id="boardContent"></td>
 	            </tr>
 	          </table>
-	           <div id="btnWrap"><input type="button" id="btnUpdate" value="수정"></div>
-	          <!--<button type="submit" id="btnUpdate">수정</button> -->
-	      </form>   
-	      <div class="btns" id="btnDeleteWrap" ><a href="/board/deleteBoard.do?boardId=${board.boardId }" id="btndelete" class="btndelete" >삭제</a></div>
+	          <div id="btnWrap"><button type="submit" id="btnUpdate">수정</button></div>
+	      </form>
+	      <div class="btns" id="btnCancelWrap" ><a href="/board/getBoard.do?boardId=${board.boardId }" id="btnCancel" class="btnCancel" >취소</a></div>
 	      <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>
-	  
-	      
-	       <!--답글기능-->
- 	   	  <input type="button" id="clickReply" value="답변하기" style="display:none;">
- 	   	  <form id="replyForm" action="/board/insertReply.do" method="post">
- 	   	  <input type="hidden" name="boardId" id="boardId" value="${board.boardId }">
-		      <div id="r_section" style="display:none;">
-		        <table>
-		          <tr>
-		            <td style="text-align: left;">답변 내용</td>
-		          </tr>
-		          <tr>
-		            <td><textarea name="replyContent" id="replyContent" cols="100" rows="10"></textarea></td>
-		          </tr>
-		          <tr>
-		            <td style="text-align: center;"><button type="submit" id="btnReply">추가</button></td>
-		          </tr>
-		        </table>        
-		      </div>
-	      </form>  
 	    </div>
 	  </div> 
 	</div>	
@@ -154,28 +120,11 @@
 			// 게시글 작성자랑 로그인 유저가 다르면 게시글 수정 못하게 설정 
 			if(loginUserId !== boardWriter){
 				$("#btnWrap").hide();
-				$("#btnDeleteWrap").hide();
-				$("#boardTitle").attr("readonly", true);
+				$("#btnCancelWrap").hide();
+				$("#boardTitle").attr("readonly", true); 
 				$("#boardContent").attr("readonly", true);		
 			}
-			
-			// 넘어가는 버튼
-			$("#btnUpdate").on("click", function(e){
-				console.log(e);
-				$("#updateForm").submit();
-			});
-			
-			//
-			const loginUserRole = '${loginUser.userRole}';
-			if(loginUserRole == "admin"){
-				$("#clickReply").show();
-			}
-			
-			$("#clickReply").on("click",function(){
-				$("#r_section").show();
-			});
-				
-		});
+		})
 	</script>
 </body>
 </html>
