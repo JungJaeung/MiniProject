@@ -120,7 +120,7 @@
 </script>
 </head>
 <body>
-    <jsp:include page="../header.jsp"></jsp:include>
+    <jsp:include page="/header.jsp"></jsp:include>
 	<div id="container">
         <div id="page_name">탑승자 정보 입력</div>
         <br><br>
@@ -165,6 +165,6 @@
         </div>
 
 	</div>
-    <jsp:include page="../footer.jsp"></jsp:include>
+    <jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>

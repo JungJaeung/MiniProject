@@ -59,10 +59,13 @@ public class FlightController {
 	@Autowired
 	private PassengerService passengerService;
 	
+<<<<<<< HEAD
+=======
 	@PostMapping("/insertPassenger.do")
 	public String insertPassenger(PassengerVO passengerVO) {
 		int passengerInfo = passengerService.insertPassenger(passengerVO);
 		
 		return null;
 	}
+>>>>>>> 9bb1ab0732aac5279d98704e0415f7a8e98e40f5
 }
