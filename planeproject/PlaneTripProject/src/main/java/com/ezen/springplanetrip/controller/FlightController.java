@@ -26,29 +26,30 @@ public class FlightController {
 	@PostMapping("/searchFlight.do")
 	public String viewFlight(Model model, @RequestParam Map<String, String> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
-		Map<String, Object> flightMap = new HashMap<String, Object>();
 		
 		cri.setAmount(8);	//페이지당 8개만 표시
 		//넘어온 값들은 정수가 아닌 문자열
 		//flyMap.put("flightId", Integer.parseInt((String)flyMap.get("flightId")));	//flighId값은 정수형이므로 정수형으로 바꿔서
-		flightMap.put("flightMap", flyMap);
-		
-		flightMap.put("flightId", Integer.parseInt(flyMap.get("flightId")));
+		List<FlightVO> flightList = flightService.viewFlight(flyMap, cri);
+
+		System.out.println("비행편 ID : " + flyMap.get("flightId"));
 		model.addAttribute("flightInfo", flyMap);
 		
-		List<FlightVO> flightList = flightService.viewFlight(flightMap, cri);
-		System.out.println(flightList.get(0).getAirportDpt());
+		System.out.println(flightList.get(0));
 		model.addAttribute("flightList", flightList);
-	
 		
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
+		
+		System.out.println("출발편 : " + flyMap.get("departPointId"));
+		System.out.println("도착편 : " + flyMap.get("arrivedPointId"));
+		
 		//페이지 계산
-		int total = flightService.getFlightTotalCnt(flightMap);
+		int total = flightService.getFlightTotalCnt(flyMap);
 		System.out.println("총 개수 : " + total);
 		model.addAttribute("pageVO", new PageVO(cri, total));
-		System.out.println("flightID = " + flightList.get(0).getFilghtId());
+		System.out.println("flightID = " + flightList.get(0).getFlightId());
 		
 		return "../flight/searchFlight";
 	}

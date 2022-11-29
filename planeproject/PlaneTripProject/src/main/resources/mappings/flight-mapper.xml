@@ -21,7 +21,6 @@
 			FROM Flight
 			WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.departPointId})
 		 	AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.arrivedPointId})
-
 	</select>
 	<select id="viewAirport" parameterType="map" resultType="airport">
 		SELECT * FROM AIRPORT

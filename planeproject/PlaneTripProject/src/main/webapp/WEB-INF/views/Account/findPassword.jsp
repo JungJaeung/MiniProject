@@ -23,8 +23,9 @@
 
 </style>
 </head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <body>
-	<form method="post" class="form-signin" action="find_password" name="findForm">
+	<form method="post" class="form-signin" action="find_password" name="findForm" id="findForm">
 	<h2><img id="img_find" src="${pageContext.request.contextPath}/resources/images/find.png"> 비밀번호 찾기</h2>
 		<div class="form-label-group">
             <label for="email">아이디</label>
@@ -50,11 +51,11 @@
 		</div>
 
 	
-		<label id="findPwd_Result"></label>
 		<div class="form-label-group">
 				<input class="btn btn-lg btn-secondary btn-block text-uppercase"
 					type="button" value="닫기" onclick="closethewindow()">
 		</div>
+		<label id="findPwd_Result" style="margin-top : 20px;"></label>
 	</form>
 	<script type="text/javascript">
 		function closethewindow(){
@@ -73,7 +74,7 @@
 							return;
 						}
 						
-						$("#findPwd_Result").text("회원님의 비밀번호는 " + obj + " 입니다.");
+						$("#findPwd_Result").text("회원님의 비밀번호는 " + obj + " 입니다.").css("color","green");;
 					}
 					
 				})

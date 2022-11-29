@@ -66,11 +66,7 @@ public class AccountController {
 		
 	}
 	
-	
-	
-	
 
-	
 	@GetMapping("/join.do")
 	public String joinView() {
 		return "Account/join";
@@ -118,14 +114,17 @@ public class AccountController {
 	public String login(UserVO userVO, HttpSession session) {
 
 		int idCheck = accountService.idCheck(userVO.getEmail());
-		
+		System.out.println(idCheck);
 		if(idCheck < 1) {
 			return "idFail";
 		} else {
 			UserVO loginUser = accountService.login(userVO);
 			
+			
 			if(loginUser == null) {
 				return "pwFail";
+			} else {
+				System.out.println("로그인 시도한 계정 : " + loginUser.getEmail());
 			}
 			
 			session.setAttribute("loginUser", loginUser);
@@ -137,7 +136,7 @@ public class AccountController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect: /mainPage.jsp";
+		return "redirect:/mainPage.jsp";
 	}
 	
 	//-----------------------------------------------------------------------------------
@@ -151,6 +150,7 @@ public class AccountController {
 		@PostMapping(value="findId.do")
 		@ResponseBody
 		public String findIdAction(UserVO userVO) {
+			System.out.println(userVO.toString());
 			UserVO user = accountService.findId(userVO);
 			String idCheck = ""; 
 			if(user == null) { 

@@ -190,7 +190,7 @@
 		}
 		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
 		#pageNumber {
-			text-align: center;
+			margin: 0 auto;
 			width: 200px; height: 50px;
 			border: 1px solid black;
 		}
@@ -638,7 +638,7 @@
 
 </script>
 <body>
-<jsp:include page="../views/header.jsp"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
     <!--전체 화면 컨테이너-->
     <div id="container">
         <!--표 예매-->
@@ -664,7 +664,6 @@
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
                        	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
-                        
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
@@ -834,7 +833,7 @@
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
-			<input type="hidden" id="flightId" name="flightId" value="${flightList.flightId }">
+			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
 			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
 			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
             <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
@@ -849,7 +848,7 @@
 		</form>
 		<button id="selectButton">가는편 선택</button>
 	</div>
-	<jsp:include page="../views/footer.jsp"></jsp:include>
+	<jsp:include page="/footer.jsp"></jsp:include>
 		
 	<script>
 		$(function() {
