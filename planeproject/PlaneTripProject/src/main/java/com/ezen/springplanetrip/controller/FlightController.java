@@ -54,4 +54,10 @@ public class FlightController {
 		return "../flight/searchFlight";
 	}
 	
+	//비행편 선택 확인
+	@PostMapping("/checkFlight")
+	public String checkFlight(Model model, @RequestParam Map<String, String> selectedFlight) {
+		return "";
+	}
+	
 }
