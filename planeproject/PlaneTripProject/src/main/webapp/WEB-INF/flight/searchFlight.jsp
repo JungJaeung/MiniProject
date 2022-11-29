@@ -810,6 +810,9 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<c:forEach items="${flightList }" var="flightList">
+			<input class="idList" type="hidden" name="flightId" value="${flightList.flightId }">
+		</c:forEach><!-- 검색된 비행편의 개수 -->
 		<div id="pageNumber">
 			<ul class="pagination">
 				<c:if test="${pageVO.prev }">
@@ -833,6 +836,7 @@
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
 			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
 			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
@@ -852,6 +856,14 @@
 		
 	<script>
 		$(function() {
+			let flightIdList = $(".idList").get();
+			let flightInfo = $(".list").get();
+			console.log('model에서 가져온 list : ' + flightIdList);
+			
+			//console.log('model 자료형' + $(".idList"));
+			
+			//console.log(flightIdList);
+			//나머지 항공편을 8개씩만 출력하는 페이지버튼들을 표시 및 링크 이동
 			$(".pagination a").on("click", function(e) {
 				e.preventDefault();
 				
@@ -859,9 +871,14 @@
 				$("input[name='pageNum']").val($(this).attr("href"));
 				$("#info").submit();
 			});
+			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
+			$(".list").on("click", function(e) {
+				console.log("click : " + e.target.textContent);
+				
+				$("#flightId").val(flightIdList.textContent);
+			});
 			
-			$(".list").on("click", function() {
-				console.log("click");
+			$("#selectButton").on("click", function(e) {
 				$("#checkFlight").submit();
 			});
 			
