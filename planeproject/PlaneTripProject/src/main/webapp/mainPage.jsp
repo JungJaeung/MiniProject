@@ -497,6 +497,9 @@
                 alert("여정 및 일정을 먼저 선택해주세요"); 
             }
             else if(date_flag == 1){
+            	$("#adultNumber").val(adultNumber);
+            	$("#childNumber").val(childNumber);
+            	$("#babyNumber").val(babyNumber);
                 $("#personnel").css("display", ("inline-block"));
                 $("#p_start").text($("#starting_point").val());
                 $("#p_startd").text(textd1);
