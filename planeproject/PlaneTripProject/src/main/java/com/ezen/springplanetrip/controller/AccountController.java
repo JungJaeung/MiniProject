@@ -150,6 +150,7 @@ public class AccountController {
 		@PostMapping(value="findId.do")
 		@ResponseBody
 		public String findIdAction(UserVO userVO) {
+			System.out.println(userVO.toString());
 			UserVO user = accountService.findId(userVO);
 			String idCheck = ""; 
 			if(user == null) { 
