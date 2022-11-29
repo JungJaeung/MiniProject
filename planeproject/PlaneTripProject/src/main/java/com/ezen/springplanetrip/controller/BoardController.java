@@ -58,7 +58,8 @@ public class BoardController {
 	// 게시글 등록을 가져오는 포스트매핑
 	@PostMapping("/insertBoard.do")
 	public String addBoard(BoardVO boardVO) {
-		int boardId = boardService.addBoard(boardVO);
+		//int boardId = 
+		boardService.addBoard(boardVO);
 		
 		return "redirect:/board/getBoardList.do";
 	}
@@ -85,7 +86,7 @@ public class BoardController {
 	public String updateBoard(BoardVO boardVO) {
 		boardService.updateBoard(boardVO);
 		
-		return "redirect:/board/getBoard.do?boadid="+boardVO.getBoardId();
+		return "redirect:/board/getBoard.do?boardId="+boardVO.getBoardId();
 	}
 	
 	// 게시글 삭제 

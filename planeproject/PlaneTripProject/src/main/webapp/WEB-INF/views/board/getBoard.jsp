@@ -33,12 +33,12 @@
       border-radius: 20px;
       background-color: black;
       text-align: center;
-      float: right;
+      float: right; 
       margin-top: 10px;
       margin-right: 5px;
 
-    }
-    #btnWrap{
+    } 
+	 #btnWrap{
       width: 80px;
       height: 30px;
       border: 1px solid black;
@@ -49,14 +49,14 @@
       margin-top: 10px;
       margin-right: 5px;
     }
-    #btnUpdate {
+     #btnUpdate {
        background-color: black;
        border: 1px solid black;
        color: white; font-size: 1.03rem;
-    }
+    } 
     .btns a {
       text-decoration: none;
-       color: white; font-size: 1.03rem;     
+      color: #ffffff; font-size: 1.03rem;     
     }
      #clickReply{
        /* display: none; */
@@ -68,6 +68,7 @@
       background-color: black;
       color: white;
     }
+    
 </style>
 </head>
 <body>
@@ -88,11 +89,11 @@
 	            </tr>
 	            <tr>
 	              <th>작성자</th>
-	              <td>${board.boardWriter}</td>
+	              <td>${board.fullName}</td>
 	            </tr>
 	            <tr>
 	              <th>작성일자</th>
-	              <td><fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/></td>
+	              <td><fmt:formatDate value="${board.regdate }" pattern="yyyy-MM-dd"/></td>
 	            </tr>
 	            <tr>
 	              <th>제목</th>
@@ -105,11 +106,12 @@
 	          </table>
 	          <div id="btnWrap"><button type="submit" id="btnUpdate">수정</button></div>
 	      </form>
+	      <div class="btns" id="btnDeleteWrap" ><a href="/board/deleteBoard.do?boardId=${board.boardId }" id="btndelete" class="btndelete" >삭제</a></div>
 	      <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>
-	      <div class="btns" ><a href="/board/deleteBoard.do?boardid=${board.boardId }" id="btndelete" class="btndelete">삭제</a></div>
-	
+	  
+	      
 	       <!--답글기능-->
-	      <input type="button" id="clickReply" value="답변하기"> <!--hidden 속성 어떻게 부여  style="display: none;-->     
+	      <input type="button" id="clickReply" value="답변하기"> hidden 속성 어떻게 부여  style="display: none;     
 	      <div id="r_section">
 	        <table>
 	          <tr>
@@ -122,7 +124,7 @@
 	            <td style="text-align: center;"><button type="submit" id="btnReply">확인</button></td>
 	          </tr>
 	        </table>        
-	      </div>
+	      </div> 
 	    </div>
 	  </div> 
 	</div>	
@@ -133,12 +135,15 @@
 		$(function(){
 			// 세션, 리퀘스트 스코프에 담겨진 데이터를 빼오는 방식
 			const loginUserId = '${loginUser.userId}';
-			const boardWriter = '${board.boardWriter}';
+			const boardWriter = '${board.userId}';
+			
+			console.log(loginUserId);
+			console.log(boardWriter);
 			
 			// 게시글 작성자랑 로그인 유저가 다르면 게시글 수정 못하게 설정 
 			if(loginUserId !== boardWriter){
 				$("#btnWrap").hide();
-				$("#btndelete").hide();
+				$("#btnDeleteWrap").hide();
 				$("#boardTitle").attr("readonly", true);
 				$("#boardContent").attr("readonly", true);		
 			}

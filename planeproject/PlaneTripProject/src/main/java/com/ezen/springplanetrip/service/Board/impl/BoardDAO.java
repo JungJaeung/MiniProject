@@ -24,6 +24,7 @@ public class BoardDAO {
 		cri.setStartNum((cri.getPageNum()-1)*cri.getAmount());
 		pMap.put("cri", cri);
 									// 파라미터 없어 스테이트먼트만 작성
+		
 		return mybatis.selectList("BoardDAO.viewList", pMap);
 	}
 
@@ -36,9 +37,9 @@ public class BoardDAO {
 		return mybatis.selectOne("BoardDAO.getBoard", boardId);
 	}
 
-	public int addBoard(BoardVO boardVO) {
-		mybatis.insert("BoardDAO.insertBoard", boardVO);
-		return boardVO.getBoardId();
+	public void addBoard(BoardVO boardVO) {
+		mybatis.insert("BoardDAO.addBoard", boardVO);
+		
 	}
 
 	public void updateBoardCnt(int boardId) {

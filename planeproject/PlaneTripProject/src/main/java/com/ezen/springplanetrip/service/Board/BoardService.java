@@ -12,7 +12,7 @@ public interface BoardService {
 
 	int getBoardTotalCnt(Map<String, String> paramMap);
 
-	int addBoard(BoardVO boardVO);
+	void addBoard(BoardVO boardVO);
 
 	BoardVO getBoard(int boardId);
 
