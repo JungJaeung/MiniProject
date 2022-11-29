@@ -145,7 +145,7 @@
 						}
 						
 						//로그인 처리
-						location.href="../mainPage.jsp";
+						location.href="/mainPage.do";
 						
 					},
 					error: function(e) {

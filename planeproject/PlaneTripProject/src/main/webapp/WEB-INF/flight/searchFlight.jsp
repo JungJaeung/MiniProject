@@ -660,9 +660,9 @@
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
-                        <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
-                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
-                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
+                        <input type="button" id="calendar_date" name="calendar" value="${flightList[0].minimumDate} ~ ${flightList[0].maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightList[0].minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightList[0].maximumDate}">
                         <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
@@ -790,6 +790,27 @@
         </div>
     </div>
       <div id="flightList">
+      	<div class="">
+      		<div class="idList">${flightList.flightCode }</div>
+      		<div class="idList">${flightList.flightId }</div>
+      		<div>
+     			<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
+				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
+				<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
+      		</div>
+      		<div>
+      			<div>${priceListMap.price1 }</div>
+      			<div>1</div>
+      		</div>
+      		<div>
+      		    <div>${priceListMap.price2 }</div>
+      			<div>2</div>
+      		</div>
+      		<div>
+      			<div>${priceListMap.price3 }</div>
+      			<div>3</div>
+      		</div>
+      	</div>
       	<table id="f_table">
        		<tr>
 				<th>항공편 코드</th>
@@ -798,10 +819,6 @@
 				<th>도착지</th>
 			</tr>
 			<c:forEach items="${flightList }" var="flightList">
-	<%-- 			<form>
-					<input type="hidden" class="idList" value="${flightList.flightId }">
-				</form> --%>
-				<!--  <span class="idList">${flightList.flightId }</span>-->
 				<tr class="list">
 					<td>${flightList.flightCode }</td>
 					<td>

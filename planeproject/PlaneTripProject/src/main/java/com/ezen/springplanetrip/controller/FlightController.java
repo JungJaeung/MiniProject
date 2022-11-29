@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.service.flight.FlightService;
-import com.ezen.springplanetrip.service.passenger.PassengerService;
+import com.ezen.springplanetrip.service.seat.SeatService;
 import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 import com.ezen.springplanetrip.vo.PageVO;
-import com.ezen.springplanetrip.vo.PassengerVO;
+import com.ezen.springplanetrip.vo.SeatVO;
 
 @Controller
 @RequestMapping("/flight")
 public class FlightController {
 	@Autowired
 	private FlightService flightService;
-	
+	private SeatService seatService;
 	@PostMapping("/searchFlight.do")
 	public String viewFlight(Model model, @RequestParam Map<String, String> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
@@ -46,6 +46,20 @@ public class FlightController {
 		
 		System.out.println("출발편 : " + flyMap.get("departPointId"));
 		System.out.println("도착편 : " + flyMap.get("arrivedPointId"));
+		
+		//좌석 목록에 대한 정보를 찾아 조회함.
+		int flightId = flightList.get(0).getFlightId(); //비행편은 이미 조회함.
+		List<SeatVO> seatList = seatService.viewSeatList(flightId);
+		model.addAttribute(seatList);
+		
+		//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달
+		List<Integer> priceList = seatService.viewSeatPrice(flightId);
+		Map<String, String> priceListMap = new HashMap<String, String>();
+		for(int i=0; i < priceList.size();i++) {
+			String price = "price" + Integer.toString(i+1);
+			priceListMap.put(price, Integer.toString(priceList.get(i)));
+		}
+		model.addAttribute(priceListMap);
 		
 		//페이지 계산
 		int total = flightService.getFlightTotalCnt(flyMap);
