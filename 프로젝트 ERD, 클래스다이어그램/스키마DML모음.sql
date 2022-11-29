@@ -46,3 +46,7 @@ select * from airport;
 			FROM Flight
 			WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID='2')
 		 	AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID='4');
+            
+select * from seat;
+
+select sum(SEAT_TOTAL) from seat where flight_id = 1 group by SEAT_TOTAL;
