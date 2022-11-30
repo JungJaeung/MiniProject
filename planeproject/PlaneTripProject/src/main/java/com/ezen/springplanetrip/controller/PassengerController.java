@@ -1,5 +1,6 @@
 package com.ezen.springplanetrip.controller;
 
+import java.sql.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -20,16 +21,25 @@ public class PassengerController {
 	@Autowired
 	private PassengerService passengerService;
 	
-	//비행편 선택 확인 탑승자 정보 입력
-	@PostMapping("/insertPassenger") 
-	public String insertPassenger(Model model, @RequestParam Map<String, String> selectedFlight, HttpSession session) {
-		if(session == null) {	//로그인 없이 승객정보를 입력하려고 할시 작동하는 문장
+	@PostMapping("/insertPassenger.do")
+	public String insertPassenger(@RequestParam Map<String, String> paramMap) {
+		
+		System.out.println(paramMap.toString());
+		
+//		List<PassengerVO> passengerList = new ArrayList<PassengerVO>();
+		
+		for(int i = 1; i <= 3; i++) {
+			PassengerVO passengerVO = new PassengerVO();
+			passengerVO.setGender(paramMap.get("gender" + i));
+			passengerVO.setFirstName(paramMap.get("fisrtName" + i));
+			passengerVO.setLastName(paramMap.get("lastName" + i));
+			passengerVO.setPhone(paramMap.get("phone" + i));
+			passengerVO.setBirthDate(Date.valueOf(paramMap.get("birthDate" + i)));
 			
-			return "../views/Account/login.jsp";
+			passengerService.insertPassenger(passengerVO);
 		}
 		
-		PassengerVO passengerVO	 = new PassengerVO();
-		int count = passengerService.insertPassenger(passengerVO);
+		//passengerService.insertPassenger(passengerVO);
 		
 		return "../passenger/insertPassenger";
 	}

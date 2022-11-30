@@ -6,6 +6,5 @@ import com.ezen.springplanetrip.vo.PassengerVO;
 
 public interface PassengerService {
 	//승객 정보 입력
-	int insertPassenger(PassengerVO passengerVO);
-
+	void insertPassenger(PassengerVO passengerVO);
 }

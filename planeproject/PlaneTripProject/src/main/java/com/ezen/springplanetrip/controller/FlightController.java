@@ -1,5 +1,8 @@
 package com.ezen.springplanetrip.controller;
 
+
+import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.service.flight.FlightService;
+import com.ezen.springplanetrip.service.passenger.PassengerService;
 import com.ezen.springplanetrip.service.seat.SeatService;
 import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.Criteria;
 import com.ezen.springplanetrip.vo.FlightVO;
 import com.ezen.springplanetrip.vo.PageVO;
+import com.ezen.springplanetrip.vo.PassengerVO;
 import com.ezen.springplanetrip.vo.SeatVO;
 
 @Controller
