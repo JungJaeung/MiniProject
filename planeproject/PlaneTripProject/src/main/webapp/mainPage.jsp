@@ -493,6 +493,8 @@
             textd2 =  a2 + "." + b2 + "." + c2;
             date_flag = 1;
 
+            $("#minimumDate").val(textd1);
+            $("#maximumDate").val(textd2);
             $("#calendar_date").val(textd1 + " ~ " + textd2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");

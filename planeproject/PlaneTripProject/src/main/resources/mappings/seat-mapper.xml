@@ -18,10 +18,29 @@
 		SELECT SUM(SEAT_END_NO) FROM SEAT
 		WHERE FLIGHT_ID = #{flightId} GROUP BY SEAT_ID
 	</select>
-	<!-- 좌석 가격 얻어오기 -->
-<!-- 	<select id="viewSeatCount" parameterType="int" resultType="int">
-		SELECT PRICE FROM SEAT
-		WHERE FLIGHT_ID = #{flightId} GROUP BY SEAT_ID
-	</select> -->
+	
+	<!-- 비행편의 좌석 클래스 얻어오기 -->
+	<select id="viewSeatClass" parameterType="int" resultType="int">
+		<![CDATA[
+		SELECT SEAT_ID FROM SEAT 
+		WHERE FLIGHT_ID = #{flightId} 
+		GROUP BY SEAT_END_NO
+		]]>
+	</select>
+	<!-- 클래스 하나의 좌석 남은 개수 얻어오기 -->
+ 	<select id="viewSeatPrice" parameterType="map" resultType="int">
+	SELECT DISTINCT A.SEAT_TOTAL - C.R_CNT AS REMAIN_SEAT
+   FROM SEAT A
+      , (
+         SELECT COUNT(*) AS R_CNT
+             , B.FLIGHT_ID
+                 , B.SEAT_ID
+            FROM RESERVATION B
+                WHERE B.FLIGHT_ID = #{flightId}
+                  AND B.SEAT_ID = #{seatId}
+       ) C
+   WHERE A.FLIGHT_ID = C.FLIGHT_ID
+      AND A.SEAT_ID = C.SEAT_ID;
+	</select> 
 
 </mapper>
