@@ -110,7 +110,9 @@ public class BoardController {
 	}
 	
 	@PostMapping("/insertReply.do")
-	public String insertReply() {
-		return null;
+	public String insertReply(BoardVO boardVO) {
+		boardService.insertReply(boardVO);
+		
+		return "redirect:/board/getBoard.do?boardId="+boardVO.getBoardId();
 	}
 }

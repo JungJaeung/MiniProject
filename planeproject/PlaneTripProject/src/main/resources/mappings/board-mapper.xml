@@ -87,5 +87,12 @@
 					OR C.FULL_NAME LIKE CONCAT('%', #{searchKeyword}, '%')		
 			</if>	
 	</select>
+	
+	<insert id="insertReply" parameterType="board">
+		INSERT INTO BOARD 
+		VALUES(
+			#{boardReply}
+		     )	
+	</insert>
 		
 </mapper>

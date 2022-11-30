@@ -112,7 +112,6 @@
 	            </tr>
 	          </table>
 	           <div id="btnWrap"><input type="button" id="btnUpdate" value="수정"></div>
-	          <!--<button type="submit" id="btnUpdate">수정</button> -->
 	      </form>   
 	      <div class="btns" id="btnDeleteWrap" ><a href="/board/deleteBoard.do?boardId=${board.boardId }" id="btndelete" class="btndelete" >삭제</a></div>
 	      <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>
@@ -142,7 +141,7 @@
 
 	<jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 	
-	<script>
+		<script>
 		$(function(){
 			// 세션, 리퀘스트 스코프에 담겨진 데이터를 빼오는 방식
 			const loginUserId = '${loginUser.userId}';

@@ -21,5 +21,7 @@ public interface BoardService {
 	void updateBoard(BoardVO boardVO);
 
 	void deleteBoard(int boardId);
+	
+	void insertReply(BoardVO boardVO);
 
 }

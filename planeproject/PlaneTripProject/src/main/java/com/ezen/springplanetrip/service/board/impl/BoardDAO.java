@@ -53,4 +53,8 @@ public class BoardDAO {
 	public void deleteBoard(int boardId) {
 		mybatis.delete("BoardDAO.deleteBoard", boardId);
 	}
+	
+	public void insertReply(BoardVO boardVO) {
+		mybatis.insert("boardDAO.insertReply", boardVO);
+	}
 }

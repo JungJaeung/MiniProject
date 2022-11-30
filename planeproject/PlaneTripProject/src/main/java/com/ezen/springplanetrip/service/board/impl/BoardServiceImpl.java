@@ -56,6 +56,11 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDAO.deleteBoard(boardId);
 	}
+	
+	@Override
+	public void insertReply(BoardVO boardVO) {
+		boardDAO.insertReply(boardVO);
+	}
 
 
 }

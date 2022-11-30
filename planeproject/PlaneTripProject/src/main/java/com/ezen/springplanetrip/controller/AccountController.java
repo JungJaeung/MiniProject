@@ -60,7 +60,8 @@ public class AccountController {
 		accountService.quit(loginUser.getUserId());
 		session.invalidate();
 		
-		return "redirect:/mainPage.jsp";
+		
+		return "redirect:/mainPage.jsp"; 
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -134,7 +135,7 @@ public class AccountController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:/mainPage.jsp";
+		return "redirect:/mainPage.jsp"; 
 	}
 	
 	//-----------------------------------------------------------------------------------
