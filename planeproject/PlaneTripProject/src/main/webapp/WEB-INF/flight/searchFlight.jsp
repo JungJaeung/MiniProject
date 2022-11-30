@@ -204,9 +204,22 @@
 			float: left;
 			margin-left: 5px;
 		}
-		
+		/* 안보이는 리스트 처리 */
 		.idList {
 			display: none;
+		}
+		.showList {
+			width:100%; height:12.5%;
+			border: 1px solid black;
+		}
+		#class1 {
+			background-color: skyblue;
+		}
+		#class2 {
+			background-color: beige;
+		}
+		#class3 {
+			background-color: orange;
 		}
 </style>
 
@@ -790,7 +803,8 @@
         </div>
     </div>
       <div id="flightList">
-      	<div class="">
+      	<c:forEach items="${flightList }" var="flightList">
+      	<div class="showList">
       		<div class="idList">${flightList.flightCode }</div>
       		<div class="idList">${flightList.flightId }</div>
       		<div>
@@ -798,20 +812,21 @@
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
 				<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
       		</div>
-      		<div>
+      		<div id="class1">
       			<div>${priceListMap.price1 }</div>
-      			<div>1</div>
+      			<div>1클래스</div>
       		</div>
-      		<div>
+      		<div id="class2">
       		    <div>${priceListMap.price2 }</div>
-      			<div>2</div>
+      			<div>2클래스</div>
       		</div>
-      		<div>
+      		<div id="class3">
       			<div>${priceListMap.price3 }</div>
-      			<div>3</div>
+      			<div>3클래스</div>
       		</div>
       	</div>
-      	<table id="f_table">
+      	</c:forEach>
+<%--       	<table id="f_table">
        		<tr>
 				<th>항공편 코드</th>
 				<th>출발시각 > 도착시각</th>
@@ -828,13 +843,13 @@
 					</td>
 					<td>${flightList.airportDpt}</td>
 					<td>
-						<%-- <fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/> --%>
+						<fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/>
 						${flightList.airportArv }
 					</td>
 					<td class="idList">${flightList.flightId }</td>
 				</tr>
 			</c:forEach>
-		</table>
+		</table> --%>
 		<c:forEach items="${flightList }" var="flightList">
 			<input type="hidden" name="flightId" value="${flightList.flightId }">
 			<input class="codeList" type="hidden" name="flightCode" value="${flightList.flightCode }">

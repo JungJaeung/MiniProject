@@ -677,7 +677,7 @@
 </script>
 </head>
 <body>
-<jsp:include page="./header.jsp"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
     <!--전체 화면 컨테이너-->
     <div id="container">
         <!--표 예매-->
@@ -916,6 +916,6 @@
       </div>
 	</div>
 </div>
-<jsp:include page="./footer.jsp"></jsp:include>
+<jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>
