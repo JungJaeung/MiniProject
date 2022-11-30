@@ -27,6 +27,7 @@
 		<mapper resource="mappings/flight-mapper.xml"></mapper>
 		<mapper resource="mappings/board-mapper.xml"></mapper>
 		<mapper resource="mappings/seat-mapper.xml"></mapper>
+		<mapper resource="mappings/passenger-mapper.xml"></mapper>
 	</mappers>
 	
 </configuration>
