@@ -17,6 +17,9 @@
 		<typeAlias type="com.ezen.springplanetrip.vo.AirportVO" alias="airport"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.UserVO" alias="user"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.SeatVO" alias="seat"></typeAlias>
+		<typeAlias type="com.ezen.springplanetrip.common.CamelHashMap" alias="camelHashMap"/>
+		<typeAlias type="com.ezen.springplanetrip.vo.AirportVO" alias="airport"></typeAlias>
+
 	</typeAliases>
 	
 	<!-- 사용할 SQL 매퍼 위치 지정 -->
@@ -28,6 +31,8 @@
 		<mapper resource="mappings/board-mapper.xml"></mapper>
 		<mapper resource="mappings/seat-mapper.xml"></mapper>
 		<mapper resource="mappings/passenger-mapper.xml"></mapper>
+		<mapper resource="mappings/airport-mapper.xml"></mapper>
+
 	</mappers>
 	
 </configuration>

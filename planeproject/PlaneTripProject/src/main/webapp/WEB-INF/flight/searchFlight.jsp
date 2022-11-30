@@ -221,6 +221,12 @@
 		#class3 {
 			background-color: orange;
 		}
+		.showList .column {
+			margin: 0px; padding: 0px;
+			border:1px solid black;
+			width: 20%; height: 30px;
+			display: inline-block;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -232,6 +238,7 @@
         let arrive = $(".arrive").get();
         //날짜
         var CDate = new Date();
+        let selectedDate = $("#calendar_date").val();
         let today = new Date();
         let day = ["일", "월", "화", "수", "목", "금", "토"];
         let e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
@@ -244,7 +251,8 @@
 
         let dtemp = 0;
         //여행 날짜 기본설정
-        $("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
+        $("#calendar_date").val(selectedDate);
+        //$("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
        
         //왕복, 편도(왕복일때 way=0, 편도일때 way=1)
         $("#round").click(function(e){
@@ -521,8 +529,8 @@
             date_flag = 1;
 
             $("#calendar_date").val(textd1 + " ~ " + textd2);
-            $("#minimumDate").val(text1);
-            $("#maximumDate").val(text2);
+            $("#minimumDate").val(textd1);
+            $("#maximumDate").val(textd2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");
         })
@@ -673,9 +681,9 @@
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
-                        <input type="button" id="calendar_date" name="calendar" value="${flightList[0].minimumDate} ~ ${flightList[0].maximumDate}">
-                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightList[0].minimumDate}">
-                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightList[0].maximumDate}">
+                        <input type="button" id="calendar_date" name="calendar" value="${calendar.minimumDate} ~ ${calendar.maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${calendar.minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${calendar.maximumDate}">
                         <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
@@ -807,22 +815,25 @@
       	<div class="showList">
       		<div class="idList">${flightList.flightCode }</div>
       		<div class="idList">${flightList.flightId }</div>
-      		<div>
+      		<div class="column">
      			<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
 				<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
       		</div>
-      		<div id="class1">
-      			<div>${priceListMap.price1 }</div>
-      			<div>1클래스</div>
+      		<div id="class1" class="column">
+     			<div class="idList">1</div>
+      			<div><c:out value="${pricePot[0] }"/></div>
+      			<div><c:out value="${seatClass[0] }"></c:out></div>
       		</div>
-      		<div id="class2">
-      		    <div>${priceListMap.price2 }</div>
-      			<div>2클래스</div>
+      		<div id="class2" class="column">
+      		    <div class="idList">2</div>
+      		    <div><c:out value="${pricePot[1] }"/></div>
+      			<div><c:out value="${seatClass[1] }"/></div>
       		</div>
-      		<div id="class3">
-      			<div>${priceListMap.price3 }</div>
-      			<div>3클래스</div>
+      		<div id="class3" class="column">
+      		    <div class="idList">3</div>
+      			<div><c:out value="${pricePot[1] }"/></div>
+      			<div><c:out value="${seatClass[2] }"/></div>
       		</div>
       	</div>
       	</c:forEach>

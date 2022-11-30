@@ -39,16 +39,43 @@ public class AccountController {
 	
 	//회원정보 수정 처리
 	@PostMapping(value="/updateInfo.do", produces="application/text; charset=UTF-8")
-	public String updateInfo(UserVO userVO, Model model) {
+	public String updateInfo(UserVO userVO, Model model, HttpSession session) {
 		int updateResult = accountService.updateInfo(userVO);
 		
 		if(updateResult == 0) {
 			model.addAttribute("updateMsg", "회원정보 수정에 실패하였습니다.");
-			return "Account/userUpdate";
+			return "/mypage/userUpdate";
 		}
 		
-		model.addAttribute("updateMsg", "회원정보 수정에 성공했습니다.");
-		return "Account/userInfo";
+		/**
+		session.invalidate();
+
+		//변경된 유저 정보 세션에 담기
+		UserVO loginUser = accountService.getUserInfo(userVO.getUserId());
+		session.setAttribute("loginUser", loginUser);
+		**/
+		
+		model.addAttribute("updateMsg", "회원정보 수정에 성공하였습니다.");
+		return "/mypage/userInfo";
+		
+	}
+	
+	//현재 비밀번호 일치여부 확인
+	@PostMapping("/currentPwdCheck.do")
+	@ResponseBody
+	public String currentPwdCheck(UserVO userVO) {
+		
+		String returnStr = "";
+		
+		int pwdCnt = accountService.currentPwdCheck(userVO);
+		
+		if(pwdCnt > 0) {
+			returnStr = "pwdOk";
+		} else {
+			returnStr = "invalidPwd";
+		}
+		
+		return returnStr;
 	}
 	
 	//회원탈퇴

@@ -9,7 +9,14 @@
 		<selectKey resultType="int" keyProperty="boardId" order="BEFORE">
 			SELECT IFNULL(MAX(BOARD_ID),0) + 1 FROM BOARD
 		</selectKey>
-		INSERT INTO BOARD 
+		INSERT INTO BOARD (
+			BOARD_ID,
+			USER_ID,
+			BOARD_TITLE,
+			BOARD_CONTENT,
+			BOARD_COUNT,
+			REGDATE
+		)
 		VALUES(
 			#{boardId},
 		 	#{userId}, 
@@ -88,11 +95,10 @@
 			</if>	
 	</select>
 	
-	<insert id="insertReply" parameterType="board">
-		INSERT INTO BOARD 
-		VALUES(
-			#{boardReply}
-		     )	
-	</insert>
-		
+	<update id="insertReply" parameterType="board">
+		UPDATE BOARD 
+		SET BOARD_REPLY = #{boardReply}
+		WHERE BOARD_ID = #{boardId}
+	</update>
+			
 </mapper>

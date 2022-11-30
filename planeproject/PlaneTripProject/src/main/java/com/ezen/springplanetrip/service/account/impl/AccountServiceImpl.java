@@ -52,4 +52,14 @@ public class AccountServiceImpl implements AccountService{
 	public UserVO findPassword(UserVO userVO) {
 		return accountDAO.findPassword(userVO);
 	}
+	
+	@Override
+	public UserVO getUserInfo(int userId) {
+		return accountDAO.getUserInfo(userId);
+	}
+	
+	@Override
+	public int currentPwdCheck(UserVO userVO) {
+		return accountDAO.currentPwdCheck(userVO);
+	}
 }

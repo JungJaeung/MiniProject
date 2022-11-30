@@ -111,6 +111,7 @@ public class BoardController {
 	
 	@PostMapping("/insertReply.do")
 	public String insertReply(BoardVO boardVO) {
+		System.out.println(boardVO.getBoardReply());
 		boardService.insertReply(boardVO);
 		
 		return "redirect:/board/getBoard.do?boardId="+boardVO.getBoardId();

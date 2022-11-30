@@ -14,6 +14,7 @@ public class UserVO {
 	private Date birthDate;
 	private char gender;
 	private String userRole;
+	private String currentPassword;
 	public int getUserId() {
 		return userId;
 	}
@@ -81,11 +82,19 @@ public class UserVO {
 		this.userRole = userRole;
 	}
 	
+	public String getCurrentPassword() {
+		return currentPassword;
+	}
+	public void setCurrentPassword(String currentPassword) {
+		this.currentPassword = currentPassword;
+	}
 	@Override
 	public String toString() {
 		return "UserVO [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName="
-				+ fullName + ", passWord=" + password + ", phone=" + phone + ", email=" + email + ", address=" + address
-				+ ", birthDate=" + birthDate + ", gender=" + gender + ", userRole=" + userRole + "]";
+				+ fullName + ", password=" + password + ", phone=" + phone + ", email=" + email + ", address=" + address
+				+ ", birthDate=" + birthDate + ", gender=" + gender + ", userRole=" + userRole + ", currentPassword="
+				+ currentPassword + "]";
 	}
+	
 	
 }
