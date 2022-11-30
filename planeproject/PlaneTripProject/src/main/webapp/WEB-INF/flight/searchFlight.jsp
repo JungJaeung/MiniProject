@@ -177,17 +177,7 @@
 			border: 1px solid black;
 			text-align: center;
 		}
-		#f_table {
-			width: 95%;
-			border: 1px solid black;
-			table-collapse: collapse;
-		}
-		#f_table tr {
-			height: 30%;
-		}
-		#f_table td, #f_table th {
-			border: 1px solid black;
-		}
+
 		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
 		#pageNumber {
 			margin: 0 auto;
@@ -208,9 +198,17 @@
 		.idList {
 			display: none;
 		}
+		
+		/* 항공편 부분 */
 		.showList {
-			width:100%; height:12.5%;
+			margin: 0px; padding: 0px;
+			width:100%; height:10%;
 			border: 1px solid black;
+		}
+		.showList div{
+			margin: 0px; padding: 0px;
+			width: 24%; height:94%;
+			display: inline-block;
 		}
 		#class1 {
 			background-color: skyblue;
@@ -221,11 +219,17 @@
 		#class3 {
 			background-color: orange;
 		}
-		.showList .column {
-			margin: 0px; padding: 0px;
-			border:1px solid black;
-			width: 20%; height: 30px;
-			display: inline-block;
+		.classCol {
+
+			width: 20%; height: 95%;
+		}
+		.priceCol {
+
+			width: 40%; height: 95%;
+		}
+		.remainCol {
+
+			width: 20%; height: 95%;
 		}
 </style>
 
@@ -654,7 +658,7 @@
         })
 
         //항공권 검색 버튼
-        $("#serch").click(function(){
+        $("#search").click(function(){
         	$("#info").submit();
         })
         
@@ -811,56 +815,24 @@
         </div>
     </div>
       <div id="flightList">
-      	<c:forEach items="${flightList }" var="flightList">
+      	<c:forEach items="${flightSeatList.flightList }" var="flightList" varStatus="status">
+      	<div class="idList">${flightList.flightCode }</div>
+      	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
-      		<div class="idList">${flightList.flightCode }</div>
-      		<div class="idList">${flightList.flightId }</div>
       		<div class="column">
-     			<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
+     			<div class="start"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
+				<div class="finish"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
       		</div>
-      		<div id="class1" class="column">
-     			<div class="idList">1</div>
-      			<div><c:out value="${pricePot[0] }"/></div>
-      			<div><c:out value="${seatClass[0] }"></c:out></div>
-      		</div>
-      		<div id="class2" class="column">
-      		    <div class="idList">2</div>
-      		    <div><c:out value="${pricePot[1] }"/></div>
-      			<div><c:out value="${seatClass[1] }"/></div>
-      		</div>
-      		<div id="class3" class="column">
-      		    <div class="idList">3</div>
-      			<div><c:out value="${pricePot[1] }"/></div>
-      			<div><c:out value="${seatClass[2] }"/></div>
-      		</div>
+      		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
+      			<div id="class${status2.index + 1 }" class="columns">
+      				<div class="classCol"><c:out value="${flightSeatList.classList[status.index][status2.index] }"></c:out></div>
+      				<div class="priceCol"><c:out value="${flightSeatList.priceList[status.index][status2.index] }원"></c:out></div>
+      				<div class="remainCol"><c:out value="${flightSeatList.remainSeat[status.index][status2.index] }명"></c:out></div>
+      			</div>
+      		</c:forEach>
       	</div>
       	</c:forEach>
-<%--       	<table id="f_table">
-       		<tr>
-				<th>항공편 코드</th>
-				<th>출발시각 > 도착시각</th>
-				<th>출발지</th>
-				<th>도착지</th>
-			</tr>
-			<c:forEach items="${flightList }" var="flightList">
-				<tr class="list">
-					<td>${flightList.flightCode }</td>
-					<td>
-						<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
-						<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-						<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
-					</td>
-					<td>${flightList.airportDpt}</td>
-					<td>
-						<fmt:formatDate value="${board.boardRegdate }" pattern="yyyy-MM-dd"/>
-						${flightList.airportArv }
-					</td>
-					<td class="idList">${flightList.flightId }</td>
-				</tr>
-			</c:forEach>
-		</table> --%>
 		<c:forEach items="${flightList }" var="flightList">
 			<input type="hidden" name="flightId" value="${flightList.flightId }">
 			<input class="codeList" type="hidden" name="flightCode" value="${flightList.flightCode }">
@@ -890,12 +862,12 @@
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
-			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
-			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
-            <input type="button" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
+			<input type="hidden" id="departTime" name="departTime" value="">
+			<input type="hidden" id="arrivalTime" name="arrivalTime" value="">
+            <input type="hidden" id="calendar_date" name="calendar" value="${flightInfo.minimumDate} ~ ${flightInfo.maximumDate}">
             <input type="hidden" id="minimumDate" name="minimumDate" value="${flightInfo.minimumDate}">
             <input type="hidden" id="maximumDate" name="maximumDate" value="${flightInfo.maximumDate}">
-           	<input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
+           	<input type="hidden" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
            	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
            	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
            	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
@@ -910,7 +882,6 @@
 		$(function() {
 			
 			let flightIdList = [];
-			let flightInfo = $(".list").get();
 
 			$(".idList").each(function(i, e) {
 				flightIdList.push($(this).text());
@@ -930,22 +901,31 @@
 				$("#info").submit();
 			});
 			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
-			$(".list").on("click", function(e) {
-				console.log("받아온 데이터 : " + $(this).children(".idList").text());
-				$("input[name='flightId']").val($(this).children(".idList").text());
+			$(".showList").on("click", function(e) {
+				$(this).parent().children().css("border", "1px solid black");
+				$(this).css("border", "3px solid red");
+				console.log("받아온 출발시간 데이터 : " + $(this).children('.start').text());
+				console.log("받아온 도착시간 데이터 : " + $(this).children('.finish').text());
+				$("input[name='departTime']").val($(this).children('.start').text());
+				$("input[name='arrivalTime']").val($(this).children('.finish').text());
+				$("input[name='flightId']").val($(this).prev().text());
 				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 				console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
 			});
 			
 			$("#selectButton").on("click", function(e) {
+				if(!$("#departTime").val()) {
+					alert("비행편을 하나 선택해주세요.");
+					return;
+				}
 				$("#checkFlight").submit();
 			});
 			
-			$("#selectButton").on("click", function() {
+/* 			$("#selectButton").on("click", function() {
 				$("input[name='pageNum']").val(1);
 				
 				$("#searchForm").submit();
-			});
+			}); */
 		});
 	</script>
 	

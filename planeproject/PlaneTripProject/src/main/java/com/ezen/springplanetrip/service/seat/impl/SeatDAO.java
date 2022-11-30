@@ -35,4 +35,8 @@ public class SeatDAO {
 		System.out.println("가져가기전 flightId:" + flightId);
 		return mybatis.selectList("SeatDAO.viewSeatClass", flightId);
 	}
+	
+	public List<Integer> viewSeatPrice(int flightId) {
+		return mybatis.selectList("SeatDAO.viewSeatPrice", flightId);
+	}
 }
