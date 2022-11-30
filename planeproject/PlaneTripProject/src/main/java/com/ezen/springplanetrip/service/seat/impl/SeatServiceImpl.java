@@ -25,13 +25,12 @@ public class SeatServiceImpl implements SeatService{
 	}
 	
 	@Override
-	public List<Integer> viewSeatPrice(int flightId) {
-		return seatDAO.viewSeatPrice(flightId);
+	public int viewSeatRemain(int flightId, int seatId) {
+		return seatDAO.viewSeatRemain(flightId, seatId);
 	}
 	
 	@Override
-	public List<Object> viewSeatClass(int flightId) {
-		System.out.println("비행편의 좌석 클래스를 확인해주는 클래스");
+	public List<Integer> viewSeatClass(int flightId) {
 		return seatDAO.viewSeatClass(flightId);
 	}
 }

@@ -64,18 +64,26 @@ public class FlightController {
 		//비행편은 이미 조회함. List<SeatVO> seatList = seatService.viewSeatList(flightId);
 //		model.addAttribute(seatList);
 		System.out.println("flight1: " + flightId);
+
+		
+		//비행편 들의 좌석 클래스를 표시하는 부분
+		List<Integer> seatClass = seatService.viewSeatClass(flightId);
+		for(int i = 0; i< seatClass.size(); i++) {
+			System.out.println("seatId : " + seatClass.get(i));
+		}
+		model.addAttribute("seatClass", seatClass);
+		
 		//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달
-		List<Object> seatClass = seatService.viewSeatClass(flightId);
-		
-		System.out.println(seatClass.get(0));
-		
-//		List<Integer> priceList = seatService.viewSeatPrice(flightId);
-//		Map<String, String> priceListMap = new HashMap<String, String>();
-//		for(int i=0; i < priceList.size();i++) {
-//			String price = "price" + Integer.toString(i+1);
-//			priceListMap.put(price, Integer.toString(priceList.get(i)));
-//		}
-//		model.addAttribute(priceListMap);
+		seatClass.get(0);
+		//가격 정보는 클래스한개씩 검사해서 결과를 가져옴.
+		List<Integer> seatPot = new ArrayList<Integer>();
+		for(int i=0; i < seatClass.size(); i++) {
+			int seatId = i+1;
+			int seatList = seatService.viewSeatRemain(flightId, seatId);
+			System.out.println("남은 좌석: " + seatList);
+			seatPot.add(seatList);
+		}
+		model.addAttribute(seatPot);
 		
 		
 		

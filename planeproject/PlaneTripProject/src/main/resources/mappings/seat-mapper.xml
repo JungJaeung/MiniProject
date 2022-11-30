@@ -20,15 +20,15 @@
 	</select>
 	
 	<!-- 비행편의 좌석 클래스 얻어오기 -->
-	<select id="viewSeatClass" parameterType="int" resultType="map">
+	<select id="viewSeatClass" parameterType="int" resultType="int">
 		<![CDATA[
 		SELECT SEAT_ID FROM SEAT 
 		WHERE FLIGHT_ID = #{flightId} 
 		GROUP BY SEAT_END_NO
 		]]>
 	</select>
-	<!-- 좌석 가격 얻어오기 -->
- 	<select id="viewSeatPrice" parameterType="int" resultType="int">
+	<!-- 클래스 하나의 좌석 남은 개수 얻어오기 -->
+ 	<select id="viewSeatPrice" parameterType="map" resultType="int">
 	SELECT DISTINCT A.SEAT_TOTAL - C.R_CNT AS REMAIN_SEAT
    FROM SEAT A
       , (

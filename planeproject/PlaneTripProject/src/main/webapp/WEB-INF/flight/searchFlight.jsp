@@ -221,10 +221,10 @@
 		#class3 {
 			background-color: orange;
 		}
-		.column {
+		.showList .column {
 			margin: 0px; padding: 0px;
 			border:1px solid black;
-			width:25%; height: 35px;
+			width: 20%; height: 30px;
 			display: inline-block;
 		}
 </style>
@@ -238,6 +238,7 @@
         let arrive = $(".arrive").get();
         //날짜
         var CDate = new Date();
+        let selectedDate = $("#calendar_date").val();
         let today = new Date();
         let day = ["일", "월", "화", "수", "목", "금", "토"];
         let e_target1;  //첫번째 클릭한 날짜 오브젝트 저장
@@ -250,7 +251,8 @@
 
         let dtemp = 0;
         //여행 날짜 기본설정
-        $("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
+        $("#calendar_date").val(selectedDate);
+        //$("#calendar_date").val(today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " ~ " + today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate());
        
         //왕복, 편도(왕복일때 way=0, 편도일때 way=1)
         $("#round").click(function(e){
@@ -820,17 +822,18 @@
       		</div>
       		<div id="class1" class="column">
      			<div class="idList">1</div>
-      			<div>${priceListMap.price1 }</div>
-      			<div>1클래스</div>
+      			<div><c:out value="${pricePot[0] }"/></div>
+      			<div><c:out value="${seatClass[0] }"></c:out></div>
       		</div>
       		<div id="class2" class="column">
-      		    <div class="idList">1</div>
-      		    <div>${priceListMap.price2 }</div>
-      			<div>2클래스</div>
+      		    <div class="idList">2</div>
+      		    <div><c:out value="${pricePot[1] }"/></div>
+      			<div><c:out value="${seatClass[1] }"/></div>
       		</div>
       		<div id="class3" class="column">
-      			<div>${priceListMap.price3 }</div>
-      			<div>3클래스</div>
+      		    <div class="idList">3</div>
+      			<div><c:out value="${pricePot[1] }"/></div>
+      			<div><c:out value="${seatClass[2] }"/></div>
       		</div>
       	</div>
       	</c:forEach>

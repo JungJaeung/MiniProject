@@ -10,7 +10,7 @@ public interface SeatService {
 	
 	List<Integer> viewSeatCount(int flightId);
 	
-	List<Integer> viewSeatPrice(int flightId);
+	int viewSeatRemain(int flightId, int seatId);
 	
-	List<Object> viewSeatClass(int flightId);
+	List<Integer> viewSeatClass(int flightId);
 }
