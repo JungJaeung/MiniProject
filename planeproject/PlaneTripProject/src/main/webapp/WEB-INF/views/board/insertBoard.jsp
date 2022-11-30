@@ -42,6 +42,7 @@
       float: right;
       margin-top: 10px;
       margin-right: 5px;
+      margin-bottom: 10px;
 
     }
     #btnReset, #btnInsert {
@@ -85,7 +86,7 @@
 		    <div class="btns"><button type="submit" id="btnInsert">등록</button></div>
 		    <div class="btns"><button type="reset" id="btnReset">취소</button></div>
 		  </form>
-		  <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>  
+		  <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList" style="font-size: 1.02rem;">글목록</a></div>  
 		</div>
 	 </div>
 	<jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
