@@ -91,7 +91,7 @@
 			<div class="label-wrapper" style="margin-bottom : 65px; margin-top : -10px; margin-left : 165px; font-size : 1.1em;">
 				<label for="fullName"><strong>${loginUser.fullName}님</strong></label>
 			</div>
-			<input type="hidden" id="userId" value="${loginUser.userId}">
+			<input type="hidden" id="userId" name="userId" value="${loginUser.userId}">
 			<div class="label-wrapper">
 				<label for="currentPassword">현재 비밀번호</label>
 			</div>

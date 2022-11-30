@@ -45,16 +45,18 @@ public class AccountController {
 		if(updateResult == 0) {
 			model.addAttribute("updateMsg", "회원정보 수정에 실패하였습니다.");
 			return "/mypage/userUpdate";
-		} else {
-			session.invalidate();
-
-			//변경된 유저 정보 세션에 담기
-			UserVO loginUser = accountService.getUserInfo(userVO.getUserId());
-			session.setAttribute("loginUser", loginUser);
-			
-			model.addAttribute("updateMsg", "회원정보 수정에 성공했습니다.");
-			return "/mypage/userInfo";
 		}
+		
+		/**
+		session.invalidate();
+
+		//변경된 유저 정보 세션에 담기
+		UserVO loginUser = accountService.getUserInfo(userVO.getUserId());
+		session.setAttribute("loginUser", loginUser);
+		**/
+		
+		model.addAttribute("updateMsg", "회원정보 수정에 성공하였습니다.");
+		return "/mypage/userInfo";
 		
 	}
 	
