@@ -33,4 +33,9 @@ public class SeatServiceImpl implements SeatService{
 	public List<Integer> viewSeatClass(int flightId) {
 		return seatDAO.viewSeatClass(flightId);
 	}
+	
+	@Override
+	public List<Integer> viewSeatPrice(int flightId) {
+		return seatDAO.viewSeatPrice(flightId);
+	}
 }

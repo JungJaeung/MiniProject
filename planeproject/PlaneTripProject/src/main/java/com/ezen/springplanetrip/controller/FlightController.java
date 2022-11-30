@@ -61,37 +61,46 @@ public class FlightController {
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
-		
-		System.out.println("flight1: " + flightList.get(0).getFlightId());
-		
-		//좌석 목록에 대한 정보를 찾아 조회함. 
-		int flightId = flightList.get(0).getFlightId();
-		//비행편은 이미 조회함. List<SeatVO> seatList = seatService.viewSeatList(flightId);
-//		model.addAttribute(seatList);
-		System.out.println("flight1: " + flightId);
 
-		
-		//비행편 들의 좌석 클래스를 표시하는 부분
-		List<Integer> seatClass = seatService.viewSeatClass(flightId);
-		for(int i = 0; i< seatClass.size(); i++) {
-			System.out.println("seatId : " + seatClass.get(i));
+		Map<String, Object> flightSeatList = new HashMap<String, Object>();	//각 비행편의 정보를 모두 담은 객체
+		List<List<Integer>> classList = new ArrayList<List<Integer>>(); //각 비행편의 클래스 목록을 담을 배열
+		List<List<Integer>> priceList = new ArrayList<List<Integer>>();	//각 비행편의 가격 목록을 담을 배열 비행편마다 가격이 다를것
+		List<List<Integer>> remainSeat = new ArrayList<List<Integer>>(); //각 비행편의 남은 자리 목록을 표시할 배열
+		flightSeatList.put("flightList", flightList);
+		//비행편 들의 좌석 클래스를 표시하는 부분 - Map의 키값은 String, 값은 List<Integer>
+		List<Integer> seatClass;
+		List<Integer> priceClass;
+		List<Integer> seatPot;
+		for(int i=0; i < flightList.size(); i++) {
+			//각 비행편의 자리 클래스를 가져오는 부분 : 비행편들은 자리의 이름이 있다. 2차원 배열
+			seatClass = seatService.viewSeatClass(flightList.get(i).getFlightId());
+			for(int j = 0; j < seatClass.size(); j++) {
+				System.out.println("seatId : " + seatClass.get(j));
+			}
+			classList.add(seatClass);
+			
+			//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달, 2차원 배열
+			//가격 정보는 클래스한개씩 검사해서 결과를 가져옴.
+			priceClass = seatService.viewSeatPrice(flightList.get(i).getFlightId());
+			for(int j = 0; j < seatClass.size(); j++) {
+				System.out.println(flightList.get(i).getFlightId() + "번 항공편의 seatPrice : " + priceClass.get(j));
+			}
+			priceList.add(priceClass);
+			//남은 좌석을 가져오기위한 데이터 입력을 하는 작업, 2차원 배열
+			seatPot = new ArrayList<Integer>();
+			for(int j = 0; j < seatClass.size(); j++) {
+				int seatId = classList.get(i).get(j);
+				int seatList = seatService.viewSeatRemain(flightList.get(i).getFlightId(), seatId);
+				System.out.println("남은 좌석: " + seatList);
+				seatPot.add(seatList);
+			}
+			remainSeat.add(seatPot);
 		}
-		model.addAttribute("seatClass", seatClass);
+		flightSeatList.put("classList", classList);
+		flightSeatList.put("priceList", priceList);
+		flightSeatList.put("remainSeat", remainSeat);
 		
-		//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달
-		seatClass.get(0);
-		//가격 정보는 클래스한개씩 검사해서 결과를 가져옴.
-		List<Integer> seatPot = new ArrayList<Integer>();
-		for(int i=0; i < seatClass.size(); i++) {
-			int seatId = i+1;
-			int seatList = seatService.viewSeatRemain(flightId, seatId);
-			System.out.println("남은 좌석: " + seatList);
-			seatPot.add(seatList);
-		}
-		model.addAttribute(seatPot);
-		
-		
-		
+		model.addAttribute("flightSeatList", flightSeatList);
 		//페이지 계산
 		int total = flightService.getFlightTotalCnt(flyMap);
 		System.out.println("총 개수 : " + total);

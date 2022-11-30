@@ -38,6 +38,8 @@ DROP TABLE user;
 
 select * from user;
 
+select * from reservation;
+
 select * from flight;
 
 select * from airport;
@@ -51,4 +53,25 @@ select * from seat;
 
 select sum(SEAT_END_NO) from seat where flight_id = 1 group by seat_id;
 
-select SEAT_PRICE from seat where flight_id = 100 group by SEAT_ID;
+select SEAT_PRICE from seat where flight_id = 1 group by SEAT_ID;
+
+SELECT DISTINCT A.SEAT_TOTAL - IFNULL(C.R_CNT, 0) AS REMAIN_SEAT
+   FROM 
+	(
+		SELECT DISTINCT SEAT_TOTAL,
+        FLIGHT_ID,
+        SEAT_ID 
+        FROM SEAT
+        WHERE FLIGHT_ID = 1
+        AND SEAT_ID = 1
+    ) A
+      LEFT OUTER JOIN(
+         SELECT COUNT(*) AS R_CNT
+             , B.FLIGHT_ID
+				, B.SEAT_ID
+            FROM RESERVATION B
+                WHERE B.FLIGHT_ID = 1
+                  AND B.SEAT_ID = 1
+       ) C
+   ON A.FLIGHT_ID = C.FLIGHT_ID
+      AND A.SEAT_ID = C.SEAT_ID;
