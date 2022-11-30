@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>회원정보수정</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 	body { background-color : #F6F6F6;}
 	
@@ -88,8 +89,9 @@
 				<h2 style="margin-bottom : 60px; margin-left : -30px;">회원정보 수정</h2>
 			</div>
 			<div class="label-wrapper" style="margin-bottom : 65px; margin-top : -10px; margin-left : 165px; font-size : 1.1em;">
-				<label for="email"><strong>${loginUser.fullName}님</strong></label>
+				<label for="fullName"><strong>${loginUser.fullName}님</strong></label>
 			</div>
+			<input type="hidden" id="userId" value="${loginUser.userId}">
 			<div class="label-wrapper">
 				<label for="currentPassword">현재 비밀번호</label>
 			</div>
@@ -97,9 +99,9 @@
 			<hr>
 			<p id="currentMsg"></p>
 			<div class="label-wrapper">
-				<label for="password">비밀번호</label>
+				<label for="password">변경할 비밀번호</label>
 			</div>
-			<input type="password" id="password" name="password" required>
+			<input type="password" id="password" name="password" value="${loginUser.password}" required>
 			<hr>
 			<p id="pwValidation" style="color: red; font-size: 0.8rem;">
 				비밀번호는 영문자, 숫자, 특수문자 조합의 9자리 이상으로 설정해주세요.
@@ -113,12 +115,12 @@
 			<div class="label-wrapper">
 				<label for="lastName">성</label>
 			</div>
-			<input type="text" id="lastName" name="lastName" required>
+			<input type="text" id="lastName" name="lastName" value="${loginUser.lastName}" required>
 			<hr>
 			<div class="label-wrapper">
 				<label for="firstName">이름</label>
 			</div>
-			<input type="text" id="firstName" name="firstName" required>
+			<input type="text" id="firstName" name="firstName" value="${loginUser.firstName}" required>
 			<hr>
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
@@ -127,12 +129,12 @@
 			<div class="label-wrapper">
 				<label for="phone">전화번호</label>
 			</div>
-			<input type="text" id="phone" name="phone" placeholder="숫자만 입력하세요.">
+			<input type="text" id="phone" name="phone" value="${loginUser.phone}">
 			<hr>
 			<div class="label-wrapper">
 				<label for="address">주소</label>
 			</div>
-			<input type="text" name="address" id="address" size="59">
+			<input type="text" id="address" name="address" size="59" value="${loginUser.address}">
 			<hr>
 			<div style="display: block; margin: 20px auto;">
 				<button type="submit" id="btnUpdate">수정하기</button>
@@ -235,13 +237,15 @@
 				$.ajax({
 					url: "/Account/currentPwdCheck.do",
 					type: 'post',
-					data: $("#currentPassword").serialize(),
+					data: {
+						userId: $("#userId").val() ,
+						currentPassword: $("#currentPassword").val() 
+					},
 					success: function(obj) {
 						if(obj == 'pwdOk') {
 							currentPwCheck = true;
 							$("#currentMsg").text("비밀번호를 변경해주세요.").css("color","green");
 						} else {
-							//현재 비밀번호 틀리면 비밀번호 변경 진행 안되게
 							currentPwCheck = false;
 							$("#currentMsg").text("비밀번호를 다시 입력해주세요.").css("color","red");
 						}

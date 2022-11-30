@@ -74,7 +74,6 @@
 			PHONE=#{phone},
 			ADDRESS=#{address}
 		where USER_ID=#{userId}
-				
 	]]>
 	</update>
 	
@@ -97,10 +96,10 @@
 	]]>
 	</select>
 	
-	<select id="currentPwdCheck" parameterType="string" resultType="int">
+	<select id="currentPwdCheck" parameterType="user" resultType="int">
 		select count(PASSWORD)
 			from user
-			where PASSWORD = #{password}
+			where USER_ID = #{userId} and PASSWORD = #{currentPassword}
 	</select>
 	
 </mapper>

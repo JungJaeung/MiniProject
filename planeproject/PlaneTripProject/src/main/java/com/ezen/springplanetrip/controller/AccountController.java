@@ -61,11 +61,11 @@ public class AccountController {
 	//현재 비밀번호 일치여부 확인
 	@PostMapping("/currentPwdCheck.do")
 	@ResponseBody
-	public String currentPwdCheck(String currentPassword) {
+	public String currentPwdCheck(UserVO userVO) {
 		
 		String returnStr = "";
 		
-		int pwdCnt = accountService.currentPwdCheck(currentPassword);
+		int pwdCnt = accountService.currentPwdCheck(userVO);
 		
 		if(pwdCnt > 0) {
 			returnStr = "pwdOk";

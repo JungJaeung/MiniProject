@@ -54,7 +54,7 @@ public class AccountDAO {
 		return mybatis.selectOne("AccountDAO.getUserInfo", userId);
 	}
 	
-	public int currentPwdCheck(String password) {
-		return mybatis.selectOne("AccountDAO.currentPwdCheck", password);
+	public int currentPwdCheck(UserVO userVO) {
+		return mybatis.selectOne("AccountDAO.currentPwdCheck", userVO);
 	}
 }

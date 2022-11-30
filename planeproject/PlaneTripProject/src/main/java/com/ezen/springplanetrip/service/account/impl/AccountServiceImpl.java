@@ -59,7 +59,7 @@ public class AccountServiceImpl implements AccountService{
 	}
 	
 	@Override
-	public int currentPwdCheck(String password) {
-		return accountDAO.currentPwdCheck(password);
+	public int currentPwdCheck(UserVO userVO) {
+		return accountDAO.currentPwdCheck(userVO);
 	}
 }

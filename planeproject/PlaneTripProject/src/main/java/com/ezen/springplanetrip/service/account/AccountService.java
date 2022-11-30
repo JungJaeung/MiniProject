@@ -26,7 +26,7 @@ public interface AccountService {
 	
 	UserVO getUserInfo(int userId);
 	
-	int currentPwdCheck(String password);
+	int currentPwdCheck(UserVO userVO);
 	
 	
 }
