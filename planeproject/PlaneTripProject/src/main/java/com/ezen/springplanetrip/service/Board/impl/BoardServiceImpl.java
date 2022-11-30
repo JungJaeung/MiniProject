@@ -57,5 +57,4 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.deleteBoard(boardId);
 	}
 
-
 }
