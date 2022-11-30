@@ -19,27 +19,9 @@
 		WHERE FLIGHT_ID = #{flightId} GROUP BY SEAT_ID
 	</select>
 	<!-- 좌석 가격 얻어오기 -->
-	<select id="viewSeatCount" parameterType="int" resultType="int">
+<!-- 	<select id="viewSeatCount" parameterType="int" resultType="int">
 		SELECT PRICE FROM SEAT
 		WHERE FLIGHT_ID = #{flightId} GROUP BY SEAT_ID
-	</select>
-	<select id="viewFlight" parameterType="map" resultType="flight">
-		<![CDATA[
-		SELECT * FROM FLIGHT 
-		WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.departPointId})
-		 AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.arrivedPointId})
-		]]>
-		LIMIT #{cri.amount} OFFSET #{cri.startNum}
-		<!-- WHERE DEPARTTIME BETWEEN #{flightList.departTime} AND DEPART_TIME=#{flightList.arrivalTime} -->
-	</select>
-	
-	<select id="getFlightTotalCnt" parameterType="map" resultType="int">
-		SELECT COUNT(*)
-			FROM Flight
-			WHERE AIRPORT_DPT = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.departPointId})
-		 	AND AIRPORT_ARV = (SELECT AIRPORT_CODE FROM AIRPORT WHERE AIRPORT_ID=#{flightMap.arrivedPointId})
-	</select>
-	<select id="viewAirport" parameterType="map" resultType="airport">
-		SELECT * FROM AIRPORT
-	</select>
+	</select> -->
+
 </mapper>
