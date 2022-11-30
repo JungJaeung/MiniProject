@@ -57,7 +57,7 @@ public class HomeController {
 		
 		model.addAttribute("airportList", airportList);
 		
-		return "mainPage";
+		return "../../mainPage";
 	}
 	
 }
