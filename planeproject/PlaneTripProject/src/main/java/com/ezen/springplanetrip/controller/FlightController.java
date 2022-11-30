@@ -1,5 +1,6 @@
 package com.ezen.springplanetrip.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,11 @@ import com.ezen.springplanetrip.vo.SeatVO;
 public class FlightController {
 	@Autowired
 	private FlightService flightService;
+	
+	@Autowired
 	private SeatService seatService;
+	
+	
 	@PostMapping("/searchFlight.do")
 	public String viewFlight(Model model, @RequestParam Map<String, String> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
@@ -34,32 +39,45 @@ public class FlightController {
 		//flyMap.put("flightId", Integer.parseInt((String)flyMap.get("flightId")));	//flighId값은 정수형이므로 정수형으로 바꿔서
 		List<FlightVO> flightList = flightService.viewFlight(flyMap, cri);
 
-		System.out.println("비행편 ID : " + flyMap.get("flightId"));
+		System.out.println("가져오기전 비행편 ID : " + flyMap.get("flightId"));
 		model.addAttribute("flightInfo", flyMap);
 		
 		System.out.println(flightList.get(0));
 		model.addAttribute("flightList", flightList);
 		
+		//달력에 적은 시작일과 끝 날짜를 저장하는 map
+		Map<String, String> calendar = new HashMap<String, String>();
+		calendar.put("minimumDate", flyMap.get("minimumDate"));
+		calendar.put("maximumDate", flyMap.get("maximumDate"));
+		System.out.println("최소일 : " + calendar.get("minimumDate"));
+		System.out.println("최대일 : " + calendar.get("maximumDate"));
+		model.addAttribute("calendar", calendar);
+		
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
 		
-		System.out.println("출발편 : " + flyMap.get("departPointId"));
-		System.out.println("도착편 : " + flyMap.get("arrivedPointId"));
+		System.out.println("flight1: " + flightList.get(0).getFlightId());
 		
-		//좌석 목록에 대한 정보를 찾아 조회함.
-		int flightId = flightList.get(0).getFlightId(); //비행편은 이미 조회함.
-		List<SeatVO> seatList = seatService.viewSeatList(flightId);
-		model.addAttribute(seatList);
-		
+		//좌석 목록에 대한 정보를 찾아 조회함. 
+		int flightId = flightList.get(0).getFlightId();
+		//비행편은 이미 조회함. List<SeatVO> seatList = seatService.viewSeatList(flightId);
+//		model.addAttribute(seatList);
+		System.out.println("flight1: " + flightId);
 		//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달
-		List<Integer> priceList = seatService.viewSeatPrice(flightId);
-		Map<String, String> priceListMap = new HashMap<String, String>();
-		for(int i=0; i < priceList.size();i++) {
-			String price = "price" + Integer.toString(i+1);
-			priceListMap.put(price, Integer.toString(priceList.get(i)));
-		}
-		model.addAttribute(priceListMap);
+		List<Object> seatClass = seatService.viewSeatClass(flightId);
+		
+		System.out.println(seatClass.get(0));
+		
+//		List<Integer> priceList = seatService.viewSeatPrice(flightId);
+//		Map<String, String> priceListMap = new HashMap<String, String>();
+//		for(int i=0; i < priceList.size();i++) {
+//			String price = "price" + Integer.toString(i+1);
+//			priceListMap.put(price, Integer.toString(priceList.get(i)));
+//		}
+//		model.addAttribute(priceListMap);
+		
+		
 		
 		//페이지 계산
 		int total = flightService.getFlightTotalCnt(flyMap);

@@ -17,6 +17,7 @@
 		<typeAlias type="com.ezen.springplanetrip.vo.AirportVO" alias="airport"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.UserVO" alias="user"></typeAlias>
 		<typeAlias type="com.ezen.springplanetrip.vo.SeatVO" alias="seat"></typeAlias>
+		<typeAlias type="com.ezen.springplanetrip.common.CamelHashMap" alias="camelHashMap"/>
 	</typeAliases>
 	
 	<!-- 사용할 SQL 매퍼 위치 지정 -->

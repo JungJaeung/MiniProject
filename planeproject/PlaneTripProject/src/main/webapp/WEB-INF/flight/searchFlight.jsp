@@ -221,6 +221,12 @@
 		#class3 {
 			background-color: orange;
 		}
+		.column {
+			margin: 0px; padding: 0px;
+			border:1px solid black;
+			width:25%; height: 35px;
+			display: inline-block;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -521,8 +527,8 @@
             date_flag = 1;
 
             $("#calendar_date").val(textd1 + " ~ " + textd2);
-            $("#minimumDate").val(text1);
-            $("#maximumDate").val(text2);
+            $("#minimumDate").val(textd1);
+            $("#maximumDate").val(textd2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");
         })
@@ -673,9 +679,9 @@
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
-                        <input type="button" id="calendar_date" name="calendar" value="${flightList[0].minimumDate} ~ ${flightList[0].maximumDate}">
-                        <input type="hidden" id="minimumDate" name="minimumDate" value="${flightList[0].minimumDate}">
-                        <input type="hidden" id="maximumDate" name="maximumDate" value="${flightList[0].maximumDate}">
+                        <input type="button" id="calendar_date" name="calendar" value="${calendar.minimumDate} ~ ${calendar.maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${calendar.minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${calendar.maximumDate}">
                         <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
@@ -807,20 +813,22 @@
       	<div class="showList">
       		<div class="idList">${flightList.flightCode }</div>
       		<div class="idList">${flightList.flightId }</div>
-      		<div>
+      		<div class="column">
      			<fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/>
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
 				<fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/>
       		</div>
-      		<div id="class1">
+      		<div id="class1" class="column">
+     			<div class="idList">1</div>
       			<div>${priceListMap.price1 }</div>
       			<div>1클래스</div>
       		</div>
-      		<div id="class2">
+      		<div id="class2" class="column">
+      		    <div class="idList">1</div>
       		    <div>${priceListMap.price2 }</div>
       			<div>2클래스</div>
       		</div>
-      		<div id="class3">
+      		<div id="class3" class="column">
       			<div>${priceListMap.price3 }</div>
       			<div>3클래스</div>
       		</div>
