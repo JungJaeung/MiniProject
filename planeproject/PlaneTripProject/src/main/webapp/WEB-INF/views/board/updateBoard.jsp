@@ -57,11 +57,11 @@
      #btnUpdate {
        background-color: #FF8200;
        border: 1px solid #FF8200;
-       color: white; font-size: 1.03rem;
+       color: white; font-size: 0.8rem;
     } 
     .btns a {
       text-decoration: none;
-      color: #ffffff; font-size: 1.03rem;     
+      color: #ffffff; font-size: 0.8rem;
     }
 </style>
 </head>
@@ -95,7 +95,8 @@
 	            </tr>
 	            <tr>
 	              <th>내용</th>
-	              <td><input value="${board.boardContent }" name="boardContent" id="boardContent"></td>
+	              <td><textarea name="boardContent" id="boardContent" rows="10" style="resize:none; width: 98%;">${board.boardContent}</textarea></td>
+	             <%--  <td><input type="text" value="${board.boardContent }" name="boardContent" id="boardContent"></td> --%>
 	            </tr>
 	          </table>
 	          <div id="btnWrap"><button type="submit" id="btnUpdate">수정</button></div>
@@ -110,6 +111,9 @@
 	
 	<script>
 		$(function(){
+			const boardContent = '${board.boardContent}';
+			
+			console.log(boardContent);
 			// 세션, 리퀘스트 스코프에 담겨진 데이터를 빼오는 방식
 			const loginUserId = '${loginUser.userId}';
 			const boardWriter = '${board.userId}';
