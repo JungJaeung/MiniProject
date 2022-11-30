@@ -34,6 +34,7 @@ public class AccountDAO {
 	}
 	
 	public int updateInfo(UserVO userVO){
+		System.out.println("성공");
 		return mybatis.update("AccountDAO.updateInfo", userVO);
 	}
 	
@@ -47,5 +48,13 @@ public class AccountDAO {
 
 	public UserVO findPassword(UserVO userVO) {
 		return mybatis.selectOne("AccountDAO.findPassword", userVO);
+	}
+	
+	public UserVO getUserInfo(int userId) {
+		return mybatis.selectOne("AccountDAO.getUserInfo", userId);
+	}
+	
+	public int currentPwdCheck(String password) {
+		return mybatis.selectOne("AccountDAO.currentPwdCheck", password);
 	}
 }

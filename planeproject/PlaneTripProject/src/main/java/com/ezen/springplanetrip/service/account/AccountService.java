@@ -24,4 +24,9 @@ public interface AccountService {
 	
 	UserVO findPassword(UserVO userVO);
 	
+	UserVO getUserInfo(int userId);
+	
+	int currentPwdCheck(String password);
+	
+	
 }

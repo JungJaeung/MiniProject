@@ -91,6 +91,12 @@
 				<label for="email"><strong>${loginUser.fullName}님</strong></label>
 			</div>
 			<div class="label-wrapper">
+				<label for="currentPassword">현재 비밀번호</label>
+			</div>
+			<input type="password" id="currentPassword" name="currentPassword" required>
+			<hr>
+			<p id="currentMsg"></p>
+			<div class="label-wrapper">
 				<label for="password">비밀번호</label>
 			</div>
 			<input type="password" id="password" name="password" required>
@@ -141,6 +147,9 @@
 				alert($("#updateMsg").val());
 			}
 			
+			
+			//기존 비밀번호와 일치하는지 확인하는 플래그
+			var currentPwCheck = false;
 			//password가 형식에 맞게 작성됐는지(특수문자 + 영문자 + 숫자 8자리)
 			var pwValidation = false;
 			//password가 확인란과 일치하는지
@@ -193,7 +202,7 @@
 				}
 			});
 			
-			//회원가입 진행
+			//회원정보 수정 진행
 			$("#updateForm").on("submit", function(e) {
 				
 				//비밀번호 유효성 검사가 틀렸을 때
@@ -211,6 +220,36 @@
 					e.preventDefault();
 					return;
 				}
+				
+				//현재 비밀번호 일치하지 않을 때
+				if(!currentPwCheck) {
+					alert("현재 비밀번호가 일치하지 않습니다.");
+					$("#currentPassword").focus();
+					e.preventDefault();
+					return;
+				}
+			});
+			
+			//현재 비밀번호 체크
+			$("#currentPassword").on("change", function() {
+				$.ajax({
+					url: "/Account/currentPwdCheck.do",
+					type: 'post',
+					data: $("#currentPassword").serialize(),
+					success: function(obj) {
+						if(obj == 'pwdOk') {
+							currentPwCheck = true;
+							$("#currentMsg").text("비밀번호를 변경해주세요.").css("color","green");
+						} else {
+							//현재 비밀번호 틀리면 비밀번호 변경 진행 안되게
+							currentPwCheck = false;
+							$("#currentMsg").text("비밀번호를 다시 입력해주세요.").css("color","red");
+						}
+					},
+					error: function(e) {
+						console.log(e);
+					}
+				});
 			});
 		});
 	</script>
