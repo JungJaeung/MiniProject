@@ -84,7 +84,7 @@
         <div id="middle_container">
             <nav id="middle_menu">
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/mainPage.jsp"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
+                    <li><a href="/mainPage.do"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
                     <li><a href="#">항공권 예매</a></li>
                     <li><a href="/Account/userInfo.do">마이페이지</a></li>
                     <li><a href="/airport/airportInfo.do">공항정보</a></li>
