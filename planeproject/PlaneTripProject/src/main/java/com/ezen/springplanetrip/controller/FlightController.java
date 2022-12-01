@@ -49,15 +49,12 @@ public class FlightController {
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
 		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
 		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
-		System.out.println("출발날짜 3번째꺼 확인 : " + startDateList.get(2));
-		System.out.println("도착날짜 3번째꺼 확인 : " + arrivalDateList.get(2));
 		
+		System.out.println("input dpt, arv" + flightList.get(1));
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
 		
 		model.addAttribute("flightInfo", flyMap);
-		
-		System.out.println("성인 : " + flyMap.get("adultNumber") + "어린이 : " + flyMap.get("childNumber") + "유아 : " + flyMap.get("babyNumber"));
 		
 		model.addAttribute("flightList", flightList);
 		
@@ -117,18 +114,12 @@ public class FlightController {
 
 	@PostMapping("/searchArriveFlight.do")
 	public String viewArriveFlight(Model model, @RequestParam Map<String, String> departFlyMap, Criteria cri) {
-		Map<String, String> arriveFlyMap = new HashMap<>();
-		Map<String, String> department = new HashMap<>();
-		department.put("d_classId", departFlyMap.get("classId"));
-		department.put("d_departPointId", departFlyMap.get("departPointId"));
-		department.put("d_arrivedPointId", departFlyMap.get("arrivedPointId"));
-		department.put("d_departPointCode", departFlyMap.get("departPointCode"));
-		department.put("d_arrivedPointCode", departFlyMap.get("arrivedPointCode"));
-		model.addAttribute(department);
+		//System.out.println("2번째 항공편확인 : " + departFlyMap);
+
 		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 전달
 		model.addAttribute("flightListDpt", departFlyMap);
-		System.out.println(departFlyMap.get("departPointId"));
-		System.out.println(departFlyMap.get("arrivedPointId"));
+		System.out.println("출 : " + departFlyMap.get("departPointId"));
+		System.out.println("도 : " + departFlyMap.get("arrivedPointId"));
 		
 		System.out.println("도착편 작업  시작");
 		//Map<String, String> arriveFlyMap

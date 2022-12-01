@@ -914,10 +914,10 @@
 			<!-- 출발 비행편의 정보 (승객 정보 페이지에서 사용할 변수들 저장) -->
 			<input type="hidden" name="d_classId" value="${flightListDpt.classId }">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
-			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${flightListDpt.airportDpt }">
-			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${flightListDpt.airportArv }">
-			<input type="hidden" id="d_departPointId" name="d_departPointId" value="${flightListDpt.departPointId }">
-			<input type="hidden" id="d_arrivedPointId" name="d_arrivedPointId" value="${flightListDpt.arrivedPointId }">
+			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${department.airportDpt }">
+			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${department.airportArv }">
+			<input type="hidden" id="d_departPointId" name="d_departPointId" value="${department.departPointId }">
+			<input type="hidden" id="d_arrivedPointId" name="d_arrivedPointId" value="${department.arrivedPointId }">
 			<input type="hidden" id="d_flightId" name="d_flightId" value="${flightListDpt.flightId}">
 			<input type="hidden" id="d_departTime" name="d_departTime" value="${flightListDpt.departTime}">
 			<input type="hidden" id="d_arrivalTime" name="d_arrivalTime" value="${flightListDpt.arrivalTime}">
@@ -954,7 +954,8 @@
 		
 	<script>
 		$(function() {
-			
+			console.log("출발 비행편 출발 : " + $("#d_departPointId").val());
+			console.log("출발 비행편 도착 : " + $("#d_arrivedPointId").val());
 			let flightIdList = [];
 
 			$(".idList").each(function(i, e) {
@@ -997,11 +998,6 @@
 				$("#checkFlight").submit();
 			});
 			
-/* 			$("#selectButton").on("click", function() {
-				$("input[name='pageNum']").val(1);
-				
-				$("#searchForm").submit();
-			}); */
 		});
 	</script>
 	

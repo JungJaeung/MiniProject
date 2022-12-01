@@ -30,9 +30,10 @@ public class PassengerController {
 	
 	@PostMapping("/passenger.do")
 	public String passenger(Model model, @RequestParam Map<String, String> paramMap, HttpSession session) {
-		if (session.getAttribute("loginUser") == null) {
-			return "/Account/login";
-		}
+//		if (session.getAttribute("loginUser") == null) {
+//			return "/Account/login";
+//		}
+		
 		System.out.println("가져오는 맵의 데이터 출력하기 : " +  paramMap);
 		AirportVO airport = new AirportVO();
 		airport.setAirportId(Integer.parseInt(paramMap.get("d_departPointId")));
