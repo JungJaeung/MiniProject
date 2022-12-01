@@ -82,23 +82,61 @@
         let personnal_data = "<form action='/passenger/insertPassenger.do' method='post'>";
         let personnal_num = (Number)($("#personnal_num").html());
         
+       	let fwd_depart_datetime = "${flight_data.minimumDate} ${flight_data.d_departTime}:00";
+       	let fwd_arrival_datetime = "${flight_data.minimumDate} ${flight_data.d_arrivalTime}:00";
+       	let bwd_depart_datetime = "${flight_data.maximumDate} ${flight_data.departTime}:00";
+       	let bwd_arrival_datetime = "${flight_data.maximumDate} ${flight_data.arrivalTime}:00";
+       	
+       	console.log(fwd_depart_datetime);
+       	console.log(fwd_arrival_datetime);
+       	console.log(bwd_depart_datetime);
+       	console.log(bwd_arrival_datetime);
+       
         for(let i = 1; i <= personnal_num; i++){
         	 personnal_data += "<div class='person_data'>";
-             personnal_data += "<input type='hidden' id='gender" + i + "' name='gender" + i + "' value='남성'>"
              personnal_data += "<p class='name_f_p'>성(영문)</p><input type='text' name='firstName" + i + "' class='name_f'>"
              personnal_data += "<p class='name_p'>이름(영문)</p><input type='text' name='lastName" + i + "' class='name'>"
              personnal_data += "<p class='ph_p'>연락처</p><input type='text' name='phone" + i + "' class='ph'>"
              personnal_data += "<p class='birthday_p'>생년월일(YYYY-MM-DD)</p><input type='text' name='birthDate" + i + "' class='birthday'>"
              personnal_data += "<p class='gender_p'>성별</p><input type='button' id='male" + i + "' class='male' value='남성'> <input type='button' id='female" + i + "' class='female' value='여성'> "
+             personnal_data += "<input type='hidden' id='gender" + i + "' name='gender" + i + "' value='남성'>"
         
             if(i == personnal_num){
-                personnal_data += "<input type='submit' id='btn_submit' value='입력하기'> </form>"
-                personnal_data += "</div>"
+                personnal_data += "<input type='hidden' id='asdf' name='fwd_flight_id' value='${flight_data.d_flightId }'>"
+                personnal_data += "<input type='hidden' name='fwd_seat_id' value='${flight_data.d_classId  }'>"
+                personnal_data += "<input type='hidden' name='fwd_departTime' value='${flight_data.d_departTime }'>"
+                personnal_data += "<input type='hidden' name='fwd_arrivalTime' value='${flight_data.d_arrivalTime }'>"
+                personnal_data += "<input type='hidden' name='fwd_date' value='${flight_data.minimumDate }'>"
+                personnal_data += "<input type='hidden' name='fwd_depart_airportName' value='${d_departPointCode.airportName }'>"
+                personnal_data += "<input type='hidden' name='fwd_depart_airportCode' value='${d_departPointCode.airportCode }'>"
+                personnal_data += "<input type='hidden' name='fwd_arrived_airportName' value='${d_arrivedPointCode.airportName }'>"
+                personnal_data += "<input type='hidden' name='fwd_arrived_airportCode' value='${d_arrivedPointCode.airportCode }'>"
+                personnal_data += "<input type='hidden' name='fwd_depart_datetime' value='" + fwd_depart_datetime + "'>"
+                personnal_data += "<input type='hidden' name='fwd_arrival_datetime' value='" + fwd_arrival_datetime + "'>"
+                
+                personnal_data += "<input type='hidden' name='bwd_flight_id' value='${flight_data.flightId }'>"
+                personnal_data += "<input type='hidden' name='bwd_seat_id' value='${flight_data.classId  }'>"
+                personnal_data += "<input type='hidden' name='bwd_departTime' value='${flight_data.departTime }'>"
+                personnal_data += "<input type='hidden' name='bwd_arrivalTime' value='${flight_data.arrivalTime }'>"
+                personnal_data += "<input type='hidden' name='bwd_date' value='${flight_data.maximumDate }'>"
+                personnal_data += "<input type='hidden' name='bwd_depart_airportName' value='${departPointCode.airportName }'>"
+                personnal_data += "<input type='hidden' name='bwd_depart_airportCode' value='${departPointCode.airportCode }'>"
+                personnal_data += "<input type='hidden' name='bwd_arrived_airportName' value='${arrivedPointCode.airportName }'>"
+                personnal_data += "<input type='hidden' name='bwd_arrived_airportCode' value='${arrivedPointCode.airportCode }'>"
+                personnal_data += "<input type='hidden' name='bwd_depart_datetime' value='" + bwd_depart_datetime + "'>"
+                personnal_data += "<input type='hidden' name='bwd_arrival_datetime' value='" + bwd_arrival_datetime + "'>"
+                
+                
+                
+            	
+                personnal_data += "<input type='submit' id='btn_submit' value='입력하기'>"
+                personnal_data += "</form></div>"
             }
             else{
                 personnal_data += "</div>"
             }
         }
+       	console.log($("#asdf").val());
         
         $("#personnal_data").html(personnal_data);
 
@@ -138,24 +176,24 @@
                 </div>
                 <div id="f_info_con">
                     <div id="f_info_con_up">
-                        <div id="from_eng">ICN</div>
-                        <div id="from_kor">서울/인천</div>
+                        <div id="from_eng">${d_departPointCode.airportCode }</div>
+                        <div id="from_kor">${d_departPointCode.airportName }</div>
                         <div id="from_arrow">▶</div>
-                        <div id="to_eng">NRT</div>
-                        <div id="to_kor">도쿄/나리타</div>
-                        <div id="from_date">2022-11-23</div>
-                        <div id="from_time">14:00 ~ 16:50</div>
+                        <div id="to_eng">${d_arrivedPointCode.airportCode }</div>
+                        <div id="to_kor">${d_arrivedPointCode.airportName }</div>
+                        <div id="from_date">${flight_data.minimumDate }</div>
+                        <div id="from_time">${flight_data.d_departTime } ~ ${flight_data.d_arrivalTime }</div>
                         <div id="plain_name">KE704</div>
                         <div id="seat_lv">일반석</div>
                     </div>
                     <div id="f_info_con_down">
-                        <div id="from_eng2">ICN</div>
-                        <div id="from_kor2">서울/인천</div>
+                        <div id="from_eng2">${departPointCode.airportCode }</div>
+                        <div id="from_kor2">${departPointCode.airportName }</div>
                         <div id="from_arrow2">▶</div>
-                        <div id="to_eng2">NRT</div>
-                        <div id="to_kor2">도쿄/나리타</div>
-                        <div id="from_date2">2022-11-23</div>
-                        <div id="from_time2">14:00 ~ 16:50</div>
+                        <div id="to_eng2">${arrivedPointCode.airportCode }</div>
+                        <div id="to_kor2">${arrivedPointCode.airportName }</div>
+                        <div id="from_date2">${flight_data.maximumDate }</div>
+                        <div id="from_time2">${flight_data.departTime } ~ ${flight_data.arrivalTime }</div>
                         <div id="plain_name2">KE704</div>
                         <div id="seat_lv2">일반석</div>
                     </div>

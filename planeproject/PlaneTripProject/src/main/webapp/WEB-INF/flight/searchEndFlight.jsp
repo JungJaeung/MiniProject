@@ -865,7 +865,7 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-      			<div class="flight_code">7C101</div>
+      			<div class="flight_code">${flightList.flightCode }</div>
       			<div class="under_line"></div>
       			<!-- 시간 데이터 표시는 fmt jstl사용. 가져갈 데이터는 숨겨서 따로 스크립트로 처리 -->
      		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/><span>${startDateList[status.index] }</span></div>
