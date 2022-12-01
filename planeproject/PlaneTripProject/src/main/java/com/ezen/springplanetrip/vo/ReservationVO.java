@@ -6,97 +6,84 @@ import java.util.Date;
 
 public class ReservationVO {
 	private int reservationId;
-	private Date departDateTime;
-	private Date arrivalDateTime;
 	private int passengerId;
-	private int filghtId;
-	private int aircraftId;
+	private int flightId;
 	private int seatId;
-	private int seatNo; //좌석번호
-	private char updateReservation;
+	private Date departDatetime;
+	private Date arrivalDatetime;
+	private String seatNo;
+	private String updateReservation;
+	private int userId;
+	private String seatCol;
 	
 	public int getReservationId() {
 		return reservationId;
 	}
-	
 	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
 	}
-	
-	public Date getDepartDateTime() {
-		return departDateTime;
-	}
-	
-	public void setDepartDateTime(Date departDateTime) {
-		this.departDateTime = departDateTime;
-	}
-	
-	public Date getArrivalDateTime() {
-		return arrivalDateTime;
-	}
-	
-	public void setArrivalDateTime(Date arrivalDateTime) {
-		this.arrivalDateTime = arrivalDateTime;
-	}
-	
 	public int getPassengerId() {
 		return passengerId;
 	}
-	
 	public void setPassengerId(int passengerId) {
 		this.passengerId = passengerId;
 	}
-	
-	public int getFilghtId() {
-		return filghtId;
+	public int getFlightId() {
+		return flightId;
 	}
-	
-	public void setFilghtId(int filghtId) {
-		this.filghtId = filghtId;
+	public void setFlightId(int flightId) {
+		this.flightId = flightId;
 	}
-	
-	public int getAircraftId() {
-		return aircraftId;
-	}
-	
-	public void setAircraftId(int aircraftId) {
-		this.aircraftId = aircraftId;
-	}
-	
 	public int getSeatId() {
 		return seatId;
 	}
-	
 	public void setSeatId(int seatId) {
 		this.seatId = seatId;
 	}
-
-	public int getSeatNo() {
+	public Date getDepartDatetime() {
+		return departDatetime;
+	}
+	public void setDepartDatetime(Date departDatetime) {
+		this.departDatetime = departDatetime;
+	}
+	public Date getArrivalDatetime() {
+		return arrivalDatetime;
+	}
+	public void setArrivalDatetime(Date arrivalDatetime) {
+		this.arrivalDatetime = arrivalDatetime;
+	}
+	public String getSeatNo() {
 		return seatNo;
 	}
-
-	public void setSeatNo(int seatNo) {
+	public void setSeatNo(String seatNo) {
 		this.seatNo = seatNo;
 	}
-
-	public char getUpdateReservation() {
+	public String getUpdateReservation() {
 		return updateReservation;
 	}
-
-	public void setUpdateReservation(char updateReservation) {
+	public void setUpdateReservation(String updateReservation) {
 		this.updateReservation = updateReservation;
 	}
-
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getSeatCol() {
+		return seatCol;
+	}
+	public void setSeatCol(String seatCol) {
+		this.seatCol = seatCol;
+	}
 	@Override
 	public String toString() {
-		return "ReservationVO [reservationId=" + reservationId + ", departDateTime=" + departDateTime
-				+ ", arrivalDateTime=" + arrivalDateTime + ", passengerId=" + passengerId + ", filghtId=" + filghtId
-				+ ", aircraftId=" + aircraftId + ", seatId=" + seatId + ", seatNo=" + seatNo + ", updateReservation="
-				+ updateReservation + "]";
+		return "ReservationVO [reservationId=" + reservationId + ", passengerId=" + passengerId + ", flightId="
+				+ flightId + ", seatId=" + seatId + ", departDatetime=" + departDatetime + ", arrivalDatetime="
+				+ arrivalDatetime + ", seatNo=" + seatNo + ", updateReservation=" + updateReservation + ", userId="
+				+ userId + ", seatCol=" + seatCol + "]";
 	}
-
-
-
+	
 	
 	
 }
