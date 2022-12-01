@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	#container { width: 100%; display: flex; justify-content: center;}
+	body {background-color : #F6F6F6;}
+	#container { width: 100%; display: flex; justify-content: center;
+	 margin-top: 70px;
+     margin-bottom: 150px;
+    }
     #box { width: 900px;}
     .qna_title {font-size: 2rem; text-align: center; font-weight: bold;
       margin-bottom: 13px; 

@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style>
 		#header{width: 100%; text-align: center; display: inline-block;}
-
+		body {background : #F6F6F6;}
 	    /* 최 상단 로그인 메뉴 */
 	    #top_container{ width: 100%; margin-top: -10px;}
 	    #top_menu{ width: 1200px; display: inline-block;}
@@ -87,7 +87,7 @@
                     <li><a href="${pageContext.request.contextPath}/mainPage.jsp"><img id="img_logo" src="${pageContext.request.contextPath}/resources/images/logo.png"></a></li>
                     <li><a href="#">항공권 예매</a></li>
                     <li><a href="/Account/userInfo.do">마이페이지</a></li>
-                    <li><a href="#">공항정보</a></li>
+                    <li><a href="/airport/airportInfo.do">공항정보</a></li>
                     <li><a href="/board/getBoardList.do">질문게시판</a></li>
                     <li><a href="#">이벤트</a></li>
                 </ul>

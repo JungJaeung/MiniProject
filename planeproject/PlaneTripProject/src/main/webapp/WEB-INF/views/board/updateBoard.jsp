@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	body {background-color : #F6F6F6;}
     #container { width: 100%; display: flex; justify-content: center;}
     #box { width: 900px;}
     #t_section {text-align: center;}

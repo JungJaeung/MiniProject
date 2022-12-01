@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <style>
 <!-- 선생님 header.jsp 이미 a 태그 text-decoration: none; color:black; 적용되어 있음 -->
+	body {background : #F6F6F6;}
     #container { width: 100%; display: flex; justify-content: center; position:relative;}
     #box { width: 1000px; margin: 10px auto;}
     #t_section {text-align: center;}

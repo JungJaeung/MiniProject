@@ -14,8 +14,13 @@ public class AirportServiceImpl implements AirportService {
 	private AirportDAO airportDAO; 
 	
 	@Override
-	public List<AirportVO> getAirportList(AirportVO airportVO) {
-		return airportDAO.getAirportList(airportVO);
+	public List<AirportVO> getAirportList(){
+		
+		return airportDAO.getAirportList();
 	}
-
+	 
+	@Override
+	public AirportVO getAirportInfo(AirportVO airportVO) {
+		return airportDAO.getAirportInfo(airportVO);
+	}
 }
