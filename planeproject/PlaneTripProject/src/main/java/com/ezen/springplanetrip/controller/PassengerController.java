@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.controller;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 
@@ -20,16 +21,17 @@ public class PassengerController {
 	private PassengerService passengerService;
 	
 	@PostMapping("/insertPassenger.do")
-	public String insertPassenger(@RequestParam Map<String, String> paramMap, @RequestParam Date date) {
+	public String insertPassenger(@RequestParam Map<String, String> paramMap) {
 		SimpleDateFormat smf = new SimpleDateFormat("HH:mm");
 		System.out.println("승객 작업 중..");
+
 
 		System.out.println("데이터 타입 " + paramMap.get("departTime").getClass().getName());
 		System.out.println(paramMap.toString());
 		
 		
 		
-		String departTime = paramMap.get("departTime");
+		Time departTime = Time.valueOf(paramMap.get("departTime"));
 		System.out.println("출발 시간 정리 : " + departTime);
 		
 		String arrivalTime = paramMap.get("arrivalTime");
