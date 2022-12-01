@@ -26,9 +26,11 @@
       text-align: left;
       border-bottom: 1px solid lightgray;
     }
+/* #buttons ul {list-sytle : none; padding : 0px; magin : opx;} 
+#buttons ul li {list-sytle : none;padding : 0px; magin : opx;}  */
     .btns {
       width: 80px;
-      height: 30px;
+      height: 28px;
       border: 1px solid black;
       border-radius: 20px;
       background-color: black;
@@ -53,11 +55,17 @@
      #btnUpdate {
        background-color: black;
        border: 1px solid black;
-       color: white; font-size: 1.03rem;
+       color: white; font-size: 1rem;
     } 
     .btns a {
       text-decoration: none;
-      color: #ffffff; font-size: 1.03rem;     
+      color: #ffffff; font-size: 1rem;   
+    }
+    #btnDeleteWrap{
+    	padding-top: 1.85px;
+    }
+    #btnListWrap{
+    	padding-top: 1.85px;
     }
      #clickReply{
        /* display: none; */
@@ -65,8 +73,8 @@
       margin-top: 5px;
       width: 80px;
       height: 30px;
-      border:1px solid black;
-      background-color: black;
+      border:1px solid #FF8C00;
+      background-color: #FF8C00;
       color: white;
     }
     #btnReply{
@@ -107,27 +115,28 @@
 	            </tr>
 	            <tr>
 	              <th>내용</th>
-	              <td>${board.boardContent }"</td>
+	              <td>${board.boardContent }</td>
 	             <%--   <td><input value="${board.boardContent }" name="boardContent" style="border: none; font-size: 1em;"></td> --%>
 	            </tr>
 	          </table>
-	           <div id="btnWrap"><input type="button" id="btnUpdate" value="수정"></div>
+	     	 <div id="btnWrap"><input type="button" id="btnUpdate" value="수정" style="font-size:0.9rem;"></div>
 	      </form>   
-	      <div class="btns" id="btnDeleteWrap" ><a href="/board/deleteBoard.do?boardId=${board.boardId }" id="btndelete" class="btndelete" >삭제</a></div>
-	      <div class="btns" ><a href= "/board/getBoardList.do" id="btnList" class="btnList">글목록</a></div>
-	  
+	      <div class="btns" id="btnDeleteWrap" ><a href="/board/deleteBoard.do?boardId=${board.boardId }" id="btndelete" class="btndelete" style="font-size:0.9rem;">삭제</a></div>
+	      <div class="btns" id="btnListWrap"><a href= "/board/getBoardList.do" id="btnList" class="btnList" style="font-size:0.95rem;">글목록</a></div>
 	      
 	       <!--답글기능-->
- 	   	  <input type="button" id="clickReply" value="답변하기" style="display:none;">
+	       <div style="float: left;">
+ 	   	  	<input type="button" id="clickReply" value="답변하기" style="display:none;">
+ 	   	  </div>
  	   	  <form id="replyForm" action="/board/insertReply.do" method="post">
  	   	  <input type="hidden" name="boardId" id="boardId" value="${board.boardId }">
 		      <div id="r_section" style="display:none;">
-		        <table>
+		        <table style="width: 100%;">
 		          <tr>
-		            <td style="text-align: left;">답변 내용</td>
+		            <td style="text-align: left; font-weight: bold;">답변 내용</td>
 		          </tr>
 		          <tr>
-		            <td><textarea name="replyContent" id="replyContent" cols="100" rows="10"></textarea></td>
+		            <td><textarea name="boardReply" id="boardReply" rows="10" style="resize:none; width: 100%;">${board.boardReply }</textarea></td>
 		          </tr>
 		          <tr>
 		            <td style="text-align: center;"><button type="submit" id="btnReply">추가</button></td>
@@ -161,18 +170,46 @@
 			// 넘어가는 버튼
 			$("#btnUpdate").on("click", function(e){
 				console.log(e);
-				$("#updateForm").submit();
+				
+				if(boardReply == null || boardReply == ""){
+					$("#updateForm").submit();
+				} else {
+					alert("답변이 달린 게시글은 수정할 수 없습니다.");
+					
+					return;
+				}
 			});
 			
 			//
 			const loginUserRole = '${loginUser.userRole}';
-			if(loginUserRole == "admin"){
+			const boardReply = '${board.boardReply}';
+
 				$("#clickReply").show();
-			}
-			
-			$("#clickReply").on("click",function(){
-				$("#r_section").show();
-			});
+				if(boardReply == null || boardReply == "") {
+					if(loginUserRole == "admin"){
+						$("#clickReply").val("답변하기");
+						$("#clickReply").attr("type", "button");
+						
+						$("#r_section").hide();
+						$("#btnReply").show();
+						
+						$("#clickReply").on("click",function(){
+							$("#r_section").show();
+						});
+						
+					} else {
+						$("#clickReply").hide();
+					}
+				} else {
+					$("#clickReply").val("답변완료");
+					$("#clickReply").attr("type", "text");
+					$("#clickReply").css("text-align", "center");
+					
+					$("#clickReply").off("click");
+					
+					$("#r_section").show();
+					$("#btnReply").hide();		
+				}	
 				
 		});
 	</script>

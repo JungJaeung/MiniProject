@@ -13,9 +13,9 @@ public class PassengerServiceImpl implements PassengerService{
 	private PassengerDAO passengerDAO;
 	
 	@Override
-	public int insertPassenger(PassengerVO passengerVO) {
+	public void insertPassenger(PassengerVO passengerVO) {
 		
-		return passengerDAO.insertPassenger(passengerVO);
+		passengerDAO.insertPassenger(passengerVO);
 	}
 
 }

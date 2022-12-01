@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.service.seat.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,16 @@ public class SeatServiceImpl implements SeatService{
 	@Override
 	public List<Integer> viewSeatCount(int flightId) {
 		return seatDAO.viewSeatCount(flightId);
+	}
+	
+	@Override
+	public int viewSeatRemain(int flightId, int seatId) {
+		return seatDAO.viewSeatRemain(flightId, seatId);
+	}
+	
+	@Override
+	public List<Integer> viewSeatClass(int flightId) {
+		return seatDAO.viewSeatClass(flightId);
 	}
 	
 	@Override

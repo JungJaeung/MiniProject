@@ -6,21 +6,21 @@
 <mapper namespace="PassengerDAO">
 	<!-- 쿼리 작성 영역 -->
 	<insert id="insertPassenger" parameterType="passenger">
-	<![CDATA[
-		INSERT INTO T_USER(
+		INSERT INTO PASSENGER(
+			PASSENGER_ID,
 			FIRST_NAME,
 			LAST_NAME,
 			PHONE,
 			BIRTHDATE,
 			GENDER
 		) VALUES (
-			#{name_f1},
-			#{name1},
-			#{ph1},
-			#{birthday1},
-			#{gender1}
+			(SELECT IFNULL(MAX(A.PASSENGER_ID), 0) + 1 FROM PASSENGER A),
+			#{firstName},
+			#{lastName},
+			#{phone},
+			#{birthDate},
+			#{gender}
 		)
-	]]>
 	</insert>
 	
 	<!-- 이름 추가 쿼리 -->

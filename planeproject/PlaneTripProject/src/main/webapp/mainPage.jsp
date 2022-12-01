@@ -463,30 +463,39 @@
             let b = (CDate.getMonth()+1).toString();
             let b2 = (CDate.getMonth()+2).toString();
             let c = ((String)(e_target1.textContent));
-            let c2 = '';
-            
-            //날짜를 하나만 선택할시 조건 처리
-            if(!e_target2) {
-                c2 = ((String)(e_target1.textContent));
-            } else {
-                c2 = ((String)(e_target2.textContent));
+            let c2 = ((String)(e_target2.textContent));
+
+            if(e_target1.className == "date"){
+                b = (CDate.getMonth()+1).toString();
+            }else if(e_target1.className == "date2"){
+                b = (CDate.getMonth()+2).toString();
             }
-            console.log(c);
-            console.log(c2);
+
+            if(e_target2.className == "date"){
+                b2 = (CDate.getMonth()+1).toString();
+            }else if(e_target2.className == "date2"){
+                b2 = (CDate.getMonth()+2).toString();
+            }
+            
+            if(b == 13){
+                a = (CDate.getFullYear()+1).toString();
+                b = 1;
+            }
+
             if(b2 == 13){
                 a2 = (CDate.getFullYear()+1).toString();
                 b2 = 1;
             }
 
-            text1 = a + "-" + b + "-" +c;
-            text2 = a2 + "-" + b2 + "-" +c2;
+            text1 = a+b+c;
+            text2 = a2+b2+c2;
             textd1 = a + "." + b + "." +  c ;
             textd2 =  a2 + "." + b2 + "." + c2;
             date_flag = 1;
 
+            $("#minimumDate").val(textd1);
+            $("#maximumDate").val(textd2);
             $("#calendar_date").val(textd1 + " ~ " + textd2);
-            $("#minimumDate").val(text1);
-            $("#maximumDate").val(text2);
             $("#serch").attr("disabled", false).css("background-color", "#ff5000");
             $("#calendar").css("display", "none");
         })
@@ -708,7 +717,7 @@
                 </div>
                 <div id="starting_point_serch">
                     <nav id="dummy_serch">
-                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/serch.png">
+                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/search.png">
                         <input type="text" placeholder="어디에서 출발하세요??" onfocus="this.placeholder=''" onblur="this.placeholder='어디에서 출발하세요??'">
                         <img class="close" src="${pageContext.request.contextPath}/resources/images/X.png">
                     </nav>
@@ -826,22 +835,22 @@
   	<div class="main_imgs">
       <div>
         <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/m1.png" width="1700px" height="500px">
+          <img src="${pageContext.request.contextPath}/resources/images/plane.png" width="1700px" height="500px">
         </a>
       </div>
       <div>
         <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/m2.jpg" width="1700px" height="500px">
-        </a>
-      </div>
-      <div>
-        <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/m3.jpg" width="1700px" height="500px">
+          <img src="${pageContext.request.contextPath}/resources/images/Winter.jpg" width="1700px" height="500px">
         </a>
       </div>
       <div>
         <a href="#">
           <img src="${pageContext.request.contextPath}/resources/images/m4.jpg" width="1700px" height="500px">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="${pageContext.request.contextPath}/resources/images/busan.jpg" width="1700px" height="500px">
         </a>
       </div>
   	</div>

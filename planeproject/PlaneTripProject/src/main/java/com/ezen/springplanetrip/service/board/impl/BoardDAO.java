@@ -55,6 +55,6 @@ public class BoardDAO {
 	}
 	
 	public void insertReply(BoardVO boardVO) {
-		mybatis.insert("boardDAO.insertReply", boardVO);
+		mybatis.update("BoardDAO.insertReply", boardVO);
 	}
 }
