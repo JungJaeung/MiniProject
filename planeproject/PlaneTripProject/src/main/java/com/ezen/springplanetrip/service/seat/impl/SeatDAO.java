@@ -27,12 +27,10 @@ public class SeatDAO {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("flightId", flightId);
 		map.put("seatId", seatId);
-		System.out.println("가지기 전 비행편 좌석 Id데이터: " + map.get("seatId"));
 		return mybatis.selectOne("SeatDAO.viewSeatRemain", map);
 	}
 	
 	public List<Integer> viewSeatClass(int flightId) {
-		System.out.println("가져가기전 flightId:" + flightId);
 		return mybatis.selectList("SeatDAO.viewSeatClass", flightId);
 	}
 	

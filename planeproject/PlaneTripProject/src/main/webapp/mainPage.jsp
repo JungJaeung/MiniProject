@@ -835,7 +835,7 @@
   	<div class="main_imgs">
       <div>
         <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/plane.png" width="1700px" height="500px">
+          <img src="${pageContext.request.contextPath}/resources/images/mainImg.jpg" width="1700px" height="500px">
         </a>
       </div>
       <div>
@@ -845,12 +845,12 @@
       </div>
       <div>
         <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/m4.jpg" width="1700px" height="500px">
+          <img src="${pageContext.request.contextPath}/resources/images/busan.jpg" width="1700px" height="500px">
         </a>
       </div>
       <div>
         <a href="#">
-          <img src="${pageContext.request.contextPath}/resources/images/busan.jpg" width="1700px" height="500px">
+          <img src="${pageContext.request.contextPath}/resources/images/m4.jpg" width="1700px" height="500px">
         </a>
       </div>
   	</div>

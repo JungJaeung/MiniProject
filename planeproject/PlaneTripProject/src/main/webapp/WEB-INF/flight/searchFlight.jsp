@@ -861,9 +861,9 @@
       		<div class="column">
       			<div class="flight_code">7C101</div>
       			<div class="under_line"></div>
-     			<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
-				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				<div class="finish_time"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
+     		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
+				    <img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
+				    <div class="finish_time"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
       		</div>
       		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
       			<div id="class${status2.index + 1 }" class="columns">
@@ -944,6 +944,7 @@
 				$("#info").submit();
 			});
 			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
+
 			$(".columns").on("click", function(e) {
 				$(".columns").css("border", "none").css("border-left", "1px solid #bebebe");
 				$(this).css("border", "2px solid red");
@@ -954,6 +955,18 @@
 				// $("input[name='flightId']").val($(this).prev().text());
 				// console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 				// console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
+/*
+			$(".showList").on("click", function(e) {
+				$(this).parent().children().css("border", "1px solid black");
+				$(this).css("border", "3px solid red");
+				console.log("받아온 출발시간 데이터 : " + $(this).find('.start').children('span:last-child').text());
+				console.log("받아온 도착시간 데이터 : " + $(this).find('.finish').children('span:last-child').text());
+				$("input[name='departTime']").val($(this).find('.start').children('span:last-child').text());
+				$("input[name='arrivalTime']").val($(this).find('.finish').children('span:last-child').text());
+				$("input[name='flightId']").val($(this).prev().text());
+				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
+				console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
+*/
 			});
 			
 			$("#selectButton").on("click", function(e) {
