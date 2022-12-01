@@ -54,6 +54,7 @@ public class HomeController {
 	public String home(Model model) {
 		System.out.println("공항정보를 불러내는 중입니다.");
 		List<AirportVO> airportList = flightService.viewAirport(null);
+		System.out.println(airportList);
 		
 		model.addAttribute("airportList", airportList);
 		

@@ -274,6 +274,17 @@
 		#pageNumber_div{
 			width: 100%;
 		}
+		#under_div{
+			width: 100%; height: 60px; position:fixed; background-color: rgba(0, 0, 0, 0.8);
+			bottom:0; 
+		}
+		#under_div_position{ 
+			width: 1200px; display: inline-block;
+		}
+		#selectButton{
+			width:150px; height:40px; float:right; border: none; border-radius: 4px; 
+			margin-top: 10px; margin-right: 10px;  background-color: #ff5000; color:white;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -865,7 +876,7 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-      			<div class="flight_code">7C101</div>
+      			<div class="flight_code">${flightList.flightCode }</div>
       			<div class="under_line"></div>
       			<!-- 시간 데이터 표시는 fmt jstl사용. 가져갈 데이터는 숨겨서 따로 스크립트로 처리 -->
      		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/><span>${startDateList[status.index] }</span></div>
@@ -948,7 +959,11 @@
 			<input type="hidden" name="refresh" value="0">
 			
 		</form>
-		<button id="selectButton">돌아오는 편 선택</button>
+		<div id="under_div">
+			<div id="under_div_position">
+				<button id="selectButton">돌아오는편 선택</button>
+			</div>
+		</div>
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 		
