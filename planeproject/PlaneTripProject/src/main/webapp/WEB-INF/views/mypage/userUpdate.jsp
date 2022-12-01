@@ -101,7 +101,7 @@
 			<div class="label-wrapper">
 				<label for="password">변경할 비밀번호</label>
 			</div>
-			<input type="password" id="password" name="password" value="${loginUser.password}" required>
+			<input type="password" id="password" name="password" required>
 			<hr>
 			<p id="pwValidation" style="color: red; font-size: 0.8rem;">
 				비밀번호는 영문자, 숫자, 특수문자 조합의 9자리 이상으로 설정해주세요.
@@ -125,7 +125,7 @@
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
 			</div>
-			<input type="date" id="birthDate" name="birthDate" value="2022-01-01" min="1900-01-01" max="2022-11-23">
+			<input type="date" id="birthDate" name="birthDate" value="${loginUser.birthDate}" min="1900-01-01" max="2022-11-23">
 			<div class="label-wrapper">
 				<label for="phone">전화번호</label>
 			</div>
@@ -144,6 +144,7 @@
 	<jsp:include page="/footer.jsp"></jsp:include>
 	<script>
 		$(function() {
+			
 			//회원정보 수정 실패 시 메시지 출력
 			if($("#updateMsg").val() != "" && $("#updateMsg").val() != null) {
 				alert($("#updateMsg").val());

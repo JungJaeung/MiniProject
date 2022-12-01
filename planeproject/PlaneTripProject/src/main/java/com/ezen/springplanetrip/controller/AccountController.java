@@ -1,5 +1,6 @@
 package com.ezen.springplanetrip.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,8 @@ public class AccountController {
 	
 	//회원정보 수정 처리
 	@PostMapping(value="/updateInfo.do", produces="application/text; charset=UTF-8")
-	public String updateInfo(UserVO userVO, Model model, HttpSession session) {
+	public String updateInfo(UserVO userVO, Model model, HttpSession session,
+			HttpServletRequest request) {
 		int updateResult = accountService.updateInfo(userVO);
 		
 		if(updateResult == 0) {
@@ -47,13 +49,14 @@ public class AccountController {
 			return "/mypage/userUpdate";
 		}
 		
-		/**
+		
 		session.invalidate();
 
 		//변경된 유저 정보 세션에 담기
+		session = request.getSession();
 		UserVO loginUser = accountService.getUserInfo(userVO.getUserId());
 		session.setAttribute("loginUser", loginUser);
-		**/
+		
 		
 		model.addAttribute("updateMsg", "회원정보 수정에 성공하였습니다.");
 		return "/mypage/userInfo";
