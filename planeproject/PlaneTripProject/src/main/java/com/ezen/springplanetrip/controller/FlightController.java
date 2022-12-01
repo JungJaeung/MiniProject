@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.springplanetrip.common.DateToString;
+import com.ezen.springplanetrip.common.SwapDptArv;
 import com.ezen.springplanetrip.service.flight.FlightService;
 import com.ezen.springplanetrip.service.passenger.PassengerService;
 import com.ezen.springplanetrip.service.seat.SeatService;
@@ -53,8 +54,6 @@ public class FlightController {
 		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
-		
-		flightList.get(0);
 		
 		model.addAttribute("flightInfo", flyMap);
 		
@@ -122,12 +121,16 @@ public class FlightController {
 	public String viewArriveFlight(Model model, @RequestParam Map<String, String> departFlyMap, Criteria cri) {
 		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 
 		model.addAttribute("departFlyMap", departFlyMap);
-		
+		System.out.println("도착편 작업  시작");
 		//Map<String, String> arriveFlyMap
+		//출발 도착지 받은 것을 서로 값을 바꾼뒤 쿼리를 다시수행함.
+		String arrivalPoint = departFlyMap.get("arrivedPointCode");
+		String departPoint = departFlyMap.get("departPointCode");
+		
+		List<String> changedPoint = SwapDptArv.changeValue(departPoint, arrivalPoint);
 		
 		cri.setAmount(8);	//페이지당 8개만 표시
 		//넘어온 값들은 정수가 아닌 문자열
-		//flyMap.put("flightId", Integer.parseInt((String)flyMap.get("flightId")));	//flighId값은 정수형이므로 정수형으로 바꿔서
 		List<FlightVO> flightList = flightService.viewFlight(departFlyMap, cri);
 		
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
