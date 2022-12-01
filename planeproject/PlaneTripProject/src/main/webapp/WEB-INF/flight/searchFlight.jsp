@@ -820,9 +820,9 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-     			<div class="start"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
+     			<div class="start"><span><fmt:formatDate  value="${flightList.departTime }" pattern="HH:mm"/></span></div>
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				<div class="finish"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
+				<div class="finish"><span><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></span></div>
       		</div>
       		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
       			<div id="class${status2.index + 1 }" class="columns">
@@ -904,10 +904,10 @@
 			$(".showList").on("click", function(e) {
 				$(this).parent().children().css("border", "1px solid black");
 				$(this).css("border", "3px solid red");
-				console.log("받아온 출발시간 데이터 : " + $(this).children('.start').text());
-				console.log("받아온 도착시간 데이터 : " + $(this).children('.finish').text());
-				$("input[name='departTime']").val($(this).children('.start').text());
-				$("input[name='arrivalTime']").val($(this).children('.finish').text());
+				console.log("받아온 출발시간 데이터 : " + $(this).find('.start').children('span:last-child').text());
+				console.log("받아온 도착시간 데이터 : " + $(this).find('.finish').children('span:last-child').text());
+				$("input[name='departTime']").val($(this).find('.start').children('span:last-child').text());
+				$("input[name='arrivalTime']").val($(this).find('.finish').children('span:last-child').text());
 				$("input[name='flightId']").val($(this).prev().text());
 				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 				console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
