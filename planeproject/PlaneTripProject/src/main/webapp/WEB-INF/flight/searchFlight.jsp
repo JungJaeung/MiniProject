@@ -738,11 +738,11 @@
                 </nav>
                 <div id="form_div">
                     <form id="info" action="/flight/searchDepartFlight.do" method="post">
-                        <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
+                        <input type="button" id="starting_point" value="${flightSeatList.flightList[0].airportDpt }">
                       	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
                         <input type="hidden" id="departPointCode" name="departPointCode" value="">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
+                        <input type="button" id="arrive_point" value="${flightSeatList.flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
                         <input type="button" id="calendar_date" name="calendar" value="${calendar.minimumDate} ~ ${calendar.maximumDate}">
                         <input type="hidden" id="minimumDate" name="minimumDate" value="${calendar.minimumDate}">
@@ -928,8 +928,8 @@
 			<!-- 출발 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
-			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[0].airportDpt }">
-			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[0].airportArv }">
+			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[1].airportDpt }">
+			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[1].airportArv }">
 			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
 			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
@@ -954,7 +954,9 @@
 		
 	<script>
 		$(function() {
-			
+			$("")
+			console.log("출발의 출발지  : " + $("#departPointId").val());
+			console.log("출발의 도착지  : " + $("#arrivedPointId").val());
 			let flightIdList = [];
 
 			$(".idList").each(function(i, e) {

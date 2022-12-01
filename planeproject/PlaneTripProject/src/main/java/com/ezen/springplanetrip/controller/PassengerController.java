@@ -28,6 +28,7 @@ public class PassengerController {
 
 	@PostMapping("/passenger.do")
 	public String passenger(Model model, @RequestParam Map<String, String> paramMap, HttpSession session) {
+
 		if (session.getAttribute("loginUser") == null) {
 			return "/Account/login";
 		}
@@ -56,7 +57,6 @@ public class PassengerController {
 		airportVO = airportService.getAirportInfo(airportVO);
 		model.addAttribute("arrivedPointCode", airportVO);	
 		System.out.println(airportVO);
-		
 		
 		model.addAttribute("flight_data", paramMap);
 
