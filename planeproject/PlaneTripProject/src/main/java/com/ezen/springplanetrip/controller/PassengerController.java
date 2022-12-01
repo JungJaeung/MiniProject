@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.springplanetrip.service.airport.AirportService;
 import com.ezen.springplanetrip.service.passenger.PassengerService;
+import com.ezen.springplanetrip.vo.AirportVO;
 import com.ezen.springplanetrip.vo.PassengerVO;
 import com.ezen.springplanetrip.vo.UserVO;
 
@@ -21,13 +23,41 @@ import com.ezen.springplanetrip.vo.UserVO;
 public class PassengerController {
 	@Autowired
 	private PassengerService passengerService;
+	@Autowired
+	private AirportService airportService;
 
 	@PostMapping("/passenger.do")
 	public String passenger(Model model, @RequestParam Map<String, String> paramMap, HttpSession session) {
 		if (session.getAttribute("loginUser") == null) {
 			return "/Account/login";
 		}
-
+		
+		System.out.println("파람맵: " + paramMap);
+		
+		AirportVO airportVO = new AirportVO();
+		
+		System.out.println("데이터 타입 " + paramMap.get("departTime").getClass().getName());
+		airportVO.setAirportId(Integer.parseInt(paramMap.get("d_departPointId")));
+		airportVO = airportService.getAirportInfo(airportVO);
+		model.addAttribute("d_departPointCode", airportVO);
+		System.out.println(airportVO);
+		
+		airportVO.setAirportId(Integer.parseInt(paramMap.get("d_arrivedPointId")));
+		airportVO = airportService.getAirportInfo(airportVO);
+		model.addAttribute("d_arrivedPointCode", airportVO);
+		System.out.println(airportVO);
+		
+		airportVO.setAirportId(Integer.parseInt(paramMap.get("departPointId")));
+		airportVO = airportService.getAirportInfo(airportVO);
+		model.addAttribute("departPointCode", airportVO);		
+		System.out.println(airportVO);
+		
+		airportVO.setAirportId(Integer.parseInt(paramMap.get("arrivedPointId")));
+		airportVO = airportService.getAirportInfo(airportVO);
+		model.addAttribute("arrivedPointCode", airportVO);	
+		System.out.println(airportVO);
+		
+		
 		model.addAttribute("flight_data", paramMap);
 
 		return "../passenger/insertPassenger";
@@ -39,18 +69,11 @@ public class PassengerController {
 		
 		int session_Id = sessionId.getUserId();
 		
-//		System.out.println("데이터 타입 " + paramMap.get("departTime").getClass().getName());
-//		int user_id = 
+		
 		
 		System.out.println("파람맵: " + paramMap.toString());
-
-		System.out.println(paramMap.get("departTime"));
-		System.out.println(paramMap.get("arrivalTime"));
-		System.out.println("세션: " + session.getAttribute("loginUser"));
-		model.addAttribute("departTime", paramMap.get("departTime"));
-		model.addAttribute("arrivalTime", paramMap.get("arrivalTime"));
 //		List<PassengerVO> passengerList = new ArrayList<PassengerVO>();
-
+		
 		for (int i = 1; i <= 1; i++) {
 			PassengerVO passengerVO = new PassengerVO();
 			passengerVO.setGender(paramMap.get("gender" + i));
@@ -65,6 +88,6 @@ public class PassengerController {
 
 //		 passengerService.insertPassenger(passengerVO);
 
-		return "../passenger/insertPassenger";
+		return "/reservation/insertReservation";
 	}
 }
