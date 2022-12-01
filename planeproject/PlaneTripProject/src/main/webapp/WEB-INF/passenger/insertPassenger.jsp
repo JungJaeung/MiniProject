@@ -12,6 +12,12 @@
     body { background-color : #F6F6F6;}
     /* 전체 컨테이너 */
 	#container{ width: 100%; display: inline-block; text-align: center;}
+	
+	#r_arrow { width : 10px; height : 15px; margin-right : 15px; margin-left : 15px;}
+	#p_location { width : 100%; height : 50px; text-align : center; font-weight : bold; color:#848484; background-color :#d2d2d2;
+	  margin-top : 15px; margin-bottom : 15px; font-size : 1.1em; border-top : 2px solid orange; border-bottom : 2px solid orange;
+	}
+	
     /* 페이지 제목 */
     #page_name{ width: 1000px; display: inline-block; font-family: 'Jua'; font-size: xx-large; 
         text-align: left; margin-top: 20px;}
@@ -102,7 +108,7 @@
              personnal_data += "<input type='hidden' id='gender" + i + "' name='gender" + i + "' value='남성'>"
         
             if(i == personnal_num){
-                personnal_data += "<input type='hidden' id='asdf' name='fwd_flight_id' value='${flight_data.d_flightId }'>"
+                personnal_data += "<input type='hidden' name='fwd_flight_id' value='${flight_data.d_flightId }'>"
                 personnal_data += "<input type='hidden' name='fwd_seat_id' value='${flight_data.d_classId  }'>"
                 personnal_data += "<input type='hidden' name='fwd_departTime' value='${flight_data.d_departTime }'>"
                 personnal_data += "<input type='hidden' name='fwd_arrivalTime' value='${flight_data.d_arrivalTime }'>"
@@ -140,28 +146,30 @@
         
         $("#personnal_data").html(personnal_data);
 
-        //성별 선택 버튼 누르면 선택한 표시를 남겨둔다.
         for(let i = 1; i <= personnal_num; i++){
             $("#male" + i).click(function(e){
                 $("#gender" + i).val("남성");
                 $("#male" + i).css("border", "1px solid #ff5000");
                 $("#female" + i).css("border", "none");
-            });
+            })
 
             $("#female" + i).click(function(e){
                 $("#gender" + i).val("여성");
                 $("#male" + i).css("border", "none");
                 $("#female" + i).css("border", "1px solid #ff5000");
-            });
+            })
         }
-        
-        
 	})
 </script>
 </head>
 <body>
     <jsp:include page="/header.jsp"></jsp:include>
 	<div id="container">
+		<div id="p_location">
+			<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
+			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">항공권 예매<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">탑승자정보입력</span>
+		</div>
+		</div>
         <div id="page_name">탑승자 정보 입력</div>
         <br><br>
 
