@@ -115,12 +115,12 @@
 			<div class="label-wrapper">
 				<label for="lastName">성</label>
 			</div>
-			<input type="text" id="lastName" name="lastName" value="${loginUser.lastName}" required>
+			<input type="text" id="lastName" name="lastName" value="${loginUser.lastName}">
 			<hr>
 			<div class="label-wrapper">
 				<label for="firstName">이름</label>
 			</div>
-			<input type="text" id="firstName" name="firstName" value="${loginUser.firstName}" required>
+			<input type="text" id="firstName" name="firstName" value="${loginUser.firstName}">
 			<hr>
 			<div class="label-wrapper">
 				<label for="birthDate">생년월일</label>
