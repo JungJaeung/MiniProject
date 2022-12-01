@@ -702,6 +702,8 @@
 
         //항공권 검색 버튼
         $("#search").click(function(){
+        	console.log("출발지 : " + $('#starting_point').val());
+        	console.log("도착지 : " + $('#arrive_point').val());
         	$("#info").submit();
         })
         
@@ -724,9 +726,10 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="/flight/searchFlight.do" method="post">
+                    <form id="info" action="/flight/searchDepartFlight.do" method="post">
                         <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
                       	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+                        <input type="hidden" id="departPointCode" name="departPointCode" value="">
                         <input type="button" id="swap">
                         <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
@@ -737,7 +740,7 @@
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
                        	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
-                        <input type="button" id="serch" value="항공권 검색" disabled>
+                        <input type="button" id="search" value="항공권 검색" disabled>
                     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 						<input type="hidden" name="refresh" value="0">
@@ -745,7 +748,7 @@
                 </div>
                 <div id="starting_point_serch">
                     <nav id="dummy_serch">
-                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/serch.png">
+                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/search.png">
                         <input type="text" placeholder="어디에서 출발하세요??" onfocus="this.placeholder=''" onblur="this.placeholder='어디에서 출발하세요??'">
                         <img class="close" src="${pageContext.request.contextPath}/resources/images/X.png">
                     </nav>
@@ -765,7 +768,7 @@
                 </div>
                 <div id="arrive_point_serch">
                     <nav id="dummy_serch">
-                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/serch.png">
+                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/search.png">
                         <input type="text" placeholder="어디로 여행가세요??" onfocus="this.placeholder=''" onblur="this.placeholder='어디로 여행가세요??'">
                         <img class="close" src="${pageContext.request.contextPath}/resources/images/X.png">
                     </nav>
@@ -911,9 +914,13 @@
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 			
-			
 			<!-- 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
+			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
+			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[0].airportDpt }">
+			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[0].airportArv }">
+			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
 			<input type="hidden" id="departTime" name="departTime" value="">
 			<input type="hidden" id="arrivalTime" name="arrivalTime" value="">
