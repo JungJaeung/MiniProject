@@ -914,7 +914,7 @@
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 			
-			<!-- 비행편의 정보 -->
+			<!-- 출발 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
 			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[0].airportDpt }">
@@ -931,7 +931,6 @@
            	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
            	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
            	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
-			<input type="hidden" name="refresh" value="0">
 			
 		</form>
 		<button id="selectButton">가는편 선택</button>
