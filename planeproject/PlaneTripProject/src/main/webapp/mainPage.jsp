@@ -737,7 +737,7 @@
                 </div>
                 <div id="arrive_point_serch">
                     <nav id="dummy_serch">
-                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/serch.png">
+                        <img id="dummy_serch_img" src="${pageContext.request.contextPath}/resources/images/search.png">
                         <input type="text" placeholder="어디로 여행가세요??" onfocus="this.placeholder=''" onblur="this.placeholder='어디로 여행가세요??'">
                         <img class="close" src="${pageContext.request.contextPath}/resources/images/X.png">
                     </nav>
