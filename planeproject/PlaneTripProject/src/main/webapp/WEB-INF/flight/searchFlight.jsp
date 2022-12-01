@@ -820,9 +820,9 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-     			<div class="start"><span><fmt:formatDate  value="${flightList.departTime }" pattern="HH:mm"/></span></div>
+     			<div class="start"><span>${flightList.startDateList[status.index] }<%-- <fmt:formatDate  value="${flightList.departTime }" pattern="HH:mm"/> --%></span></div>
 				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				<div class="finish"><span><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></span></div>
+				<div class="finish"><span>${flightList.arrivalDateList[status.index] }<%-- <fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/> --%></span></div>
       		</div>
       		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
       			<div id="class${status2.index + 1 }" class="columns">
