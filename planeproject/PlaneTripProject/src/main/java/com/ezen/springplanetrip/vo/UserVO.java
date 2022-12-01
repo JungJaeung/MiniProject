@@ -11,7 +11,7 @@ public class UserVO {
 	private String phone;
 	private String email;
 	private String address;
-	private Date birthDate;
+	private String birthDate;
 	private char gender;
 	private String userRole;
 	private String currentPassword;
@@ -63,10 +63,10 @@ public class UserVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 	public char getGender() {

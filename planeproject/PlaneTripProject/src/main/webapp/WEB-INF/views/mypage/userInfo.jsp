@@ -108,6 +108,7 @@
 <body>
     <jsp:include page="/header.jsp"></jsp:include>
    	<div id="mypage_container">
+   		<input type="hidden" id="updateMsg" value="${updateMsg}">
         <!--타이틀-->
         <div id="p_location">
 			<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
@@ -149,5 +150,14 @@
         </div>
    </div>
    <jsp:include page="/footer.jsp"></jsp:include>
+   
+   <script>
+   $(function() {
+		//회원정보 수정 실패 시 메시지 출력
+		if($("#updateMsg").val() != "" && $("#updateMsg").val() != null) {
+			alert($("#updateMsg").val());
+		}
+   });
+   </script>
 </body>
 </html>
