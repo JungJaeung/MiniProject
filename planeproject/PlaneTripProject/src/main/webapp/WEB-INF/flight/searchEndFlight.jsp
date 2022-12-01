@@ -906,12 +906,11 @@
 				</ul>
 			</div>
 		</div>
-		<form id="checkFlight" action="/flight/searchArriveFlight.do" method="post">
+		<form id="checkFlight" action="/passenger/insertPassenger.do" method="post">
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
-			
-			
+
 			<!-- 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
@@ -927,7 +926,7 @@
 			<input type="hidden" name="refresh" value="0">
 			
 		</form>
-		<button id="selectButton">가는편 선택</button>
+		<button id="selectButton">돌아오는 편 선택</button>
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 		
@@ -964,14 +963,13 @@
 				 $("input[name='arrivalTime']").val($(this).parent().find('.finish_time').children('span').text());
 				 $("input[name='classId']").val($(this).children('.classCol').text());
 				 $("input[name='flightId']").val($(this).parent().prev().text());
-				 console.log("비행편 아이디 : " + $("input[name='flightId']").val());
-				 console.log("비행편 클래스 : " + $("input[name='classId']").val());
-
+				 console.log("회귀 비행편 아이디 : " + $("input[name='flightId']").val());
+				 console.log("회귀 비행편 클래스 : " + $("input[name='classId']").val());
 			});
 			
 			$("#selectButton").on("click", function(e) {
 				if(!$("#departTime").val()) {
-					alert("비행편을 하나 선택해주세요.");
+					alert("돌아가는 비행편을 하나 선택해주세요.");
 					return;
 				}
 				$("#checkFlight").submit();
