@@ -79,7 +79,7 @@
 </style>
 <script>
 	$(document).ready(function(){
-        let personnal_data = "<form action='/flight/insertPassenger.do' method='post'>";
+        let personnal_data = "<form action='/passenger/insertPassenger.do' method='post'>";
         let personnal_num = (Number)($("#personnal_num").html());
         
         for(let i = 1; i <= personnal_num; i++){
@@ -125,7 +125,7 @@
         <br><br>
 
         <div id="info_div">
-            <div id="personnal"><img id="person_img" src="${pageContext.request.contextPath}/resources/images/person.png"> 성인 <a id="personnal_num">3</a>명</div>
+            <div id="personnal"><img id="person_img" src="${pageContext.request.contextPath}/resources/images/person.png"> 성인 <a id="personnal_num">1</a>명</div>
             <div id="f_info">
                 <div id="f_info_img">
                     <p id="arrow_text1">가는편</p>
