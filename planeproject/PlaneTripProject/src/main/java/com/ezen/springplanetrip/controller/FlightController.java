@@ -57,6 +57,8 @@ public class FlightController {
 		
 		model.addAttribute("flightInfo", flyMap);
 		
+		System.out.println("성인 : " + flyMap.get("adultNumber") + "어린이 : " + flyMap.get("childNumber") + "유아 : " + flyMap.get("babyNumber"));
+		
 		model.addAttribute("flightList", flightList);
 		
 		//달력에 적은 시작일과 끝 날짜를 저장하는 map
@@ -81,24 +83,19 @@ public class FlightController {
 		for(int i=0; i < flightList.size(); i++) {
 			//각 비행편의 자리 클래스를 가져오는 부분 : 비행편들은 자리의 이름이 있다. 2차원 배열
 			seatClass = seatService.viewSeatClass(flightList.get(i).getFlightId());
-//			for(int j = 0; j < seatClass.size(); j++) {
-//				System.out.println("seatId : " + seatClass.get(j));
-//			}
+
 			classList.add(seatClass);
 			
 			//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달, 2차원 배열
 			//가격 정보는 클래스한개씩 검사해서 결과를 가져옴.
 			priceClass = seatService.viewSeatPrice(flightList.get(i).getFlightId());
-//			for(int j = 0; j < seatClass.size(); j++) {
-//				System.out.println(flightList.get(i).getFlightId() + "번 항공편의 seatPrice : " + priceClass.get(j));
-//			}
+
 			priceList.add(priceClass);
 			//남은 좌석을 가져오기위한 데이터 입력을 하는 작업, 2차원 배열
 			seatPot = new ArrayList<Integer>();
 			for(int j = 0; j < seatClass.size(); j++) {
 				int seatId = classList.get(i).get(j);
 				int seatList = seatService.viewSeatRemain(flightList.get(i).getFlightId(), seatId);
-//				System.out.println("남은 좌석: " + seatList);
 				seatPot.add(seatList);
 			}
 			remainSeat.add(seatPot);
@@ -119,34 +116,46 @@ public class FlightController {
 
 	@PostMapping("/searchArriveFlight.do")
 	public String viewArriveFlight(Model model, @RequestParam Map<String, String> departFlyMap, Criteria cri) {
-		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 
-		model.addAttribute("departFlyMap", departFlyMap);
+		Map<String, String> arriveFlyMap = new HashMap<>();
+		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 전달
+		model.addAttribute("flightListDpt", departFlyMap);
+		
 		System.out.println("도착편 작업  시작");
 		//Map<String, String> arriveFlyMap
 		//출발 도착지 받은 것을 서로 값을 바꾼뒤 쿼리를 다시수행함.
-		String arrivalPoint = departFlyMap.get("arrivedPointCode");
-		String departPoint = departFlyMap.get("departPointCode");
-		
+		String arrivalPoint = departFlyMap.get("arrivedPointId");
+		String departPoint = departFlyMap.get("departPointId");
 		List<String> changedPoint = SwapDptArv.changeValue(departPoint, arrivalPoint);
+		System.out.println("출 : " + changedPoint.get(0) + " 도 : " + changedPoint.get(1));
+		List<String> changedPointCode = SwapDptArv.changeValue(departFlyMap.get("departPointCode"), departFlyMap.get("arrivedPointCode"));
 		
+		departFlyMap.put("departPointId", changedPoint.get(0));
+		departFlyMap.put("arrivedPointId", changedPoint.get(1));
+		departFlyMap.put("departPointCode", changedPointCode.get(0));
+		departFlyMap.put("arrivedPointCode", changedPointCode.get(1));
 		cri.setAmount(8);	//페이지당 8개만 표시
+		
+		System.out.println(departFlyMap);
+		
+		model.addAttribute("departFlyMap", departFlyMap);
 		//넘어온 값들은 정수가 아닌 문자열
 		List<FlightVO> flightList = flightService.viewFlight(departFlyMap, cri);
 		
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
 		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
 		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
-		System.out.println("출발날짜 3번째꺼 확인 : " + startDateList.get(2));
-		System.out.println("도착날짜 3번째꺼 확인 : " + arrivalDateList.get(2));
+		System.out.println("출발지 날짜 확인 : " + startDateList.get(2));
+		System.out.println("도착지 날짜 확인 : " + arrivalDateList.get(2));
+		
+		System.out.println("바뀐 출발 하는 곳 : " + flightList.get(0).getAirportDpt());
+		System.out.println("바뀐 도착 하는 곳 : " + flightList.get(0).getAirportArv());
 		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
 		
-		flightList.get(0);
-		
 		model.addAttribute("flightInfo", departFlyMap);
 		
-		model.addAttribute("flightList", flightList);
+		model.addAttribute("flightListArv", flightList);
 		
 		//달력에 적은 시작일과 끝 날짜를 저장하는 map
 		Map<String, String> calendar = new HashMap<String, String>();
@@ -170,24 +179,18 @@ public class FlightController {
 		for(int i=0; i < flightList.size(); i++) {
 			//각 비행편의 자리 클래스를 가져오는 부분 : 비행편들은 자리의 이름이 있다. 2차원 배열
 			seatClass = seatService.viewSeatClass(flightList.get(i).getFlightId());
-//			for(int j = 0; j < seatClass.size(); j++) {
-//				System.out.println("seatId : " + seatClass.get(j));
-//			}
 			classList.add(seatClass);
 			
 			//좌석들의 가격을 표시하는 구현 - 작업후 나온 결과를 웹페이지로 정보 전달, 2차원 배열
 			//가격 정보는 클래스한개씩 검사해서 결과를 가져옴.
 			priceClass = seatService.viewSeatPrice(flightList.get(i).getFlightId());
-//			for(int j = 0; j < seatClass.size(); j++) {
-//				System.out.println(flightList.get(i).getFlightId() + "번 항공편의 seatPrice : " + priceClass.get(j));
-//			}
+
 			priceList.add(priceClass);
 			//남은 좌석을 가져오기위한 데이터 입력을 하는 작업, 2차원 배열
 			seatPot = new ArrayList<Integer>();
 			for(int j = 0; j < seatClass.size(); j++) {
 				int seatId = classList.get(i).get(j);
 				int seatList = seatService.viewSeatRemain(flightList.get(i).getFlightId(), seatId);
-//				System.out.println("남은 좌석: " + seatList);
 				seatPot.add(seatList);
 			}
 			remainSeat.add(seatPot);
@@ -203,7 +206,7 @@ public class FlightController {
 		model.addAttribute("pageVO", new PageVO(cri, total));
 		System.out.println("flightID = " + flightList.get(0).getFlightId());
 		
-		return "../flight/searchFlight";
+		return "../flight/searchEndFlight";
 	}
 
 }

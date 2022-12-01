@@ -724,19 +724,19 @@
                     </ul>
                 </nav>
                 <div id="form_div">
-                    <form id="info" action="/flight/searchFlight.do" method="post">
-                        <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
-                      	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+                    <form id="info" action="/flight/searchArriveFlight.do" method="post">
+                        <input type="button" id="starting_point" value="${flightListArv[0].airportDpt }">
+                      	<input type="hidden" id="departPointId" name="departPointId" value="${departFlyMap.departPointId }">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
-                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
-                        <input type="button" id="calendar_date" name="calendar" value="${calendar.minimumDate} ~ ${calendar.maximumDate}">
-                        <input type="hidden" id="minimumDate" name="minimumDate" value="${calendar.minimumDate}">
-                        <input type="hidden" id="maximumDate" name="maximumDate" value="${calendar.maximumDate}">
-                        <input type="button" id="person" name="passengerNumber" value="${flightInfo.passengerNumber}">
-                       	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
-                       	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
-                       	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
+                        <input type="button" id="arrive_point" value="${flightListArv[0].airportArv }">
+                        <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${departFlyMap.arrivedPointId }">
+                        <input type="button" id="calendar_date" name="calendar" value="${departFlyMap.minimumDate} ~ ${departFlyMap.maximumDate}">
+                        <input type="hidden" id="minimumDate" name="minimumDate" value="${departFlyMap.minimumDate}">
+                        <input type="hidden" id="maximumDate" name="maximumDate" value="${departFlyMap.maximumDate}">
+                        <input type="button" id="person" name="passengerNumber" value="${departFlyMap.passengerNumber}">
+                       	<input type="hidden" id="adultNumber" name="adultNumber" value="${departFlyMap.adultNumber }">
+                       	<input type="hidden" id="childNumber" name="childNumber" value="${departFlyMap.childNumber }">
+                       	<input type="hidden" id="babyNumber" name="babyNumber" value="${departFlyMap.babyNumber }">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
@@ -911,8 +911,30 @@
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 
-			<!-- 비행편의 정보 -->
+			<!-- 출발 비행편의 정보 (승객 정보 페이지에서 사용할 변수들 저장) -->
+			<input type="hidden" name="d_classId" value="">
+			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
+			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${flightListDpt.airportDpt }">
+			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${flightListDpt.airportArv }">
+			<input type="hidden" id="d_departPointId" name="d_departPointId" value="${flightListDpt.departPointId }">
+			<input type="hidden" id="d_arrivedPointId" name="d_arrivedPointId" value="${flightListDpt.arrivedPointId }">
+			<input type="hidden" id="d_flightId" name="d_flightId" value="${flightListDpt.flightId}">
+			<input type="hidden" id="d_departTime" name="d_departTime" value="${flightListDpt.departTime}">
+			<input type="hidden" id="d_arrivalTime" name="d_arrivalTime" value="${flightListDpt.arrivalTime}">
+            <input type="hidden" id="d_calendar_date" name="d_calendar" value="${flightListDpt.minimumDate} ~ ${flightListDpt.maximumDate}">
+            <input type="hidden" id="d_minimumDate" name="d_minimumDate" value="${flightListDpt.minimumDate}">
+            <input type="hidden" id="d_maximumDate" name="d_maximumDate" value="${flightListDpt.maximumDate}">
+           	<input type="hidden" id="d_person" name="d_passengerNumber" value="${flightListDpt.passengerNumber}">
+           	<input type="hidden" id="d_adultNumber" name="d_adultNumber" value="${flightListDpt.adultNumber }">
+           	<input type="hidden" id="d_childNumber" name="d_childNumber" value="${flightListDpt.childNumber }">
+           	<input type="hidden" id="d_babyNumber" name="d_babyNumber" value="${flightListDpt.babyNumber }">
+
+			<!--회귀 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
+			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
+			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
+			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[0].airportDpt }">
+			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[0].airportArv }">
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
 			<input type="hidden" id="departTime" name="departTime" value="">
 			<input type="hidden" id="arrivalTime" name="arrivalTime" value="">

@@ -520,11 +520,11 @@
         //인원수 처리 버튼
         //왼쪽(성인)
         let adultNumber = 1; //다음페이지로 가지고 갈 데이터 변수
+        $("#left_text").val(adultNumber);
         $("#left_down").click(function(){
-            let num = $("#left_text").val();
-            num--;
-            $("#left_text").val(num);
+            --num;
             adultNumber = num;
+            $("#left_text").val(adultNumber);
             if(num == 0){
                 $("#left_down").attr("disabled",true);
             }
@@ -533,10 +533,9 @@
             }
         })
         $("#left_up").click(function(){
-            let num = $("#left_text").val();
-            num++;
-            $("#left_text").val(num);
+            ++num;
             adultNumber = num;
+            $("#left_text").val(adultNumber);
             if(num == 9){
                 $("#left_up").attr("disabled",true);
             }
@@ -546,11 +545,11 @@
         })
         //중앙(어린이)
         let childNumber = 0;	//다음페이지로 가지고 갈 데이터 변수
+        $("#center_text").val(childNumber);
         $("#center_down").click(function(){
-            let num = $("#center_text").val();
-            num--;
-            $("#center_text").val(num);
+            --num;
             childNumber = num;
+            $("#center_text").val(childNumber);
             if(num == 0){
                 $("#center_down").attr("disabled",true);
             }
@@ -559,10 +558,9 @@
             }
         })
         $("#center_up").click(function(){
-            let num = $("#center_text").val();
-            num++;
-            $("#center_text").val(num);
+            ++num;
             childNumber = num;
+            $("#center_text").val(childNumber);
             if(num == 9){
                 $("#center_up").attr("disabled",true);
             }
@@ -572,11 +570,11 @@
         })
         //오른쪽(유아)
         let babyNumber = 0; //다음페이지로 가지고 갈 데이터 변수
+        $("#right_text").val(babyNumber);
         $("#right_down").click(function(){
-            let num = $("#right_text").val();
-            num--;
-            $("#right_text").val(num);
+            --num;
             babyNumber = num;
+            $("#right_text").val(babyNumber);
             if(num == 0){
                 $("#right_down").attr("disabled",true);
             }
@@ -585,10 +583,9 @@
             }
         })
         $("#right_up").click(function(){
-            let num = $("#right_text").val();
-            num++;
-            $("#right_text").val(num);
+            ++num;
             babyNumber = num;
+            $("#right_text").val(babyNumber);
             if(num == 9){
                 $("#right_up").attr("disabled",true);
             }
@@ -709,9 +706,9 @@
                         <input type="hidden" id="minimumDate" name="minimumDate" value="">
                         <input type="hidden" id="maximumDate" name="maximumDate" value="">
                         <input type="button" id="person" name="passengerNumber" value="성인1">
-                       	<input type="hidden" id="adultNumber" name="adultNumber" value="">
-                       	<input type="hidden" id="childNumber" name="childNumber" value="">
-                       	<input type="hidden" id="babyNumber" name="babyNumber" value="">
+                       	<input type="hidden" id="adultNumber" name="adultNumber" value="1">
+                       	<input type="hidden" id="childNumber" name="childNumber" value="0">
+                       	<input type="hidden" id="babyNumber" name="babyNumber" value="0">
                         <input type="button" id="serch" value="항공권 검색" disabled>
                     </form>
                 </div>
