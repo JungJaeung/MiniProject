@@ -244,9 +244,15 @@
 			font-size: x-large; font-weight: bold;
 			position: absolute; bottom: 18px; left: 80px;
 		}
+		.start_time>span{
+			display: none;
+		}
 		.finish_time{
 			font-size: x-large;font-weight: bold;
 			position: absolute; bottom: 18px; right: 80px;
+		}
+		.finish_time>span{
+			display: none;
 		}
 		.column>img{ position: absolute; bottom: 20px;}
 		
@@ -861,9 +867,10 @@
       		<div class="column">
       			<div class="flight_code">7C101</div>
       			<div class="under_line"></div>
-     		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
-				    <img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				    <div class="finish_time"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
+      			<!-- 시간 데이터 표시는 fmt jstl사용. 가져갈 데이터는 숨겨서 따로 스크립트로 처리 -->
+     		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/><span>${startDateList[status.index] }</span></div>
+				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
+				<div class="finish_time"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/><span>${arrivalDateList[status.index] }</span></div>
       		</div>
       		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
       			<div id="class${status2.index + 1 }" class="columns">
@@ -948,12 +955,12 @@
 			$(".columns").on("click", function(e) {
 				$(".columns").css("border", "none").css("border-left", "1px solid #bebebe");
 				$(this).css("border", "2px solid red");
-				//console.log("받아온 출발시간 데이터 : " + (e.target).parent.children('.start_time').text());
-				//console.log("받아온 도착시간 데이터 : " + (e.target).parent.children('.finish_time').text());
-				// $("input[name='departTime']").val($(this).children('.start_time').text());
-				// $("input[name='arrivalTime']").val($(this).children('.finish_time').text());
-				// $("input[name='flightId']").val($(this).prev().text());
-				// console.log("비행편 아이디 : " + $("input[name='flightId']").val());
+				console.log("받아온 출발시간 데이터 : " + $(this).parent().find('.start_time').children('span').text());
+				console.log("받아온 도착시간 데이터 : " + $(this).parent().find('.finish_time').children('span').text());
+				 $("input[name='departTime']").val($(this).parent().find('.start_time').children('span').text());
+				 $("input[name='arrivalTime']").val($(this).parent().find('.finish_time').children('span').text());
+				 $("input[name='flightId']").val($(this).parent().prev().text());
+				 console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 				// console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
 /*
 			$(".showList").on("click", function(e) {

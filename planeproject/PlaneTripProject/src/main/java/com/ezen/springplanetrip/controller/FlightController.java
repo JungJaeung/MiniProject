@@ -46,8 +46,8 @@ public class FlightController {
 		List<FlightVO> flightList = flightService.viewFlight(flyMap, cri);
 		
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
-		List<String> startDateList = DateToString.change(flightList);
-		List<String> arrivalDateList = DateToString.change(flightList);
+		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
+		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
 		System.out.println("출발날짜 3번째꺼 확인 : " + startDateList.get(2));
 		System.out.println("도착날짜 3번째꺼 확인 : " + arrivalDateList.get(2));
 		
