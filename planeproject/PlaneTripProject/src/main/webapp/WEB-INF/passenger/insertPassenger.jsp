@@ -140,19 +140,22 @@
         
         $("#personnal_data").html(personnal_data);
 
+        //성별 선택 버튼 누르면 선택한 표시를 남겨둔다.
         for(let i = 1; i <= personnal_num; i++){
             $("#male" + i).click(function(e){
                 $("#gender" + i).val("남성");
                 $("#male" + i).css("border", "1px solid #ff5000");
                 $("#female" + i).css("border", "none");
-            })
+            });
 
             $("#female" + i).click(function(e){
                 $("#gender" + i).val("여성");
                 $("#male" + i).css("border", "none");
                 $("#female" + i).css("border", "1px solid #ff5000");
-            })
+            });
         }
+        
+        
 	})
 </script>
 </head>

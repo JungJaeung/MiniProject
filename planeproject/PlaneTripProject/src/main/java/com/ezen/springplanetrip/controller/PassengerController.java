@@ -1,6 +1,8 @@
 package com.ezen.springplanetrip.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -57,7 +59,6 @@ public class PassengerController {
 		model.addAttribute("arrivedPointCode", airportVO);	
 		System.out.println(airportVO);
 		
-		
 		model.addAttribute("flight_data", paramMap);
 
 		return "../passenger/insertPassenger";
@@ -73,7 +74,6 @@ public class PassengerController {
 		
 		System.out.println("파람맵: " + paramMap.toString());
 //		List<PassengerVO> passengerList = new ArrayList<PassengerVO>();
-		
 		for (int i = 1; i <= 1; i++) {
 			PassengerVO passengerVO = new PassengerVO();
 			passengerVO.setGender(paramMap.get("gender" + i));
@@ -90,4 +90,5 @@ public class PassengerController {
 
 		return "/reservation/insertReservation";
 	}
+	
 }

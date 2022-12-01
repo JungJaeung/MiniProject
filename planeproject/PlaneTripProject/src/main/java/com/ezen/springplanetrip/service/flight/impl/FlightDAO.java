@@ -19,7 +19,7 @@ public class FlightDAO {
 
 	public List<FlightVO> viewFlight(Map<String, String> flyMap, Criteria cri) {
 		Map<String, Object> flightMap = new HashMap<String, Object>();
-		System.out.println("가져온 맵 : " + flyMap);
+		//System.out.println("가져온 맵 : " + flyMap);
 		
 		flightMap.put("flightMap", flyMap);
 		

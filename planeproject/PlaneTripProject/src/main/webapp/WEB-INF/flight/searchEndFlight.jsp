@@ -912,7 +912,7 @@
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 
 			<!-- 출발 비행편의 정보 (승객 정보 페이지에서 사용할 변수들 저장) -->
-			<input type="hidden" name="d_classId" value="">
+			<input type="hidden" name="d_classId" value="${flightListDpt.classId }">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
 			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${flightListDpt.airportDpt }">
 			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${flightListDpt.airportArv }">
