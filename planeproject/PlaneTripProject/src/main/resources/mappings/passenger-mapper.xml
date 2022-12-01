@@ -5,6 +5,7 @@
 	
 <mapper namespace="PassengerDAO">
 	<!-- 쿼리 작성 영역 -->
+	<!-- 승객 정보 insert문 -->
 	<insert id="insertPassenger" parameterType="passenger">
 		INSERT INTO PASSENGER(
 			PASSENGER_ID,
@@ -12,14 +13,16 @@
 			LAST_NAME,
 			PHONE,
 			BIRTHDATE,
-			GENDER
+			GENDER,
+			USER_ID
 		) VALUES (
 			(SELECT IFNULL(MAX(A.PASSENGER_ID), 0) + 1 FROM PASSENGER A),
 			#{firstName},
 			#{lastName},
 			#{phone},
 			#{birthDate},
-			#{gender}
+			#{gender},
+			#{userID}
 		)
 	</insert>
 	

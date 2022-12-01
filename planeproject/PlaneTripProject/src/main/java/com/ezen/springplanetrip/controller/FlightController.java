@@ -152,10 +152,14 @@ public class FlightController {
 		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
-		
 		model.addAttribute("flightInfo", departFlyMap);
-		
 		model.addAttribute("flightListArv", flightList);
+		
+		System.out.println("startDateList: " + startDateList);
+		System.out.println("arrivalDateList: " + arrivalDateList);
+		System.out.println("departFlyMap: " + departFlyMap);
+		System.out.println("flightListArv: " + flightList);
+		
 		
 		//달력에 적은 시작일과 끝 날짜를 저장하는 map
 		Map<String, String> calendar = new HashMap<String, String>();
@@ -163,9 +167,13 @@ public class FlightController {
 		calendar.put("maximumDate", departFlyMap.get("maximumDate"));
 		model.addAttribute("calendar", calendar);
 		
+		System.out.println("calendar: " + calendar);
+		
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
+		
+		System.out.println();
 
 		Map<String, Object> flightSeatList = new HashMap<String, Object>();	//각 비행편의 정보를 모두 담은 객체
 		List<List<Integer>> classList = new ArrayList<List<Integer>>(); //각 비행편의 클래스 목록을 담을 배열
