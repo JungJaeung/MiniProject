@@ -20,18 +20,19 @@ public class PassengerController {
 	private PassengerService passengerService;
 	
 	@PostMapping("/insertPassenger.do")
-	public String insertPassenger(@RequestParam Map<String, String> paramMap) {
+	public String insertPassenger(@RequestParam Map<String, String> paramMap, @RequestParam Date date) {
 		SimpleDateFormat smf = new SimpleDateFormat("HH:mm");
 		System.out.println("승객 작업 중..");
 
-
+		System.out.println("데이터 타입 " + paramMap.get("departTime").getClass().getName());
 		System.out.println(paramMap.toString());
 		
-		String departTime = smf.format(Date.valueOf(paramMap.get("departTime")));
-		//Date departTime = Date.valueOf(paramMap.get("departTime"));
+		
+		
+		String departTime = paramMap.get("departTime");
 		System.out.println("출발 시간 정리 : " + departTime);
 		
-		String arrivalTime = smf.format(Date.valueOf(paramMap.get("arrivalTime")));
+		String arrivalTime = paramMap.get("arrivalTime");
 		//Date arrivalTime = Date.valueOf(paramMap.get("arrivalTime"));
 		System.out.println("도착 시간 정리 : " + arrivalTime);
 //		List<PassengerVO> passengerList = new ArrayList<PassengerVO>();
