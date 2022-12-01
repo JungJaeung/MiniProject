@@ -13,7 +13,15 @@ public class PassengerVO {
 	private Date birthDate;
 	private String gender;
 	private String password;
+	private int userID;
 	
+
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 	public int getPassengerId() {
 		return passengerId;
 	}

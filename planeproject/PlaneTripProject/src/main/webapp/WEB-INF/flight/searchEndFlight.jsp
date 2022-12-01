@@ -906,7 +906,7 @@
 				</ul>
 			</div>
 		</div>
-		<form id="checkFlight" action="/passenger/insertPassenger.do" method="post">
+		<form id="checkFlight" action="/passenger/passenger.do" method="post">
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
