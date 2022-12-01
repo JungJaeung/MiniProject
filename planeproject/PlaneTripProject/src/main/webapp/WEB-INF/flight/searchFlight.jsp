@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <!-- 상단 웹페이지 스크립트 -->
 <style>
+		body { background-color : #F6F6F6;}
         #container{ width: 100%; height: 100%; text-align: center;justify-content: center;}
         /*메뉴 위치선정 */
         #category_menu nav{ display: inline-block; text-align: center;}
@@ -173,17 +174,18 @@
             
 		/* 조회된 비행편 정렬되는 창 */
 		#flightList {
-			width: 100%; height: 500px;
-			border: 1px solid black;
-			text-align: center;
+			width: 100%;
+			display: inline-block;
+			text-align:center;
 		}
 
 		/* 조회수가 많을 경우 조회페이지를 나누어 보여줌. */
 		#pageNumber {
-			margin: 0 auto;
+			display: inline-block;
+			margin: 0px; padding: 0px;
 			width: 200px; height: 50px;
-			border: 1px solid black;
 		}
+		/* 페이지 숫자표시 div*/
 		.pagination {
 			list-style: none;
 			width: 100%;
@@ -201,35 +203,70 @@
 		
 		/* 항공편 부분 */
 		.showList {
-			margin: 0px; padding: 0px;
-			width:100%; height:10%;
-			border: 1px solid black;
-		}
-		.showList div{
-			margin: 0px; padding: 0px;
-			width: 24%; height:94%;
 			display: inline-block;
+			width:1200px; height:130px;
+			border: 1px solid #bebebe;
+			margin-top:20px;
+			border-radius: 8px;
+			background-color: white;
 		}
-		#class1 {
-			background-color: skyblue;
+		.column{
+			width:39%; height:100%; float:left;
+			position:relative;
 		}
-		#class2 {
-			background-color: beige;
+		.columns{
+			border-left: 1px solid #bebebe;
+			width: 20%; height:100%; float:right;
+			position:relative;
 		}
-		#class3 {
-			background-color: orange;
+		#class1{
+			border-top-right-radius: 8px;
+			borderbottom-right-radius: 8px;
 		}
+		#class1>.classCol{
+			color: #FF0000;
+		}
+		#class2>.classCol{
+			color: #FF9100;
+		}
+		#class3>.classCol{
+			color: #0000CD;
+		}
+		.flight_code{
+			position: absolute; top: 18px; left: 215px; /* 왼쪽으로 보내려면 left: 18px; */
+		 }
+		.under_line{
+			width: 80%; height: 0.01px;
+			border-bottom: 1px solid #bebebe;
+			position: absolute; top:55px; left:10%;
+		}
+		.start_time{
+			font-size: x-large; font-weight: bold;
+			position: absolute; bottom: 18px; left: 80px;
+		}
+		.finish_time{
+			font-size: x-large;font-weight: bold;
+			position: absolute; bottom: 18px; right: 80px;
+		}
+		.column>img{ position: absolute; bottom: 20px;}
+		
 		.classCol {
-
-			width: 20%; height: 95%;
+			width: 100%;
+			position: absolute; top:18px; left: 0;
+			font-size: x-large;
 		}
 		.priceCol {
-
-			width: 40%; height: 95%;
+			width: 100%;
+			position: absolute; top:53px; left: 0;
+			font-size: x-large;
 		}
 		.remainCol {
-
-			width: 20%; height: 95%;
+			width: 100%;
+			position: absolute; bottom: 15px; left: 0;
+			color: #828282;
+		}
+		#pageNumber_div{
+			width: 100%;
 		}
 </style>
 
@@ -662,6 +699,8 @@
         	$("#info").submit();
         })
         
+        //항공권 등급 숫자-> 문자
+        
     })
 
 </script>
@@ -820,9 +859,11 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-     			<div class="start"><span>${flightList.startDateList[status.index] }<%-- <fmt:formatDate  value="${flightList.departTime }" pattern="HH:mm"/> --%></span></div>
-				<img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
-				<div class="finish"><span>${flightList.arrivalDateList[status.index] }<%-- <fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/> --%></span></div>
+      			<div class="flight_code">7C101</div>
+      			<div class="under_line"></div>
+     		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/></div>
+				    <img src="${pageContext.request.contextPath}/resources/images/right_btn.png" width="20px" height="20px">
+				    <div class="finish_time"><fmt:formatDate value="${flightList.arrivalTime }" pattern="HH:mm"/></div>
       		</div>
       		<c:forEach items="${flightSeatList.classList[status.index] }" var="classList" varStatus="status2">
       			<div id="class${status2.index + 1 }" class="columns">
@@ -837,24 +878,26 @@
 			<input type="hidden" name="flightId" value="${flightList.flightId }">
 			<input class="codeList" type="hidden" name="flightCode" value="${flightList.flightCode }">
 		</c:forEach><!-- 검색된 비행편의 개수 -->
-		<div id="pageNumber">
-			<ul class="pagination">
-				<c:if test="${pageVO.prev }">
-					<li class="pagination_button">
-						<a href="${pageVO.cri.pageNum - 1 }">이전</a>
-					</li>
-				</c:if>	
-				<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-					<li class="pagination_button">
-						<a href="${num }">${num }</a>
-					</li>
-				</c:forEach>
-				<c:if test="${pageVO.next}">
-					<li class="pagination_button">
-						<a href="${pageVO.cri.pageNum + 1 }">다음</a>
-					</li>
-				</c:if>
-			</ul>
+		<div id="pageNumber_div">
+			<div id="pageNumber">
+				<ul class="pagination">
+					<c:if test="${pageVO.prev }">
+						<li class="pagination_button">
+							<a href="${pageVO.cri.pageNum - 1 }">이전</a>
+						</li>
+					</c:if>	
+					<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+						<li class="pagination_button">
+							<a href="${num }">${num }</a>
+						</li>
+					</c:forEach>
+					<c:if test="${pageVO.next}">
+						<li class="pagination_button">
+							<a href="${pageVO.cri.pageNum + 1 }">다음</a>
+						</li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
 		<form id="checkFlight" action="/passenger/insertPassenger.do" method="post">
 			
@@ -901,6 +944,18 @@
 				$("#info").submit();
 			});
 			//비행편 선택하고 그 이후 비행편 선택 버튼을 눌러 해당 비행편 선택한 내용을 가지고 감.
+
+			$(".columns").on("click", function(e) {
+				$(".columns").css("border", "none").css("border-left", "1px solid #bebebe");
+				$(this).css("border", "2px solid red");
+				//console.log("받아온 출발시간 데이터 : " + (e.target).parent.children('.start_time').text());
+				//console.log("받아온 도착시간 데이터 : " + (e.target).parent.children('.finish_time').text());
+				// $("input[name='departTime']").val($(this).children('.start_time').text());
+				// $("input[name='arrivalTime']").val($(this).children('.finish_time').text());
+				// $("input[name='flightId']").val($(this).prev().text());
+				// console.log("비행편 아이디 : " + $("input[name='flightId']").val());
+				// console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
+/*
 			$(".showList").on("click", function(e) {
 				$(this).parent().children().css("border", "1px solid black");
 				$(this).css("border", "3px solid red");
@@ -911,6 +966,7 @@
 				$("input[name='flightId']").val($(this).prev().text());
 				console.log("비행편 아이디 : " + $("input[name='flightId']").val());
 				console.log("성인 : " + $("#adultNumber").val() + "어린이 : " + $("#childNumber").val() + "유아: " + $("#babyNumber").val());
+*/
 			});
 			
 			$("#selectButton").on("click", function(e) {
