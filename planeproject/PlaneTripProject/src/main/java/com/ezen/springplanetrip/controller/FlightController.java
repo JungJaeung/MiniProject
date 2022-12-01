@@ -71,6 +71,7 @@ public class FlightController {
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
 
+		
 		Map<String, Object> flightSeatList = new HashMap<String, Object>();	//각 비행편의 정보를 모두 담은 객체
 		List<List<Integer>> classList = new ArrayList<List<Integer>>(); //각 비행편의 클래스 목록을 담을 배열
 		List<List<Integer>> priceList = new ArrayList<List<Integer>>();	//각 비행편의 가격 목록을 담을 배열 비행편마다 가격이 다를것
@@ -107,9 +108,9 @@ public class FlightController {
 		model.addAttribute("flightSeatList", flightSeatList);
 		//페이지 계산
 		int total = flightService.getFlightTotalCnt(flyMap);
-		System.out.println("총 개수 : " + total);
+		//System.out.println("총 개수 : " + total);
 		model.addAttribute("pageVO", new PageVO(cri, total));
-		System.out.println("flightID = " + flightList.get(0).getFlightId());
+		//System.out.println("flightID = " + flightList.get(0).getFlightId());
 		
 		return "../flight/searchFlight";
 	}
@@ -117,8 +118,17 @@ public class FlightController {
 	@PostMapping("/searchArriveFlight.do")
 	public String viewArriveFlight(Model model, @RequestParam Map<String, String> departFlyMap, Criteria cri) {
 		Map<String, String> arriveFlyMap = new HashMap<>();
+		Map<String, String> department = new HashMap<>();
+		department.put("d_classId", departFlyMap.get("classId"));
+		department.put("d_departPointId", departFlyMap.get("departPointId"));
+		department.put("d_arrivedPointId", departFlyMap.get("arrivedPointId"));
+		department.put("d_departPointCode", departFlyMap.get("departPointCode"));
+		department.put("d_arrivedPointCode", departFlyMap.get("arrivedPointCode"));
+		model.addAttribute(department);
 		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 전달
 		model.addAttribute("flightListDpt", departFlyMap);
+		System.out.println(departFlyMap.get("departPointId"));
+		System.out.println(departFlyMap.get("arrivedPointId"));
 		
 		System.out.println("도착편 작업  시작");
 		//Map<String, String> arriveFlyMap
@@ -129,35 +139,28 @@ public class FlightController {
 		System.out.println("출 : " + changedPoint.get(0) + " 도 : " + changedPoint.get(1));
 		List<String> changedPointCode = SwapDptArv.changeValue(departFlyMap.get("departPointCode"), departFlyMap.get("arrivedPointCode"));
 		
+		//출발 도착지 아이디, 코드
 		departFlyMap.put("departPointId", changedPoint.get(0));
 		departFlyMap.put("arrivedPointId", changedPoint.get(1));
 		departFlyMap.put("departPointCode", changedPointCode.get(0));
 		departFlyMap.put("arrivedPointCode", changedPointCode.get(1));
 		cri.setAmount(8);	//페이지당 8개만 표시
 		
-		System.out.println(departFlyMap);
-		
-		model.addAttribute("departFlyMap", departFlyMap);
-		//넘어온 값들은 정수가 아닌 문자열
+		//model.addAttribute("departFlyMap", departFlyMap);
+		//넘어온 값들은 정수가 아닌 문자열 회귀 비행편
 		List<FlightVO> flightList = flightService.viewFlight(departFlyMap, cri);
 		
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
 		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
 		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
-		System.out.println("출발지 날짜 확인 : " + startDateList.get(2));
-		System.out.println("도착지 날짜 확인 : " + arrivalDateList.get(2));
 		
 		System.out.println("바뀐 출발 하는 곳 : " + flightList.get(0).getAirportDpt());
 		System.out.println("바뀐 도착 하는 곳 : " + flightList.get(0).getAirportArv());
 		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
-		model.addAttribute("flightInfo", departFlyMap);
 		model.addAttribute("flightListArv", flightList);
 		
-		System.out.println("startDateList: " + startDateList);
-		System.out.println("arrivalDateList: " + arrivalDateList);
-		System.out.println("departFlyMap: " + departFlyMap);
 		System.out.println("flightListArv: " + flightList);
 		
 		
