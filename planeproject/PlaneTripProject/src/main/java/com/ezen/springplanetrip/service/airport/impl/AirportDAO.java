@@ -13,7 +13,11 @@ public class AirportDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	public List<AirportVO> getAirportList(AirportVO airportVO){
-		return mybatis.selectList("BoardDAO.getAirportList", airportVO);
+	public List<AirportVO> getAirportList(){
+		return mybatis.selectList("AirportDAO.getAirportList");
+	}
+	
+	public AirportVO getAirportInfo(AirportVO airportVO) {
+		return mybatis.selectOne("AirportDAO.getAirportInfo", airportVO);
 	}
 }

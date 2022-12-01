@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-    #container { width: 100%; display: flex; justify-content: center;}
+	body {background-color : #F6F6F6;}	
+    #container { width: 100%; display: flex; justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    }
     #box { width: 900px;}
     #t_section {text-align: center;}
     .qna_title {font-size: 2rem; text-align: center; font-weight: bold;
@@ -139,7 +143,9 @@
 		            <td><textarea name="boardReply" id="boardReply" rows="10" style="resize:none; width: 100%;">${board.boardReply }</textarea></td>
 		          </tr>
 		          <tr>
-		            <td style="text-align: center;"><button type="submit" id="btnReply">추가</button></td>
+		            <td style="text-align: center;">
+		            <button type="submit" id="btnReply">추가</button>
+		            </td>
 		          </tr>
 		        </table>        
 		      </div>
@@ -210,7 +216,7 @@
 					$("#r_section").show();
 					$("#btnReply").hide();		
 				}	
-				
+
 		});
 	</script>
 </body>

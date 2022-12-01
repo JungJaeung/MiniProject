@@ -7,6 +7,7 @@ public class AirportVO {
 	private String airportHomepage;
 	private String airportTel;
 	private String airportHours;
+	private int selectedAirportId;
 	
 	public int getAirportId() {
 		return airportId;
@@ -43,6 +44,12 @@ public class AirportVO {
 	}
 	public void setAirportHours(String airportHours) {
 		this.airportHours = airportHours;
+	}
+	public int getSelectedAirportId() {
+		return selectedAirportId;
+	}
+	public void setSelectedAirportId(int selectedAirportId) {
+		this.selectedAirportId = selectedAirportId;
 	}
 	
 	@Override
