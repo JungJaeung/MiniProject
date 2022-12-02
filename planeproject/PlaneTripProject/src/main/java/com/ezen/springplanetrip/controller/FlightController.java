@@ -40,6 +40,7 @@ public class FlightController {
 	@PostMapping("/searchDepartFlight.do")
 	public String viewDepartFlight(Model model, @RequestParam Map<String, String> flyMap, Criteria cri) {
 		//검색하려는 비행편 정보를 담을 인스턴스
+		System.out.println("출발편으로 넘기는 paramMap: " + flyMap);
 		
 		cri.setAmount(8);	//페이지당 8개만 표시
 		//넘어온 값들은 정수가 아닌 문자열
@@ -120,7 +121,7 @@ public class FlightController {
 		departmentMap.putAll(departFlyMap);
 		model.addAttribute("flightListDpt", departmentMap);
 		
-		System.out.println("도착편 작업  시작");
+		System.out.println("도착편 작업  시작" + departFlyMap);
 		//Map<String, String> arriveFlyMap
 		//출발 도착지 받은 것을 서로 값을 바꾼뒤 쿼리를 다시수행함.
 		String departPoint = departFlyMap.get("departPointId");

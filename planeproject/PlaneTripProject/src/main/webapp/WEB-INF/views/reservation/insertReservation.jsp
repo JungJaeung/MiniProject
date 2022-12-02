@@ -143,8 +143,8 @@
 	<div id="container">
 		<div id="p_location">
 			<div style="display: inline-block;text-align:left; width:1070px; margin-top : 14px;">
-			<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">항공권 예매<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">탑승자정보입력</span>
-		</div>
+				<span>홈<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">항공권 예매<img id="r_arrow" src="${pageContext.request.contextPath}/resources/images/r_arrow.png">탑승자정보입력</span>
+			</div>
 		</div>
         <div id="page_name">탑승자 정보 입력</div>
         <br><br>
