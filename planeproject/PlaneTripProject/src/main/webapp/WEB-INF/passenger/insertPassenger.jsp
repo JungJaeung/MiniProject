@@ -191,7 +191,7 @@
                         <div id="to_kor">${d_arrivedPointCode.airportName }</div>
                         <div id="from_date">${flight_data.minimumDate }</div>
                         <div id="from_time">${flight_data.d_departTime } ~ ${flight_data.d_arrivalTime }</div>
-                        <div id="plain_name">KE704</div>
+                        <div id="plain_name">7C145</div>
                         <div id="seat_lv">일반석</div>
                     </div>
                     <div id="f_info_con_down">
@@ -202,7 +202,7 @@
                         <div id="to_kor2">${arrivedPointCode.airportName }</div>
                         <div id="from_date2">${flight_data.maximumDate }</div>
                         <div id="from_time2">${flight_data.departTime } ~ ${flight_data.arrivalTime }</div>
-                        <div id="plain_name2">KE704</div>
+                        <div id="plain_name2">7C116</div>
                         <div id="seat_lv2">일반석</div>
                     </div>
                 </div>

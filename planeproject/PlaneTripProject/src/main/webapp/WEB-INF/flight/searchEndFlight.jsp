@@ -282,8 +282,8 @@
 			width: 1200px; display: inline-block;
 		}
 		#selectButton{
-			width:150px; height:40px; float:right; border: none; border-radius: 4px; 
-			margin-top: 10px; margin-right: 10px;  background-color: #ff5000; color:white;
+			width:150px; height:40px; float:right; border: none; border-radius: 4px; font-weight:bold;
+			margin-top: 10px; margin-right: 10px;  background-color: #8c8c8c; color:white;
 		}
 </style>
 
@@ -1003,6 +1003,8 @@
 				 $("input[name='flightId']").val($(this).parent().prev().text());
 				 console.log("회귀 비행편 아이디 : " + $("input[name='flightId']").val());
 				 console.log("회귀 비행편 클래스 : " + $("input[name='classId']").val());
+				 
+				 $("#selectButton").css("background-color", "#ff5000");
 			});
 			
 			$("#selectButton").on("click", function(e) {
