@@ -9,8 +9,8 @@ public class ReservationVO {
 	private int passengerId;
 	private int flightId;
 	private int seatId;
-	private Date departDatetime;
-	private Date arrivalDatetime;
+	private String departDatetime;
+	private String arrivalDatetime;
 	private String seatNo;
 	private String updateReservation;
 	private int userId;
@@ -40,16 +40,16 @@ public class ReservationVO {
 	public void setSeatId(int seatId) {
 		this.seatId = seatId;
 	}
-	public Date getDepartDatetime() {
+	public String getDepartDatetime() {
 		return departDatetime;
 	}
-	public void setDepartDatetime(Date departDatetime) {
+	public void setDepartDatetime(String departDatetime) {
 		this.departDatetime = departDatetime;
 	}
-	public Date getArrivalDatetime() {
+	public String getArrivalDatetime() {
 		return arrivalDatetime;
 	}
-	public void setArrivalDatetime(Date arrivalDatetime) {
+	public void setArrivalDatetime(String arrivalDatetime) {
 		this.arrivalDatetime = arrivalDatetime;
 	}
 	public String getSeatNo() {

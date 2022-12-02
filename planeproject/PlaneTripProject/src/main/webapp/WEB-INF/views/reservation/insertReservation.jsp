@@ -121,9 +121,9 @@
                personnal_data += "<input type='hidden' name='bwd_arrived_airportCode' value='${reserve_info.bwd_arrived_airportCode }'>"
                personnal_data += "<input type='hidden' name='bwd_depart_datetime' value='${reserve_info.bwd_depart_datetime}'>"
                personnal_data += "<input type='hidden' name='bwd_arrival_datetime' value='${reserve_info.bwd_arrival_datetime}'>"
-
-
-               personnal_data += "<input type='submit' id='btn_submit' value='입력하기'>"
+               personnal_data += "<input type='hidden' name='passengerCnt' value='" + i + "'>"
+			   
+               personnal_data += "<input type='submit' id='btn_submit' value='예약하기'>"
                personnal_data += "</form></div>"
            }
            else{
