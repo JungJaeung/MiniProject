@@ -8,9 +8,10 @@ import com.ezen.springplanetrip.vo.ReservationVO;
 public interface ReservationService {
 	List<Integer> getPassengerList(int userId, int passengerCnt);
 	
-	List<String> getSeatNoList(Map<String, Object> dptSeatNoMap);
+	List<String> getSeatNoList(Map<String, Object> seatNoMap);
 	
-	void insertReservation(List<ReservationVO> dptReservationList, List<ReservationVO> arvReservationList);
+	void insertReservation(List<ReservationVO> fwdList, List<ReservationVO> bwdList);
 	
 	int getReservationId();
+	
 }

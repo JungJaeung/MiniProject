@@ -25,19 +25,20 @@ public class ReservationDAO {
 		return mybatis.selectList("ReservationDAO.getPassengerList", paramMap);
 	}
 	
-	public List<String> getSeatNoList(Map<String, Object> dptSeatNoMap) {
+	public List<String> getSeatNoList(Map<String, Object> seatNoMap) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("ReservationDAO.getSeatNoList", dptSeatNoMap);
+		return mybatis.selectList("ReservationDAO.getSeatNoList", seatNoMap);
 	}
 	
-	public void insertReservation(List<ReservationVO> dptReservationList, List<ReservationVO> arvReservationList) {
+	public void insertReservation(List<ReservationVO> fwdList, List<ReservationVO> bwdList) {
 		// TODO Auto-generated method stub
-		mybatis.insert("ReservationDAO.insertReservation", dptReservationList);
-		mybatis.insert("ReservationDAO.insertReservation", arvReservationList);
+		mybatis.insert("ReservationDAO.insertReservation", fwdList);
+		mybatis.insert("ReservationDAO.insertReservation", bwdList);
 	}
 	
 	public int getReservationId() {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("ReservationDAO.getReservationId()");
+		return mybatis.selectOne("ReservationDAO.getReservationId");
 	}
+
 }

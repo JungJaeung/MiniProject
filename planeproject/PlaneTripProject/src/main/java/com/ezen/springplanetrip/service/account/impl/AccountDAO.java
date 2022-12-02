@@ -1,12 +1,13 @@
 package com.ezen.springplanetrip.service.account.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ezen.springplanetrip.vo.PassengerVO;
 import com.ezen.springplanetrip.vo.UserVO;
 
 @Repository
@@ -56,5 +57,11 @@ public class AccountDAO {
 	
 	public int currentPwdCheck(UserVO userVO) {
 		return mybatis.selectOne("AccountDAO.currentPwdCheck", userVO);
+	}
+	
+	public Map<String, Object> getMyReservation(int loginUser) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("myList" ,mybatis.selectList("ReservationDAO.getMyReservation", loginUser));
+		return map;
 	}
 }
