@@ -712,7 +712,7 @@
         })
 
         //항공권 검색 버튼
-        $("#search").click(function(){
+        $("#serch").click(function(){
         	$("#info").submit();
         })
         
