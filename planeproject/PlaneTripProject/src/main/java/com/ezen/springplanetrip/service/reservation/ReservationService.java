@@ -13,4 +13,5 @@ public interface ReservationService {
 	void insertReservation(List<ReservationVO> dptReservationList, List<ReservationVO> arvReservationList);
 	
 	int getReservationId();
+	
 }

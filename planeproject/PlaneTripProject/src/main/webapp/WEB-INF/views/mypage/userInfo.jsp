@@ -71,7 +71,7 @@
 <script>
    $(document).ready(function(){
         //innerHtml에 넣는 내용
-        let reservation_html = "<table><tr><th>예약번호<th>탑승일<th>탑승구간<th>탑승자<th>예약일<th>예약/취소여부" 
+        let reservation_html = "<table><tr><th>예약번호</th><th>탑승일</th><th>탑승구간</th><th>탑승자</th><th>예약일</th><th>예약/취소여부</th></tr>" 
         let personnal_num = 3;              //예약 인원수(현재는 임의로 지정), 후에 넣을때는 (Number)로 형변환 해서 넣어주세요
 
         $("#headers").load("../asdf/header.html");
@@ -80,13 +80,15 @@
                                 //ex)reservation_num1, reservation_num2
                                 //넣을때 for문 돌려서 아이디 -> innerHtml값 건드시면 쉽게 넣으실거에요
         for(let i = 1; i <= personnal_num; i++){
-            reservation_html += "<tr><td><a id='reservation_num"+i+"'>asdf123</a>";
-            reservation_html += "<td><a id='depart_date"+i+"'>2022.11.27</a>";
-            reservation_html += "<td><a id='section"+i+"'>서울(김포) - 제주</a>";       //innerHtml넣을때 '출발지' + '-' + '도착지'해야함
-            reservation_html += "<td><a id='guest_name"+i+"'>ㅁㄴㅇㄹ</a>";
-            reservation_html += "<td><a id='reservation_date"+i+"'>2022.11.27</a>";
-            reservation_html += "<td><a id='cancellation"+i+"' class=cancellation>예약</a>";
+            reservation_html += "<tr><td><a id='reservation_num"+i+"'>asdf123</a></td>";
+            reservation_html += "<td><a id='depart_date"+i+"'>2022.11.27</a></td>";
+            reservation_html += "<td><a id='section"+i+"'>서울(김포) - 제주</a></td>";       //innerHtml넣을때 '출발지' + '-' + '도착지'해야함
+            reservation_html += "<td><a id='guest_name"+i+"'>ㅁㄴㅇㄹ</a></td>";
+            reservation_html += "<td><a id='reservation_date"+i+"'>2022.11.27</a></td>";
+            reservation_html += "<td><a id='cancellation"+i+"' class=cancellation>예약</a></td></tr>";
         }
+        reservation_html += "</table>";
+        $("#reservation_table").html()
         $("#reservation_table").html(reservation_html);
 
         //임의로 한개 취소로 바꿈           나중에 지우세요
@@ -121,7 +123,21 @@
         <div id="reservation">
             <div id="reservation_name">예약현황(예약 및 취소내역)</div>
             <!--div만 만들어두고 스크립트에서 인원수에 따라 for문 돌려 표로 작성-->
-            <div id="reservation_table"></div>
+            <div id="reservation_table">
+				<table>
+					<tr><th>예약번호</th><th>탑승일</th><th>탑승구간</th><th>탑승자</th><th>예약일</th><th>예약/취소여부</th></tr>
+					<c:forEach items="${reservation }" var="reservation" varStatus="status">
+					<tr>
+						<td>reservation.reservationId</td>
+						<td>reservation.departDatetime</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					</c:forEach>
+				</table>
+            </div>
 
         </div>
         <!--회원정보-->

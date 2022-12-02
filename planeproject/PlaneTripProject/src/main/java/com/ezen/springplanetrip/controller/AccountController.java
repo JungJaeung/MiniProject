@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.springplanetrip.service.account.AccountService;
 import com.ezen.springplanetrip.service.flight.FlightService;
+import com.ezen.springplanetrip.service.passenger.PassengerService;
+import com.ezen.springplanetrip.service.reservation.ReservationService;
 import com.ezen.springplanetrip.vo.AirportVO;
+import com.ezen.springplanetrip.vo.ReservationVO;
 import com.ezen.springplanetrip.vo.UserVO;
 
 @Controller
@@ -25,7 +28,11 @@ public class AccountController {
 	private AccountService accountService;
 	@Autowired
 	private FlightService flightService;
-
+	@Autowired
+	private ReservationService reservationService;
+	@Autowired
+	private PassengerService passengerService;
+	
 	public String reserve(UserVO userVO) {
 		return null;
 	}
@@ -34,7 +41,14 @@ public class AccountController {
 
 	// 마이페이지로 이동
 	@GetMapping("/userInfo.do")
-	public String userInfoView() {
+	public String userInfoView(Model model,HttpSession session) {
+		if(session.getAttribute("loginUser") == null) {
+			return "Account/login";
+		}
+		UserVO user = (UserVO)session.getAttribute("loginUser");
+		List<ReservationVO> myReservation = reservationService.getMyReservation(user.getUserId());
+		model.addAttribute("myReservation", myReservation);
+		System.out.println("예약리스트 : " + myReservation);
 		return "/mypage/userInfo";
 	}
 
