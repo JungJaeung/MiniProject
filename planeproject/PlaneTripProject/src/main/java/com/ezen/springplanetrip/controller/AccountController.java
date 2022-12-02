@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,10 +29,7 @@ public class AccountController {
 	private AccountService accountService;
 	@Autowired
 	private FlightService flightService;
-	@Autowired
-	private ReservationService reservationService;
-	@Autowired
-	private PassengerService passengerService;
+
 	
 	public String reserve(UserVO userVO) {
 		return null;
@@ -46,7 +44,7 @@ public class AccountController {
 			return "Account/login";
 		}
 		UserVO user = (UserVO)session.getAttribute("loginUser");
-		List<ReservationVO> myReservation = reservationService.getMyReservation(user.getUserId());
+		Map<String, Object> myReservation = accountService.getMyReservation(user.getUserId());
 		model.addAttribute("myReservation", myReservation);
 		System.out.println("예약리스트 : " + myReservation);
 		return "/mypage/userInfo";
