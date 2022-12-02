@@ -712,7 +712,7 @@
         })
 
         //항공권 검색 버튼
-        $("#search").click(function(){
+        $("#serch").click(function(){
         	console.log("출발지 : " + $('#starting_point').val());
         	console.log("도착지 : " + $('#arrive_point').val());
         	$("#info").submit();
@@ -751,7 +751,7 @@
                        	<input type="hidden" id="adultNumber" name="adultNumber" value="${flightInfo.adultNumber }">
                        	<input type="hidden" id="childNumber" name="childNumber" value="${flightInfo.childNumber }">
                        	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
-                        <input type="button" id="search" value="항공권 검색" disabled>
+                        <input type="button" id="serch" value="항공권 검색" disabled>
                     	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageVO.cri.amount }">
 						<input type="hidden" name="refresh" value="0">

@@ -50,15 +50,16 @@ public class FlightController {
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함. //배열이 아무 것도 없으면 예외 처리를 해야함.
 		List<String> startDateList = new ArrayList<String>();
 		List<String> arrivalDateList = new ArrayList<String>();;
-		if(flightList.size() > 0) {
+		if(flightList.size() > 0) {	//검색이 되지않을때의 예외처리
 			startDateList = DateToString.changeStringDepartTime(flightList);
 			arrivalDateList = DateToString.changeStringArrivalTime(flightList);
 			System.out.println("검색이 성공함.");
 		}  else {
-			System.out.println("아무것도 검색되지 않음.");
+			List<AirportVO> airportList = flightService.viewAirport(null);
+			model.addAttribute("airportList", airportList);
+			return "redirect:/mainPage.do";
 		}
 		
-		System.out.println("input dpt, arv" + flightList.get(1));
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
 		
@@ -150,12 +151,23 @@ public class FlightController {
 		//넘어온 값들은 정수가 아닌 문자열
 		List<FlightVO> flightList = flightService.viewFlight(departFlyMap, cri);
 		
-		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
-		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
-		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
-		
-		System.out.println("바뀐 출발 하는 곳 : " + flightList.get(0).getAirportDpt());
-		System.out.println("바뀐 도착 하는 곳 : " + flightList.get(0).getAirportArv());
+		List<String> startDateList = new ArrayList<String>();
+		List<String> arrivalDateList = new ArrayList<String>();
+		if(flightList.size() > 0) {
+			//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
+			startDateList = DateToString.changeStringDepartTime(flightList);
+			arrivalDateList = DateToString.changeStringArrivalTime(flightList);
+			
+			System.out.println("바뀐 출발 하는 곳 : " + flightList.get(0).getAirportDpt());
+			System.out.println("바뀐 도착 하는 곳 : " + flightList.get(0).getAirportArv());
+
+		} else {
+			System.out.println("해당 항공편은 존재하지 않습니다. 처음부터 다시 항공편을 검색하세요.");
+			List<AirportVO> airportList = flightService.viewAirport(null);
+			model.addAttribute("airportList", airportList);
+			return "redirect:/mainPage.do";
+		}
+
 		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
