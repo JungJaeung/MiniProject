@@ -108,7 +108,7 @@
 			where USER_ID = #{userId} and PASSWORD = #{currentPassword}
 	</select>
 	
-	<select id="getMyReservation" parameterType="int" resultType="map">
+	<select id="getMyReservation" parameterType="int" resultType="camelHashMap">
 		SELECT A.*
 	    , CONCAT(B.LAST_NAME, B.FIRST_NAME) AS PASSENGER_NAME
 	     , D.AIRPORT_DPT_NM
