@@ -274,6 +274,17 @@
 		#pageNumber_div{
 			width: 100%;
 		}
+		#under_div{
+			width: 100%; height: 60px; position:fixed; background-color: rgba(0, 0, 0, 0.8);
+			bottom:0; 
+		}
+		#under_div_position{ 
+			width: 1200px; display: inline-block;
+		}
+		#selectButton{
+			width:150px; height:40px; float:right; border: none; border-radius: 4px; 
+			margin-top: 10px; margin-right: 10px;  background-color: #ff5000; color:white;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -865,7 +876,7 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-      			<div class="flight_code">7C101</div>
+      			<div class="flight_code">${flightList.flightCode }</div>
       			<div class="under_line"></div>
       			<!-- 시간 데이터 표시는 fmt jstl사용. 가져갈 데이터는 숨겨서 따로 스크립트로 처리 -->
      		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/><span>${startDateList[status.index] }</span></div>
@@ -906,7 +917,7 @@
 				</ul>
 			</div>
 		</div>
-		<form id="checkFlight" action="/passenger/insertPassenger.do" method="post">
+		<form id="checkFlight" action="/passenger/passenger.do" method="post">
 			
 			<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageVO.cri.amount }">
@@ -914,10 +925,10 @@
 			<!-- 출발 비행편의 정보 (승객 정보 페이지에서 사용할 변수들 저장) -->
 			<input type="hidden" name="d_classId" value="${flightListDpt.classId }">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
-			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${flightListDpt.airportDpt }">
-			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${flightListDpt.airportArv }">
-			<input type="hidden" id="d_departPointId" name="d_departPointId" value="${flightListDpt.departPointId }">
-			<input type="hidden" id="d_arrivedPointId" name="d_arrivedPointId" value="${flightListDpt.arrivedPointId }">
+			<input type="hidden" id="d_departPointCode" name="d_departPointCode" value="${department.airportDpt }">
+			<input type="hidden" id="d_arrivedPointCode" name="d_arrivedPointCode" value="${department.airportArv }">
+			<input type="hidden" id="d_departPointId" name="d_departPointId" value="${department.departPointId }">
+			<input type="hidden" id="d_arrivedPointId" name="d_arrivedPointId" value="${department.arrivedPointId }">
 			<input type="hidden" id="d_flightId" name="d_flightId" value="${flightListDpt.flightId}">
 			<input type="hidden" id="d_departTime" name="d_departTime" value="${flightListDpt.departTime}">
 			<input type="hidden" id="d_arrivalTime" name="d_arrivalTime" value="${flightListDpt.arrivalTime}">
@@ -948,13 +959,18 @@
 			<input type="hidden" name="refresh" value="0">
 			
 		</form>
-		<button id="selectButton">돌아오는 편 선택</button>
+		<div id="under_div">
+			<div id="under_div_position">
+				<button id="selectButton">돌아오는편 선택</button>
+			</div>
+		</div>
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 		
 	<script>
 		$(function() {
-			
+			console.log("출발 비행편 출발 : " + $("#d_departPointId").val());
+			console.log("출발 비행편 도착 : " + $("#d_arrivedPointId").val());
 			let flightIdList = [];
 
 			$(".idList").each(function(i, e) {
@@ -997,11 +1013,6 @@
 				$("#checkFlight").submit();
 			});
 			
-/* 			$("#selectButton").on("click", function() {
-				$("input[name='pageNum']").val(1);
-				
-				$("#searchForm").submit();
-			}); */
 		});
 	</script>
 	

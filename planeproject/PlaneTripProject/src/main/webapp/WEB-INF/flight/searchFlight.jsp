@@ -274,6 +274,17 @@
 		#pageNumber_div{
 			width: 100%;
 		}
+		#under_div{
+			width: 100%; height: 60px; position:fixed; background-color: rgba(0, 0, 0, 0.8);
+			bottom:0; 
+		}
+		#under_div_position{ 
+			width: 1200px; display: inline-block;
+		}
+		#selectButton{
+			width:150px; height:40px; float:right; border: none; border-radius: 4px; 
+			margin-top: 10px; margin-right: 10px;  background-color: #ff5000; color:white;
+		}
 </style>
 
 <!-- 상단 웹페이지 스크립트 -->
@@ -727,11 +738,11 @@
                 </nav>
                 <div id="form_div">
                     <form id="info" action="/flight/searchDepartFlight.do" method="post">
-                        <input type="button" id="starting_point" value="${flightList[0].airportDpt }">
+                        <input type="button" id="starting_point" value="${flightSeatList.flightList[0].airportDpt }">
                       	<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
                         <input type="hidden" id="departPointCode" name="departPointCode" value="">
                         <input type="button" id="swap">
-                        <input type="button" id="arrive_point" value="${flightList[0].airportArv }">
+                        <input type="button" id="arrive_point" value="${flightSeatList.flightList[0].airportArv }">
                         <input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
                         <input type="button" id="calendar_date" name="calendar" value="${calendar.minimumDate} ~ ${calendar.maximumDate}">
                         <input type="hidden" id="minimumDate" name="minimumDate" value="${calendar.minimumDate}">
@@ -868,7 +879,7 @@
       	<div class="idList">${flightList.flightId }</div>
       	<div class="showList">
       		<div class="column">
-      			<div class="flight_code">7C101</div>
+      			<div class="flight_code">${flightList.flightCode }</div>
       			<div class="under_line"></div>
       			<!-- 시간 데이터 표시는 fmt jstl사용. 가져갈 데이터는 숨겨서 따로 스크립트로 처리 -->
      		  	<div class="start_time"><fmt:formatDate value="${flightList.departTime }" pattern="HH:mm"/><span>${startDateList[status.index] }</span></div>
@@ -917,8 +928,8 @@
 			<!-- 출발 비행편의 정보 -->
 			<input type="hidden" name="classId" value="">
 			<!-- 비행편의 이름 과 아이디도 같이 보냄 -->
-			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[0].airportDpt }">
-			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[0].airportArv }">
+			<input type="hidden" id="departPointCode" name="departPointCode" value="${flightList[1].airportDpt }">
+			<input type="hidden" id="arrivedPointCode" name="arrivedPointCode" value="${flightList[1].airportArv }">
 			<input type="hidden" id="departPointId" name="departPointId" value="${flightInfo.departPointId }">
 			<input type="hidden" id="arrivedPointId" name="arrivedPointId" value="${flightInfo.arrivedPointId }">
 			<input type="hidden" id="flightId" name="flightId" value="${flightList[0].flightId}">
@@ -933,13 +944,19 @@
            	<input type="hidden" id="babyNumber" name="babyNumber" value="${flightInfo.babyNumber }">
 			
 		</form>
-		<button id="selectButton">가는편 선택</button>
+		<div id="under_div">
+			<div id="under_div_position">
+				<button id="selectButton">가는편 선택</button>
+			</div>
+		</div>
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 		
 	<script>
 		$(function() {
-			
+			$("")
+			console.log("출발의 출발지  : " + $("#departPointId").val());
+			console.log("출발의 도착지  : " + $("#arrivedPointId").val());
 			let flightIdList = [];
 
 			$(".idList").each(function(i, e) {

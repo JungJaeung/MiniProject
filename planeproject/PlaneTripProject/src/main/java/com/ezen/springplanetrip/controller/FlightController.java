@@ -49,15 +49,12 @@ public class FlightController {
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
 		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
 		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
-		System.out.println("출발날짜 3번째꺼 확인 : " + startDateList.get(2));
-		System.out.println("도착날짜 3번째꺼 확인 : " + arrivalDateList.get(2));
 		
+		System.out.println("input dpt, arv" + flightList.get(1));
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
 		
 		model.addAttribute("flightInfo", flyMap);
-		
-		System.out.println("성인 : " + flyMap.get("adultNumber") + "어린이 : " + flyMap.get("childNumber") + "유아 : " + flyMap.get("babyNumber"));
 		
 		model.addAttribute("flightList", flightList);
 		
@@ -71,6 +68,7 @@ public class FlightController {
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
 
+		
 		Map<String, Object> flightSeatList = new HashMap<String, Object>();	//각 비행편의 정보를 모두 담은 객체
 		List<List<Integer>> classList = new ArrayList<List<Integer>>(); //각 비행편의 클래스 목록을 담을 배열
 		List<List<Integer>> priceList = new ArrayList<List<Integer>>();	//각 비행편의 가격 목록을 담을 배열 비행편마다 가격이 다를것
@@ -107,9 +105,9 @@ public class FlightController {
 		model.addAttribute("flightSeatList", flightSeatList);
 		//페이지 계산
 		int total = flightService.getFlightTotalCnt(flyMap);
-		System.out.println("총 개수 : " + total);
+		//System.out.println("총 개수 : " + total);
 		model.addAttribute("pageVO", new PageVO(cri, total));
-		System.out.println("flightID = " + flightList.get(0).getFlightId());
+		//System.out.println("flightID = " + flightList.get(0).getFlightId());
 		
 		return "../flight/searchFlight";
 	}
@@ -131,6 +129,7 @@ public class FlightController {
 		//System.out.println("출 : " + changedPoint.get(0) + " 도 : " + changedPoint.get(1));
 		List<String> changedPointCode = SwapDptArv.changeValue(departFlyMap.get("departPointCode"), departFlyMap.get("arrivedPointCode"));
 		
+		//출발 도착지 아이디, 코드
 		departFlyMap.put("departPointId", changedPoint.get(0));
 		departFlyMap.put("arrivedPointId", changedPoint.get(1));
 		departFlyMap.put("departPointCode", changedPointCode.get(0));
@@ -147,12 +146,15 @@ public class FlightController {
 		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
 		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
 		
+		System.out.println("바뀐 출발 하는 곳 : " + flightList.get(0).getAirportDpt());
+		System.out.println("바뀐 도착 하는 곳 : " + flightList.get(0).getAirportArv());
+		
 		model.addAttribute("startDateList", startDateList);
 		model.addAttribute("arrivalDateList", arrivalDateList);
-		
-		model.addAttribute("flightInfo", departFlyMap);
-		
 		model.addAttribute("flightListArv", flightList);
+		
+		System.out.println("flightListArv: " + flightList);
+		
 		
 		//달력에 적은 시작일과 끝 날짜를 저장하는 map
 		Map<String, String> calendar = new HashMap<String, String>();
@@ -160,9 +162,13 @@ public class FlightController {
 		calendar.put("maximumDate", departFlyMap.get("maximumDate"));
 		model.addAttribute("calendar", calendar);
 		
+		System.out.println("calendar: " + calendar);
+		
 		//공항 목록 다시 불러오기
 		List<AirportVO> airportList = flightService.viewAirport(null);
 		model.addAttribute("airportList", airportList);
+		
+		System.out.println();
 
 		Map<String, Object> flightSeatList = new HashMap<String, Object>();	//각 비행편의 정보를 모두 담은 객체
 		List<List<Integer>> classList = new ArrayList<List<Integer>>(); //각 비행편의 클래스 목록을 담을 배열
