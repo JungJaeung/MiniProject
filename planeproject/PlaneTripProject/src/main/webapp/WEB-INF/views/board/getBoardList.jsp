@@ -134,21 +134,21 @@
       <div>
 	      <div class="pageCount">
 	        <ul class="pagination">
-	          <c:if test="${pageVO.prev }">
-	            <li class="pagination_button">
-	              <a href="${pageVO.cri.pageNum -l}">이전</a>
-	            </li>
-	          </c:if>
-	          <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-	            <li class="pagination_button">
-	              <a href="${num }">${num }</a>
-	            </li>
-	          </c:forEach>
-	          <c:if test="${pageVO.next}">
-	            <li class="pagination_button">
-	              <a href="${pageVO.cri.pageNum +1}">다음</a>
-	            </li>
-	          </c:if>
+					<c:if test="${pageVO.prev }">
+						<li class="pagination_button">
+							<a href="${pageVO.cri.pageNum - 1 }">이전</a>
+						</li>
+					</c:if>	
+					<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+						<li class="pagination_button">
+							<a href="${num }">${num }</a>
+						</li>
+					</c:forEach>
+					<c:if test="${pageVO.next}">
+						<li class="pagination_button">
+							<a href="${pageVO.cri.pageNum + 1 }">다음</a>
+						</li>
+					</c:if>
 	        </ul>
 	      </div>
 	      <div class="insert-wrap">
