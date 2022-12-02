@@ -45,7 +45,10 @@ public class AccountController {
 		}
 		UserVO user = (UserVO)session.getAttribute("loginUser");
 		Map<String, Object> myReservation = accountService.getMyReservation(user.getUserId());
+		
 		model.addAttribute("myReservation", myReservation);
+		
+		
 		System.out.println("예약리스트 : " + myReservation);
 		return "/mypage/userInfo";
 	}
