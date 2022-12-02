@@ -46,10 +46,17 @@ public class FlightController {
 		//넘어온 값들은 정수가 아닌 문자열
 		//flyMap.put("flightId", Integer.parseInt((String)flyMap.get("flightId")));	//flighId값은 정수형이므로 정수형으로 바꿔서
 		List<FlightVO> flightList = flightService.viewFlight(flyMap, cri);
-		
-		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
-		List<String> startDateList = DateToString.changeStringDepartTime(flightList);
-		List<String> arrivalDateList = DateToString.changeStringArrivalTime(flightList);
+		System.out.println(" 메소드 확인 용 디버깅중" + flightList);
+		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함. //배열이 아무 것도 없으면 예외 처리를 해야함.
+		List<String> startDateList = new ArrayList<String>();
+		List<String> arrivalDateList = new ArrayList<String>();;
+		if(flightList.size() > 0) {
+			startDateList = DateToString.changeStringDepartTime(flightList);
+			arrivalDateList = DateToString.changeStringArrivalTime(flightList);
+			System.out.println("검색이 성공함.");
+		}  else {
+			System.out.println("아무것도 검색되지 않음.");
+		}
 		
 		System.out.println("input dpt, arv" + flightList.get(1));
 		model.addAttribute("startDateList", startDateList);
