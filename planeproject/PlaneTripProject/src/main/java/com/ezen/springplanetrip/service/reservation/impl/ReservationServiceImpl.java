@@ -21,15 +21,15 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public List<String> getSeatNoList(Map<String, Object> dptSeatNoMap) {
+	public List<String> getSeatNoList(Map<String, Object> seatNoMap) {
 		// TODO Auto-generated method stub
-		return reservationDAO.getSeatNoList(dptSeatNoMap);
+		return reservationDAO.getSeatNoList(seatNoMap);
 	}
 
 	@Override
-	public void insertReservation(List<ReservationVO> dptReservationList, List<ReservationVO> arvReservationList) {
+	public void insertReservation(List<ReservationVO> fwdList, List<ReservationVO> bwdList) {
 		// TODO Auto-generated method stub
-		reservationDAO.insertReservation(dptReservationList, arvReservationList);
+		reservationDAO.insertReservation(fwdList, bwdList);
 	}
 
 	@Override

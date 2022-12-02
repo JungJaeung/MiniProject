@@ -59,7 +59,7 @@
 	]]>
 	</select>
 	
-	<insert id="insertResrvation" parameterType="list">
+	<insert id="insertReservation" parameterType="list">
 		INSERT INTO RESERVATION(
 		   RESERVATION_ID
 		   , PASSENGER_ID
@@ -71,17 +71,17 @@
 		   , USER_ID
 		   , SEAT_COL
 		) VALUES
-		<foreach collection="collection" item="reservation" separator=",">
+		<foreach collection="list" item="reservation" separator=",">
 			(
-				#{reservationId}
-			  , #{passengerId}
-			  , #{flightId}
-			  , #{seatId}
-			  , #{departDatetime}
-			  , #{arrivalDatetime}
-			  , #{seatNo}
-			  , #{userId}
-			  , SUBSTRING(#{seatNo}, 1, 1)
+				#{reservation.reservationId}
+			  , #{reservation.passengerId}
+			  , #{reservation.flightId}
+			  , #{reservation.seatId}
+			  , #{reservation.departDatetime}
+			  , #{reservation.arrivalDatetime}
+			  , #{reservation.seatNo}
+			  , #{reservation.userId}
+			  , SUBSTRING(#{reservation.seatNo}, 1, 1)
 			)
 		</foreach>
 	</insert>
