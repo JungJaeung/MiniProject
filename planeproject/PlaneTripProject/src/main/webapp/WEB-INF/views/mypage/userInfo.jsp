@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,8 +89,8 @@
             reservation_html += "<td><a id='cancellation"+i+"' class=cancellation>예약</a></td></tr>";
         }
         reservation_html += "</table>";
-        $("#reservation_table").html()
-        $("#reservation_table").html(reservation_html);
+        //$("#reservation_table").html();
+        //$("#reservation_table").html(reservation_html);
 
         //임의로 한개 취소로 바꿈           나중에 지우세요
         $("#cancellation2").html("취소");
@@ -125,15 +126,15 @@
             <!--div만 만들어두고 스크립트에서 인원수에 따라 for문 돌려 표로 작성-->
             <div id="reservation_table">
 				<table>
-					<tr><th>예약번호</th><th>탑승일</th><th>탑승구간</th><th>탑승자</th><th>예약일</th><th>예약/취소여부</th></tr>
-					<c:forEach items="${reservation }" var="reservation" varStatus="status">
+					<tr><th>예약번호</th><th>탑승일</th><th>출발 -> 도착</th><th>도착시간</th><th>탑승자</th><th>예약/취소여부</th></tr>
+					<c:forEach items="${myReservation.myList }" var="reservation" varStatus="status">
 					<tr>
-						<td>reservation.reservationId</td>
-						<td>reservation.departDatetime</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>${ myReservation.myList[status.index].reservationId }</td>
+						<td>${ myReservation.myList[status.index].departDatetime}</td>
+						<td>${ myReservation.myList[status.index].AirportDptNm } -> ${myReservation.myList[status.index].AirportArvNm }</td>
+						<td>${ myReservation.myList[status.index].arrivalDatetime }</td>
+						<td>${ myReservation.myList[status.index].passengerName }</td>
+						<td>${ myReservation.myList[status.index].updateReservation }</td>
 					</tr>
 					</c:forEach>
 				</table>

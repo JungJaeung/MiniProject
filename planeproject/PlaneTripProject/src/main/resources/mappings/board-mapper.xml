@@ -55,7 +55,8 @@
 					OR C.BOARD_CONTENT LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')	
 					OR C.FULL_NAME LIKE CONCAT('%', #{boardSearch.searchKeyword}, '%')		
 			</if>
-			LIMIT #{cri.amount} OFFSET #{cri.startNum}	
+			ORDER BY C.BOARD_ID DESC
+ 			LIMIT #{cri.amount} OFFSET #{cri.startNum}	
 	</select>
 	
 	<update id="updateBoardCnt" parameterType="int">

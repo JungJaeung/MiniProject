@@ -39,7 +39,9 @@ DROP TABLE user;
 
 select * from user;
 
+select * from reservation where user_id = 10004;
 
+select * from passenger;
 
 
 select * from flight;
@@ -105,3 +107,43 @@ SELECT DISTINCT SEAT_TOTAL
 				FROM SEAT
                 WHERE FLIGHT_ID = 1
                   AND SEAT_ID = 2;
+                  
+                  
+		SELECT A.*
+	    , CONCAT(B.LAST_NAME, B.FIRST_NAME) AS PASSENGER_NAME
+	     , D.AIRPORT_DPT_NM
+	     , E.AIRPORT_ARV_NM
+	     , F.SEAT_PRICE
+	     FROM (   
+	            SELECT *
+	               FROM RESERVATION
+	                    WHERE USER_ID = 10000
+	        ) A, 
+	          PASSENGER B,
+	          FLIGHT C,
+	          (
+	           SELECT H.AIRPORT_NAME AS AIRPORT_DPT_NM,
+	                I.FLIGHT_ID
+	            FROM AIRPORT H,
+	                FLIGHT I
+	            WHERE H.AIRPORT_CODE = I.AIRPORT_DPT
+	        ) D,
+	        (
+	           SELECT H.AIRPORT_NAME AS AIRPORT_ARV_NM,
+	                I.FLIGHT_ID
+	            FROM AIRPORT H,
+	                FLIGHT I
+	            WHERE H.AIRPORT_CODE = I.AIRPORT_ARV
+	        ) E,
+	          (
+	            SELECT DISTINCT SEAT_PRICE
+	                , FLIGHT_ID
+	                     , SEAT_ID               
+	               FROM SEAT
+	        ) F
+	    WHERE A.PASSENGER_ID = B.PASSENGER_ID
+	       AND A.FLIGHT_ID = C.FLIGHT_ID
+	       AND A.FLIGHT_ID = F.FLIGHT_ID
+	       AND A.SEAT_ID = F.SEAT_ID
+	       AND C.FLIGHT_ID = D.FLIGHT_ID
+	       AND C.FLIGHT_ID = E.FLIGHT_ID;
