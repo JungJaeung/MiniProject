@@ -114,20 +114,19 @@ public class FlightController {
 
 	@PostMapping("/searchArriveFlight.do")
 	public String viewArriveFlight(Model model, @RequestParam Map<String, String> departFlyMap, Criteria cri) {
-		//System.out.println("2번째 항공편확인 : " + departFlyMap);
-
-		//예약하려는 출발 비행편 정보를 담을 인스턴스 다음에 진행할 탑승정보 정보를 전달
-		model.addAttribute("flightListDpt", departFlyMap);
-		System.out.println("출 : " + departFlyMap.get("departPointId"));
-		System.out.println("도 : " + departFlyMap.get("arrivedPointId"));
+		Map<String, String> arriveFlyMap = new HashMap<>();
+		//예약하려는 출발 비행편 정보를 담을 인스턴스 복제해서 다음에 진행할 탑승정보 정보를 전달
+		Map<String, String> departmentMap = new HashMap<String, String>();
+		departmentMap.putAll(departFlyMap);
+		model.addAttribute("flightListDpt", departmentMap);
 		
 		System.out.println("도착편 작업  시작");
 		//Map<String, String> arriveFlyMap
 		//출발 도착지 받은 것을 서로 값을 바꾼뒤 쿼리를 다시수행함.
-		String arrivalPoint = departFlyMap.get("arrivedPointId");
 		String departPoint = departFlyMap.get("departPointId");
+		String arrivalPoint = departFlyMap.get("arrivedPointId");
 		List<String> changedPoint = SwapDptArv.changeValue(departPoint, arrivalPoint);
-		System.out.println("출 : " + changedPoint.get(0) + " 도 : " + changedPoint.get(1));
+		//System.out.println("출 : " + changedPoint.get(0) + " 도 : " + changedPoint.get(1));
 		List<String> changedPointCode = SwapDptArv.changeValue(departFlyMap.get("departPointCode"), departFlyMap.get("arrivedPointCode"));
 		
 		//출발 도착지 아이디, 코드
@@ -137,8 +136,10 @@ public class FlightController {
 		departFlyMap.put("arrivedPointCode", changedPointCode.get(1));
 		cri.setAmount(8);	//페이지당 8개만 표시
 		
-		//model.addAttribute("departFlyMap", departFlyMap);
-		//넘어온 값들은 정수가 아닌 문자열 회귀 비행편
+		System.out.println("스위칭 작업후 출발지의 데이터 : " + departmentMap);
+		System.out.println("스위칭 작업후 도착지의 데이터 : " + departFlyMap);
+		model.addAttribute("departFlyMap", departFlyMap);
+		//넘어온 값들은 정수가 아닌 문자열
 		List<FlightVO> flightList = flightService.viewFlight(departFlyMap, cri);
 		
 		//불러온 flight 출발,도착시간을 문자열 형태로 바꾸고 배열에 저장함.
