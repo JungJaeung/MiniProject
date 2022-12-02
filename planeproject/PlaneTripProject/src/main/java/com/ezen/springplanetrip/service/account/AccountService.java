@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.service.account;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ezen.springplanetrip.vo.PassengerVO;
 import com.ezen.springplanetrip.vo.UserVO;
@@ -28,5 +29,5 @@ public interface AccountService {
 	
 	int currentPwdCheck(UserVO userVO);
 	
-	
+	Map<String, Object> getMyReservation(int loginUser);
 }

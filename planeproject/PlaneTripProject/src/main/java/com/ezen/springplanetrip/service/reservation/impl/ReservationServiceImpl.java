@@ -37,4 +37,5 @@ public class ReservationServiceImpl implements ReservationService{
 		// TODO Auto-generated method stub
 		return reservationDAO.getReservationId();
 	}
+	
 }

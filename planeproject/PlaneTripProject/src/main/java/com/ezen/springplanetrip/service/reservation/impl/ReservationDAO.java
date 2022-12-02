@@ -40,4 +40,5 @@ public class ReservationDAO {
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("ReservationDAO.getReservationId");
 	}
+
 }

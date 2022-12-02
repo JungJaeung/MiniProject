@@ -1,6 +1,7 @@
 package com.ezen.springplanetrip.service.account.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,5 +62,10 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public int currentPwdCheck(UserVO userVO) {
 		return accountDAO.currentPwdCheck(userVO);
+	}
+	
+	@Override
+	public Map<String, Object> getMyReservation(int loginUser) {
+		return accountDAO.getMyReservation(loginUser);
 	}
 }
